@@ -1,0 +1,22 @@
+.mainbanner{
+    background: url("../images/mainbanner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: calc(100vh - 76px);
+
+    display: flex;
+    align-items: center;
+}
+
+.mainbanner .jumbotron{
+    background: transparent;
+    color: white;
+    max-width: 650px;
+    margin: 0;
+}
+
+.mainbanner hr{
+    background: white;
+}
