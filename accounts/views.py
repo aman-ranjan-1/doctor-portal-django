@@ -1,9 +1,43 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
-
 def login_page(request):
+
+    if request.method == "POST":
+
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        try:
+
+            user_obj = User.objects.get(email=email)
+
+            user = authenticate(
+                request,
+                username=user_obj.username,
+                password=password
+            )
+
+            if user is not None:
+
+                login(request, user)
+
+                messages.success(request, f"Welcome back, {user.first_name}!")
+
+                return redirect("home")
+
+            else:
+
+                messages.error(request, "Invalid password.")
+
+        except User.DoesNotExist:
+
+            messages.error(request, "No account found with this email.")
+
+        return redirect("login")
+
     return render(request, "accounts/login.html")
 
 
