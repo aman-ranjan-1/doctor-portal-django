@@ -10,10 +10,28 @@
 
 /* Mobile */
 @media(max-width:768px){
+    .register-card {
 
+        padding: 30px 25px;
+    }
+
+    .register-icon {
+
+        width: 80px;
+        height: 80px;
+        font-size: 45px;
+    }
 }
 
 /* Small Mobile */
 @media(max-width:576px){
+    .register-card {
 
+        padding: 25px 20px;
+    }
+
+    .register-card h2 {
+
+        font-size: 28px;
+    }   
 }
