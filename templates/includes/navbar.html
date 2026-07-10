@@ -1,0 +1,96 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand font-weight-bold text-primary" href="{% url 'home' %}">
+            <i class="fas fa-user-md mr-2"></i>Doctor's Portal
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">
+                        About Us
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle text-white"
+                        href="#"
+                        id="servicesDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+
+                        Our Services
+                    </a>
+
+                    <div class="dropdown-menu">
+
+                        <a class="dropdown-item" href="#">General Consultation</a>
+                        <a class="dropdown-item" href="#">Specialist Consultation</a>
+                        <a class="dropdown-item" href="#">Prescription Services</a>
+                        <a class="dropdown-item" href="#">Lab Tests & Diagnostics</a>
+                        <a class="dropdown-item" href="#">Health Checkups</a>
+                        <a class="dropdown-item" href="#">Vaccinations</a>
+                        <a class="dropdown-item" href="#">Emergency Care</a>
+                        <a class="dropdown-item" href="#">Physiotherapy</a>
+                        <a class="dropdown-item" href="#">Orthopedics</a>
+                        <a class="dropdown-item" href="#">Online Consultation</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item font-weight-bold text-primary" href="#">
+                            Book Appointment
+                        </a>
+
+                    </div>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">
+                        Medical Records
+                    </a>
+                </li>
+
+                <li class="nav-item ml-lg-3">
+                    <a href="#" class="btn btn-outline-primary">
+                        Login
+                    </a>
+                </li>
+
+                <li class="nav-item ml-2">
+                    <a href="#" class="btn btn-primary">
+                        Register
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
