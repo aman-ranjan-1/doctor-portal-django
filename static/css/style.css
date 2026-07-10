@@ -1,0 +1,64 @@
+
+@media (max-width:2560px) {
+    *{
+    margin:0px;
+    border: 0;
+    padding : 0;
+    box-sizing: border-box;
+    }
+    body{
+        background: url(../images/mainbanner.jpg);
+    }
+    .navbar{
+        width:100%;
+        background-color: transparent;
+        color:aliceblue;
+    }
+    
+    .mainbanner{
+        
+        height:90vh;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .mainbanner .jumbotron{
+        background: transparent;
+        color:aliceblue;
+        margin : 50px 50px 50px 50px;
+    }
+    .mainbanner .jumbotron hr{
+        color:white;
+    }
+    
+}
+@media (max-width:1920px) {
+    
+}
+@media (max-width:1440px) {
+    
+}
+@media (max-width:1024px) {
+    
+}
+@media (max-width:768px) {
+    
+}
+@media (max-width:576px) {
+    
+}
+@media (max-width:425px) {
+    
+}
+@media (max-width:375px) {
+    
+}
+@media (max-width:320px) {
+    
+}
