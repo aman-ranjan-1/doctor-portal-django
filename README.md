@@ -5,7 +5,6 @@ A modern **Doctor Portal Web Application** built with **Django, HTML, CSS, JavaS
 
 ## 📸 Homepage Preview
 
-> Save your uploaded screenshot in the repository (for example: `screenshots/homepage.png`) and keep the line below unchanged after adding it.
 
 ![Doctor Portal Homepage](screenshots/homepage.png)
 
