@@ -2,6 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth import logout
+
+def logout_page(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect("login")
 
 def login_page(request):
 
@@ -26,7 +32,7 @@ def login_page(request):
 
                 messages.success(request, f"Welcome back, {user.first_name}!")
 
-                return redirect("home")
+                return redirect("patient_dashboard")
 
             else:
 
