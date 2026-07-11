@@ -1,6 +1,342 @@
-{% extends 'base.html' %}
+{% extends 'layouts/dashboard_base.html' %}
 {% load static %}
 
 {% block content %}
+
+<div class="dashboard-wrapper">
+
+    {% include 'includes/dashboard_sidebar.html' %}
+    <!-- Main Content -->
+    <main class="dashboard-content">
+        {% include 'includes/dashboard_topbar.html' %}
+        <div class="dashboard-header">
+
+            <h2>
+                Welcome,
+                {% if user.first_name %}
+                    {{ user.first_name }}
+                {% else %}
+                    {{ user.username }}
+                {% endif %}
+                👋
+            </h2>
+
+            <p>
+                Manage your appointments and healthcare from one place.
+            </p>
+
+        </div>
+        <section class="dashboard-summary">
+
+    <div class="row">
+
+        <!-- Upcoming Appointments -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">05</h2>
+
+                    <h5 class="summary-title">
+                        Upcoming Appointments
+                    </h5>
+
+                    <p class="summary-text">
+                        Next visit on Monday
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Doctors -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-user-md"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">12</h2>
+
+                    <h5 class="summary-title">
+                        Doctors
+                    </h5>
+
+                    <p class="summary-text">
+                        Available Specialists
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Prescriptions -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-prescription-bottle-alt"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">03</h2>
+
+                    <h5 class="summary-title">
+                        Prescriptions
+                    </h5>
+
+                    <p class="summary-text">
+                        Active Medicines
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Medical Records -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-file-medical"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">18</h2>
+
+                    <h5 class="summary-title">
+                        Medical Records
+                    </h5>
+
+                    <p class="summary-text">
+                        Updated Yesterday
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ==========================
+     Upcoming Appointments
+========================== -->
+
+<section class="appointments-section">
+
+    <div class="card appointment-card">
+
+        <!-- Card Header -->
+
+        <div class="appointment-header">
+
+            <div class="d-flex align-items-center">
+
+                <i class="fas fa-calendar-check mr-2 text-primary"></i>
+
+                <h4 class="mb-0">
+                    Upcoming Appointments
+                </h4>
+
+            </div>
+
+            <a href="#" class="btn btn-outline-primary btn-sm">
+
+                View All
+
+            </a>
+
+        </div>
+
+        <!-- Appointment Table -->
+
+        <div class="table-responsive">
+
+            <table class="table table-hover mb-0">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Doctor</th>
+
+                        <th>Department</th>
+
+                        <th>Date</th>
+
+                        <th>Time</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+
+                            <i class="fas fa-user-md text-primary mr-2"></i>
+
+                            Dr. Raj Sharma
+
+                        </td>
+
+                        <td>Cardiology</td>
+
+                        <td>15 July 2026</td>
+
+                        <td>10:00 AM</td>
+
+                        <td>
+
+                            <span class="badge badge-success">
+
+                                Confirmed
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a href="#" class="btn btn-sm btn-primary">
+
+                                View
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <i class="fas fa-user-md text-primary mr-2"></i>
+
+                            Dr. Priya Singh
+
+                        </td>
+
+                        <td>Neurology</td>
+
+                        <td>18 July 2026</td>
+
+                        <td>02:30 PM</td>
+
+                        <td>
+
+                            <span class="badge badge-warning text-dark">
+
+                                Pending
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a href="#" class="btn btn-sm btn-primary">
+
+                                View
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                            <i class="fas fa-user-md text-primary mr-2"></i>
+
+                            Dr. Amit Verma
+
+                        </td>
+
+                        <td>Orthopedics</td>
+
+                        <td>22 July 2026</td>
+
+                        <td>11:30 AM</td>
+
+                        <td>
+
+                            <span class="badge badge-danger">
+
+                                Cancelled
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <a href="#" class="btn btn-sm btn-primary">
+
+                                View
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+    </main>
+    
+
+</div>
 
 {% endblock %}
