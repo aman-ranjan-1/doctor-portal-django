@@ -1,0 +1,222 @@
+{% extends 'layouts/dashboard_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="dashboard-wrapper">
+
+    {% include 'includes/dashboard_sidebar.html' %}
+    <!-- Main Content -->
+    <main class="dashboard-content">
+        {% include 'includes/dashboard_topbar.html' %}
+        
+        <section class="dashboard-summary">
+
+    <div class="row">
+
+        <!-- Upcoming Appointments -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">05</h2>
+
+                    <h5 class="summary-title">
+                        My Appointments
+                    </h5>
+
+                    <p class="summary-text">
+                        Next visit on Monday
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Doctors -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-user-md"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">12</h2>
+
+                    <h5 class="summary-title">
+                        Confirmed
+                    </h5>
+
+                    <p class="summary-text">
+                        Confirmed Appointments
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Prescriptions -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-prescription-bottle-alt"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">03</h2>
+
+                    <h5 class="summary-title">
+                        Pending
+                    </h5>
+
+                    <p class="summary-text">
+                        Appointments pending
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Medical Records -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+
+            <div class="card summary-card">
+
+                <div class="card-body">
+
+                    <div class="summary-icon">
+
+                        <i class="fas fa-file-medical"></i>
+
+                    </div>
+
+                    <h2 class="summary-number">18</h2>
+
+                    <h5 class="summary-title">
+                        Cancelled
+                    </h5>
+
+                    <p class="summary-text">
+                        Cancelled due to inavailability of Doctors.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="appointments-section">
+
+    <div class="card appointment-card">
+
+        <!-- Card Header -->
+
+        <div class="appointment-header">
+
+            <div class="d-flex align-items-center">
+
+                <i class="fas fa-calendar-check mr-2 text-primary"></i>
+
+                <h4 class="mb-0">
+                    My Appointments
+                </h4>
+                <a class="btn btn-outline-primary rounded btn-lg ml-4" href="{% url 'book_appointment' %}">
+                Get Appointment
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Appointment Table -->
+
+        <div class="table-responsive">
+
+            <table class="table table-hover mb-0">
+
+                <thead>
+
+                    {% for appointment in appointments %}
+
+                    <tr>
+
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>{{ appointment.doctor }}</td>
+
+                        <td>{{ appointment.department }}</td>
+
+                        <td>{{ appointment.appointment_date }}</td>
+
+                        <td>{{ appointment.appointment_time }}</td>
+
+                        <td>{{ appointment.status }}</td>
+
+                        <td>
+                            View Button
+                        </td>
+
+                    </tr>
+
+                        {% empty %}
+
+                    <tr>
+
+                        <td colspan="7">
+
+                        No appointments found.
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+    </main>
+    
+
+</div>
+
+{% endblock %}
