@@ -3,27 +3,142 @@
 
 {% block content %}
 
-<div class="mainbanner">
-    <div class="jumbotron">
-        <h1 class="display-4 text-primary">
-            Dedicated to Your Well-Being.
-        </h1>
+<section class="mainbanner">
 
-        <p class="lead">
-            Comprehensive healthcare for you and your family—expert doctors,
-            advanced treatments, preventive care, diagnostics, and seamless
-            online appointments, all under one trusted platform.
-        </p>
+    <div class="container">
 
-        <hr>
+        <div class="row align-items-center">
 
-        <p>
-            Expert care for your complete health journey.
-        </p>
+            <!-- Left Side -->
 
-        <a class="btn btn-primary rounded btn-lg" href="{% url 'book_appointment' %}">
-            Get Appointment
-        </a>
+            <div class="col-lg-6">
+
+                <div class="hero-content">
+
+                    <h1 class="display-4 text-primary">
+                        Dedicated to Your Well-Being.
+                    </h1>
+
+                    <p class="lead">
+                        Comprehensive healthcare for you and your family—
+                        expert doctors, advanced treatments, preventive care,
+                        diagnostics, and seamless online appointments.
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        Expert care for your complete health journey.
+                    </p>
+
+                    <a class="btn btn-primary btn-lg rounded"
+                       href="{% url 'book_appointment' %}">
+                        Get Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-image-area">
+
+                    <!-- Card 1 -->
+
+                    <div class="floating-card card1">
+
+                        <i class="fas fa-heartbeat"></i>
+
+                        <h5>98%</h5>
+
+                        <p>Recovery Rate</p>
+
+                    </div>
+
+                    <!-- Card 2 -->
+
+                    <div class="floating-card card2">
+
+                        <i class="fas fa-ambulance"></i>
+
+                        <h5>24×7</h5>
+
+                        <p>Emergency</p>
+
+                    </div>
+
+                    <!-- Doctor Image -->
+
+                    <img src="{% static 'images/doctor.png' %}"
+                         class="doctor-image"
+                         alt="Doctor">
+
+                    <!-- Card 3 -->
+                     <!-- Floating Stethoscope -->
+
+                    <div class="floating-tool tool1">
+
+                       <i class="fas fa-stethoscope"></i>
+
+                    </div>
+
+                    <!-- Floating Medical Kit -->
+
+                    <div class="floating-tool tool2">
+
+                       <i class="fas fa-briefcase-medical"></i>
+
+                    </div>
+
+                    
+                    <!-- Floating Syringe -->
+
+                    <div class="floating-tool tool3">
+
+                        <i class="fas fa-syringe"></i>
+
+                    </div>
+                    <div class="floating-card card3">
+
+                        <i class="fas fa-user-md"></i>
+
+                        <h5>5000+</h5>
+
+                        <p>Happy Patients</p>
+
+                    </div>
+
+                    <!-- Card 4 -->
+
+                    <div class="floating-card card4">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                        <h5>Easy</h5>
+
+                        <p>Booking</p>
+
+                    </div>
+
+                    <!-- ECG -->
+
+                    <div class="ecg-line">
+
+                        ❤-----\/-----/\-----\/-----
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</div>
+
+</section>
+
 {% endblock %}

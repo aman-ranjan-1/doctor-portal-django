@@ -1,22 +1,464 @@
+/* ==========================================
+   Hero Section
+========================================== */
+
 .mainbanner{
-    background: url("../images/mainbanner.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
-    min-height: calc(100vh - 76px);
+    min-height:100vh;
 
-    display: flex;
-    align-items: center;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.65)
+        ),
+        url("../images/mainbanner.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:100px 0;
+
 }
 
-.mainbanner .jumbotron{
-    background: transparent;
-    color: white;
-    max-width: 650px;
-    margin: 0;
+
+/* Hero Left Content */
+
+.hero-content{
+    margin-top:-100px;
+    color:white;
+
 }
 
-.mainbanner hr{
-    background: white;
+.hero-content h1{
+
+    font-size:4rem;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.hero-content .lead{
+
+    font-size:1.3rem;
+
+    line-height:1.8;
+
+    color:#f1f1f1;
+
+}
+
+.hero-content hr{
+
+    background:white;
+
+    opacity:.4;
+
+    margin:30px 0;
+
+}
+
+.hero-content p{
+
+    color:white;
+
+}
+
+.hero-content .btn{
+
+    margin-top:15px;
+
+    padding:14px 35px;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+}
+
+
+/* ==========================================
+   Right Side
+========================================== */
+
+.hero-image-area{
+
+    position:relative;
+
+    min-height:600px;
+
+}
+
+
+/* ==========================================
+   Floating Cards
+========================================== */
+
+.floating-card{
+
+    position:absolute;
+
+    width:170px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    border: 1.5px solid rgba(255, 255, 255, 0.219);
+
+    color:white;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(2, 131, 252, 0.219);
+
+    animation:float 5s ease-in-out infinite;
+
+    z-index:20;
+
+}
+.doctor-image{
+    height:520px;
+}
+
+.floating-card i{
+
+    font-size:30px;
+
+    color:#0d6efd;
+
+    margin-bottom:12px;
+
+}
+
+.floating-card h5{
+
+    margin-bottom:5px;
+
+    font-weight:700;
+
+}
+
+.floating-card p{
+
+    margin:0;
+
+    font-size:14px;
+
+}
+
+/* ===========================
+   Floating Medical Tools
+=========================== */
+
+.floating-tool{
+    box-shadow:0 10px 30px rgba(2, 131, 252, 0.377);
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+    animation:floatTool 5s ease-in-out infinite;
+
+    z-index:8;
+
+}
+
+.floating-tool i{
+
+    font-size:32px;
+
+    color:#0d6efd;
+
+}
+.tool1{
+
+    top: -30px;
+
+    left:300px;
+
+}
+
+
+.tool2{
+
+    top:200px;
+
+    left:80px;
+
+    animation-delay:1s;
+
+}
+
+.tool3{
+
+    top:250px;
+
+    right:80px;
+
+    animation-delay:3s;
+
+}
+@keyframes floatTool{
+
+    0%{
+
+        transform:translateY(0px) rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px) rotate(8deg);
+
+    }
+
+    100%{
+
+        transform:translateY(0px) rotate(0deg);
+
+    }
+
+}
+/* ==========================================
+   Card Positions
+========================================== */
+
+.card1{
+
+    top:40px;
+
+    left:10px;
+
+}
+
+.card2{
+
+    top:80px;
+
+    right:20px;
+
+    animation-delay:1s;
+
+}
+
+.card3{
+
+    bottom:120px;
+
+    left:0;
+
+    animation-delay:2s;
+
+}
+
+.card4{
+
+    bottom:70px;
+
+    right:30px;
+
+    animation-delay:3s;
+
+}
+
+
+/* ==========================================
+   Floating Animation
+========================================== */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   ECG Line
+========================================== */
+
+.ecg-line{
+
+    position:absolute;
+
+    bottom:150px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#66b3ff;
+
+    font-size:22px;
+
+    letter-spacing:4px;
+
+    opacity:.55;
+
+    white-space:nowrap;
+
+    animation:ecgMove 8s linear infinite;
+
+    z-index:0;
+
+}
+
+
+@keyframes ecgMove{
+
+    from{
+
+        transform:translateX(-40%);
+
+    }
+
+    to{
+
+        transform:translateX(-60%);
+
+    }
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:991px){
+
+    .mainbanner{
+
+        padding:80px 0;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:3rem;
+
+    }
+
+    .hero-image-area{
+
+        margin-top:60px;
+
+        min-height:450px;
+
+    }
+
+    .floating-card{
+
+        width:100px;
+
+        font-size:14px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-content h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .hero-content .lead{
+
+        font-size:1.1rem;
+
+    }
+
+    .floating-card{
+
+        width:100px;
+
+        padding:14px;
+
+    }
+
+    .card1{
+
+        left:5px;
+
+    }
+
+    .card2{
+
+        right:5px;
+
+    }
+
+    .card3{
+
+        left:5px;
+
+    }
+
+    .card4{
+
+        right:5px;
+
+    }
+
+    .ecg-line{
+
+        font-size:10px;
+
+    }
+
 }
