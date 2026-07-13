@@ -4,17 +4,18 @@
 
 .mainbanner{
 
-    min-height:100vh;
+    min-height:80vh;
+    height:auto;
 
     background:
         linear-gradient(
             rgba(0,0,0,.65),
             rgba(0,0,0,.65)
         ),
-        url("../../images/hero/mainbanner.png");
+        url("../../images/mainbanner3.jpg");
 
     background-size:cover;
-
+    
     background-position:center;
 
     background-repeat:no-repeat;
@@ -31,7 +32,7 @@
 /* Hero Left Content */
 
 .hero-content{
-    margin-top:-100px;
+    
     color:white;
 
 }
@@ -94,6 +95,7 @@
     position:relative;
 
     min-height:600px;
+    margin-bottom:-240px;
 
 }
 
@@ -132,7 +134,7 @@
 
 }
 .doctor-image{
-    height:520px;
+    height:500px;
 }
 
 .floating-card i{
@@ -287,7 +289,7 @@
 
 .card4{
 
-    bottom:70px;
+    bottom:100px;
 
     right:30px;
 
@@ -458,6 +460,417 @@
     .ecg-line{
 
         font-size:10px;
+
+    }
+
+}
+/* ==========================================
+   Small Laptop
+========================================== */
+
+@media (max-width:1200px){
+
+    .hero-content h1{
+        font-size:3.5rem;
+    }
+
+    .hero-content .lead{
+        font-size:1.15rem;
+    }
+
+    .doctor-image{
+        height:440px;
+    }
+
+    .hero-image-area{
+        min-height:520px;
+    }
+
+    .floating-card{
+        width:150px;
+        padding:15px;
+    }
+
+    .card1{
+        top:20px;
+        left:0;
+    }
+
+    .card2{
+        top:70px;
+        right:0;
+    }
+
+    .card3{
+        bottom:90px;
+        left:0;
+    }
+
+    .card4{
+        bottom:70px;
+        right:10px;
+    }
+
+}
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width:992px){
+
+    .mainbanner{
+
+        height:auto;
+
+        padding:90px 0 60px;
+
+    }
+
+    .hero-content{
+
+        margin-top:20px;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:3rem;
+
+    }
+
+    .hero-content .lead{
+
+        font-size:1.15rem;
+
+    }
+
+    .hero-image-area{
+
+        margin-top:70px;
+
+        min-height:620px;
+
+        margin-bottom:0;
+
+    }
+
+    .doctor-image{
+
+        display:block;
+
+        margin:auto;
+
+        height:420px;
+
+    }
+
+    .floating-card{
+
+        width:140px;
+
+        padding:14px;
+
+    }
+
+    .floating-tool{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+    .floating-tool i{
+
+        font-size:26px;
+
+    }
+
+    .card1{
+
+        top:0;
+
+        left:40px;
+
+    }
+
+    .card2{
+
+        top:60px;
+
+        right:40px;
+
+    }
+
+    .card3{
+
+        bottom:70px;
+
+        left:30px;
+
+    }
+
+    .card4{
+
+        bottom:40px;
+
+        right:30px;
+
+    }
+
+    .tool1{
+
+        top:-20px;
+
+        left:320px;
+
+    }
+
+    .tool2{
+
+        top:180px;
+
+        left:70px;
+
+    }
+
+    .tool3{
+
+        top:210px;
+
+        right:70px;
+
+    }
+
+    .ecg-line{
+
+        bottom:70px;
+
+        font-size:18px;
+
+    }
+
+}
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width:768px){
+
+    .mainbanner{
+
+        height:auto;
+
+        padding:80px 0 40px;
+
+    }
+
+    .hero-content{
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.4rem;
+
+        line-height:1.25;
+
+    }
+
+    .hero-content .lead{
+
+        font-size:1rem;
+
+    }
+
+    .hero-content .btn{
+
+        width:100%;
+
+    }
+
+    .hero-image-area{
+
+        min-height:480px;
+
+        margin-top:50px;
+
+    }
+
+    .doctor-image{
+
+        height:320px;
+
+        display:block;
+
+        margin:auto;
+
+    }
+
+    .floating-card{
+
+        width:105px;
+
+        padding:10px;
+
+        border-radius:12px;
+
+    }
+
+    .floating-card i{
+
+        font-size:22px;
+
+    }
+
+    .floating-card h5{
+
+        font-size:18px;
+
+    }
+
+    .floating-card p{
+
+        font-size:12px;
+
+    }
+
+    .floating-tool{
+
+        width:48px;
+
+        height:48px;
+
+    }
+
+    .floating-tool i{
+
+        font-size:20px;
+
+    }
+
+    .card1{
+
+        top:10px;
+
+        left:0;
+
+    }
+
+    .card2{
+
+        top:40px;
+
+        right:0;
+
+    }
+
+    .card3{
+
+        bottom:50px;
+
+        left:0;
+
+    }
+
+    .card4{
+
+        bottom:20px;
+
+        right:0;
+
+    }
+
+    .tool1{
+
+        top:-10px;
+
+        left:220px;
+
+    }
+
+    .tool2{
+
+        top:150px;
+
+        left:15px;
+
+    }
+
+    .tool3{
+
+        top:170px;
+
+        right:15px;
+
+    }
+
+    .ecg-line{
+
+        display:none;
+
+    }
+
+}
+/* ==========================================
+   Small Phones
+========================================== */
+
+@media (max-width:576px){
+
+    .hero-content h1{
+
+        font-size:2rem;
+
+    }
+
+    .hero-content .lead{
+
+        font-size:.95rem;
+
+    }
+
+    .doctor-image{
+
+        height:280px;
+
+    }
+
+    .floating-card{
+
+        width:90px;
+
+        padding:8px;
+
+    }
+
+    .floating-card h5{
+
+        font-size:15px;
+
+    }
+
+    .floating-card p{
+
+        font-size:11px;
+
+    }
+
+    .floating-tool{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .floating-tool i{
+
+        font-size:18px;
 
     }
 
