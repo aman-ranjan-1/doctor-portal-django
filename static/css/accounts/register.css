@@ -1,0 +1,157 @@
+/* ==========================================
+   Register Page
+========================================== */
+
+.register-section{
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(10,20,35,.82),
+            rgba(10,20,35,.82)
+        ),
+        url("/static/images/login/mainbanner.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:100px 0;
+}
+
+/* Register Card */
+
+.register-card{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    padding:45px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+    color:white;
+}
+
+/* Icon */
+
+.register-icon{
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#0d6efd;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:45px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* Labels */
+
+.register-card label{
+
+    color:white;
+
+    font-weight:600;
+}
+
+/* Inputs */
+
+.register-card .form-control{
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding-left:15px;
+
+    background:rgba(255,255,255,.95);
+}
+
+.register-card .form-control:focus{
+
+    border:none;
+
+    box-shadow:0 0 10px rgba(13,110,253,.5);
+}
+
+/* Button */
+
+.register-card .btn{
+
+    height:50px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:600;
+}
+
+/* Links */
+
+.register-card a{
+
+    color:#7dc4ff;
+
+    transition:.3s;
+}
+
+.register-card a:hover{
+
+    color:white;
+
+    text-decoration:none;
+}
+
+/* Divider */
+
+.register-card hr{
+
+    background:rgba(255,255,255,.3);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.register-card{
+
+    padding:30px;
+}
+
+.register-icon{
+
+    width:80px;
+    height:80px;
+    font-size:35px;
+}
+
+}
