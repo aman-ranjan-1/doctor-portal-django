@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Appointment
+from django.contrib.auth.decorators import login_required
 
 
 # -----------------------------
 # Book Appointment
 # -----------------------------
+@login_required
 def book_appointment(request):
 
     if request.method == "POST":
 
         Appointment.objects.create(
+            user=request.user,
 
             patient_name=request.POST.get("patient_name"),
 
@@ -37,9 +40,12 @@ def book_appointment(request):
 # -----------------------------
 # My Appointments
 # -----------------------------
+@login_required
 def my_appointments(request):
 
-    appointments = Appointment.objects.all().order_by("-appointment_date")
+    appointments = Appointment.objects.filter(
+    user=request.user
+    ).order_by("-appointment_date")
 
     context = {
         "appointments": appointments

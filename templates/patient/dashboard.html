@@ -12,17 +12,11 @@
         <div class="dashboard-header">
 
             <h2>
-                Welcome,
-                {% if user.first_name %}
-                    {{ user.first_name }}
-                {% else %}
-                    {{ user.username }}
-                {% endif %}
-                👋
+                Today's Overview
             </h2>
 
             <p>
-                Manage your appointments and healthcare from one place.
+                Track Your Appointments and Health Records.
             </p>
 
         </div>
@@ -43,10 +37,10 @@
 
                     </div>
 
-                    <h2 class="summary-number">05</h2>
+                    <h2 class="summary-number">{{ total_appointments }}</h2>
 
                     <h5 class="summary-title">
-                        Upcoming Appointments
+                        Total Appointments
                     </h5>
 
                     <p class="summary-text">
@@ -59,7 +53,7 @@
 
         </div>
 
-        <!-- Doctors -->
+        
 
         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
 
@@ -73,14 +67,14 @@
 
                     </div>
 
-                    <h2 class="summary-number">12</h2>
+                    <h2 class="summary-number">{{ confirmed_appointments }}</h2>
 
                     <h5 class="summary-title">
-                        Doctors
+                        Confirmed Appointments
                     </h5>
 
                     <p class="summary-text">
-                        Available Specialists
+                        {% lorem 1 b random %}
                     </p>
 
                 </div>
@@ -103,10 +97,10 @@
 
                     </div>
 
-                    <h2 class="summary-number">03</h2>
+                    <h2 class="summary-number">{{ pending_appointments }}</h2>
 
                     <h5 class="summary-title">
-                        Prescriptions
+                        Pending Appointments
                     </h5>
 
                     <p class="summary-text">
@@ -133,10 +127,10 @@
 
                     </div>
 
-                    <h2 class="summary-number">18</h2>
+                    <h2 class="summary-number">{{ cancelled_appointments }}</h2>
 
                     <h5 class="summary-title">
-                        Medical Records
+                        Cancelled Appointments
                     </h5>
 
                     <p class="summary-text">
@@ -189,49 +183,32 @@
 
             <table class="table table-hover mb-0">
 
-                <thead>
-
-                    <tr>
-
-                        <th>Doctor</th>
-
-                        <th>Department</th>
-
-                        <th>Date</th>
-
-                        <th>Time</th>
-
-                        <th>Status</th>
-
-                        <th>Action</th>
-
-                    </tr>
-
-                </thead>
-
                 <tbody>
+                    {% for appointment in upcoming_appointments %}
 
                     <tr>
 
                         <td>
-
-                            <i class="fas fa-user-md text-primary mr-2"></i>
-
-                            Dr. Raj Sharma
-
+                            {{ appointment.doctor }}
                         </td>
 
-                        <td>Cardiology</td>
+                        <td>
+                            {{ appointment.department }}
+                        </td>
 
-                        <td>15 July 2026</td>
+                        <td>
+                            {{ appointment.appointment_date }}
+                        </td>
 
-                        <td>10:00 AM</td>
+                        <td>
+                            {{ appointment.appointment_time }}
+                        </td>
 
                         <td>
 
-                            <span class="badge badge-success">
+                            <span class="badge badge-warning">
 
-                                Confirmed
+                           {{ appointment.status }}
 
                             </span>
 
@@ -247,84 +224,23 @@
 
                         </td>
 
-                    </tr>
+                        </tr>
 
-                    <tr>
+                            {% empty %}
 
-                        <td>
+                        <tr>
 
-                            <i class="fas fa-user-md text-primary mr-2"></i>
+                            <td colspan="6" class="text-center">
 
-                            Dr. Priya Singh
+                            No appointments found
 
-                        </td>
+                            </td>
 
-                        <td>Neurology</td>
+                        </tr>
 
-                        <td>18 July 2026</td>
+                        {% endfor %}
 
-                        <td>02:30 PM</td>
-
-                        <td>
-
-                            <span class="badge badge-warning text-dark">
-
-                                Pending
-
-                            </span>
-
-                        </td>
-
-                        <td>
-
-                            <a href="#" class="btn btn-sm btn-primary">
-
-                                View
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>
-
-                            <i class="fas fa-user-md text-primary mr-2"></i>
-
-                            Dr. Amit Verma
-
-                        </td>
-
-                        <td>Orthopedics</td>
-
-                        <td>22 July 2026</td>
-
-                        <td>11:30 AM</td>
-
-                        <td>
-
-                            <span class="badge badge-danger">
-
-                                Cancelled
-
-                            </span>
-
-                        </td>
-
-                        <td>
-
-                            <a href="#" class="btn btn-sm btn-primary">
-
-                                View
-
-                            </a>
-
-                        </td>
-
-                    </tr>
-
+                    
                 </tbody>
 
             </table>
