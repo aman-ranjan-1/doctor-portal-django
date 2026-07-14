@@ -1,13 +1,461 @@
-{% extends "layouts/base.html" %}
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+Contact Us | CityCare Hospital
+{% endblock %}
 
 {% block content %}
 
-<div class="container py-5">
+<!-- ==========================================
+        Contact Hero
+========================================== -->
 
-    <h1>Contact Us</h1>
+<section class="citycontact-hero">
 
-    <p>This page is under development.</p>
+    <div class="container">
 
-</div>
+        <div class="citycontact-hero-content">
+
+            <span>
+
+                CONTACT CITYCARE HOSPITAL
+
+            </span>
+
+            <h1>
+
+                We're Here Whenever You Need Us
+
+            </h1>
+
+            <p>
+
+                Whether you need medical assistance, want to book an appointment,
+                or have questions about our healthcare services, our team is
+                always ready to help.
+
+            </p>
+
+            <nav>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+                <span>/</span>
+
+                <strong>
+
+                    Contact
+
+                </strong>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+        Contact Information
+========================================== -->
+
+<section class="citycontact-info-section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="citycontact-info-card">
+
+                    <div class="citycontact-info-icon">
+
+                        <i class="fas fa-map-marker-alt"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Hospital Address
+
+                    </h4>
+
+                    <p>
+
+                        245 Health Avenue<br>
+                        Ranchi, Jharkhand 834001<br>
+                        India
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="citycontact-info-card">
+
+                    <div class="citycontact-info-icon">
+
+                        <i class="fas fa-phone-alt"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Call Us
+
+                    </h4>
+
+                    <p>
+
+                        +91 98765 43210<br>
+                        +91 98765 43211
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="citycontact-info-card">
+
+                    <div class="citycontact-info-icon">
+
+                        <i class="fas fa-envelope"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Email
+
+                    </h4>
+
+                    <p>
+
+                        info@citycarehospital.com<br>
+                        support@citycarehospital.com
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="citycontact-info-card">
+
+                    <div class="citycontact-info-icon">
+
+                        <i class="fas fa-clock"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Working Hours
+
+                    </h4>
+
+                    <p>
+
+                        Mon - Sat : 9 AM - 7 PM<br>
+                        Emergency : 24×7
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+        Contact Form
+========================================== -->
+
+<section class="citycontact-form-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Form -->
+
+            <div class="col-lg-7">
+
+                <div class="citycontact-form-box">
+
+                    <span class="citycontact-form-subtitle">
+
+                        GET IN TOUCH
+
+                    </span>
+
+                    <h2 class="citycontact-form-heading">
+
+                        Send Us Your Message
+
+                    </h2>
+
+                    <p class="citycontact-form-text">
+
+                        Fill out the form below and our healthcare team will
+                        contact you as soon as possible.
+
+                    </p>
+
+                    <form>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <input
+                                        type="text"
+                                        class="form-control citycontact-input"
+                                        placeholder="Full Name">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <input
+                                        type="email"
+                                        class="form-control citycontact-input"
+                                        placeholder="Email Address">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <input
+                                        type="text"
+                                        class="form-control citycontact-input"
+                                        placeholder="Phone Number">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <select class="form-control citycontact-input">
+
+                                        <option>
+
+                                            Select Department
+
+                                        </option>
+
+                                        <option>
+
+                                            Cardiology
+
+                                        </option>
+
+                                        <option>
+
+                                            Neurology
+
+                                        </option>
+
+                                        <option>
+
+                                            Orthopedics
+
+                                        </option>
+
+                                        <option>
+
+                                            Pediatrics
+
+                                        </option>
+
+                                        <option>
+
+                                            General Medicine
+
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-group">
+
+                                    <input
+                                        type="text"
+                                        class="form-control citycontact-input"
+                                        placeholder="Subject">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-group">
+
+                                    <textarea
+                                        rows="6"
+                                        class="form-control citycontact-input"
+                                        placeholder="Write your message..."></textarea>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <button class="btn btn-primary citycontact-send-btn">
+
+                                    <i class="fas fa-paper-plane mr-2"></i>
+
+                                    Send Message
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- Image -->
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="citycontact-image-box">
+
+                    <img src="{% static 'images/about/gallery1.png' %}"
+                         class="img-fluid"
+                         alt="Hospital Reception">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+        Google Map
+========================================== -->
+
+<section >
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 citycontact-map-section">
+            <iframe
+            src="https://www.google.com/maps?q=Ranchi&output=embed"
+            loading="lazy"
+            allowfullscreen>
+
+            </iframe>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+        Emergency CTA
+========================================== -->
+
+<section class="citycontact-emergency-section">
+
+    <div class="container">
+
+        <div class="citycontact-emergency-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <span class="citycontact-emergency-subtitle">
+
+                        24×7 EMERGENCY SUPPORT
+
+                    </span>
+
+                    <h2>
+
+                        Need Immediate Emergency Medical Assistance?
+
+                    </h2>
+
+                    <p>
+
+                        Our emergency department is available around the clock.
+                        Call us immediately for urgent medical care or ambulance
+                        assistance.
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-4 text-lg-right text-center">
+
+                    <a href="tel:+919876543210"
+                       class="btn btn-light citycontact-call-btn">
+
+                        <i class="fas fa-phone-alt mr-2"></i>
+
+                        Call Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

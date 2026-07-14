@@ -1,0 +1,692 @@
+/*=========================================================
+                    CONTACT HERO
+=========================================================*/
+
+.citycontact-hero{
+
+    height:430px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(7,29,73,.82),
+    rgba(7,29,73,.82)),
+    url("../../images/about/about-banner.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:#ffffff;
+
+}
+
+.citycontact-hero-content{
+
+    margin-top:70px;
+
+}
+
+.citycontact-hero span{
+
+    display:inline-block;
+
+    color:#69b8ff;
+
+    letter-spacing:4px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.citycontact-hero h1{
+
+    font-size:56px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.citycontact-hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#edf5ff;
+
+}
+
+.citycontact-hero nav{
+
+    margin-top:30px;
+
+}
+
+.citycontact-hero nav a{
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+}
+
+.citycontact-hero nav span{
+
+    margin:0 10px;
+
+    color:#ffffff;
+
+}
+
+.citycontact-hero nav strong{
+
+    color:#69b8ff;
+
+}
+
+
+
+/*=========================================================
+                CONTACT INFORMATION
+=========================================================*/
+
+.citycontact-info-section{
+
+    padding:110px 0 70px;
+
+    background:#f8fbff;
+
+}
+
+.citycontact-info-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    height:100%;
+
+    transition:.35s;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.07);
+
+}
+
+.citycontact-info-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(13,110,253,.15);
+
+}
+
+.citycontact-info-icon{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    margin:0 auto 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#eaf4ff;
+
+}
+
+.citycontact-info-icon i{
+
+    font-size:30px;
+
+    color:#0d6efd;
+
+}
+
+.citycontact-info-card h4{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+    margin-bottom:18px;
+
+}
+
+.citycontact-info-card p{
+
+    color:#666666;
+
+    line-height:1.9;
+
+    margin:0;
+
+}
+
+
+
+/*=========================================================
+                    CONTACT FORM
+=========================================================*/
+
+.citycontact-form-section{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.citycontact-form-box{
+
+    background:#ffffff;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.08);
+
+}
+
+.citycontact-form-subtitle{
+
+    display:inline-block;
+
+    color:#0d6efd;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.citycontact-form-heading{
+
+    font-size:44px;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+    margin-bottom:20px;
+
+}
+
+.citycontact-form-text{
+
+    color:#666666;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+.citycontact-input{
+
+    height:58px;
+
+    border-radius:12px;
+
+    border:1px solid #d8e5f5;
+
+    font-size:16px;
+
+    padding:0 18px;
+
+    box-shadow:none;
+
+}
+
+.citycontact-input:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:none;
+
+}
+
+textarea.citycontact-input{
+
+    height:auto;
+
+    padding:18px;
+
+    resize:none;
+
+}
+
+.citycontact-send-btn{
+
+    padding:15px 38px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+}
+
+
+
+/*=========================================================
+                HOSPITAL IMAGE
+=========================================================*/
+
+.citycontact-image-box{
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.10);
+
+}
+
+.citycontact-image-box img{
+
+    width:100%;
+
+    transition:.5s;
+
+}
+
+.citycontact-image-box:hover img{
+
+    transform:scale(1.05);
+
+}
+/*=========================================================
+                    GOOGLE MAP
+=========================================================*/
+
+.citycontact-map-section{
+
+    width:88%;
+    height:600px;
+
+    overflow:hidden;
+
+}
+
+.citycontact-map-section iframe{
+
+    width:100%;
+
+    height:100%;
+
+    border:0;
+    border-radius:20px;
+
+
+}
+
+
+
+/*=========================================================
+                EMERGENCY CONTACT CTA
+=========================================================*/
+
+.citycontact-emergency-section{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.citycontact-emergency-box{
+
+    background:
+    linear-gradient(
+    rgba(13,110,253,.93),
+    rgba(6,74,181,.93));
+
+    border-radius:25px;
+
+    padding:70px;
+
+    color:#ffffff;
+
+    box-shadow:0 20px 50px rgba(13,110,253,.20);
+
+}
+
+.citycontact-emergency-subtitle{
+
+    display:inline-block;
+
+    color:#dcecff;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.citycontact-emergency-box h2{
+
+    font-size:44px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.citycontact-emergency-box p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#eef5ff;
+
+    margin-bottom:0;
+
+}
+
+.citycontact-call-btn{
+
+    padding:16px 38px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    color:#0d6efd;
+
+    transition:.35s;
+
+}
+
+.citycontact-call-btn:hover{
+
+    background:#eef5ff;
+
+    color:#0d6efd;
+
+}
+
+
+
+/*=========================================================
+                    RESPONSIVE
+=========================================================*/
+
+@media(max-width:991px){
+
+    .citycontact-hero{
+
+        height:360px;
+
+        padding:20px;
+
+    }
+
+    .citycontact-hero h1{
+
+        font-size:42px;
+
+    }
+
+    .citycontact-info-section{
+
+        padding:80px 0 50px;
+
+    }
+
+    .citycontact-form-section{
+
+        padding:80px 0;
+
+    }
+
+    .citycontact-form-box{
+
+        padding:40px;
+
+    }
+
+    .citycontact-form-heading{
+
+        font-size:36px;
+
+    }
+
+    .citycontact-image-box{
+
+        margin-top:40px;
+
+    }
+
+    .citycontact-map-section{
+
+        height:420px;
+
+    }
+
+    .citycontact-emergency-section{
+
+        padding:80px 0;
+
+    }
+
+    .citycontact-emergency-box{
+
+        padding:50px 40px;
+
+        text-align:center;
+
+    }
+
+    .citycontact-emergency-box h2{
+
+        font-size:34px;
+
+    }
+
+    .citycontact-call-btn{
+
+        margin-top:30px;
+
+    }
+
+}
+
+
+
+@media(max-width:768px){
+
+    .citycontact-hero{
+
+        height:320px;
+
+    }
+
+    .citycontact-hero-content{
+
+        margin-top:40px;
+
+    }
+
+    .citycontact-hero h1{
+
+        font-size:30px;
+
+    }
+
+    .citycontact-hero p{
+
+        font-size:16px;
+
+    }
+
+    .citycontact-info-card{
+
+        padding:35px 25px;
+
+    }
+
+    .citycontact-info-icon{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .citycontact-info-icon i{
+
+        font-size:26px;
+
+    }
+
+    .citycontact-info-card h4{
+
+        font-size:22px;
+
+    }
+
+    .citycontact-form-box{
+
+        padding:30px 25px;
+
+    }
+
+    .citycontact-form-heading{
+
+        font-size:30px;
+
+    }
+
+    .citycontact-send-btn{
+
+        width:100%;
+
+    }
+
+    .citycontact-map-section{
+
+        height:350px;
+
+    }
+
+    .citycontact-emergency-box{
+
+        padding:40px 25px;
+
+    }
+
+    .citycontact-emergency-box h2{
+
+        font-size:28px;
+
+    }
+
+    .citycontact-emergency-box p{
+
+        font-size:16px;
+
+    }
+
+    .citycontact-call-btn{
+
+        width:100%;
+
+        margin-top:25px;
+
+    }
+
+}
+
+
+
+@media(max-width:576px){
+
+    .citycontact-hero{
+
+        height:300px;
+
+    }
+
+    .citycontact-hero span{
+
+        font-size:13px;
+
+        letter-spacing:2px;
+
+    }
+
+    .citycontact-hero h1{
+
+        font-size:26px;
+
+    }
+
+    .citycontact-info-section{
+
+        padding:70px 0 40px;
+
+    }
+
+    .citycontact-form-section{
+
+        padding:70px 0;
+
+    }
+
+    .citycontact-form-heading{
+
+        font-size:26px;
+
+    }
+
+    .citycontact-map-section{
+
+        height:300px;
+
+    }
+
+    .citycontact-emergency-section{
+
+        padding:70px 0;
+
+    }
+
+}
