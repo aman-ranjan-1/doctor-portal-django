@@ -1,13 +1,65 @@
-{% extends "layouts/base.html" %}
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+Medical Services | CityCare Hospital
+{% endblock %}
 
 {% block content %}
 
-<div class="container py-5">
+<!-- ==========================================
+     Services Hero
+========================================== -->
 
-    <h1>Services</h1>
+<section class="servicespage-hero">
 
-    <p>This page is under development.</p>
+    <div class="container">
 
-</div>
+        <div class="servicespage-hero-content">
+
+            <span>
+
+                OUR SERVICES
+
+            </span>
+
+            <h1>
+
+                Complete Healthcare Under One Roof
+
+            </h1>
+
+            <p>
+
+                From preventive healthcare to advanced surgeries,
+                CityCare Hospital provides comprehensive medical
+                services delivered by experienced specialists using
+                modern technology.
+
+            </p>
+
+            <nav>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+                <span>/</span>
+
+                <strong>
+
+                    Services
+
+                </strong>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
