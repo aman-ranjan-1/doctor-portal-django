@@ -3,6 +3,8 @@
 
 A modern **Doctor Portal Web Application** built with **Django, HTML, CSS, JavaScript, and Bootstrap**. This project is being developed as an internship project with a focus on clean UI/UX and scalable architecture.
 
+Visit - https://doctor-portal-django.onrender.com/
+
 ## 📸 Homepage Preview
 
 
@@ -52,30 +54,6 @@ doctor-portal/
 └── README.md
 ```
 
-## 🚀 Getting Started
-
-```bash
-git clone https://github.com/aman-ranjan-1/doctor-portal-django.git
-cd doctor-portal-django
-
-python -m venv .venv
-
-source .venv/bin/activate     # Linux/macOS
-# .venv\Scripts\activate      # Windows
-
-pip install -r requirements.txt
-
-python manage.py migrate
-
-python manage.py runserver
-```
-
-Open:
-
-```
-http://127.0.0.1:8000/
-```
-
 ## 📌 Project Status
 
 Currently under active development.
@@ -95,7 +73,5 @@ Currently under active development.
 ## 👨‍💻 Developer
 
 **Aman Ranjan**
-
-GitHub: https://github.com/aman-ranjan-1
 
 ---
