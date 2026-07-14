@@ -1,0 +1,516 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+Our Doctors | CityCare Hospital
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+     Doctors Hero
+========================================== -->
+
+<section class="doctorspage-hero">
+
+    <div class="container">
+
+        <div class="doctorspage-hero-content">
+
+            <span>
+
+                OUR DOCTORS
+
+            </span>
+
+            <h1>
+
+                Meet Our Medical Specialists
+
+            </h1>
+
+            <p>
+
+                Our experienced team of doctors combines medical expertise,
+                compassion, and advanced technology to deliver exceptional
+                healthcare for every patient.
+
+            </p>
+
+            <nav>
+
+                <a href="{% url 'home' %}">
+
+                    Home
+
+                </a>
+
+                <span>/</span>
+
+                <strong>
+
+                    Doctors
+
+                </strong>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="doctorspage-search">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <div class="doctorspage-search-box">
+
+                    <div class="row">
+
+                        <!-- Search -->
+
+                        <div class="col-lg-5">
+
+                            <div class="form-group mb-lg-0">
+
+                                <input
+                                    type="text"
+                                    class="form-control doctorspage-input"
+                                    placeholder="Search doctor by name...">
+
+                            </div>
+
+                        </div>
+
+                        <!-- Department -->
+
+                        <div class="col-lg-4">
+
+                            <div class="form-group mb-lg-0">
+
+                                <select class="form-control doctorspage-input">
+
+                                    <option>
+
+                                        All Departments
+
+                                    </option>
+
+                                    <option>
+
+                                        Cardiology
+
+                                    </option>
+
+                                    <option>
+
+                                        Neurology
+
+                                    </option>
+
+                                    <option>
+
+                                        Orthopedics
+
+                                    </option>
+
+                                    <option>
+
+                                        Pediatrics
+
+                                    </option>
+
+                                    <option>
+
+                                        Dermatology
+
+                                    </option>
+
+                                    <option>
+
+                                        Dentistry
+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Button -->
+
+                        <div class="col-lg-3">
+
+                            <button class="btn btn-primary btn-block rounded-2 doctorspage-search-btn">
+
+                                <i class="fas fa-search mr-2"></i>
+
+                                Search
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="doctorspage-featured">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="doctorspage-subtitle">
+
+                FEATURED SPECIALISTS
+
+            </span>
+
+            <h2 class="doctorspage-heading">
+
+                Meet Our Expert Doctors
+
+            </h2>
+
+            <p class="doctorspage-description">
+
+                Our highly qualified specialists provide compassionate care
+                using the latest medical technology and evidence-based treatments.
+
+            </p>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctorspage-card">
+
+                    <div class="doctorspage-image">
+
+                        <img src="{% static 'images/doctors/doctor1.jpg' %}"
+
+                        class="img-fluid"
+
+                        alt="Doctor">
+
+                        <span class="doctorspage-status">
+
+                        Available
+
+                        </span>
+
+                    </div>
+
+                    <div class="doctorspage-content">
+
+                        <h4>
+
+                          Dr. Rajesh Sharma
+
+                        </h4>
+
+                        <p class="doctorspage-speciality">
+
+                           Cardiologist
+
+                        </p>
+
+                        <div class="doctorspage-rating">
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                        </div>
+
+                        <p class="doctorspage-exp">
+
+                        <i class="fas fa-briefcase-medical"></i>
+
+                        18+ Years Experience
+
+                        </p>
+
+                        <div class="doctorspage-buttons">
+
+                        <a href="#" class="btn btn-outline-primary">
+
+                           View Profile
+
+                        </a>
+
+                        <a href="{% url 'book_appointment' %}"
+
+                           class="btn btn-primary">
+
+                           Book
+
+                         </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctorspage-card">
+
+                    <div class="doctorspage-image">
+
+                        <img src="{% static 'images/doctors/doctor1.jpg' %}"
+
+                        class="img-fluid"
+
+                        alt="Doctor">
+
+                        <span class="doctorspage-status">
+
+                        Available
+
+                        </span>
+
+                    </div>
+
+                    <div class="doctorspage-content">
+
+                        <h4>
+
+                          Dr. Rajesh Sharma
+
+                        </h4>
+
+                        <p class="doctorspage-speciality">
+
+                           Cardiologist
+
+                        </p>
+
+                        <div class="doctorspage-rating">
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                        </div>
+
+                        <p class="doctorspage-exp">
+
+                        <i class="fas fa-briefcase-medical"></i>
+
+                        18+ Years Experience
+
+                        </p>
+
+                        <div class="doctorspage-buttons">
+
+                        <a href="#" class="btn btn-outline-primary">
+
+                           View Profile
+
+                        </a>
+
+                        <a href="{% url 'book_appointment' %}"
+
+                           class="btn btn-primary">
+
+                           Book
+
+                         </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctorspage-card">
+
+                    <div class="doctorspage-image">
+
+                        <img src="{% static 'images/doctors/doctor1.jpg' %}"
+
+                        class="img-fluid"
+
+                        alt="Doctor">
+
+                        <span class="doctorspage-status">
+
+                        Available
+
+                        </span>
+
+                    </div>
+
+                    <div class="doctorspage-content">
+
+                        <h4>
+
+                          Dr. Rajesh Sharma
+
+                        </h4>
+
+                        <p class="doctorspage-speciality">
+
+                           Cardiologist
+
+                        </p>
+
+                        <div class="doctorspage-rating">
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                        </div>
+
+                        <p class="doctorspage-exp">
+
+                        <i class="fas fa-briefcase-medical"></i>
+
+                        18+ Years Experience
+
+                        </p>
+
+                        <div class="doctorspage-buttons">
+
+                        <a href="#" class="btn btn-outline-primary">
+
+                           View Profile
+
+                        </a>
+
+                        <a href="{% url 'book_appointment' %}"
+
+                           class="btn btn-primary">
+
+                           Book
+
+                         </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctorspage-card">
+
+                    <div class="doctorspage-image">
+
+                        <img src="{% static 'images/doctors/doctor1.jpg' %}"
+
+                        class="img-fluid"
+
+                        alt="Doctor">
+
+                        <span class="doctorspage-status">
+
+                        Available
+
+                        </span>
+
+                    </div>
+
+                    <div class="doctorspage-content">
+
+                        <h4>
+
+                          Dr. Rajesh Sharma
+
+                        </h4>
+
+                        <p class="doctorspage-speciality">
+
+                           Cardiologist
+
+                        </p>
+
+                        <div class="doctorspage-rating">
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                            <i class="fas fa-star"></i>
+
+                        </div>
+
+                        <p class="doctorspage-exp">
+
+                        <i class="fas fa-briefcase-medical"></i>
+
+                        18+ Years Experience
+
+                        </p>
+
+                        <div class="doctorspage-buttons">
+
+                        <a href="#" class="btn btn-outline-primary">
+
+                           View Profile
+
+                        </a>
+
+                        <a href="{% url 'book_appointment' %}"
+
+                           class="btn btn-primary">
+
+                           Book
+
+                         </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+</section>
+{% endblock %}

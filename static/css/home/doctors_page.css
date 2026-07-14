@@ -1,0 +1,603 @@
+
+
+.doctorspage-hero{
+
+    height:430px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(7,29,73,.78),
+    rgba(7,29,73,.78)),
+    url("../../images/doctors/doctors-banner.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:#fff;
+
+}
+
+.doctorspage-hero-content{
+
+    margin-top:60px;
+
+}
+
+.doctorspage-hero span{
+
+    display:inline-block;
+
+    color:#64b5ff;
+
+    letter-spacing:4px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.doctorspage-hero h1{
+
+    font-size:56px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.doctorspage-hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:#eef4ff;
+
+}
+
+.doctorspage-hero nav{
+
+    margin-top:30px;
+
+}
+
+.doctorspage-hero nav a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+.doctorspage-hero nav span{
+
+    margin:0 10px;
+
+}
+
+.doctorspage-hero nav strong{
+
+    color:#64b5ff;
+
+}
+@media(max-width:991px){
+
+.doctorspage-hero{
+
+height:360px;
+
+}
+
+.doctorspage-hero h1{
+
+font-size:42px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.doctorspage-hero{
+
+height:320px;
+
+padding:20px;
+
+}
+
+.doctorspage-hero h1{
+
+font-size:32px;
+
+}
+
+.doctorspage-hero p{
+
+font-size:16px;
+
+}
+
+}
+
+
+.doctorspage-search{
+
+    padding:80px 0;
+
+    background:#f8fbff;
+
+}
+
+.doctorspage-search-box{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    margin-top:-90px;
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+.doctorspage-input{
+
+    height:55px;
+
+    border-radius:12px;
+
+    border:1px solid #dce7f5;
+
+    font-size:16px;
+
+}
+
+.doctorspage-input:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:none;
+
+}
+
+.doctorspage-search-btn{
+
+    height:55px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+@media(max-width:991px){
+
+    .doctorspage-search-box{
+
+        margin-top:30px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .doctorspage-search{
+
+        padding:60px 0;
+
+    }
+
+    .doctorspage-search-box{
+
+        padding:25px;
+
+    }
+
+    .doctorspage-search-btn{
+
+        margin-top:15px;
+
+    }
+
+}
+
+/*=========================================
+    Featured Doctors
+=========================================*/
+
+.doctorspage-featured{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.doctorspage-subtitle{
+
+    display:inline-block;
+
+    color:#0d6efd;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+.doctorspage-heading{
+
+    font-size:46px;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+}
+
+.doctorspage-description{
+
+    max-width:760px;
+
+    margin:20px auto;
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+.doctorspage-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.doctorspage-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 45px rgba(13,110,253,.15);
+
+}
+
+.doctorspage-image{
+
+    position:relative;
+
+    text-align:center;
+
+    padding:30px 20px 15px;
+
+}
+
+.doctorspage-image img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid #eef5ff;
+
+}
+
+.doctorspage-status{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:#28a745;
+
+    color:#fff;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.doctorspage-content{
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.doctorspage-content h4{
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.doctorspage-speciality{
+
+    color:#0d6efd;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.doctorspage-rating{
+
+    color:#ffc107;
+
+    margin-bottom:15px;
+
+}
+
+.doctorspage-exp{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.doctorspage-exp i{
+
+    color:#0d6efd;
+
+    margin-right:8px;
+
+}
+
+.doctorspage-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.doctorspage-buttons .btn{
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    padding:10px 18px;
+
+}
+/*=========================================
+    Featured Doctors
+=========================================*/
+
+.doctorspage-featured{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.doctorspage-subtitle{
+
+    display:inline-block;
+
+    color:#0d6efd;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+.doctorspage-heading{
+
+    font-size:46px;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+}
+
+.doctorspage-description{
+
+    max-width:760px;
+
+    margin:20px auto;
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+.doctorspage-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.doctorspage-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 22px 45px rgba(13,110,253,.15);
+
+}
+
+.doctorspage-image{
+
+    position:relative;
+
+    text-align:center;
+
+    padding:30px 20px 15px;
+
+}
+
+.doctorspage-image img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid #eef5ff;
+
+}
+
+.doctorspage-status{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:#28a745;
+
+    color:#fff;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.doctorspage-content{
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.doctorspage-content h4{
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.doctorspage-speciality{
+
+    color:#0d6efd;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.doctorspage-rating{
+
+    color:#ffc107;
+
+    margin-bottom:15px;
+
+}
+
+.doctorspage-exp{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.doctorspage-exp i{
+
+    color:#0d6efd;
+
+    margin-right:8px;
+
+}
+
+.doctorspage-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.doctorspage-buttons .btn{
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    padding:10px 18px;
+
+}
