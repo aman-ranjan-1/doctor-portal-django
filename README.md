@@ -99,5 +99,3 @@ Currently under active development.
 GitHub: https://github.com/aman-ranjan-1
 
 ---
-
-⭐ If you like this project, consider giving it a star.
