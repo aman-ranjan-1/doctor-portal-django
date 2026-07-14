@@ -11,3 +11,5 @@ def services(request):
     return render(request, "home/services.html")
 def contact(request):
     return render(request, "contact.html")
+def doctors(request):
+    return render(request, "home/doctors.html")
