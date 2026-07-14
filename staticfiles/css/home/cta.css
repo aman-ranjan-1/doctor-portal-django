@@ -1,0 +1,177 @@
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.cta-section{
+
+    padding:90px 0;
+
+    background:#ffffff;
+
+}
+
+.cta-box{
+
+    background:linear-gradient(
+        135deg,
+        #0d6efd,
+        #0a58ca
+    );
+
+    color:#fff;
+
+    padding:60px;
+
+    border-radius:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(13,110,253,.25);
+
+}
+
+/* Decorative Circles */
+
+.cta-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-100px;
+
+}
+
+.cta-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:50%;
+
+    bottom:-80px;
+
+    left:-60px;
+
+}
+
+.cta-tag{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.18);
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+}
+
+.cta-box h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.cta-box p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:0;
+
+}
+
+.cta-box .btn{
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cta-box .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+@media(max-width:992px){
+
+    .cta-box{
+
+        text-align:center;
+
+        padding:40px 30px;
+
+    }
+
+    .cta-box h2{
+
+        font-size:32px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .cta-section{
+
+        padding:70px 0;
+
+    }
+
+    .cta-box h2{
+
+        font-size:28px;
+
+    }
+
+    .cta-box .btn{
+
+        width:100%;
+
+        margin-bottom:15px;
+
+    }
+
+}

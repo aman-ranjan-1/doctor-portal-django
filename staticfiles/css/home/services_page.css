@@ -1,0 +1,973 @@
+/* ==========================================
+   Services Hero
+========================================== */
+
+.servicespage-hero{
+
+    height:420px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(11,31,58,.78),
+            rgba(11,31,58,.78)
+        ),
+        url("../../images/services/services-banner.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    color:#ffffff;
+
+}
+
+.servicespage-hero-content{
+
+    margin-top:60px;
+
+}
+
+.servicespage-hero span{
+
+    display:inline-block;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#6bb8ff;
+
+    margin-bottom:18px;
+
+}
+
+.servicespage-hero h1{
+
+    font-size:55px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.servicespage-hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#e9ecef;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+}
+
+.servicespage-hero nav{
+
+    margin-top:35px;
+
+}
+
+.servicespage-hero nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+.servicespage-hero nav a:hover{
+
+    color:#0d6efd;
+
+}
+
+.servicespage-hero nav span{
+
+    margin:0 10px;
+
+    color:white;
+
+}
+
+.servicespage-hero nav strong{
+
+    color:#6bb8ff;
+
+}
+@media(max-width:991px){
+
+    .servicespage-hero{
+
+        height:360px;
+
+    }
+
+    .servicespage-hero h1{
+
+        font-size:42px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .servicespage-hero{
+
+        height:320px;
+
+        padding:20px;
+
+    }
+
+    .servicespage-hero h1{
+
+        font-size:32px;
+
+    }
+
+    .servicespage-hero p{
+
+        font-size:16px;
+
+    }
+}
+/*=========================================
+    Medical Departments
+=========================================*/
+
+.servicespage-departments{
+
+    padding:110px 0;
+
+    background:#f8fbff;
+
+}
+
+.servicespage-subtitle{
+
+    display:inline-block;
+
+    color:#0d6efd;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.servicespage-heading{
+
+    font-size:46px;
+
+    font-weight:700;
+
+    color:#0b1f3a;
+
+}
+
+.servicespage-description{
+
+    max-width:760px;
+
+    margin:20px auto;
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+.servicespage-card{
+
+    background:white;
+
+    padding:40px 28px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    height:100%;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.servicespage-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 18px 40px rgba(13,110,253,.15);
+
+}
+
+.servicespage-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#eef5ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.servicespage-icon i{
+
+    font-size:38px;
+
+    color:#0d6efd;
+
+}
+
+.servicespage-card h4{
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.servicespage-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.servicespage-card a{
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    color:#0d6efd;
+
+}
+
+.servicespage-card a:hover{
+
+    color:#084298;
+
+}
+@media(max-width:991px){
+
+.servicespage-departments{
+
+padding:80px 0;
+
+}
+
+.servicespage-heading{
+
+font-size:36px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.servicespage-card{
+
+padding:35px 22px;
+
+}
+
+.servicespage-heading{
+
+font-size:30px;
+
+}
+
+}
+/*=========================================
+    Treatment Process
+=========================================*/
+
+.servicespage-process{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.servicespage-process-card{
+
+    position:relative;
+
+    background:#fff;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.servicespage-process-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(13,110,253,.18);
+
+}
+
+.servicespage-process-number{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+}
+
+.servicespage-process-card i{
+
+    font-size:55px;
+
+    color:#0d6efd;
+
+    margin-bottom:25px;
+
+}
+
+.servicespage-process-card h4{
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.servicespage-process-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+@media(max-width:768px){
+
+    .servicespage-process{
+
+        padding:80px 0;
+
+    }
+
+    .servicespage-process-card{
+
+        padding:35px 25px;
+
+    }
+
+}   
+
+
+.servicespage-emergency{
+
+    padding:100px 0;
+
+    background:linear-gradient(135deg,#071d49,#0d6efd);
+
+    color:#fff;
+
+}
+
+.servicespage-emergency-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.servicespage-emergency h2{
+
+    font-size:44px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.servicespage-emergency p{
+
+    font-size:18px;
+
+    color:#e7eefc;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+.servicespage-emergency-phone{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#ffd166;
+
+    margin-bottom:35px;
+
+}
+
+.servicespage-emergency-phone i{
+
+    margin-right:15px;
+
+}
+
+.servicespage-emergency-buttons .btn{
+
+    padding:14px 35px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    margin-right:15px;
+
+}
+
+.servicespage-emergency-image{
+
+    max-height:380px;
+
+}
+@media(max-width:991px){
+
+    .servicespage-emergency{
+
+        text-align:center;
+
+    }
+
+    .servicespage-emergency-image{
+
+        margin-top:50px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .servicespage-emergency{
+
+        padding:80px 0;
+
+    }
+
+    .servicespage-emergency h2{
+
+        font-size:32px;
+
+    }
+
+    .servicespage-emergency-phone{
+
+        font-size:24px;
+
+    }
+
+    .servicespage-emergency-buttons .btn{
+
+        width:100%;
+
+        margin-bottom:15px;
+
+        margin-right:0;
+
+    }
+
+}
+
+
+.servicespage-facilities{
+
+    padding:110px 0;
+
+    background:#f8fbff;
+
+}
+
+.servicespage-facility-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    height:100%;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.servicespage-facility-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(13,110,253,.15);
+
+}
+
+.servicespage-facility-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#eaf3ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.servicespage-facility-icon i{
+
+    font-size:38px;
+
+    color:#0d6efd;
+
+}
+
+.servicespage-facility-card h4{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.servicespage-facility-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin:0;
+
+}
+@media(max-width:768px){
+
+    .servicespage-facilities{
+
+        padding:80px 0;
+
+    }
+
+    .servicespage-facility-card{
+
+        padding:35px 25px;
+
+    }
+}
+
+
+.servicespage-faq{
+
+    padding:110px 0;
+
+    background:#ffffff;
+
+}
+
+.servicespage-faq-card{
+
+    border:none;
+
+    margin-bottom:18px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+.servicespage-faq-card .card-header{
+
+    background:#ffffff;
+
+    border:none;
+
+    padding:0;
+
+}
+
+.servicespage-faq-card .btn{
+
+    width:100%;
+
+    text-align:left;
+
+    padding:22px 30px;
+
+    color:#0b1f3a;
+
+    font-weight:600;
+
+    font-size:18px;
+
+    text-decoration:none;
+
+}
+
+.servicespage-faq-card .btn:hover{
+
+    color:#0d6efd;
+
+    text-decoration:none;
+
+}
+
+.servicespage-faq-card .card-body{
+
+    padding:0 30px 25px;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+@media(max-width:768px){
+
+    .servicespage-faq{
+
+        padding:80px 0;
+
+    }
+
+    .servicespage-faq-card .btn{
+
+        font-size:16px;
+
+        padding:18px 20px;
+
+    }
+
+    .servicespage-faq-card .card-body{
+
+        padding:0 20px 20px;
+
+    }
+
+}
+
+
+.servicespage-cta{
+
+    padding:100px 0;
+
+    background:linear-gradient(135deg,#0b1f3a,#0d6efd);
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Decorative Circles */
+
+.servicespage-cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    top:-80px;
+
+    left:-80px;
+
+}
+
+.servicespage-cta::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(255,255,255,.04);
+
+    border-radius:50%;
+
+    bottom:-70px;
+
+    right:-70px;
+
+}
+
+.servicespage-cta .container{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.servicespage-cta-tag{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.15);
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.servicespage-cta h2{
+
+    font-size:46px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.servicespage-cta p{
+
+    font-size:18px;
+
+    color:#edf4ff;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+.servicespage-contact-info{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+}
+
+.servicespage-contact-info div{
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.servicespage-contact-info i{
+
+    color:#ffd166;
+
+    margin-right:10px;
+
+}
+
+.servicespage-btn-primary{
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+.servicespage-btn-primary:hover{
+
+    color:#084298;
+
+}
+
+.servicespage-btn-secondary{
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+@media(max-width:991px){
+
+    .servicespage-cta{
+
+        text-align:center;
+
+    }
+
+    .servicespage-contact-info{
+
+        justify-content:center;
+
+        margin-bottom:35px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .servicespage-cta{
+
+        padding:70px 20px;
+
+    }
+
+    .servicespage-cta h2{
+
+        font-size:34px;
+
+    }
+
+    .servicespage-cta p{
+
+        font-size:16px;
+
+    }
+
+    .servicespage-contact-info{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .servicespage-btn-primary,
+
+    .servicespage-btn-secondary{
+
+        width:100%;
+
+    }
+
+}

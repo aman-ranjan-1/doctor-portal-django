@@ -1,0 +1,172 @@
+/* ==========================
+   Dashboard Topbar
+========================== */
+
+.dashboard-topbar{
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    padding:20px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+}
+
+/* Left Section */
+
+.topbar-left h3{
+
+    font-weight:700;
+
+    color:#1f2937;
+}
+
+.topbar-left p{
+
+    font-size:15px;
+
+    color:#6c757d;
+}
+
+/* Right Section */
+
+.topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+/* Search */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#f5f7fb;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+}
+
+.search-box i{
+
+    color:#6c757d;
+
+    margin-right:10px;
+}
+
+.search-box input{
+
+    border:none;
+
+    background:transparent;
+
+    outline:none;
+
+    box-shadow:none;
+
+    width:220px;
+}
+
+.search-box input:focus{
+
+    box-shadow:none;
+}
+
+/* Icons */
+
+.topbar-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#f5f7fb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#0d6efd;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.topbar-icon:hover{
+
+    background:#0d6efd;
+
+    color:#ffffff;
+}
+
+/* Profile */
+
+.profile-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.profile-avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+}
+
+.profile-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1.2;
+}
+
+.profile-text strong{
+
+    color:#1f2937;
+}
+
+.profile-text small{
+
+    color:#6c757d;
+}

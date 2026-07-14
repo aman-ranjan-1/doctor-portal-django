@@ -1,0 +1,119 @@
+/* ==========================================
+   Testimonials Section
+========================================== */
+
+.testimonials-section{
+
+    padding:100px 0;
+
+    background:linear-gradient(135deg,#f8fbff,#eef6ff);
+
+}
+
+.testimonial-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+    height:100%;
+
+}
+
+.testimonial-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(13,110,253,.18);
+
+}
+
+.quote-icon{
+
+    font-size:42px;
+
+    color:#0d6efd;
+
+    opacity:.15;
+
+    margin-bottom:20px;
+
+}
+
+.review{
+
+    color:#666;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+    margin-bottom:25px;
+
+}
+
+.rating{
+
+    color:#ffc107;
+
+    font-size:22px;
+
+    margin-bottom:25px;
+
+}
+
+.patient-info{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.patient-info img{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-right:15px;
+
+    border:3px solid #0d6efd;
+
+}
+
+.patient-info h5{
+
+    margin:0;
+
+    font-weight:700;
+
+}
+
+.patient-info span{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+@media(max-width:768px){
+
+    .testimonials-section{
+
+        padding:70px 0;
+
+    }
+
+}

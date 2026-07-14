@@ -1,0 +1,35 @@
+/* ==========================
+   Appointment Page
+========================== */
+
+.appointment-card{
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.form-control{
+
+    border-radius:10px;
+
+    min-height:45px;
+
+}
+
+textarea.form-control{
+
+    min-height:120px;
+
+    resize:none;
+
+}
+
+.btn-lg{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
