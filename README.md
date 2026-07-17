@@ -5,12 +5,6 @@ A modern **Doctor Portal Web Application** built with **Django, HTML, CSS, JavaS
 
 Visit - https://doctor-portal-django.onrender.com/
 
-## 📸 Homepage Preview
-
-
-![Doctor Portal Homepage](screenshots/homepage.png)
-
----
 
 ## ✨ Features
 
