@@ -1,0 +1,155 @@
+<aside class="doctorsidebar">
+
+    <div class="doctorsidebar-header">
+
+        <div class="doctorsidebar-logo">
+
+            <i class="fas fa-user-md"></i>
+
+        </div>
+
+        <h3>CityCare</h3>
+
+        <span>Doctor Panel</span>
+
+    </div>
+
+    <div class="doctorsidebar-profile">
+
+        <div class="doctorsidebar-avatar">
+
+            <i class="fas fa-user-md"></i>
+
+        </div>
+
+        <div class="doctorsidebar-info">
+
+            <h5>
+
+                {% if user.first_name %}
+                    Dr. {{ user.first_name }}
+                {% else %}
+                    Doctor
+                {% endif %}
+
+            </h5>
+
+            <small>Medical Specialist</small>
+
+        </div>
+
+    </div>
+
+    <ul class="doctorsidebar-menu">
+
+        <li class="active">
+
+            <a href="{% url 'doctor_dashboard' %}">
+
+                <i class="fas fa-home"></i>
+
+                Dashboard
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-calendar-check"></i>
+
+                Appointments
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-user-injured"></i>
+
+                Patients
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-file-medical"></i>
+
+                Medical Records
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-prescription"></i>
+
+                Prescriptions
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-clock"></i>
+
+                Schedule
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-chart-line"></i>
+
+                Reports
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-user-cog"></i>
+
+                Profile
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                Logout
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>

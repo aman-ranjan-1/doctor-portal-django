@@ -1,12 +1,157 @@
-{% extends 'layouts/dashboard_base.html' %}
+{% extends 'layouts/doctor_dashboard_base.html' %}
 {% load static %}
 
 {% block title %}
-Doctor Dashboard | CityCare Hospital
+Doctor Dashboard
 {% endblock %}
 
-{% block dashboard_content %}
+{% block sidebar %}
+    {% include 'doctor/includes/sidebar.html' %}
+{% endblock %}
 
-<h1>Doctor</h1>
+
+{% block content %}
+
+
+<div class="doctor-dashboard">
+
+    <div class="doctor-stats">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctor-stat-card">
+
+                    <div class="doctor-stat-icon">
+
+                        <i class="fas fa-user-injured"></i>
+
+                    </div>
+
+                    <div class="doctor-stat-title">
+
+                        Today's Patients
+
+                    </div>
+
+                    <div class="doctor-stat-number">
+
+                        28
+
+                    </div>
+
+                    <div class="doctor-stat-change">
+
+                        +12% This Week
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctor-stat-card">
+
+                    <div class="doctor-stat-icon">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                    </div>
+
+                    <div class="doctor-stat-title">
+
+                        Appointments
+
+                    </div>
+
+                    <div class="doctor-stat-number">
+
+                        18
+
+                    </div>
+
+                    <div class="doctor-stat-change">
+
+                        Scheduled Today
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctor-stat-card">
+
+                    <div class="doctor-stat-icon">
+
+                        <i class="fas fa-check-circle"></i>
+
+                    </div>
+
+                    <div class="doctor-stat-title">
+
+                        Completed
+
+                    </div>
+
+                    <div class="doctor-stat-number">
+
+                        143
+
+                    </div>
+
+                    <div class="doctor-stat-change">
+
+                        This Month
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="doctor-stat-card">
+
+                    <div class="doctor-stat-icon">
+
+                        <i class="fas fa-clock"></i>
+
+                    </div>
+
+                    <div class="doctor-stat-title">
+
+                        Pending
+
+                    </div>
+
+                    <div class="doctor-stat-number">
+
+                        6
+
+                    </div>
+
+                    <div class="doctor-stat-change">
+
+                        Awaiting Consultation
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock %}
+

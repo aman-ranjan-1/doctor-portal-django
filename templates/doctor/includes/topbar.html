@@ -1,0 +1,110 @@
+<header class="doctortopbar">
+
+    <div class="doctortopbar-left">
+
+        <button class="doctortopbar-toggle">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+        <div class="doctortopbar-heading">
+
+            <h2>
+
+                Doctor Dashboard
+
+            </h2>
+
+            <p>
+
+                Welcome back,
+                {% if user.first_name %}
+                    Dr. {{ user.first_name }}
+                {% else %}
+                    Doctor
+                {% endif %}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="doctortopbar-right">
+
+        <!-- Search -->
+
+        <div class="doctortopbar-search">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search patients, appointments...">
+
+        </div>
+
+        <!-- Notifications -->
+
+        <div class="doctortopbar-notification">
+
+            <i class="fas fa-bell"></i>
+
+            <span class="doctortopbar-badge">
+
+                5
+
+            </span>
+
+        </div>
+
+        <!-- Messages -->
+
+        <div class="doctortopbar-message">
+
+            <i class="fas fa-envelope"></i>
+
+            <span class="doctortopbar-badge">
+
+                3
+
+            </span>
+
+        </div>
+
+        <!-- Doctor Profile -->
+
+        <div class="doctortopbar-profile">
+
+            <div class="doctortopbar-avatar">
+
+                <i class="fas fa-user-md"></i>
+
+            </div>
+
+            <div class="doctortopbar-user">
+
+                <h6>
+
+                    {% if user.first_name %}
+                        Dr. {{ user.first_name }}
+                    {% else %}
+                        Doctor
+                    {% endif %}
+
+                </h6>
+
+                <small>
+
+                    Senior Consultant
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>

@@ -1,14 +1,15 @@
 {% extends 'layouts/dashboard_base.html' %}
-{% load static %}
+
+{% block sidebar %}
+    {% include 'includes/dashboard_sidebar.html' %}
+{% endblock %}
+
+{% block topbar %}
+    {% include 'includes/dashboard_topbar.html' %}
+{% endblock %}
 
 {% block content %}
 
-<div class="dashboard-wrapper">
-
-    {% include 'includes/dashboard_sidebar.html' %}
-    <!-- Main Content -->
-    <main class="dashboard-content">
-        {% include 'includes/dashboard_topbar.html' %}
         <div class="dashboard-header">
 
             <h2>
@@ -254,5 +255,7 @@
     
 
 </div>
+
+
 
 {% endblock %}
