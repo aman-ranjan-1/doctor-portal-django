@@ -1,4 +1,4 @@
-{% extends 'layouts/doctor_dashboard_base.html' %}
+{% extends "layouts/doctor_dashboard_base.html" %}
 {% load static %}
 
 {% block title %}
@@ -6,140 +6,447 @@ Doctor Dashboard
 {% endblock %}
 
 {% block sidebar %}
-    {% include 'doctor/includes/sidebar.html' %}
+    {% include "doctor/includes/sidebar.html" %}
 {% endblock %}
-
 
 {% block content %}
 
+<div class="doctordashboard">
 
-<div class="doctor-dashboard">
+    <!-- Page Heading -->
 
-    <div class="doctor-stats">
+    <div class="doctordash-page-title">
 
-        <div class="row">
+        <h2>
 
-            <div class="col-lg-3 col-md-6 mb-4">
+            Dashboard Overview
 
-                <div class="doctor-stat-card">
+        </h2>
 
-                    <div class="doctor-stat-icon">
+        <p>
 
-                        <i class="fas fa-user-injured"></i>
+            Monitor appointments, patients and daily activities.
+
+        </p>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="doctordash-grid">
+
+        <!-- Card -->
+
+        <div class="doctorstats-card">
+
+            <div class="doctorstats-icon">
+
+                <i class="fas fa-user-injured"></i>
+
+            </div>
+
+            <div class="doctorstats-content">
+
+                <h5>
+
+                    Patients Today
+
+                </h5>
+
+                <h2>
+
+                    28
+
+                </h2>
+
+                <span>
+
+                    +12% than yesterday
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Card -->
+
+        <div class="doctorstats-card">
+
+            <div class="doctorstats-icon success">
+
+                <i class="fas fa-calendar-check"></i>
+
+            </div>
+
+            <div class="doctorstats-content">
+
+                <h5>
+
+                    Appointments
+
+                </h5>
+
+                <h2>
+
+                    18
+
+                </h2>
+
+                <span>
+
+                    Scheduled Today
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Card -->
+
+        <div class="doctorstats-card">
+
+            <div class="doctorstats-icon warning">
+
+                <i class="fas fa-file-medical"></i>
+
+            </div>
+
+            <div class="doctorstats-content">
+
+                <h5>
+
+                    Reports
+
+                </h5>
+
+                <h2>
+
+                    43
+
+                </h2>
+
+                <span>
+
+                    Updated
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Card -->
+
+        <div class="doctorstats-card">
+
+            <div class="doctorstats-icon danger">
+
+                <i class="fas fa-clock"></i>
+
+            </div>
+
+            <div class="doctorstats-content">
+
+                <h5>
+
+                    Pending Cases
+
+                </h5>
+
+                <h2>
+
+                    06
+
+                </h2>
+
+                <span>
+
+                    Need Attention
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Appointments -->
+
+    <div class="doctordash-section">
+
+        <div class="doctordash-section-header">
+
+            <h3>
+
+                Today's Appointments
+
+            </h3>
+
+            <a href="#">
+
+                View All
+
+            </a>
+
+        </div>
+
+        <!-- ==========================================
+     Bottom Section
+========================================== -->
+
+<div class="row mt-4">
+
+    <!-- Recent Patients -->
+
+    <div class="col-lg-8 mb-4">
+
+        <div class="doctorpatients-card">
+
+            <div class="doctorpatients-header">
+
+                <h4>
+
+                    Recent Patients
+
+                </h4>
+
+                <a href="#">
+
+                    View All
+
+                </a>
+
+            </div>
+
+            <table class="table doctorpatients-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Patient</th>
+
+                        <th>Age</th>
+
+                        <th>Disease</th>
+
+                        <th>Visit</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Rahul Sharma</td>
+
+                        <td>32</td>
+
+                        <td>Hypertension</td>
+
+                        <td>Today</td>
+
+                        <td>
+
+                            <span class="badge badge-success">
+
+                                Stable
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Priya Singh</td>
+
+                        <td>28</td>
+
+                        <td>Migraine</td>
+
+                        <td>Today</td>
+
+                        <td>
+
+                            <span class="badge badge-warning">
+
+                                Review
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Amit Kumar</td>
+
+                        <td>47</td>
+
+                        <td>Diabetes</td>
+
+                        <td>Yesterday</td>
+
+                        <td>
+
+                            <span class="badge badge-info">
+
+                                Follow-up
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="col-lg-4 mb-4">
+
+        <div class="doctorquick-card">
+
+            <h4>
+
+                Quick Actions
+
+            </h4>
+
+            <div class="doctorquick-list">
+
+                <a href="#" class="doctorquick-item">
+
+                    <i class="fas fa-user-plus"></i>
+
+                    <span>Add Patient</span>
+
+                </a>
+
+                <a href="#" class="doctorquick-item">
+
+                    <i class="fas fa-calendar-plus"></i>
+
+                    <span>New Appointment</span>
+
+                </a>
+
+                <a href="#" class="doctorquick-item">
+
+                    <i class="fas fa-file-medical"></i>
+
+                    <span>Create Prescription</span>
+
+                </a>
+
+                <a href="#" class="doctorquick-item">
+
+                    <i class="fas fa-notes-medical"></i>
+
+                    <span>Medical Records</span>
+
+                </a>
+
+                <a href="#" class="doctorquick-item">
+
+                    <i class="fas fa-chart-bar"></i>
+
+                    <span>View Reports</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     Dashboard Bottom Widgets
+========================================== -->
+
+<div class="row mt-4">
+
+    <!-- Today's Schedule -->
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="doctorschedule-card">
+
+            <div class="doctorschedule-header">
+
+                <h4>Today's Schedule</h4>
+
+            </div>
+
+            <div class="doctorschedule-list">
+
+                <div class="doctorschedule-item">
+
+                    <div class="doctorschedule-time">
+
+                        09:00 AM
 
                     </div>
 
-                    <div class="doctor-stat-title">
+                    <div class="doctorschedule-content">
 
-                        Today's Patients
+                        <h6>Morning Ward Round</h6>
 
-                    </div>
-
-                    <div class="doctor-stat-number">
-
-                        28
-
-                    </div>
-
-                    <div class="doctor-stat-change">
-
-                        +12% This Week
+                        <p>General Ward</p>
 
                     </div>
 
                 </div>
 
-            </div>
+                <div class="doctorschedule-item">
 
-            <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="doctorschedule-time">
 
-                <div class="doctor-stat-card">
-
-                    <div class="doctor-stat-icon">
-
-                        <i class="fas fa-calendar-check"></i>
+                        11:30 AM
 
                     </div>
 
-                    <div class="doctor-stat-title">
+                    <div class="doctorschedule-content">
 
-                        Appointments
+                        <h6>Heart Surgery</h6>
 
-                    </div>
-
-                    <div class="doctor-stat-number">
-
-                        18
-
-                    </div>
-
-                    <div class="doctor-stat-change">
-
-                        Scheduled Today
+                        <p>Operation Theatre - 2</p>
 
                     </div>
 
                 </div>
 
-            </div>
+                <div class="doctorschedule-item">
 
-            <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="doctorschedule-time">
 
-                <div class="doctor-stat-card">
-
-                    <div class="doctor-stat-icon">
-
-                        <i class="fas fa-check-circle"></i>
+                        03:00 PM
 
                     </div>
 
-                    <div class="doctor-stat-title">
+                    <div class="doctorschedule-content">
 
-                        Completed
+                        <h6>Patient Follow-up</h6>
 
-                    </div>
-
-                    <div class="doctor-stat-number">
-
-                        143
-
-                    </div>
-
-                    <div class="doctor-stat-change">
-
-                        This Month
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4">
-
-                <div class="doctor-stat-card">
-
-                    <div class="doctor-stat-icon">
-
-                        <i class="fas fa-clock"></i>
-
-                    </div>
-
-                    <div class="doctor-stat-title">
-
-                        Pending
-
-                    </div>
-
-                    <div class="doctor-stat-number">
-
-                        6
-
-                    </div>
-
-                    <div class="doctor-stat-change">
-
-                        Awaiting Consultation
+                        <p>Consultation Room</p>
 
                     </div>
 
@@ -151,7 +458,62 @@ Doctor Dashboard
 
     </div>
 
+    <!-- Notifications -->
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="doctornotification-card">
+
+            <div class="doctornotification-header">
+
+                <h4>Recent Notifications</h4>
+
+            </div>
+
+            <div class="doctornotification-list">
+
+                <div class="doctornotification-item">
+
+                    <i class="fas fa-user-plus"></i>
+
+                    <span>New patient appointment booked.</span>
+
+                </div>
+
+                <div class="doctornotification-item">
+
+                    <i class="fas fa-file-medical"></i>
+
+                    <span>Medical report uploaded successfully.</span>
+
+                </div>
+
+                <div class="doctornotification-item">
+
+                    <i class="fas fa-pills"></i>
+
+                    <span>Prescription approved.</span>
+
+                </div>
+
+                <div class="doctornotification-item">
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <span>Today's consultation completed.</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
 </div>
 
 {% endblock %}
-
