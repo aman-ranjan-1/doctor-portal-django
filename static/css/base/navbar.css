@@ -1,42 +1,125 @@
+/* ===========================
+            NAVBAR
+=========================== */
 
-
-.navbar{
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.938),
-        rgba(0, 0, 0, 0.856)
-    );
+.citycare-navbar{
+    background:#171717;
+    padding:5px 0;
+    
 }
 
-.navbar-brand{
-    font-size: 28px;
-    font-weight: 700;
-    color: #0d6efd !important;
+.navbar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* ===========================
+            BRAND
+=========================== */
+
+.citycare-navbar-brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none !important;
+    margin-right:40px;
+}
+
+.citycare-navbar-logo{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    display:block;
+}
+
+.citycare-navbar-text{
+    margin-left:12px;
+    font-size:30px;
+    font-weight:700;
+    color:#0d6efd;
+    white-space:nowrap;
+}
+
+/* ===========================
+            MENU
+=========================== */
+
+.navbar-collapse{
+    justify-content:flex-end;
+}
+
+.navbar-nav{
+    display:flex;
+    align-items:center;
+}
+
+.nav-item{
+    margin-left:8px;
 }
 
 .nav-link{
-    color: #ffffff !important;
-    font-weight: 500;
-    margin: 0 10px;
-    transition: 0.3s;
+    color:#fff !important;
+    font-size:16px;
+    font-weight:500;
+    padding:10px 14px !important;
+    white-space:nowrap;
+    transition:.3s;
 }
 
 .nav-link:hover{
-    color: #0d6efd !important;
+    color:#0d6efd !important;
 }
 
+/* ===========================
+            DROPDOWN
+=========================== */
+
 .dropdown-menu{
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+    border:none;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.dropdown-item{
+    padding:10px 18px;
 }
 
 .dropdown-item:hover{
-    background: #0d6efd;
-    color: white;
+    background:#0d6efd;
+    color:#fff;
 }
 
-.btn-outline-primary,
-.btn-primary{
-    border-radius: 30px;
+/* ===========================
+            BUTTONS
+=========================== */
+
+.btn{
+    border-radius:30px;
+    padding:8px 20px;
+}
+
+/* ===========================
+            RESPONSIVE
+=========================== */
+
+@media (max-width:991px){
+
+    .citycare-navbar-logo{
+        width:46px;
+        height:46px;
+    }
+
+    .citycare-navbar-text{
+        font-size:24px;
+    }
+
+    .navbar-nav{
+        margin-top:20px;
+        text-align:center;
+    }
+
+    .nav-item{
+        margin:8px 0;
+    }
+
 }

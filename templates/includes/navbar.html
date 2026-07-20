@@ -1,138 +1,158 @@
+{% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+<nav class="navbar navbar-expand-lg citycare-navbar">
+
     <div class="container">
 
         <!-- Logo -->
-        <a class="navbar-brand font-weight-bold text-primary" href="{% url 'home' %}">
-            <i class="fas fa-user-md mr-2"></i>Citycare Hospital
+
+        <a class="navbar-brand citycare-navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/icons/citycarelogo.PNG' %}"
+             alt="CityCare Logo"
+            class="citycare-navbar-logo">
+
+            <span class="citycare-navbar-text">
+            CityCare Hospital
+            </span>
         </a>
 
-        <!-- Mobile Toggle -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
+        <!-- Mobile -->
+
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent">
 
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Menu -->
 
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse justify-content-end"
+             id="navbarSupportedContent">
 
-                <li class="nav-item active">
-                    <a class="nav-link " href="{% url 'home' %}">
+            <ul class="navbar-nav align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">
                         Home
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{% url 'about' %}">
-                        About Us
+                    <a class="nav-link" href="{% url 'about' %}">
+                        About
                     </a>
                 </li>
 
                 <li class="nav-item dropdown">
 
-                    <a class="nav-link dropdown-toggle text-white"
-                        href="#"
-                        id="servicesDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       id="servicesDropdown"
+                       role="button"
+                       data-toggle="dropdown">
 
                         Our Services
+
                     </a>
 
                     <div class="dropdown-menu">
 
-                        <a class="dropdown-item" href="#">General Consultation</a>
-                        <a class="dropdown-item" href="#">Specialist Consultation</a>
-                        <a class="dropdown-item" href="#">Prescription Services</a>
-                        <a class="dropdown-item" href="#">Lab Tests & Diagnostics</a>
-                        <a class="dropdown-item" href="#">Health Checkups</a>
-                        <a class="dropdown-item" href="#">Vaccinations</a>
-                        <a class="dropdown-item" href="#">Emergency Care</a>
-                        <a class="dropdown-item" href="#">Physiotherapy</a>
-                        <a class="dropdown-item" href="#">Orthopedics</a>
-                        <a class="dropdown-item" href="#">Online Consultation</a>
+                        <a class="dropdown-item" href="#">
+                            General Consultation
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                            Specialist Consultation
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                            Diagnostics
+                        </a>
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item font-weight-bold text-primary" href="{% url 'services' %}">
+
+                        <a class="dropdown-item text-primary font-weight-bold"
+                           href="{% url 'services' %}">
+
                             View All Services
+
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item font-weight-bold text-primary" href="{% url 'book_appointment' %}">
+                        <a class="dropdown-item text-primary font-weight-bold"
+                           href="{% url 'book_appointment' %}">
+
                             Get Appointment
+
                         </a>
+                        
 
                     </div>
 
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link" href="#">
                         Medical Records
                     </a>
                 </li>
 
                 {% if user.is_authenticated %}
 
-<li class="nav-item d-flex align-items-center ml-lg-3 mr-3">
+                <li class="nav-item ml-lg-3">
 
-    <span class="text-white">
-        <i class="fas fa-user-circle mr-1"></i>
-        {% if user.first_name %}
-    Welcome, {{ user.first_name }}
-{% else %}
-    Welcome, {{ user.username }}
-{% endif %}
-    </span>
+                    <a href="{% url 'patient_dashboard' %}"
+                       class="btn btn-outline-primary">
 
-</li>
+                        Dashboard
 
-<li class="nav-item">
+                    </a>
 
-    <a href="{% url 'patient_dashboard' %}" class="btn btn-outline-primary rounded mr-2">
-        Dashboard
-    </a>
+                </li>
 
-</li>
+                <li class="nav-item ml-2">
 
-<li class="nav-item">
+                    <a href="{% url 'logout' %}"
+                       class="btn btn-danger">
 
-    <a href="{% url 'logout' %}" class="btn btn-danger">
-        Logout
-    </a>
+                        Logout
 
-</li>
+                    </a>
 
-{% else %}
+                </li>
 
-<li class="nav-item ml-lg-3">
+                {% else %}
 
-    <a href="{% url 'login' %}" class="btn btn-outline-primary rounded">
-        Login
-    </a>
+                <li class="nav-item ml-lg-3">
 
-</li>
+                    <a href="{% url 'login' %}"
+                       class="btn btn-outline-primary rounded">
 
-<li class="nav-item ml-2">
+                        Login
 
-    <a href="{% url 'register' %}" class="btn btn-primary rounded">
-        Register
-    </a>
+                    </a>
 
-</li>
+                </li>
 
-{% endif %}
+                <li class="nav-item ml-2">
+
+                    <a href="{% url 'register' %}"
+                       class="btn btn-primary rounded">
+
+                        Register
+
+                    </a>
+
+                </li>
+
+                {% endif %}
 
             </ul>
 
         </div>
 
     </div>
+
 </nav>
