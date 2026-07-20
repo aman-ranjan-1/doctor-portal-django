@@ -22,3 +22,7 @@
 @import url("dashboard/topbar.css");
 @import url("appointments/appointment.css");
 @import url("appointments/my_appointment.css");
+@import url("doctor/layout.css");
+@import url("doctor/sidebar.css");
+@import url("doctor/topbar.css");
+@import url("doctor/dashboard.css");

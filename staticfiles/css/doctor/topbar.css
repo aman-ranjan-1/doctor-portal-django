@@ -1,0 +1,347 @@
+/*=================================================
+            Doctor Dashboard Topbar
+==================================================*/
+
+.doctortopbar{
+
+    height:85px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #e9eef5;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+
+}
+
+/*================ Left =================*/
+
+.doctortopbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.doctortopbar-toggle{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#eef5ff;
+
+    color:#2563eb;
+
+    cursor:pointer;
+
+    display:none;
+
+    transition:.3s;
+
+}
+
+.doctortopbar-toggle:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.doctortopbar-heading h2{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.doctortopbar-heading p{
+
+    margin:4px 0 0;
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+/*================ Right =================*/
+
+.doctortopbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/*================ Search =================*/
+
+.doctortopbar-search{
+
+    position:relative;
+
+}
+
+.doctortopbar-search input{
+
+    width:320px;
+
+    height:46px;
+
+    border:none;
+
+    outline:none;
+
+    background:#f5f7fb;
+
+    border-radius:30px;
+
+    padding-left:48px;
+
+    padding-right:18px;
+
+    transition:.3s;
+
+}
+
+.doctortopbar-search input:focus{
+
+    background:#eef5ff;
+
+}
+
+.doctortopbar-search i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#64748b;
+
+}
+
+/*================ Notification =================*/
+
+.doctortopbar-notification,
+
+.doctortopbar-message{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#f5f7fb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.doctortopbar-notification:hover,
+
+.doctortopbar-message:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.doctortopbar-badge{
+
+    position:absolute;
+
+    top:-2px;
+
+    right:-2px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    font-size:11px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/*================ Profile =================*/
+
+.doctortopbar-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.doctortopbar-avatar{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+}
+
+.doctortopbar-user h6{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.doctortopbar-user small{
+
+    color:#64748b;
+
+}
+
+/*================ Responsive =================*/
+
+@media(max-width:1200px){
+
+    .doctortopbar-search input{
+
+        width:220px;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .doctortopbar{
+
+        padding:20px;
+
+    }
+
+    .doctortopbar-toggle{
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+    }
+
+    .doctortopbar-search{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .doctortopbar{
+
+        flex-wrap:wrap;
+
+        height:auto;
+
+        gap:20px;
+
+        padding:20px;
+
+    }
+
+    .doctortopbar-right{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .doctortopbar-user{
+
+        display:none;
+
+    }
+
+}
