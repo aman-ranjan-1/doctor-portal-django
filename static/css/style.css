@@ -30,6 +30,8 @@
 @import url("dashboard/sidebar.css");
 @import url("dashboard/topbar.css");
 @import url("dashboard/dashboard.css");
+@import url("dashboard/patient_sidebar.css");
+@import url("dashboard/patient_topbar.css");
 
 /* Appointments */
 @import url("appointments/appointment.css");
