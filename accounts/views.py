@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import PatientProfile
+
+from patient.models import Patient
 from doctor.models import Doctor
-# =====================================================
+
+
+# ==========================================
 # Logout
-# =====================================================
+# ==========================================
 
 def logout_page(request):
 
@@ -19,59 +22,30 @@ def logout_page(request):
 
     return redirect("login")
 
-# =====================================================
+
+# ==========================================
 # Login
-# =====================================================
+# ==========================================
 
 def login_page(request):
+
+    if request.user.is_authenticated:
+
+        if hasattr(request.user, "doctor"):
+            return redirect("doctor_dashboard")
+
+        if hasattr(request.user, "patient"):
+            return redirect("patient_dashboard")
 
     if request.method == "POST":
 
         email = request.POST.get("email")
+
         password = request.POST.get("password")
 
         try:
 
             user_obj = User.objects.get(email=email)
-
-            user = authenticate(
-                request,
-                username=user_obj.username,
-                password=password
-            )
-
-            if user is not None:
-
-                login(request, user)
-
-                messages.success(
-                    request,
-                    f"Welcome back, {user.first_name or user.username}!"
-                )
-
-                if Doctor.objects.filter(user=user).exists():
-
-                    return redirect("doctor_dashboard")
-
-                elif PatientProfile.objects.filter(user=user).exists():
-
-                    return redirect("patient_dashboard")
-
-                logout(request)
-
-                messages.error(
-                    request,
-                    "No account role has been assigned. Please contact the administrator."
-                )
-
-                return redirect("login")
-
-            else:
-
-                messages.error(
-                    request,
-                    "Invalid password."
-                )
 
         except User.DoesNotExist:
 
@@ -80,28 +54,80 @@ def login_page(request):
                 "No account found with this email."
             )
 
+            return redirect("login")
+
+        user = authenticate(
+
+            request,
+
+            username=user_obj.username,
+
+            password=password
+
+        )
+
+        if user is None:
+
+            messages.error(
+                request,
+                "Invalid email or password."
+            )
+
+            return redirect("login")
+
+        login(request, user)
+
+        messages.success(
+            request,
+            f"Welcome back, {user.first_name}!"
+        )
+
+        # ===============================
+        # Role Based Redirect
+        # ===============================
+
+        if hasattr(user, "doctor"):
+
+            return redirect("doctor_dashboard")
+
+        elif hasattr(user, "patient"):
+
+            return redirect("patient_dashboard")
+
+        logout(request)
+
+        messages.error(
+
+            request,
+
+            "No role has been assigned to this account."
+
+        )
+
         return redirect("login")
 
-    return render(
-        request,
-        "accounts/login.html"
-    )
-# =====================================================
+    return render(request, "accounts/login.html")
+
+
+# ==========================================
 # Register
-# =====================================================
+# ==========================================
 
 def register_page(request):
 
     if request.method == "POST":
 
         first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
 
-        # Password Match
+        last_name = request.POST.get("last_name")
+
+        username = request.POST.get("username")
+
+        email = request.POST.get("email")
+
+        password1 = request.POST.get("password1")
+
+        password2 = request.POST.get("password2")
 
         if password1 != password2:
 
@@ -112,8 +138,6 @@ def register_page(request):
 
             return redirect("register")
 
-        # Username Exists
-
         if User.objects.filter(username=username).exists():
 
             messages.error(
@@ -123,30 +147,57 @@ def register_page(request):
 
             return redirect("register")
 
-        # Email Exists
-
         if User.objects.filter(email=email).exists():
 
             messages.error(
                 request,
-                "Email already registered."
+                "Email already exists."
             )
 
             return redirect("register")
 
-        # Create User
+        user = User.objects.create_user(
 
-        User.objects.create_user(
-            first_name=first_name,
-            last_name=last_name,
             username=username,
+
             email=email,
+
             password=password1,
+
+            first_name=first_name,
+
+            last_name=last_name,
+
+        )
+
+        # Default role = Patient
+
+        Patient.objects.create(
+
+            user=user,
+
+            patient_id=f"PAT{user.id:04d}",
+
+            gender="Male",
+
+            date_of_birth="2000-01-01",
+
+            blood_group="O+",
+
+            phone="",
+
+            address="",
+
+            emergency_contact="",
+
         )
 
         messages.success(
+
             request,
-            "Account created successfully. Please login."
+
+            "Registration successful. Please login."
+
         )
 
         return redirect("login")

@@ -1,207 +1,151 @@
 {% extends 'layouts/dashboard_base.html' %}
 {% load static %}
 
+{% block title %}
+Book Appointment
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'patient/includes/sidebar.html' %}
+{% endblock %}
+
+{% block topbar %}
+    {% include 'patient/includes/topbar.html' %}
+{% endblock %}
+
 {% block content %}
 
-<div class="dashboard-wrapper">
+<div class="appointment-booking-page">
 
-    {% include 'includes/dashboard_sidebar.html' %}
+    <div class="appointment-booking-header">
 
-    <main class="dashboard-content">
+        <h2>
+            <i class="fas fa-calendar-plus mr-2"></i>
+            Book Appointment
+        </h2>
 
-        {% include 'includes/dashboard_topbar.html' %}
+        <p>
+            Schedule an appointment with one of our specialists.
+        </p>
 
-        <div class="dashboard-header mb-4">
+    </div>
 
-            <h2>
-                <i class="fas fa-calendar-plus text-primary mr-2"></i>
-                Book Appointment
-            </h2>
+    <div class="card shadow border-0">
 
-            <p>
-                Schedule your appointment with our specialists.
-            </p>
+        <div class="card-body">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label>Select Doctor</label>
+
+                    <select
+                        name="doctor"
+                        class="form-control"
+                        required>
+
+                        <option value="">
+                            Choose Doctor
+                        </option>
+
+                        {% for doctor in doctors %}
+
+                        <option value="{{ doctor.id }}">
+
+                            Dr. {{ doctor.user.get_full_name }}
+
+                            -
+
+                            {{ doctor.department }}
+
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+
+                            <label>Appointment Date</label>
+
+                            <input
+                                type="date"
+                                name="appointment_date"
+                                class="form-control"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+
+                            <label>Appointment Time</label>
+
+                            <input
+                                type="time"
+                                name="appointment_time"
+                                class="form-control"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Reason</label>
+
+                    <textarea
+                        name="reason"
+                        rows="4"
+                        class="form-control"
+                        placeholder="Reason for appointment"
+                        required></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Symptoms</label>
+
+                    <textarea
+                        name="symptoms"
+                        rows="4"
+                        class="form-control"
+                        placeholder="Describe your symptoms"
+                        required></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block">
+
+                    <i class="fas fa-calendar-check mr-2"></i>
+
+                    Confirm Appointment
+
+                </button>
+
+            </form>
 
         </div>
 
-        <div class="card shadow border-0 rounded-lg">
-
-            <div class="card-body">
-
-                <form method="POST">
-
-                    {% csrf_token %}
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Patient Name</label>
-
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="patient_name"
-                                    placeholder="Enter patient name">
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Email</label>
-
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    name="email"
-                                    placeholder="Enter email">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Doctor</label>
-
-                                <select class="form-control"
-                                name="doctor">
-
-                                    <option>Select Doctor</option>
-
-                                    <option>Dr. Raj Sharma</option>
-
-                                    <option>Dr. Priya Singh</option>
-
-                                    <option>Dr. Amit Verma</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Department</label>
-
-                                <select class="form-control"name="department"
-                                >
-
-                                    <option>Select Department</option>
-
-                                    <option>Cardiology</option>
-
-                                    <option>Physiotherapy</option>
-
-                                    
-
-                                    <option>Lab Test or Diagnostics</option>
-
-                                    <option>Neurology</option>
-
-                                    <option>Orthopedics</option>
-
-                                    <option>Health Checkups</option>
-
-                                    <option>General Consultation</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Appointment Date</label>
-
-                                <input
-                                    type="date"
-                                    class="form-control" 
-                                    name="appointment_date">
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Appointment Time</label>
-
-                                <input
-                                    type="time"
-                                    class="form-control"
-                                    name="appointment_time">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Reason for Visit</label>
-
-                        <textarea
-                            rows="3"
-                            class="form-control"
-                            placeholder="Enter reason"
-                            name="reason"></textarea>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Symptoms</label>
-
-                        <textarea
-                            rows="3"
-                            class="form-control"
-                            placeholder="Describe symptoms"
-                            name="symptoms"></textarea>
-
-                    </div>
-
-                    <button
-                        class="btn btn-primary btn-lg btn-block">
-
-                        <i class="fas fa-calendar-check mr-2"></i>
-
-                        Book Appointment
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </main>
+    </div>
 
 </div>
 

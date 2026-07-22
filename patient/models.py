@@ -37,25 +37,34 @@ class Patient(models.Model):
     )
 
     gender = models.CharField(
-        max_length=10,
-        choices=GENDER_CHOICES
+    max_length=10,
+    choices=GENDER_CHOICES,
+    blank=True
     )
 
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(
+    null=True,
+    blank=True
+    )
 
     blood_group = models.CharField(
-        max_length=5,
-        choices=BLOOD_GROUPS
+    max_length=5,
+    choices=BLOOD_GROUPS,
+    blank=True
     )
 
     phone = models.CharField(
-        max_length=15
+    max_length=15,
+    blank=True
     )
 
-    address = models.TextField()
+    address = models.TextField(
+    blank=True
+    )
 
     emergency_contact = models.CharField(
-        max_length=15
+    max_length=15,
+    blank=True
     )
 
     profile_image = models.ImageField(

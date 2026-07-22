@@ -1,8 +1,6 @@
 from django.shortcuts import redirect
 from django.contrib import messages
 from functools import wraps
-from .models import PatientProfile
-from doctor.models import Doctor
 
 
 def patient_required(view_func):
@@ -11,14 +9,12 @@ def patient_required(view_func):
     def wrapper(request, *args, **kwargs):
 
         if not request.user.is_authenticated:
-
             return redirect("login")
 
-        if PatientProfile.objects.filter(user=request.user).exists():
-
+        if hasattr(request.user, "patient"):
             return view_func(request, *args, **kwargs)
 
-        messages.error(request, "You are not authorized to access this page.")
+        messages.error(request, "Patient access only.")
 
         return redirect("login")
 
@@ -31,14 +27,12 @@ def doctor_required(view_func):
     def wrapper(request, *args, **kwargs):
 
         if not request.user.is_authenticated:
-
             return redirect("login")
 
-        if Doctor.objects.filter(user=request.user).exists():
-
+        if hasattr(request.user, "doctor"):
             return view_func(request, *args, **kwargs)
 
-        messages.error(request, "You are not authorized to access this page.")
+        messages.error(request, "Doctor access only.")
 
         return redirect("login")
 

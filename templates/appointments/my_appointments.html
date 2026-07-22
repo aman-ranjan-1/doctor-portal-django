@@ -1,203 +1,149 @@
 {% extends 'layouts/dashboard_base.html' %}
 {% load static %}
 
+{% block title %}
+My Appointments
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'patient/includes/sidebar.html' %}
+{% endblock %}
+
+{% block topbar %}
+    {% include 'patient/includes/topbar.html' %}
+{% endblock %}
+
 {% block content %}
 
-<div class="dashboard-wrapper">
+<div class="appointment-list-page">
 
-    {% include 'includes/dashboard_sidebar.html' %}
-    <!-- Main Content -->
-    <main class="dashboard-content">
-        {% include 'includes/dashboard_topbar.html' %}
-        
-        <section class="dashboard-summary">
+    <div class="appointment-list-header">
 
-    <div class="row">
+        <h2>
 
-        <!-- Upcoming Appointments -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <i class="fas fa-calendar-check mr-2"></i>
 
-            <div class="card summary-card">
+            My Appointments
 
-                <div class="card-body">
+        </h2>
 
-                    <div class="summary-icon">
+        <p>
 
-                        <i class="fas fa-calendar-check"></i>
+            View all your booked appointments.
 
-                    </div>
-
-                    <h2 class="summary-number">{{ total_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Total Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Next visit on Monday
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Doctors -->
-
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-
-            <div class="card summary-card">
-
-                <div class="card-body">
-
-                    <div class="summary-icon">
-
-                        <i class="fas fa-user-md"></i>
-
-                    </div>
-
-                    <h2 class="summary-number">{{ confirmed_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Confirmed Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Available Specialists
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Prescriptions -->
-
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-
-            <div class="card summary-card">
-
-                <div class="card-body">
-
-                    <div class="summary-icon">
-
-                        <i class="fas fa-prescription-bottle-alt"></i>
-
-                    </div>
-
-                    <h2 class="summary-number">{{ pending_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Pending Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Active Medicines
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Medical Records -->
-
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-
-            <div class="card summary-card">
-
-                <div class="card-body">
-
-                    <div class="summary-icon">
-
-                        <i class="fas fa-file-medical"></i>
-
-                    </div>
-
-                    <h2 class="summary-number">{{ cancelled_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Cancelled Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Updated Yesterday
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
+        </p>
 
     </div>
 
-</section>
+    <div class="card shadow border-0">
 
-
-
-<section class="appointments-section">
-
-    <div class="card appointment-card">
-
-        <!-- Card Header -->
-
-        <div class="appointment-header">
-
-            <div class="d-flex align-items-center">
-
-                <i class="fas fa-calendar-check mr-2 text-primary"></i>
-
-                <h4 class="mb-0">
-                    My Appointments
-                </h4>
-                <a class="btn btn-outline-primary rounded btn-lg ml-4" href="{% url 'book_appointment' %}">
-                Get Appointment
-                </a>
-            </div>
-
-        </div>
-
-        <!-- Appointment Table -->
-
-        <div class="table-responsive">
+        <div class="card-body p-0">
 
             <table class="table table-hover mb-0">
 
-                <thead>
+                <thead class="thead-light">
+
+                    <tr>
+
+                        <th>Doctor</th>
+
+                        <th>Department</th>
+
+                        <th>Date</th>
+
+                        <th>Time</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
 
                     {% for appointment in appointments %}
 
                     <tr>
 
-                        <td>{{ forloop.counter }}</td>
+                        <td>
 
-                        <td>{{ appointment.doctor }}</td>
+                            Dr. {{ appointment.doctor.user.get_full_name }}
 
-                        <td>{{ appointment.department }}</td>
-
-                        <td>{{ appointment.appointment_date }}</td>
-
-                        <td>{{ appointment.appointment_time }}</td>
-
-                        <td>{{ appointment.status }}</td>
+                        </td>
 
                         <td>
-                            View Button
+
+                            {{ appointment.doctor.department }}
+
+                        </td>
+
+                        <td>
+
+                            {{ appointment.appointment_date }}
+
+                        </td>
+
+                        <td>
+
+                            {{ appointment.appointment_time }}
+
+                        </td>
+
+                        <td>
+
+                            {% if appointment.status == "Confirmed" %}
+
+                                <span class="badge badge-success">
+
+                                    Confirmed
+
+                                </span>
+
+                            {% elif appointment.status == "Pending" %}
+
+                                <span class="badge badge-warning">
+
+                                    Pending
+
+                                </span>
+
+                            {% elif appointment.status == "Completed" %}
+
+                                <span class="badge badge-primary">
+
+                                    Completed
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="badge badge-danger">
+
+                                    Cancelled
+
+                                </span>
+
+                            {% endif %}
+
                         </td>
 
                     </tr>
 
-                        {% empty %}
+                    {% empty %}
 
                     <tr>
 
-                        <td colspan="7">
+                        <td colspan="5" class="text-center py-5">
 
-                        No appointments found.
+                            <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
+
+                            <h5>No Appointments Found</h5>
+
+                            <p class="text-muted">
+
+                                Book your first appointment.
+
+                            </p>
 
                         </td>
 
@@ -212,10 +158,6 @@
         </div>
 
     </div>
-
-</section>
-    </main>
-    
 
 </div>
 
