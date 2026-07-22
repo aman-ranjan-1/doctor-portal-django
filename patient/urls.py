@@ -13,4 +13,9 @@ urlpatterns = [
     views.profile,
     name="patient_profile",
     ),
+    path(
+    "medical-records/",
+    views.medical_records,
+    name="medical_records",
+    ),
 ]

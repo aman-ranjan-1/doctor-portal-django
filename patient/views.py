@@ -74,3 +74,20 @@ def profile(request):
         "patient/profile.html",
         context,
     )
+
+@patient_required
+def medical_records(request):
+
+    records = []
+
+    context = {
+
+        "records": records,
+
+    }
+
+    return render(
+        request,
+        "patient/medical_records.html",
+        context,
+    )

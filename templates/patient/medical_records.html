@@ -1,0 +1,139 @@
+{% extends "layouts/dashboard_base.html" %}
+
+{% block title %}
+Medical Records
+{% endblock %}
+
+{% block sidebar %}
+    {% include "patient/includes/sidebar.html" %}
+{% endblock %}
+
+{% block topbar %}
+    {% include "patient/includes/topbar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="patient-records-page">
+
+    <div class="patient-records-header">
+
+        <div>
+
+            <h2>
+
+                <i class="fas fa-file-medical"></i>
+
+                Medical Records
+
+            </h2>
+
+            <p>
+
+                View all your medical reports and history.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="patient-records-card">
+
+        <table class="table patient-record-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Doctor</th>
+
+                    <th>Department</th>
+
+                    <th>Diagnosis</th>
+
+                    <th>Prescription</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for record in records %}
+
+                <tr>
+
+                    <td>{{ record.created_at|date:"d M Y" }}</td>
+
+                    <td>Dr. {{ record.doctor.user.get_full_name }}</td>
+
+                    <td>{{ record.doctor.department }}</td>
+
+                    <td>{{ record.diagnosis }}</td>
+
+                    <td>
+
+                        <a href="#" class="patient-download-btn">
+
+                            View
+
+                        </a>
+
+                    </td>
+
+                    <td>
+
+                        <span class="patient-status completed">
+
+                            Available
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="6">
+
+                        <div class="patient-empty-state">
+
+                            <i class="fas fa-file-medical"></i>
+
+                            <h3>
+
+                                No Medical Records
+
+                            </h3>
+
+                            <p>
+
+                                Your medical history will appear here.
+
+                            </p>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
