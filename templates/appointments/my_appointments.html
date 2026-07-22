@@ -1,5 +1,4 @@
-{% extends 'layouts/dashboard_base.html' %}
-{% load static %}
+{% extends "layouts/dashboard_base.html" %}
 
 {% block title %}
 My Appointments
@@ -15,33 +14,51 @@ My Appointments
 
 {% block content %}
 
-<div class="appointment-list-page">
+<div class="patient-appointments-page">
 
-    <div class="appointment-list-header">
+    <!-- Header -->
 
-        <h2>
+    <div class="patient-appointments-header">
 
-            <i class="fas fa-calendar-check mr-2"></i>
+        <div>
 
-            My Appointments
+            <h2>
 
-        </h2>
+                <i class="fas fa-calendar-check"></i>
 
-        <p>
+                My Appointments
 
-            View all your booked appointments.
+            </h2>
 
-        </p>
+            <p>
+
+                View and manage all your booked appointments.
+
+            </p>
+
+        </div>
+
+        <a href="{% url 'book_appointment' %}" class="patient-primary-btn">
+
+            <i class="fas fa-plus mr-2"></i>
+
+            Book Appointment
+
+        </a>
 
     </div>
 
-    <div class="card shadow border-0">
+    <!-- Table Card -->
 
-        <div class="card-body p-0">
+    <div class="patient-appointments-card">
 
-            <table class="table table-hover mb-0">
+        {% if appointments %}
 
-                <thead class="thead-light">
+        <div class="table-responsive">
+
+            <table class="table patient-appointments-table">
+
+                <thead>
 
                     <tr>
 
@@ -55,6 +72,8 @@ My Appointments
 
                         <th>Status</th>
 
+                        <th>Action</th>
+
                     </tr>
 
                 </thead>
@@ -67,7 +86,21 @@ My Appointments
 
                         <td>
 
-                            Dr. {{ appointment.doctor.user.get_full_name }}
+                            <div class="patient-doctor-info">
+
+                                <div class="patient-doctor-avatar">
+
+                                    <i class="fas fa-user-md"></i>
+
+                                </div>
+
+                                <span>
+
+                                    Dr. {{ appointment.doctor.user.get_full_name }}
+
+                                </span>
+
+                            </div>
 
                         </td>
 
@@ -93,7 +126,7 @@ My Appointments
 
                             {% if appointment.status == "Confirmed" %}
 
-                                <span class="badge badge-success">
+                                <span class="patient-status confirmed">
 
                                     Confirmed
 
@@ -101,7 +134,7 @@ My Appointments
 
                             {% elif appointment.status == "Pending" %}
 
-                                <span class="badge badge-warning">
+                                <span class="patient-status pending">
 
                                     Pending
 
@@ -109,7 +142,7 @@ My Appointments
 
                             {% elif appointment.status == "Completed" %}
 
-                                <span class="badge badge-primary">
+                                <span class="patient-status completed">
 
                                     Completed
 
@@ -117,7 +150,7 @@ My Appointments
 
                             {% else %}
 
-                                <span class="badge badge-danger">
+                                <span class="patient-status cancelled">
 
                                     Cancelled
 
@@ -127,23 +160,13 @@ My Appointments
 
                         </td>
 
-                    </tr>
+                        <td>
 
-                    {% empty %}
+                            <button class="patient-table-btn">
 
-                    <tr>
+                                View
 
-                        <td colspan="5" class="text-center py-5">
-
-                            <i class="fas fa-calendar-times fa-3x text-muted mb-3"></i>
-
-                            <h5>No Appointments Found</h5>
-
-                            <p class="text-muted">
-
-                                Book your first appointment.
-
-                            </p>
+                            </button>
 
                         </td>
 
@@ -156,6 +179,34 @@ My Appointments
             </table>
 
         </div>
+
+        {% else %}
+
+        <div class="patient-empty-state">
+
+            <i class="fas fa-calendar-times"></i>
+
+            <h3>
+
+                No Appointments Yet
+
+            </h3>
+
+            <p>
+
+                You haven't booked any appointments.
+
+            </p>
+
+            <a href="{% url 'book_appointment' %}" class="patient-primary-btn">
+
+                Book Your First Appointment
+
+            </a>
+
+        </div>
+
+        {% endif %}
 
     </div>
 
