@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from accounts.decorators import patient_required
 from appointments.models import Appointment
 
-
-@login_required(login_url='login')
+@patient_required
 def dashboard(request):
 
-    appointments = Appointment.objects.filter(user=request.user)
+    appointments = Appointment.objects.filter(
+        user=request.user
+    )
 
-    # Dashboard Statistics
     total_appointments = appointments.count()
 
     confirmed_appointments = appointments.filter(
@@ -23,18 +23,28 @@ def dashboard(request):
         status="Cancelled"
     ).count()
 
-    # Upcoming Appointments
     upcoming_appointments = appointments.order_by(
         "appointment_date"
     )[:5]
 
     context = {
+
         "page_title": "Patient Dashboard",
+
         "total_appointments": total_appointments,
+
         "confirmed_appointments": confirmed_appointments,
+
         "pending_appointments": pending_appointments,
+
         "cancelled_appointments": cancelled_appointments,
+
         "upcoming_appointments": upcoming_appointments,
+
     }
 
-    return render(request, "patient/dashboard.html", context)
+    return render(
+        request,
+        "patient/dashboard.html",
+        context
+    )

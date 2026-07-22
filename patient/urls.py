@@ -6,7 +6,7 @@ urlpatterns = [
     path(
         "dashboard/",
         views.dashboard,
-        name="patient_dashboard"
+        name="patient_dashboard",
     ),
 
 ]

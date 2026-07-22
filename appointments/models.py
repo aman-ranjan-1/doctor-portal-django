@@ -1,25 +1,30 @@
 from django.db import models
-from django.contrib.auth.models import User
+from patient.models import Patient
+from doctor.models import Doctor
+
 
 class Appointment(models.Model):
-    user = models.ForeignKey(
-    User,
-    on_delete=models.CASCADE,
-    related_name="appointments"
-)
+
     STATUS_CHOICES = [
+
         ("Pending", "Pending"),
         ("Confirmed", "Confirmed"),
+        ("Completed", "Completed"),
         ("Cancelled", "Cancelled"),
+
     ]
 
-    patient_name = models.CharField(max_length=100)
+    patient = models.ForeignKey(
+        Patient,
+        on_delete=models.CASCADE,
+        related_name="appointments"
+    )
 
-    email = models.EmailField()
-
-    doctor = models.CharField(max_length=100)
-
-    department = models.CharField(max_length=100)
+    doctor = models.ForeignKey(
+        Doctor,
+        on_delete=models.CASCADE,
+        related_name="appointments"
+    )
 
     appointment_date = models.DateField()
 
@@ -35,7 +40,14 @@ class Appointment(models.Model):
         default="Pending"
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+
+        ordering = ["-appointment_date", "-appointment_time"]
 
     def __str__(self):
-        return f"{self.patient_name} - {self.doctor}"
+
+        return f"{self.patient.user.get_full_name()} → Dr. {self.doctor.user.get_full_name()}"

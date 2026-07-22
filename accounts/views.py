@@ -1,13 +1,27 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth import logout
+from .models import PatientProfile
+from doctor.models import Doctor
+# =====================================================
+# Logout
+# =====================================================
 
 def logout_page(request):
+
     logout(request)
-    messages.success(request, "You have been logged out successfully.")
+
+    messages.success(
+        request,
+        "You have been logged out successfully."
+    )
+
     return redirect("login")
+
+# =====================================================
+# Login
+# =====================================================
 
 def login_page(request):
 
@@ -30,22 +44,51 @@ def login_page(request):
 
                 login(request, user)
 
-                messages.success(request, f"Welcome back, {user.first_name}!")
+                messages.success(
+                    request,
+                    f"Welcome back, {user.first_name or user.username}!"
+                )
 
-                return redirect("patient_dashboard")
+                if Doctor.objects.filter(user=user).exists():
+
+                    return redirect("doctor_dashboard")
+
+                elif PatientProfile.objects.filter(user=user).exists():
+
+                    return redirect("patient_dashboard")
+
+                logout(request)
+
+                messages.error(
+                    request,
+                    "No account role has been assigned. Please contact the administrator."
+                )
+
+                return redirect("login")
 
             else:
 
-                messages.error(request, "Invalid password.")
+                messages.error(
+                    request,
+                    "Invalid password."
+                )
 
         except User.DoesNotExist:
 
-            messages.error(request, "No account found with this email.")
+            messages.error(
+                request,
+                "No account found with this email."
+            )
 
         return redirect("login")
 
-    return render(request, "accounts/login.html")
-
+    return render(
+        request,
+        "accounts/login.html"
+    )
+# =====================================================
+# Register
+# =====================================================
 
 def register_page(request):
 
@@ -58,22 +101,41 @@ def register_page(request):
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
 
-        # Check if passwords match
+        # Password Match
+
         if password1 != password2:
-            messages.error(request, "Passwords do not match.")
+
+            messages.error(
+                request,
+                "Passwords do not match."
+            )
+
             return redirect("register")
 
-        # Check if username already exists
+        # Username Exists
+
         if User.objects.filter(username=username).exists():
-            messages.error(request, "Username already exists.")
+
+            messages.error(
+                request,
+                "Username already exists."
+            )
+
             return redirect("register")
 
-        # Check if email already exists
+        # Email Exists
+
         if User.objects.filter(email=email).exists():
-            messages.error(request, "Email already registered.")
+
+            messages.error(
+                request,
+                "Email already registered."
+            )
+
             return redirect("register")
 
-        # Create user
+        # Create User
+
         User.objects.create_user(
             first_name=first_name,
             last_name=last_name,
@@ -82,7 +144,14 @@ def register_page(request):
             password=password1,
         )
 
-        messages.success(request, "Account created successfully.")
+        messages.success(
+            request,
+            "Account created successfully. Please login."
+        )
+
         return redirect("login")
 
-    return render(request, "accounts/register.html")
+    return render(
+        request,
+        "accounts/register.html"
+    )
