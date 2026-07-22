@@ -1,0 +1,115 @@
+<aside class="patientsidebar">
+
+    <div class="patientsidebar-header">
+
+        <div class="patientsidebar-logo">
+            <i class="fas fa-hospital-user"></i>
+        </div>
+
+        <h3>CityCare</h3>
+
+        <span>Patient Panel</span>
+
+    </div>
+
+    <div class="patientsidebar-profile">
+
+        <div class="patientsidebar-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <div class="patientsidebar-info">
+
+            <h5>
+
+                {% if user.first_name %}
+                    {{ user.first_name }}
+                {% else %}
+                    Patient
+                {% endif %}
+
+            </h5>
+
+            <small>Patient</small>
+
+        </div>
+
+    </div>
+
+    <ul class="patientsidebar-menu">
+
+        <li>
+
+            <a href="{% url 'patient_dashboard' %}">
+
+                <i class="fas fa-home"></i>
+
+                Dashboard
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'book_appointment' %}">
+
+                <i class="fas fa-calendar-plus"></i>
+
+                Book Appointment
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'my_appointments' %}">
+
+                <i class="fas fa-calendar-check"></i>
+
+                My Appointments
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-file-medical"></i>
+
+                Medical Records
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fas fa-user-circle"></i>
+
+                Profile
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fas fa-sign-out-alt"></i>
+
+                Logout
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>

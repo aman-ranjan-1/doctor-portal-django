@@ -1,0 +1,91 @@
+<header class="patienttopbar">
+
+    <div class="patienttopbar-left">
+
+        <button class="patienttopbar-toggle">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+        <div class="patienttopbar-heading">
+
+            <h2>
+
+                Patient Dashboard
+
+            </h2>
+
+            <p>
+
+                Welcome,
+
+                {% if user.first_name %}
+                    {{ user.first_name }}
+                {% else %}
+                    Patient
+                {% endif %}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="patienttopbar-right">
+
+        <div class="patienttopbar-search">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search...">
+
+        </div>
+
+        <div class="patienttopbar-notification">
+
+            <i class="fas fa-bell"></i>
+
+            <span class="patienttopbar-badge">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div class="patienttopbar-profile">
+
+            <div class="patienttopbar-avatar">
+
+                <i class="fas fa-user"></i>
+
+            </div>
+
+            <div class="patienttopbar-user">
+
+                <h6>
+
+                    {% if user.first_name %}
+                        {{ user.first_name }}
+                    {% else %}
+                        Patient
+                    {% endif %}
+
+                </h6>
+
+                <small>
+
+                    Patient
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>

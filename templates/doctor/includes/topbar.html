@@ -1,14 +1,14 @@
-<header class="doctortopbar">
+<header class="dashboard-topbar">
 
-    <div class="doctortopbar-left">
+    <div class="dashboard-topbar-left">
 
-        <button class="doctortopbar-toggle">
+        <button class="dashboard-toggle">
 
             <i class="fas fa-bars"></i>
 
         </button>
 
-        <div class="doctortopbar-heading">
+        <div class="dashboard-heading">
 
             <h2>
 
@@ -19,6 +19,7 @@
             <p>
 
                 Welcome back,
+
                 {% if user.first_name %}
                     Dr. {{ user.first_name }}
                 {% else %}
@@ -31,11 +32,11 @@
 
     </div>
 
-    <div class="doctortopbar-right">
+    <div class="dashboard-topbar-right">
 
         <!-- Search -->
 
-        <div class="doctortopbar-search">
+        <div class="dashboard-search">
 
             <i class="fas fa-search"></i>
 
@@ -47,11 +48,11 @@
 
         <!-- Notifications -->
 
-        <div class="doctortopbar-notification">
+        <div class="dashboard-icon">
 
             <i class="fas fa-bell"></i>
 
-            <span class="doctortopbar-badge">
+            <span class="dashboard-badge">
 
                 5
 
@@ -61,11 +62,11 @@
 
         <!-- Messages -->
 
-        <div class="doctortopbar-message">
+        <div class="dashboard-icon">
 
             <i class="fas fa-envelope"></i>
 
-            <span class="doctortopbar-badge">
+            <span class="dashboard-badge">
 
                 3
 
@@ -75,15 +76,15 @@
 
         <!-- Doctor Profile -->
 
-        <div class="doctortopbar-profile">
+        <div class="dashboard-profile-box">
 
-            <div class="doctortopbar-avatar">
+            <div class="dashboard-avatar-small">
 
                 <i class="fas fa-user-md"></i>
 
             </div>
 
-            <div class="doctortopbar-user">
+            <div class="dashboard-user">
 
                 <h6>
 

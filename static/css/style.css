@@ -2,6 +2,8 @@
 @import url("base/navbar.css");
 @import url("base/footer.css");
 @import url("base/responsive.css");
+
+/* Home */
 @import url("home/hero.css");
 @import url("home/about.css");
 @import url("home/services.css");
@@ -15,14 +17,20 @@
 @import url("home/doctor-availability.css");
 @import url("home/doctors-faq.css");
 @import url("home/doctors-final-cta.css");
+
+/* Contact */
 @import url("contact/contact.css");
+
+/* Accounts */
 @import url("accounts/login.css");
 @import url("accounts/register.css");
-@import url("dashboard/dashboard.css");
+
+/* Dashboard (Shared) */
+@import url("dashboard/layout.css");
+@import url("dashboard/sidebar.css");
 @import url("dashboard/topbar.css");
+@import url("dashboard/dashboard.css");
+
+/* Appointments */
 @import url("appointments/appointment.css");
 @import url("appointments/my_appointment.css");
-@import url("doctor/layout.css");
-@import url("doctor/sidebar.css");
-@import url("doctor/topbar.css");
-@import url("doctor/dashboard.css");

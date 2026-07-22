@@ -54,13 +54,11 @@ Book Appointment
                         {% for doctor in doctors %}
 
                         <option value="{{ doctor.id }}">
-
                             Dr. {{ doctor.user.get_full_name }}
-
-                            -
-
-                            {{ doctor.department }}
-
+                            |
+                            {{ doctor.specialization }}
+                            |
+                            ₹{{ doctor.consultation_fee }}
                         </option>
 
                         {% endfor %}

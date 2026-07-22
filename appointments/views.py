@@ -6,28 +6,46 @@ from .models import Appointment
 from patient.models import Patient
 from doctor.models import Doctor
 
+
+# ==========================================
+# Book Appointment
+# ==========================================
+
 @login_required(login_url="login")
 def book_appointment(request):
 
     try:
         patient = Patient.objects.get(user=request.user)
+
     except Patient.DoesNotExist:
+
         messages.error(request, "Patient profile not found.")
+
         return redirect("patient_dashboard")
 
-    available = models.BooleanField(default=True)
+    # Load all available doctors
+    doctors = Doctor.objects.filter(
+        available=True
+    )
 
     if request.method == "POST":
 
         doctor_id = request.POST.get("doctor")
 
         try:
+
             doctor = Doctor.objects.get(
                 id=doctor_id,
                 available=True
             )
+
         except Doctor.DoesNotExist:
-            messages.error(request, "Please select a valid doctor.")
+
+            messages.error(
+                request,
+                "Please select a valid doctor."
+            )
+
             return redirect("book_appointment")
 
         Appointment.objects.create(
@@ -46,7 +64,10 @@ def book_appointment(request):
 
         )
 
-        messages.success(request, "Appointment booked successfully.")
+        messages.success(
+            request,
+            "Appointment booked successfully."
+        )
 
         return redirect("my_appointments")
 
@@ -71,18 +92,22 @@ def book_appointment(request):
 def my_appointments(request):
 
     try:
-        patient = Patient.objects.get(user=request.user)
+
+        patient = Patient.objects.get(
+            user=request.user
+        )
 
     except Patient.DoesNotExist:
 
-        messages.error(request, "Patient profile not found.")
+        messages.error(
+            request,
+            "Patient profile not found."
+        )
 
         return redirect("patient_dashboard")
 
     appointments = Appointment.objects.filter(
-
         patient=patient
-
     )
 
     context = {
@@ -92,11 +117,7 @@ def my_appointments(request):
     }
 
     return render(
-
         request,
-
         "appointments/my_appointments.html",
-
         context,
-
     )
