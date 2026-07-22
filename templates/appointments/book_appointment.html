@@ -1,147 +1,153 @@
-{% extends 'layouts/dashboard_base.html' %}
-{% load static %}
+{% extends "layouts/dashboard_base.html" %}
 
 {% block title %}
 Book Appointment
 {% endblock %}
 
 {% block sidebar %}
-    {% include 'patient/includes/sidebar.html' %}
+    {% include "patient/includes/sidebar.html" %}
 {% endblock %}
 
 {% block topbar %}
-    {% include 'patient/includes/topbar.html' %}
+    {% include "patient/includes/topbar.html" %}
 {% endblock %}
 
 {% block content %}
 
-<div class="appointment-booking-page">
+<div class="patient-book-page">
 
-    <div class="appointment-booking-header">
+    <div class="patient-book-header">
 
-        <h2>
-            <i class="fas fa-calendar-plus mr-2"></i>
-            Book Appointment
-        </h2>
+        <div>
 
-        <p>
-            Schedule an appointment with one of our specialists.
-        </p>
+            <h2>Book Appointment</h2>
+
+            <p>
+                Schedule an appointment with one of our available doctors.
+            </p>
+
+        </div>
 
     </div>
 
-    <div class="card shadow border-0">
+    <div class="patient-book-card">
 
-        <div class="card-body">
+        <form method="POST">
 
-            <form method="POST">
+            {% csrf_token %}
 
-                {% csrf_token %}
+            <div class="row">
 
-                <div class="form-group">
+                <div class="col-md-6">
 
-                    <label>Select Doctor</label>
+                    <div class="patient-book-group">
 
-                    <select
-                        name="doctor"
-                        class="form-control"
-                        required>
+                        <label>Select Doctor</label>
 
-                        <option value="">
-                            Choose Doctor
-                        </option>
+                        <select
+                            name="doctor"
+                            class="form-control"
+                            required>
 
-                        {% for doctor in doctors %}
+                            <option value="">
+                                Choose Doctor
+                            </option>
 
-                        <option value="{{ doctor.id }}">
-                            Dr. {{ doctor.user.get_full_name }}
-                            |
-                            {{ doctor.specialization }}
-                            |
-                            ₹{{ doctor.consultation_fee }}
-                        </option>
+                            {% for doctor in doctors %}
 
-                        {% endfor %}
+                            <option value="{{ doctor.id }}">
 
-                    </select>
+                                Dr. {{ doctor.user.get_full_name }}
 
-                </div>
+                                —
 
-                <div class="row">
+                                {{ doctor.department }}
 
-                    <div class="col-md-6">
+                            </option>
 
-                        <div class="form-group">
+                            {% endfor %}
 
-                            <label>Appointment Date</label>
-
-                            <input
-                                type="date"
-                                name="appointment_date"
-                                class="form-control"
-                                required>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-
-                            <label>Appointment Time</label>
-
-                            <input
-                                type="time"
-                                name="appointment_time"
-                                class="form-control"
-                                required>
-
-                        </div>
+                        </select>
 
                     </div>
 
                 </div>
 
-                <div class="form-group">
+                <div class="col-md-6">
 
-                    <label>Reason</label>
+                    <div class="patient-book-group">
 
-                    <textarea
-                        name="reason"
-                        rows="4"
-                        class="form-control"
-                        placeholder="Reason for appointment"
-                        required></textarea>
+                        <label>Appointment Date</label>
 
-                </div>
+                        <input
+                            type="date"
+                            name="appointment_date"
+                            class="form-control"
+                            required>
 
-                <div class="form-group">
-
-                    <label>Symptoms</label>
-
-                    <textarea
-                        name="symptoms"
-                        rows="4"
-                        class="form-control"
-                        placeholder="Describe your symptoms"
-                        required></textarea>
+                    </div>
 
                 </div>
 
-                <button
-                    type="submit"
-                    class="btn btn-primary btn-lg btn-block">
+            </div>
 
-                    <i class="fas fa-calendar-check mr-2"></i>
+            <div class="row">
 
-                    Confirm Appointment
+                <div class="col-md-6">
 
-                </button>
+                    <div class="patient-book-group">
 
-            </form>
+                        <label>Appointment Time</label>
 
-        </div>
+                        <input
+                            type="time"
+                            name="appointment_time"
+                            class="form-control"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="patient-book-group">
+
+                <label>Reason for Visit</label>
+
+                <textarea
+                    name="reason"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Briefly describe your reason..."
+                    required></textarea>
+
+            </div>
+
+            <div class="patient-book-group">
+
+                <label>Symptoms</label>
+
+                <textarea
+                    name="symptoms"
+                    rows="4"
+                    class="form-control"
+                    placeholder="Describe your symptoms..."
+                    required></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="patient-book-btn">
+
+                <i class="fas fa-calendar-check mr-2"></i>
+
+                Confirm Appointment
+
+            </button>
+
+        </form>
 
     </div>
 

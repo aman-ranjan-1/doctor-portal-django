@@ -1,4 +1,8 @@
-{% extends 'layouts/dashboard_base.html' %}
+{% extends "layouts/dashboard_base.html" %}
+
+{% block title %}
+Patient Dashboard
+{% endblock %}
 
 {% block sidebar %}
     {% include "patient/includes/sidebar.html" %}
@@ -10,43 +14,43 @@
 
 {% block content %}
 
-        <div class="dashboard-header">
+<div class="patient-dashboard">
 
-            <h2>
-                Today's Overview
-            </h2>
+    <!-- Header -->
+
+    <div class="patient-dashboard-header">
+
+        <div>
+
+            <h2>Today's Overview</h2>
 
             <p>
-                Track Your Appointments and Health Records.
+                Track your appointments and health records.
             </p>
 
         </div>
-        <section class="dashboard-summary">
 
-    <div class="row">
+    </div>
 
-        <!-- Upcoming Appointments -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+    <!-- Stats -->
 
-            <div class="card summary-card">
+    <div class="row patient-stats-row">
 
-                <div class="card-body">
+        <div class="col-lg-3 col-md-6 mb-4">
 
-                    <div class="summary-icon">
+            <div class="patient-stat-card">
 
-                        <i class="fas fa-calendar-check"></i>
+                <div class="patient-stat-icon">
 
-                    </div>
+                    <i class="fas fa-calendar-check"></i>
 
-                    <h2 class="summary-number">{{ total_appointments }}</h2>
+                </div>
 
-                    <h5 class="summary-title">
-                        Total Appointments
-                    </h5>
+                <div class="patient-stat-content">
 
-                    <p class="summary-text">
-                        Next visit on Monday
-                    </p>
+                    <h3>{{ total_appointments }}</h3>
+
+                    <span>Total Appointments</span>
 
                 </div>
 
@@ -54,29 +58,21 @@
 
         </div>
 
-        
+        <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="patient-stat-card">
 
-            <div class="card summary-card">
+                <div class="patient-stat-icon success">
 
-                <div class="card-body">
+                    <i class="fas fa-check-circle"></i>
 
-                    <div class="summary-icon">
+                </div>
 
-                        <i class="fas fa-user-md"></i>
+                <div class="patient-stat-content">
 
-                    </div>
+                    <h3>{{ confirmed_appointments }}</h3>
 
-                    <h2 class="summary-number">{{ confirmed_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Confirmed Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        
-                    </p>
+                    <span>Confirmed</span>
 
                 </div>
 
@@ -84,29 +80,21 @@
 
         </div>
 
-        <!-- Prescriptions -->
+        <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="patient-stat-card">
 
-            <div class="card summary-card">
+                <div class="patient-stat-icon warning">
 
-                <div class="card-body">
+                    <i class="fas fa-clock"></i>
 
-                    <div class="summary-icon">
+                </div>
 
-                        <i class="fas fa-prescription-bottle-alt"></i>
+                <div class="patient-stat-content">
 
-                    </div>
+                    <h3>{{ pending_appointments }}</h3>
 
-                    <h2 class="summary-number">{{ pending_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Pending Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Active Medicines
-                    </p>
+                    <span>Pending</span>
 
                 </div>
 
@@ -114,29 +102,21 @@
 
         </div>
 
-        <!-- Medical Records -->
+        <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="patient-stat-card">
 
-            <div class="card summary-card">
+                <div class="patient-stat-icon danger">
 
-                <div class="card-body">
+                    <i class="fas fa-times-circle"></i>
 
-                    <div class="summary-icon">
+                </div>
 
-                        <i class="fas fa-file-medical"></i>
+                <div class="patient-stat-content">
 
-                    </div>
+                    <h3>{{ cancelled_appointments }}</h3>
 
-                    <h2 class="summary-number">{{ cancelled_appointments }}</h2>
-
-                    <h5 class="summary-title">
-                        Cancelled Appointments
-                    </h5>
-
-                    <p class="summary-text">
-                        Updated Yesterday
-                    </p>
+                    <span>Cancelled</span>
 
                 </div>
 
@@ -146,31 +126,21 @@
 
     </div>
 
-</section>
+    <!-- Upcoming Appointments -->
 
-        <!-- ==========================
-     Upcoming Appointments
-========================== -->
+    <div class="patient-table-card">
 
-<section class="appointments-section">
+        <div class="patient-table-header">
 
-    <div class="card appointment-card">
+            <h4>
 
-        <!-- Card Header -->
+                <i class="fas fa-calendar-alt mr-2"></i>
 
-        <div class="appointment-header">
+                Upcoming Appointments
 
-            <div class="d-flex align-items-center">
+            </h4>
 
-                <i class="fas fa-calendar-check mr-2 text-primary"></i>
-
-                <h4 class="mb-0">
-                    Upcoming Appointments
-                </h4>
-
-            </div>
-
-            <a href="#" class="btn btn-outline-primary btn-sm">
+            <a href="{% url 'my_appointments' %}" class="btn btn-primary btn-sm">
 
                 View All
 
@@ -178,70 +148,112 @@
 
         </div>
 
-        <!-- Appointment Table -->
-
         <div class="table-responsive">
 
-            <table class="table table-hover mb-0">
+            <table class="table patient-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Doctor</th>
+
+                        <th>Department</th>
+
+                        <th>Date</th>
+
+                        <th>Time</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
 
                 <tbody>
+
                     {% for appointment in upcoming_appointments %}
 
                     <tr>
 
                         <td>
-                            {{ appointment.doctor }}
+
+                            Dr. {{ appointment.doctor.user.get_full_name }}
+
                         </td>
 
                         <td>
-                            {{ appointment.department }}
+
+                            {{ appointment.doctor.department }}
+
                         </td>
 
                         <td>
+
                             {{ appointment.appointment_date }}
+
                         </td>
 
                         <td>
+
                             {{ appointment.appointment_time }}
-                        </td>
-
-                        <td>
-
-                            <span class="badge badge-warning">
-
-                           {{ appointment.status }}
-
-                            </span>
 
                         </td>
 
                         <td>
 
-                            <a href="#" class="btn btn-sm btn-primary">
+                            {% if appointment.status == "Confirmed" %}
 
-                                View
+                                <span class="badge badge-success">
 
-                            </a>
+                                    Confirmed
+
+                                </span>
+
+                            {% elif appointment.status == "Pending" %}
+
+                                <span class="badge badge-warning">
+
+                                    Pending
+
+                                </span>
+
+                            {% elif appointment.status == "Completed" %}
+
+                                <span class="badge badge-primary">
+
+                                    Completed
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="badge badge-danger">
+
+                                    Cancelled
+
+                                </span>
+
+                            {% endif %}
 
                         </td>
 
-                        </tr>
+                    </tr>
 
-                            {% empty %}
+                    {% empty %}
 
-                        <tr>
+                    <tr>
 
-                            <td colspan="6" class="text-center">
+                        <td colspan="5" class="text-center py-5">
 
-                            No appointments found
+                            No upcoming appointments.
 
-                            </td>
+                        </td>
 
-                        </tr>
+                    </tr>
 
-                        {% endfor %}
+                    {% endfor %}
 
-                    
                 </tbody>
 
             </table>
@@ -250,12 +262,6 @@
 
     </div>
 
-</section>
-    </main>
-    
-
 </div>
-
-
 
 {% endblock %}
