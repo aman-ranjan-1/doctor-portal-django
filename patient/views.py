@@ -57,3 +57,20 @@ def dashboard(request):
         "patient/dashboard.html",
         context
     )
+
+@patient_required
+def profile(request):
+
+    patient = Patient.objects.get(user=request.user)
+
+    context = {
+
+        "patient": patient,
+
+    }
+
+    return render(
+        request,
+        "patient/profile.html",
+        context,
+    )

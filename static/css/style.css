@@ -36,3 +36,6 @@
 /* Appointments */
 @import url("appointments/appointment.css");
 @import url("appointments/my_appointment.css");
+
+/*Patient Profile*/
+@import url("patient/profile.css");

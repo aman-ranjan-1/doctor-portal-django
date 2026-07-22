@@ -8,5 +8,9 @@ urlpatterns = [
         views.dashboard,
         name="patient_dashboard",
     ),
-
+    path(
+    "profile/",
+    views.profile,
+    name="patient_profile",
+    ),
 ]
