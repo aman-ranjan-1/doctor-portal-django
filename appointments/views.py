@@ -15,14 +15,17 @@ def book_appointment(request):
         messages.error(request, "Patient profile not found.")
         return redirect("patient_dashboard")
 
-    doctors = Doctor.objects.filter(is_available=True)
+    available = models.BooleanField(default=True)
 
     if request.method == "POST":
 
         doctor_id = request.POST.get("doctor")
 
         try:
-            doctor = Doctor.objects.get(id=doctor_id)
+            doctor = Doctor.objects.get(
+                id=doctor_id,
+                available=True
+            )
         except Doctor.DoesNotExist:
             messages.error(request, "Please select a valid doctor.")
             return redirect("book_appointment")

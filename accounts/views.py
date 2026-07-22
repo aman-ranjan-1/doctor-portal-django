@@ -29,12 +29,13 @@ def logout_page(request):
 
 def login_page(request):
 
+    # Already logged in
     if request.user.is_authenticated:
 
-        if hasattr(request.user, "doctor"):
+        if Doctor.objects.filter(user=request.user).exists():
             return redirect("doctor_dashboard")
 
-        if hasattr(request.user, "patient"):
+        elif Patient.objects.filter(user=request.user).exists():
             return redirect("patient_dashboard")
 
     if request.method == "POST":
@@ -78,19 +79,18 @@ def login_page(request):
         login(request, user)
 
         messages.success(
+
             request,
+
             f"Welcome back, {user.first_name}!"
+
         )
 
-        # ===============================
-        # Role Based Redirect
-        # ===============================
-
-        if hasattr(user, "doctor"):
+        if Doctor.objects.filter(user=user).exists():
 
             return redirect("doctor_dashboard")
 
-        elif hasattr(user, "patient"):
+        elif Patient.objects.filter(user=user).exists():
 
             return redirect("patient_dashboard")
 
@@ -100,13 +100,16 @@ def login_page(request):
 
             request,
 
-            "No role has been assigned to this account."
+            "No role assigned to this account."
 
         )
 
         return redirect("login")
 
-    return render(request, "accounts/login.html")
+    return render(
+        request,
+        "accounts/login.html"
+    )
 
 
 # ==========================================
@@ -114,6 +117,10 @@ def login_page(request):
 # ==========================================
 
 def register_page(request):
+
+    if request.user.is_authenticated:
+
+        return redirect("patient_dashboard")
 
     if request.method == "POST":
 
@@ -151,12 +158,16 @@ def register_page(request):
 
             messages.error(
                 request,
-                "Email already exists."
+                "Email already registered."
             )
 
             return redirect("register")
 
         user = User.objects.create_user(
+
+            first_name=first_name,
+
+            last_name=last_name,
 
             username=username,
 
@@ -164,25 +175,19 @@ def register_page(request):
 
             password=password1,
 
-            first_name=first_name,
-
-            last_name=last_name,
-
         )
-
-        # Default role = Patient
 
         Patient.objects.create(
 
             user=user,
 
-            patient_id=f"PAT{user.id:04d}",
+            patient_id=f"PAT{user.id:05d}",
 
-            gender="Male",
+            gender="",
 
-            date_of_birth="2000-01-01",
+            date_of_birth=None,
 
-            blood_group="O+",
+            blood_group="",
 
             phone="",
 
@@ -196,7 +201,7 @@ def register_page(request):
 
             request,
 
-            "Registration successful. Please login."
+            "Account created successfully. Please login."
 
         )
 

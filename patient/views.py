@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from accounts.decorators import patient_required
+from patient.models import Patient
 from appointments.models import Appointment
+
 
 @patient_required
 def dashboard(request):
 
-    appointments = Appointment.objects.filter(
+    patient = Patient.objects.get(
         user=request.user
+    )
+
+    appointments = Appointment.objects.filter(
+        patient=patient
     )
 
     total_appointments = appointments.count()
@@ -24,12 +30,15 @@ def dashboard(request):
     ).count()
 
     upcoming_appointments = appointments.order_by(
-        "appointment_date"
+        "appointment_date",
+        "appointment_time"
     )[:5]
 
     context = {
 
         "page_title": "Patient Dashboard",
+
+        "patient": patient,
 
         "total_appointments": total_appointments,
 
