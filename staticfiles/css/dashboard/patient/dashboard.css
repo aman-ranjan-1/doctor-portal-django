@@ -1,0 +1,396 @@
+/* =====================================================
+                PATIENT DASHBOARD
+===================================================== */
+
+/* ===========================
+        HEADER
+=========================== */
+
+.patient-dashboard-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+    flex-wrap:wrap;
+    gap:20px;
+
+}
+
+.patient-dashboard-heading h2{
+
+    font-size:32px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:8px;
+
+}
+
+.patient-dashboard-heading p{
+
+    font-size:15px;
+    color:#6b7280;
+    margin:0;
+
+}
+
+/* ===========================
+        BUTTONS
+=========================== */
+
+.patient-primary-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 24px;
+
+    background:#2563eb;
+    color:#fff;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.patient-primary-btn:hover{
+
+    background:#1d4ed8;
+    color:#fff;
+    text-decoration:none;
+
+}
+
+.patient-outline-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 20px;
+
+    border:2px solid #2563eb;
+
+    border-radius:10px;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.patient-outline-btn:hover{
+
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+
+}
+
+/* ===========================
+        STAT CARDS
+=========================== */
+
+.patient-dashboard-stats{
+
+    margin-bottom:35px;
+
+}
+
+.patient-stat-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.patient-stat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.patient-stat-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+}
+
+.patient-stat-icon.blue{
+
+    background:#2563eb;
+
+}
+
+.patient-stat-icon.green{
+
+    background:#10b981;
+
+}
+
+.patient-stat-icon.yellow{
+
+    background:#f59e0b;
+
+}
+
+.patient-stat-icon.red{
+
+    background:#ef4444;
+
+}
+
+.patient-stat-card h3{
+
+    font-size:34px;
+    font-weight:700;
+    margin-bottom:6px;
+
+}
+
+.patient-stat-card span{
+
+    color:#6b7280;
+    font-size:15px;
+
+}
+
+/* ===========================
+        TABLE CARD
+=========================== */
+
+.patient-dashboard-table{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    overflow:hidden;
+
+}
+
+.patient-section-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:28px 30px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    flex-wrap:wrap;
+    gap:20px;
+
+}
+
+.patient-section-header h4{
+
+    margin:0;
+    font-weight:700;
+    color:#111827;
+
+}
+
+.patient-section-header p{
+
+    margin-top:5px;
+    color:#6b7280;
+    font-size:14px;
+
+}
+
+/* ===========================
+        TABLE
+=========================== */
+
+.patient-table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.patient-table thead{
+
+    background:#f9fafb;
+
+}
+
+.patient-table th{
+
+    padding:18px 22px;
+
+    font-size:14px;
+    font-weight:600;
+
+    color:#6b7280;
+
+    text-transform:uppercase;
+
+}
+
+.patient-table td{
+
+    padding:20px 22px;
+
+    border-top:1px solid #eef2f7;
+
+    color:#374151;
+
+    font-weight:500;
+
+}
+
+.patient-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.patient-table tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+/* ===========================
+        STATUS
+=========================== */
+
+.patient-status{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.patient-status.confirmed{
+
+    background:#d1fae5;
+    color:#065f46;
+
+}
+
+.patient-status.pending{
+
+    background:#fef3c7;
+    color:#92400e;
+
+}
+
+.patient-status.completed{
+
+    background:#dbeafe;
+    color:#1d4ed8;
+
+}
+
+.patient-status.cancelled{
+
+    background:#fee2e2;
+    color:#991b1b;
+
+}
+
+/* ===========================
+        EMPTY TABLE
+=========================== */
+
+.patient-empty-table{
+
+    padding:60px !important;
+
+    text-align:center;
+
+}
+
+.patient-empty-table i{
+
+    font-size:50px;
+
+    color:#9ca3af;
+
+    margin-bottom:18px;
+
+}
+
+.patient-empty-table p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.patient-dashboard-header{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.patient-dashboard-heading h2{
+
+    font-size:26px;
+
+}
+
+.patient-table{
+
+    min-width:750px;
+
+}
+
+}

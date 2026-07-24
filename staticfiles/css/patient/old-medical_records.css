@@ -1,0 +1,149 @@
+/* =====================================================
+                MEDICAL RECORDS
+===================================================== */
+
+.medical-record-page{
+
+    width:100%;
+
+}
+
+.medical-page-header{
+
+    margin-bottom:30px;
+
+}
+
+.medical-page-header h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.medical-page-header p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+.medical-record-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+}
+
+.medical-record-header{
+
+    background:#ffffff;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid #edf2f7;
+
+}
+
+.medical-record-header h4{
+
+    margin:0;
+
+    font-weight:700;
+
+}
+
+.medical-record-card table{
+
+    margin:0;
+
+}
+
+.medical-record-card thead{
+
+    background:#f8fafc;
+
+}
+
+.medical-record-card thead th{
+
+    border:none;
+
+    padding:18px;
+
+    font-weight:600;
+
+}
+
+.medical-record-card tbody td{
+
+    padding:18px;
+
+    vertical-align:middle;
+
+}
+
+.medical-record-card tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+.medical-empty{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.medical-empty i{
+
+    font-size:60px;
+
+    color:#cbd5e1;
+
+    margin-bottom:20px;
+
+}
+
+.medical-empty h4{
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.medical-empty p{
+
+    color:#6b7280;
+
+}
+
+.badge{
+
+    border-radius:30px;
+
+    padding:7px 16px;
+
+}
+
+.badge-success{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}

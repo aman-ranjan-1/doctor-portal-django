@@ -1,0 +1,186 @@
+/* =====================================================
+                    PATIENT TOPBAR
+===================================================== */
+
+.patienttopbar{
+    height:82px;
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+
+/* Left */
+
+.patienttopbar-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.patienttopbar-toggle{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:12px;
+    background:#f3f4f6;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.patienttopbar-toggle:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.patienttopbar-toggle i{
+    font-size:18px;
+}
+
+.patienttopbar-heading h2{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+    color:#111827;
+}
+
+.patienttopbar-heading p{
+    margin:4px 0 0;
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* Right */
+
+.patienttopbar-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+/* Search */
+
+.patienttopbar-search{
+    width:300px;
+    height:46px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    padding:0 16px;
+}
+
+.patienttopbar-search i{
+    color:#9ca3af;
+    margin-right:10px;
+}
+
+.patienttopbar-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:14px;
+}
+
+/* Notification */
+
+.patienttopbar-notification{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    background:#f8fafc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.patienttopbar-notification:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.patienttopbar-badge{
+    position:absolute;
+    top:6px;
+    right:6px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#ef4444;
+    color:#fff;
+    font-size:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Profile */
+
+.patienttopbar-profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.patienttopbar-avatar{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+}
+
+.patienttopbar-user h6{
+    margin:0;
+    font-weight:600;
+    color:#111827;
+}
+
+.patienttopbar-user small{
+    color:#6b7280;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .patienttopbar-search{
+        display:none;
+    }
+
+    .patienttopbar{
+        padding:0 20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .patienttopbar-user{
+        display:none;
+    }
+
+    .patienttopbar-heading p{
+        display:none;
+    }
+
+    .patienttopbar{
+        height:72px;
+    }
+
+}

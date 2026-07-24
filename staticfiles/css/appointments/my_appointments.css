@@ -1,0 +1,335 @@
+/* =========================================================
+                MY APPOINTMENTS PAGE
+========================================================= */
+
+.patient-appointments-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/* =========================================================
+                    Header
+========================================================= */
+
+.patient-appointments-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.patient-appointments-header h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.patient-appointments-header p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+/* =========================================================
+                    Button
+========================================================= */
+
+.patient-primary-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.patient-primary-btn:hover{
+
+    background:#1d4ed8;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================================================
+                    Card
+========================================================= */
+
+.patient-appointments-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+/* =========================================================
+                    Table
+========================================================= */
+
+.patient-appointments-table{
+
+    margin:0;
+
+}
+
+.patient-appointments-table thead{
+
+    background:#f8fafc;
+
+}
+
+.patient-appointments-table th{
+
+    padding:18px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#374151;
+
+    border:none;
+
+}
+
+.patient-appointments-table td{
+
+    padding:18px;
+
+    vertical-align:middle;
+
+    border-top:1px solid #eef2f7;
+
+}
+
+.patient-appointments-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.patient-appointments-table tbody tr:hover{
+
+    background:#f9fbff;
+
+}
+
+/* =========================================================
+                Doctor Info
+========================================================= */
+
+.patient-doctor-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.patient-doctor-avatar{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    flex-shrink:0;
+
+}
+
+/* =========================================================
+                Status
+========================================================= */
+
+.patient-status{
+
+    display:inline-block;
+
+    padding:7px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.patient-status.confirmed{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.patient-status.pending{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.patient-status.completed{
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+}
+
+.patient-status.cancelled{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* =========================================================
+                    Action Button
+========================================================= */
+
+.patient-table-btn{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.patient-table-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* =========================================================
+                    Empty State
+========================================================= */
+
+.patient-empty-state{
+
+    text-align:center;
+
+    padding:80px 30px;
+
+}
+
+.patient-empty-state i{
+
+    font-size:70px;
+
+    color:#cbd5e1;
+
+    margin-bottom:25px;
+
+}
+
+.patient-empty-state h3{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+    color:#111827;
+
+}
+
+.patient-empty-state p{
+
+    color:#6b7280;
+
+    margin-bottom:30px;
+
+}
+
+/* =========================================================
+                    Responsive
+========================================================= */
+
+@media(max-width:992px){
+
+.patient-appointments-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.patient-appointments-table{
+
+    min-width:760px;
+
+}
+
+}

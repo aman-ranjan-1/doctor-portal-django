@@ -1,0 +1,147 @@
+/* =====================================================
+                    PATIENT SIDEBAR
+===================================================== */
+
+.patientsidebar{
+    width:280px;
+    min-height:100vh;
+    background:#111827;
+    color:#fff;
+    position:fixed;
+    top:0;
+    left:0;
+    display:flex;
+    flex-direction:column;
+    box-shadow:6px 0 24px rgba(0,0,0,.12);
+    z-index:1000;
+}
+
+.patientsidebar-header{
+    text-align:center;
+    padding:32px 24px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.patientsidebar-logo{
+    width:72px;
+    height:72px;
+    margin:auto;
+    border-radius:20px;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    color:#fff;
+    margin-bottom:18px;
+}
+
+.patientsidebar-header h3{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+.patientsidebar-header span{
+    color:#9ca3af;
+    font-size:14px;
+}
+
+.patientsidebar-profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:24px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.patientsidebar-avatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#2563eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    color:#fff;
+}
+
+.patientsidebar-info h5{
+    margin:0;
+    font-size:16px;
+    font-weight:600;
+}
+
+.patientsidebar-info small{
+    color:#9ca3af;
+}
+
+.patientsidebar-menu{
+    list-style:none;
+    margin:20px 0;
+    padding:0;
+    flex:1;
+}
+
+.patientsidebar-menu li{
+    margin:6px 16px;
+}
+
+.patientsidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    color:#d1d5db;
+    text-decoration:none;
+    border-radius:14px;
+    transition:.25s;
+}
+
+.patientsidebar-menu a i{
+    width:22px;
+    text-align:center;
+    font-size:17px;
+}
+
+.patientsidebar-menu li:hover a{
+    background:#1f2937;
+    color:#fff;
+}
+
+.patientsidebar-menu li.active a{
+    background:#2563eb;
+    color:#fff;
+    font-weight:600;
+}
+
+.patientsidebar-menu li:last-child{
+    margin-top:auto;
+}
+
+@media(max-width:992px){
+
+    .patientsidebar{
+        width:85px;
+    }
+
+    .patientsidebar-header h3,
+    .patientsidebar-header span,
+    .patientsidebar-info{
+        display:none;
+    }
+
+    .patientsidebar-profile{
+        justify-content:center;
+    }
+
+    .patientsidebar-menu a{
+        justify-content:center;
+        padding:16px;
+    }
+
+    .patientsidebar-menu a i{
+        margin:0;
+    }
+}

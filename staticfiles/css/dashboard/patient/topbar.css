@@ -1,0 +1,202 @@
+/* =====================================================
+                PATIENT TOPBAR
+===================================================== */
+
+.patient-topbar{
+
+    height:80px;
+
+    background:#fff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    position:sticky;
+    top:0;
+
+    z-index:999;
+
+}
+
+.patient-topbar-left{
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.patient-topbar-menu{
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    background:#f3f4f6;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+.patient-topbar-title h3{
+
+    font-size:24px;
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.patient-topbar-title p{
+
+    margin:3px 0 0;
+    color:#6b7280;
+
+}
+
+.patient-topbar-right{
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.patient-search-box{
+
+    width:300px;
+    height:46px;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 15px;
+
+}
+
+.patient-search-box input{
+
+    border:none;
+    outline:none;
+
+    width:100%;
+
+    margin-left:10px;
+
+}
+
+.patient-notification{
+
+    width:48px;
+    height:48px;
+
+    background:#f3f4f6;
+
+    border-radius:12px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+}
+
+.patient-notification-count{
+
+    position:absolute;
+
+    top:8px;
+    right:8px;
+
+    width:18px;
+    height:18px;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:11px;
+
+}
+
+.patient-user-box{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.patient-user-avatar{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.patient-user-details h6{
+
+    margin:0;
+    font-weight:600;
+
+}
+
+.patient-user-details small{
+
+    color:#6b7280;
+
+}
+
+@media(max-width:768px){
+
+.patient-search-box{
+
+    display:none;
+
+}
+
+.patient-user-details{
+
+    display:none;
+
+}
+
+.patient-topbar{
+
+    padding:0 20px;
+
+}
+
+}

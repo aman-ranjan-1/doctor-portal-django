@@ -1,0 +1,87 @@
+/* =====================================================
+                MY APPOINTMENTS
+===================================================== */
+
+/* ===========================
+        PAGE
+=========================== */
+
+.patient-appointments-page{
+
+    width:100%;
+
+}
+
+/* ===========================
+        TABLE CARD
+=========================== */
+
+.patient-table-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+        CARD HEADER
+=========================== */
+
+.patient-table-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:24px 30px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    background:#ffffff;
+
+}
+
+.patient-table-card-header h4{
+
+    margin:0;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.patient-table-card-header i{
+
+    color:#2563eb;
+
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.patient-table-card-header{
+
+    padding:20px;
+
+}
+
+.patient-table-card-header h4{
+
+    font-size:18px;
+
+}
+
+}
