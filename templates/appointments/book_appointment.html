@@ -1,4 +1,4 @@
-{% extends "layouts/dashboard_base.html" %}
+{% extends "layouts/patient_dashboard_base.html" %}
 
 {% block title %}
 Book Appointment
@@ -14,43 +14,111 @@ Book Appointment
 
 {% block content %}
 
-<div class="patient-book-page">
+<div class="patient-appointment-page">
 
-    <div class="patient-book-header">
+    <!-- ==========================
+            PAGE HEADER
+    =========================== -->
+
+    <div class="patient-page-header">
 
         <div>
 
             <h2>Book Appointment</h2>
 
             <p>
-                Schedule an appointment with one of our available doctors.
+                Schedule your appointment with one of our specialists.
             </p>
 
         </div>
 
     </div>
 
-    <div class="patient-book-card">
+    <form method="POST" class="patient-form-card">
 
-        <form method="POST">
+        {% csrf_token %}
 
-            {% csrf_token %}
+        <!-- ==========================
+                Patient Information
+        =========================== -->
+
+        <div class="patient-form-section">
+
+            <h4>
+
+                <i class="fas fa-user-circle"></i>
+
+                Patient Information
+
+            </h4>
 
             <div class="row">
 
                 <div class="col-md-6">
 
-                    <div class="patient-book-group">
+                    <div class="patient-form-group">
 
-                        <label>Select Doctor</label>
+                        <label>Patient Name</label>
+
+                        <input
+                            type="text"
+                            class="patient-input"
+                            value="{{ user.get_full_name }}"
+                            readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="patient-form-group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            class="patient-input"
+                            value="{{ user.email }}"
+                            readonly>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================
+                Appointment Details
+        =========================== -->
+
+        <div class="patient-form-section">
+
+            <h4>
+
+                <i class="fas fa-calendar-check"></i>
+
+                Appointment Details
+
+            </h4>
+
+            <div class="row">
+
+                <div class="col-lg-6">
+
+                    <div class="patient-form-group">
+
+                        <label>Doctor</label>
 
                         <select
                             name="doctor"
-                            class="form-control"
+                            class="patient-input"
                             required>
 
                             <option value="">
-                                Choose Doctor
+                                Select Doctor
                             </option>
 
                             {% for doctor in doctors %}
@@ -59,9 +127,7 @@ Book Appointment
 
                                 Dr. {{ doctor.user.get_full_name }}
 
-                                —
-
-                                {{ doctor.department }}
+                                — {{ doctor.department }}
 
                             </option>
 
@@ -73,36 +139,32 @@ Book Appointment
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-lg-3">
 
-                    <div class="patient-book-group">
+                    <div class="patient-form-group">
 
-                        <label>Appointment Date</label>
+                        <label>Date</label>
 
                         <input
                             type="date"
                             name="appointment_date"
-                            class="form-control"
+                            class="patient-input"
                             required>
 
                     </div>
 
                 </div>
 
-            </div>
+                <div class="col-lg-3">
 
-            <div class="row">
+                    <div class="patient-form-group">
 
-                <div class="col-md-6">
-
-                    <div class="patient-book-group">
-
-                        <label>Appointment Time</label>
+                        <label>Time</label>
 
                         <input
                             type="time"
                             name="appointment_time"
-                            class="form-control"
+                            class="patient-input"
                             required>
 
                     </div>
@@ -111,35 +173,77 @@ Book Appointment
 
             </div>
 
-            <div class="patient-book-group">
+        </div>
+
+        <!-- ==========================
+                Medical Information
+        =========================== -->
+
+        <div class="patient-form-section">
+
+            <h4>
+
+                <i class="fas fa-notes-medical"></i>
+
+                Medical Information
+
+            </h4>
+
+            <div class="patient-form-group">
 
                 <label>Reason for Visit</label>
 
                 <textarea
                     name="reason"
                     rows="4"
-                    class="form-control"
-                    placeholder="Briefly describe your reason..."
+                    class="patient-input"
+                    placeholder="Briefly describe the reason for your appointment..."
                     required></textarea>
 
             </div>
 
-            <div class="patient-book-group">
+            <div class="patient-form-group">
 
                 <label>Symptoms</label>
 
                 <textarea
                     name="symptoms"
                     rows="4"
-                    class="form-control"
+                    class="patient-input"
                     placeholder="Describe your symptoms..."
                     required></textarea>
 
             </div>
 
+            <div class="patient-form-group">
+
+                <label>Additional Notes (Optional)</label>
+
+                <textarea
+                    name="notes"
+                    rows="3"
+                    class="patient-input"
+                    placeholder="Anything you'd like the doctor to know..."></textarea>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================
+                Buttons
+        =========================== -->
+
+        <div class="patient-form-actions">
+
+            <a href="{% url 'patient_dashboard' %}" class="patient-outline-btn">
+
+                Cancel
+
+            </a>
+
             <button
                 type="submit"
-                class="patient-book-btn">
+                class="patient-primary-btn">
 
                 <i class="fas fa-calendar-check mr-2"></i>
 
@@ -147,9 +251,9 @@ Book Appointment
 
             </button>
 
-        </form>
+        </div>
 
-    </div>
+    </form>
 
 </div>
 

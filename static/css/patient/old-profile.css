@@ -1,0 +1,235 @@
+/* =====================================================
+                PATIENT PROFILE PAGE
+===================================================== */
+
+.patient-profile-page{
+
+    width:100%;
+
+}
+
+/* ==========================================
+                PAGE HEADER
+========================================== */
+
+.patient-page-header{
+
+    margin-bottom:30px;
+
+}
+
+.patient-page-header h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.patient-page-header p{
+
+    color:#6b7280;
+
+    margin:0;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+            PROFILE CARD
+========================================== */
+
+.patient-profile-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(15,23,42,.06);
+
+    height:100%;
+
+}
+
+.patient-profile-avatar{
+
+    width:120px;
+
+    height:120px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:48px;
+
+    margin-bottom:25px;
+
+}
+
+.patient-profile-card h3{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.patient-profile-card p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+/* ==========================================
+            DETAILS CARD
+========================================== */
+
+.patient-profile-details{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(15,23,42,.06);
+
+}
+
+/* ==========================================
+            FORM FIELDS
+========================================== */
+
+.profile-field{
+
+    margin-bottom:22px;
+
+}
+
+.profile-field label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.profile-field .form-control{
+
+    height:48px;
+
+    border:1px solid #dbe2ea;
+
+    border-radius:12px;
+
+    box-shadow:none;
+
+    font-size:15px;
+
+    background:#f9fafb;
+
+}
+
+.profile-field .form-control:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 0.15rem rgba(37,99,235,.15);
+
+}
+
+/* ==========================================
+                BUTTON
+========================================== */
+
+.btn-primary{
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px 24px;
+
+    font-weight:600;
+
+    background:#2563eb;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ==========================================
+                RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.patient-profile-card{
+
+    margin-bottom:25px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.patient-page-header h2{
+
+    font-size:24px;
+
+}
+
+.patient-profile-details{
+
+    padding:25px;
+
+}
+
+.patient-profile-avatar{
+
+    width:100px;
+
+    height:100px;
+
+    font-size:40px;
+
+}
+
+}

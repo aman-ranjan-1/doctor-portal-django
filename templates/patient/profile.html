@@ -1,7 +1,7 @@
-{% extends "layouts/dashboard_base.html" %}
+{% extends "layouts/patient_dashboard_base.html" %}
 
 {% block title %}
-My Profile
+Patient Profile
 {% endblock %}
 
 {% block sidebar %}
@@ -15,144 +15,667 @@ My Profile
 {% block content %}
 
 <div class="patient-profile-page">
-
-    <div class="patient-profile-header">
-
+    <!-- ==========================
+            PAGE HEADER
+    =========================== -->
+    <div class="patient-page-header">
         <div>
-
-            <h2>
-
-                <i class="fas fa-user-circle"></i>
-
-                My Profile
-
-            </h2>
-
+            <h2>My Profile</h2>
             <p>
-
-                Manage your personal information.
-
+                Manage your personal and medical information.
             </p>
-
         </div>
 
-        <a href="#" class="patient-primary-btn">
+        <div class="patient-profile-actions">
 
-            <i class="fas fa-edit mr-2"></i>
+            <button
+                type="button"
+                id="editProfileBtn"
+                class="patient-primary-btn">
 
-            Edit Profile
+                <i class="fas fa-pen mr-2"></i>
 
-        </a>
+                Edit Profile
+
+            </button>
+
+        </div>
 
     </div>
 
-    <div class="patient-profile-card">
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        id="profileForm"
+        class="patient-profile-layout">
+        {% csrf_token %}
+        <!-- ==========================
+                LEFT PROFILE CARD
+        =========================== -->
+        <div class="patient-profile-sidebar">
 
-        <div class="patient-profile-left">
+            <div class="patient-profile-card">
 
-            <div class="patient-profile-avatar">
+                <div class="patient-profile-image">
 
-                {% if patient.profile_image %}
+                    {% if patient.profile_image %}
 
-                    <img src="{{ patient.profile_image.url }}" alt="Profile">
+                        <img
+                            src="{{ patient.profile_image.url }}"
+                            id="imagePreview">
 
-                {% else %}
+                    {% else %}
 
-                    <i class="fas fa-user"></i>
+                        <img
+                            src="https://ui-avatars.com/api/?name={{ user.first_name }}+{{ user.last_name }}&background=2563eb&color=ffffff"
+                            id="imagePreview">
 
-                {% endif %}
+                    {% endif %}
 
-            </div>
+                    <label
+                        for="profileImage"
+                        class="patient-image-upload">
 
-            <h3>
+                        <i class="fas fa-camera"></i>
 
-                {{ user.get_full_name }}
+                    </label>
 
-            </h3>
+                    <input
 
-            <p>
+                        type="file"
 
-                Patient ID :
-                {{ patient.patient_id }}
+                        name="profile_image"
 
-            </p>
+                        id="profileImage"
 
-        </div>
+                        hidden
 
-        <div class="patient-profile-right">
-
-            <div class="patient-info-grid">
-
-                <div class="patient-info-item">
-
-                    <label>Email</label>
-
-                    <p>{{ user.email }}</p>
-
-                </div>
-
-                <div class="patient-info-item">
-
-                    <label>Phone</label>
-
-                    <p>{{ patient.phone }}</p>
+                        disabled>
 
                 </div>
 
-                <div class="patient-info-item">
+                <h3>
 
-                    <label>Gender</label>
+                    {{ user.get_full_name }}
 
-                    <p>{{ patient.gender }}</p>
-
-                </div>
-
-                <div class="patient-info-item">
-
-                    <label>Blood Group</label>
-
-                    <p>{{ patient.blood_group }}</p>
-
-                </div>
-
-                <div class="patient-info-item">
-
-                    <label>Date of Birth</label>
-
-                    <p>{{ patient.date_of_birth }}</p>
-
-                </div>
-
-                <div class="patient-info-item">
-
-                    <label>Emergency Contact</label>
-
-                    <p>{{ patient.emergency_contact }}</p>
-
-                </div>
-
-            </div>
-
-            <div class="patient-address-card">
-
-                <h5>
-
-                    Address
-
-                </h5>
+                </h3>
 
                 <p>
 
-                    {{ patient.address }}
+                    {{ patient.patient_id }}
 
                 </p>
+
+                <span class="patient-active-badge">
+
+                    Active Patient
+
+                </span>
+
+                <hr>
+
+                <div class="patient-profile-stats">
+
+                    <div>
+
+                        <h4>{{ total_appointments|default:"0" }}</h4>
+
+                        <span>Appointments</span>
+
+                    </div>
+
+                    <div>
+
+                        <h4>{{ confirmed_appointments|default:"0" }}</h4>
+
+                        <span>Completed</span>
+
+                    </div>
+
+                </div>
+
+                <div class="patient-member">
+
+                    <i class="fas fa-calendar-alt"></i>
+
+                    Member since
+
+                    {{ patient.created_at|date:"M Y" }}
+
+                </div>
 
             </div>
 
         </div>
+        <!-- ==========================
+                RIGHT SIDE
+        =========================== -->
+        <div class="patient-profile-content">
+            <!-- ==========================================
+                PERSONAL INFORMATION
+            ========================================== -->
 
-    </div>
+            <div class="patient-profile-section">
 
+                <div class="patient-section-title">
+
+                    <i class="fas fa-user-circle"></i>
+
+                    <h4>Personal Information</h4>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="patient-form-group">
+
+                            <label>First Name</label>
+
+                            <input
+
+                            type="text"
+
+                            name="first_name"
+
+                            value="{{ user.first_name }}"
+
+                            class="patient-input patient-edit-field"
+
+                            readonly>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="patient-form-group">
+
+                        <label>Last Name</label>
+
+                        <input
+
+                        type="text"
+
+                        name="last_name"
+
+                        value="{{ user.last_name }}"
+
+                        class="patient-input patient-edit-field"
+
+                        readonly>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="patient-form-group">
+
+                        <label>Email Address</label>
+
+                        <input
+
+                        type="email"
+
+                        name="email"
+
+                        value="{{ user.email }}"
+
+                        class="patient-input patient-edit-field"
+
+                        readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="patient-form-group">
+
+                    <label>Date of Birth</label>
+
+                    <input
+
+                    type="date"
+
+                    name="date_of_birth"
+
+                    value="{{ patient.date_of_birth|date:'Y-m-d' }}"
+
+                    class="patient-input patient-edit-field"
+
+                    readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="patient-form-group">
+
+                        <label>Gender</label>
+
+                        <select
+
+                        name="gender"
+
+                        class="patient-input patient-edit-field"
+
+                        disabled>
+
+                        <option value="">Select</option>
+
+                        {% for value,label in patient.GENDER_CHOICES %}
+
+                        <option value="{{ value }}"
+
+                        {% if patient.gender == value %}selected{% endif %}>
+
+                        {{ label }}
+
+                        </option>
+
+                        {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="patient-form-group">
+
+                        <label>Blood Group</label>
+
+                        <select
+                            name="blood_group"
+                            class="patient-input patient-edit-field"
+                            disabled>
+
+                            <option value="">Select</option>
+
+                            {% for value,label in patient.BLOOD_GROUPS %}
+
+                            <option value="{{ value }}"
+
+                                {% if patient.blood_group == value %}selected{% endif %}>
+
+                                {{ label }}
+
+                            </option>
+
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="patient-form-group">
+                        <label>Marital Status</label>
+
+                        <select
+
+                            name="marital_status"
+
+                            class="patient-input patient-edit-field"
+
+                            disabled>
+
+                            <option value="">Select</option>
+
+                            {% for value,label in patient.MARITAL_STATUS %}
+
+                            <option value="{{ value }}"
+
+                                {% if patient.marital_status == value %}selected{% endif %}>
+
+                                {{ label }}
+
+                            </option>
+
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Occupation</label>
+
+                        <input
+                        type="text"
+                        name="occupation"
+                        value="{{ patient.occupation }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ==========================================
+            CONTACT INFORMATION
+        ========================================== -->
+        <div class="patient-profile-section">
+
+            <div class="patient-section-title">
+
+                <i class="fas fa-address-book"></i>
+
+                <h4>Contact Information</h4>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+
+                        <label>Phone Number</label>
+
+                        <input
+                        type="text"
+                        name="phone"
+                        value="{{ patient.phone }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Alternate Phone</label>
+
+                        <input
+                        type="text"
+                        name="alternate_phone"
+                        value="{{ patient.alternate_phone }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Address</label>
+
+                        <textarea
+                        name="address"
+                        rows="3"
+                        class="patient-input patient-edit-field"
+                        readonly>{{ patient.address }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="patient-form-group">
+                        <label>City</label>
+
+                        <input
+                        type="text"
+                        name="city"
+                        value="{{ patient.city }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="patient-form-group">
+
+                        <label>State</label>
+
+                        <input
+                        type="text"
+                        name="state"
+                        value="{{ patient.state }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="patient-form-group">
+
+                        <label>PIN Code</label>
+
+                        <input
+                        type="text"
+                        name="pincode"
+                        value="{{ patient.pincode }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+
+                        <label>Emergency Contact Name</label>
+
+                        <input
+                        type="text"
+                        name="emergency_contact_name"
+                        value="{{ patient.emergency_contact_name }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+
+                        <label>Emergency Contact Number</label>
+
+                        <input
+                        type="text"
+                        name="emergency_contact"
+                        value="{{ patient.emergency_contact }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ==========================================
+        MEDICAL INFORMATION
+========================================== -->
+        <div class="patient-profile-section">
+            <div class="patient-section-title">
+                <i class="fas fa-heartbeat"></i>
+                <h4>Medical Information</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Height (cm)</label>
+
+                        <input
+                        type="number"
+                        name="height"
+                        value="{{ patient.height }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Weight (kg)</label>
+
+                        <input
+                        type="number"
+                        step="0.1"
+                        name="weight"
+                        value="{{ patient.weight }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Known Allergies</label>
+
+                        <textarea
+                        name="allergies"
+                        rows="3"
+                        class="patient-input patient-edit-field"
+                        readonly>{{ patient.allergies }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Medical History</label>
+
+                        <textarea
+                        name="medical_history"
+                        rows="4"
+                        class="patient-input patient-edit-field"
+                        readonly>{{ patient.medical_history }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Current Medications</label>
+
+                        <textarea
+                        name="current_medications"
+                        rows="4"
+                        class="patient-input patient-edit-field"
+                        readonly>{{ patient.current_medications }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="patient-form-group">
+                        <label>Previous Surgeries</label>
+
+                        <textarea
+                        name="previous_surgeries"
+                        rows="4"
+                        class="patient-input patient-edit-field"
+                        readonly>{{ patient.previous_surgeries }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ==========================================
+        INSURANCE INFORMATION
+========================================== -->
+        <div class="patient-profile-section">
+            <div class="patient-section-title">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Insurance Information</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Insurance Provider</label>
+
+                        <input
+                        type="text"
+                        name="insurance_provider"
+                        value="{{ patient.insurance_provider }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Insurance Number</label>
+
+                        <input
+                        type="text"
+                        name="insurance_number"
+                        value="{{ patient.insurance_number }}"
+                        class="patient-input patient-edit-field"
+                        readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- ==========================================
+        LIFESTYLE
+========================================== -->
+        <div class="patient-profile-section">
+            <div class="patient-section-title">
+                <i class="fas fa-leaf"></i>
+                <h4>Lifestyle</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Smoking</label>
+                        <select
+                        name="smoking"
+                        class="patient-input patient-edit-field"
+                        disabled>
+                            <option value="">Select</option>
+                            {% for value,label in patient.YES_NO %}
+                            <option value="{{ value }}"
+                                {% if patient.smoking == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="patient-form-group">
+                        <label>Alcohol</label>
+                        <select
+                        name="alcohol"
+                        class="patient-input patient-edit-field"
+                        disabled>
+                            <option value="">Select</option>
+                            {% for value,label in patient.YES_NO %}
+                            <option value="{{ value }}"
+                                {% if patient.alcohol == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- ==========================================
+        BUTTONS
+========================================== -->
+        <div class="patient-profile-buttons">
+            <button
+            type="button"
+            id="cancelProfileBtn"
+            class="patient-outline-btn"
+            style="display:none;">
+            <i class="fas fa-times mr-2"></i>
+            Cancel
+            </button>
+
+            <button
+            type="submit"
+            id="saveProfileBtn"
+            class="patient-primary-btn"
+            style="display:none;">
+            <i class="fas fa-save mr-2"></i>
+            Save Changes
+            </button>
+        </div>
+    </form>
 </div>
-
 {% endblock %}

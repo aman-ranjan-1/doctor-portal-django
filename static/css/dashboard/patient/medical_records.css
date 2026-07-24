@@ -1,0 +1,107 @@
+/* =====================================================
+                MEDICAL RECORDS
+===================================================== */
+
+/* ===========================
+        PAGE
+=========================== */
+
+.patient-records-page{
+
+    width:100%;
+
+}
+
+/* ===========================
+        RECORD CARD
+=========================== */
+
+.patient-record-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+}
+
+/* ===========================
+        TABLE WRAPPER
+=========================== */
+
+.patient-table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+/* ===========================
+        EMPTY STATE
+=========================== */
+
+.patient-table-empty{
+
+    text-align:center;
+
+    padding:70px 20px !important;
+
+}
+
+.patient-table-empty i{
+
+    font-size:55px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.patient-table-empty h5{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+}
+
+.patient-table-empty p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.patient-table-empty{
+
+    padding:50px 15px !important;
+
+}
+
+.patient-table-empty i{
+
+    font-size:42px;
+
+}
+
+.patient-table-empty h5{
+
+    font-size:18px;
+
+}
+
+}

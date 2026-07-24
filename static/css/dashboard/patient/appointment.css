@@ -1,0 +1,260 @@
+/* =====================================================
+                BOOK APPOINTMENT
+===================================================== */
+
+/* ===========================
+        PAGE
+=========================== */
+
+.patient-appointment-page{
+
+    width:100%;
+
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.patient-page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.patient-page-header h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:6px;
+
+}
+
+.patient-page-header p{
+
+    color:#6b7280;
+
+    margin:0;
+
+}
+
+/* ===========================
+        FORM CARD
+=========================== */
+
+.patient-form-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+
+}
+
+/* ===========================
+        SECTION
+=========================== */
+
+.patient-form-section{
+
+    margin-bottom:40px;
+
+}
+
+.patient-form-section:last-child{
+
+    margin-bottom:0;
+
+}
+
+.patient-form-section h4{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:25px;
+
+    padding-bottom:15px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.patient-form-section h4 i{
+
+    color:#2563eb;
+
+}
+
+/* ===========================
+        FORM GROUP
+=========================== */
+
+.patient-form-group{
+
+    margin-bottom:22px;
+
+}
+
+.patient-form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#374151;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+        INPUTS
+=========================== */
+
+.patient-input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    background:#ffffff;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    outline:none;
+
+}
+
+.patient-input:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.patient-input[readonly]{
+
+    background:#f9fafb;
+
+    cursor:not-allowed;
+
+}
+
+/* textarea */
+
+textarea.patient-input{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+/* select */
+
+select.patient-input{
+
+    appearance:none;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+        BUTTON AREA
+=========================== */
+
+.patient-form-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.patient-form-card{
+
+    padding:28px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.patient-page-header h2{
+
+    font-size:26px;
+
+}
+
+.patient-form-card{
+
+    padding:22px;
+
+}
+
+.patient-form-actions{
+
+    flex-direction:column;
+
+}
+
+.patient-form-actions .patient-primary-btn,
+.patient-form-actions .patient-outline-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}

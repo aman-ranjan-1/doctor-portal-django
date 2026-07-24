@@ -1,4 +1,4 @@
-{% extends "layouts/dashboard_base.html" %}
+{% extends "layouts/patient_dashboard_base.html" %}
 
 {% block title %}
 Medical Records
@@ -16,121 +16,103 @@ Medical Records
 
 <div class="patient-records-page">
 
-    <div class="patient-records-header">
+    <!-- Page Header -->
+
+    <div class="patient-page-header">
 
         <div>
 
-            <h2>
-
-                <i class="fas fa-file-medical"></i>
-
-                Medical Records
-
-            </h2>
+            <h2>Medical Records</h2>
 
             <p>
-
-                View all your medical reports and history.
-
+                View your consultation history and medical records.
             </p>
 
         </div>
 
     </div>
 
-    <div class="patient-records-card">
+    <div class="patient-record-card">
 
-        <table class="table patient-record-table">
+        <div class="patient-table-card-header">
 
-            <thead>
+            <h4>
 
-                <tr>
+                <i class="fas fa-file-medical mr-2"></i>
 
-                    <th>Date</th>
+                Medical History
 
-                    <th>Doctor</th>
+            </h4>
 
-                    <th>Department</th>
+        </div>
 
-                    <th>Diagnosis</th>
+        <div class="patient-table-wrapper">
 
-                    <th>Prescription</th>
+            <table class="patient-table">
 
-                    <th>Status</th>
+                <thead>
 
-                </tr>
+                    <tr>
 
-            </thead>
+                        <th>Date</th>
 
-            <tbody>
+                        <th>Doctor</th>
 
-                {% for record in records %}
+                        <th>Department</th>
 
-                <tr>
+                        <th>Diagnosis</th>
 
-                    <td>{{ record.created_at|date:"d M Y" }}</td>
+                        <th>Prescription</th>
 
-                    <td>Dr. {{ record.doctor.user.get_full_name }}</td>
+                    </tr>
 
-                    <td>{{ record.doctor.department }}</td>
+                </thead>
 
-                    <td>{{ record.diagnosis }}</td>
+                <tbody>
 
-                    <td>
+                {% for record in medical_records %}
 
-                        <a href="#" class="patient-download-btn">
+                    <tr>
 
-                            View
+                        <td>{{ record.created_at|date:"d M Y" }}</td>
 
-                        </a>
+                        <td>Dr. {{ record.doctor.user.get_full_name }}</td>
 
-                    </td>
+                        <td>{{ record.doctor.department }}</td>
 
-                    <td>
+                        <td>{{ record.diagnosis }}</td>
 
-                        <span class="patient-status completed">
+                        <td>{{ record.prescription }}</td>
 
-                            Available
-
-                        </span>
-
-                    </td>
-
-                </tr>
+                    </tr>
 
                 {% empty %}
 
-                <tr>
+                    <tr>
 
-                    <td colspan="6">
+                        <td colspan="5" class="patient-table-empty">
 
-                        <div class="patient-empty-state">
+                            <i class="fas fa-file-medical-alt"></i>
 
-                            <i class="fas fa-file-medical"></i>
-
-                            <h3>
-
-                                No Medical Records
-
-                            </h3>
+                            <h5>No Medical Records</h5>
 
                             <p>
 
-                                Your medical history will appear here.
+                                Your consultation history will appear here.
 
                             </p>
 
-                        </div>
+                        </td>
 
-                    </td>
-
-                </tr>
+                    </tr>
 
                 {% endfor %}
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
+
+        </div>
 
     </div>
 

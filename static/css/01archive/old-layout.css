@@ -1,0 +1,268 @@
+/* =====================================================
+                CITYCARE DASHBOARD LAYOUT
+===================================================== */
+
+:root{
+
+    --sidebar-width:280px;
+    --topbar-height:80px;
+
+    --primary:#2563eb;
+    --primary-light:#3b82f6;
+
+    --background:#f5f7fb;
+    --white:#ffffff;
+
+    --text:#111827;
+    --text-light:#6b7280;
+
+    --border:#e5e7eb;
+
+    --shadow:0 12px 30px rgba(15,23,42,.08);
+
+}
+
+/* =====================================================
+                    RESET
+===================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--background);
+    color:var(--text);
+    font-family:"Poppins",sans-serif;
+    overflow-x:hidden;
+
+}
+
+/* =====================================================
+                    MAIN WRAPPER
+===================================================== */
+
+.ccdash{
+
+    display:flex;
+    width:100%;
+    min-height:100vh;
+    background:var(--background);
+
+}
+
+/* =====================================================
+                    SIDEBAR
+===================================================== */
+
+.ccdash-sidebar{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:var(--sidebar-width);
+
+    height:100vh;
+
+    z-index:1000;
+
+}
+
+/* =====================================================
+                    MAIN CONTENT
+===================================================== */
+
+.ccdash-main{
+
+    margin-left:var(--sidebar-width);
+
+    width:calc(100% - var(--sidebar-width));
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* =====================================================
+                    TOPBAR
+===================================================== */
+
+.ccdash-topbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:900;
+
+    width:100%;
+
+    height:var(--topbar-height);
+
+}
+
+/* =====================================================
+                    PAGE CONTENT
+===================================================== */
+
+.ccdash-content{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+/* =====================================================
+                    PAGE TITLE
+===================================================== */
+
+.page-header{
+
+    margin-bottom:30px;
+
+}
+
+.page-header h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#111827;
+
+    margin-bottom:8px;
+
+}
+
+.page-header p{
+
+    color:#6b7280;
+
+    font-size:15px;
+
+    margin:0;
+
+}
+
+/* =====================================================
+                    SHARED CARD
+===================================================== */
+
+.cc-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    border:none;
+
+}
+
+/* =====================================================
+                    BUTTONS
+===================================================== */
+
+.btn-primary{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-outline-primary{
+
+    border-color:#2563eb;
+
+    color:#2563eb;
+
+}
+
+.btn-outline-primary:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+/* =====================================================
+                    TABLE
+===================================================== */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table thead th{
+
+    border-top:none;
+
+}
+
+/* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+    .ccdash-main{
+
+        margin-left:85px;
+
+        width:calc(100% - 85px);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .ccdash-sidebar{
+
+        left:-280px;
+
+    }
+
+    .ccdash-main{
+
+        width:100%;
+
+        margin-left:0;
+
+    }
+
+    .ccdash-content{
+
+        padding:20px;
+
+    }
+
+}

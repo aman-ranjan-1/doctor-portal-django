@@ -1,4 +1,4 @@
-{% extends "layouts/dashboard_base.html" %}
+{% extends "layouts/patient_dashboard_base.html" %}
 
 {% block title %}
 Patient Dashboard
@@ -16,37 +16,61 @@ Patient Dashboard
 
 <div class="patient-dashboard">
 
-    <!-- Header -->
+    <!-- =========================
+            Page Header
+    ========================== -->
 
-    <div class="patient-dashboard-header">
+    <section class="patient-dashboard-header">
 
-        <div>
+        <div class="patient-dashboard-heading">
 
-            <h2>Today's Overview</h2>
+            <h2>
+                Welcome,
+                {% if user.first_name %}
+                    {{ user.first_name }}
+                {% else %}
+                    Patient
+                {% endif %}
+                👋
+            </h2>
 
             <p>
-                Track your appointments and health records.
+                Here's an overview of your appointments and health activity.
             </p>
 
         </div>
 
-    </div>
+        <div class="patient-dashboard-action">
 
-    <!-- Stats -->
+            <a href="{% url 'book_appointment' %}" class="patient-primary-btn">
 
-    <div class="row patient-stats-row">
+                <i class="fas fa-calendar-plus mr-2"></i>
 
-        <div class="col-lg-3 col-md-6 mb-4">
+                Book Appointment
 
-            <div class="patient-stat-card">
+            </a>
 
-                <div class="patient-stat-icon">
+        </div>
 
-                    <i class="fas fa-calendar-check"></i>
+    </section>
 
-                </div>
+    <!-- =========================
+            Statistics
+    ========================== -->
 
-                <div class="patient-stat-content">
+    <section class="patient-dashboard-stats">
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="patient-stat-card">
+
+                    <div class="patient-stat-icon blue">
+
+                        <i class="fas fa-calendar-check"></i>
+
+                    </div>
 
                     <h3>{{ total_appointments }}</h3>
 
@@ -56,19 +80,15 @@ Patient Dashboard
 
             </div>
 
-        </div>
+            <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 mb-4">
+                <div class="patient-stat-card">
 
-            <div class="patient-stat-card">
+                    <div class="patient-stat-icon green">
 
-                <div class="patient-stat-icon success">
+                        <i class="fas fa-check-circle"></i>
 
-                    <i class="fas fa-check-circle"></i>
-
-                </div>
-
-                <div class="patient-stat-content">
+                    </div>
 
                     <h3>{{ confirmed_appointments }}</h3>
 
@@ -78,19 +98,15 @@ Patient Dashboard
 
             </div>
 
-        </div>
+            <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 mb-4">
+                <div class="patient-stat-card">
 
-            <div class="patient-stat-card">
+                    <div class="patient-stat-icon yellow">
 
-                <div class="patient-stat-icon warning">
+                        <i class="fas fa-clock"></i>
 
-                    <i class="fas fa-clock"></i>
-
-                </div>
-
-                <div class="patient-stat-content">
+                    </div>
 
                     <h3>{{ pending_appointments }}</h3>
 
@@ -100,19 +116,15 @@ Patient Dashboard
 
             </div>
 
-        </div>
+            <div class="col-lg-3 col-md-6 mb-4">
 
-        <div class="col-lg-3 col-md-6 mb-4">
+                <div class="patient-stat-card">
 
-            <div class="patient-stat-card">
+                    <div class="patient-stat-icon red">
 
-                <div class="patient-stat-icon danger">
+                        <i class="fas fa-times-circle"></i>
 
-                    <i class="fas fa-times-circle"></i>
-
-                </div>
-
-                <div class="patient-stat-content">
+                    </div>
 
                     <h3>{{ cancelled_appointments }}</h3>
 
@@ -124,23 +136,25 @@ Patient Dashboard
 
         </div>
 
-    </div>
+    </section>
 
-    <!-- Upcoming Appointments -->
+    <!-- =========================
+        Upcoming Appointments
+    ========================== -->
 
-    <div class="patient-table-card">
+    <section class="patient-dashboard-table">
 
-        <div class="patient-table-header">
+        <div class="patient-section-header">
 
-            <h4>
+            <div>
 
-                <i class="fas fa-calendar-alt mr-2"></i>
+                <h4>Upcoming Appointments</h4>
 
-                Upcoming Appointments
+                <p>Your scheduled doctor visits.</p>
 
-            </h4>
+            </div>
 
-            <a href="{% url 'my_appointments' %}" class="btn btn-primary btn-sm">
+            <a href="{% url 'my_appointments' %}" class="patient-outline-btn">
 
                 View All
 
@@ -148,9 +162,9 @@ Patient Dashboard
 
         </div>
 
-        <div class="table-responsive">
+        <div class="patient-table-wrapper">
 
-            <table class="table patient-table">
+            <table class="patient-table">
 
                 <thead>
 
@@ -177,63 +191,42 @@ Patient Dashboard
                     <tr>
 
                         <td>
-
                             Dr. {{ appointment.doctor.user.get_full_name }}
-
                         </td>
 
                         <td>
-
                             {{ appointment.doctor.department }}
-
                         </td>
 
                         <td>
-
                             {{ appointment.appointment_date }}
-
                         </td>
 
                         <td>
-
                             {{ appointment.appointment_time }}
-
                         </td>
 
                         <td>
 
                             {% if appointment.status == "Confirmed" %}
-
-                                <span class="badge badge-success">
-
-                                    Confirmed
-
+                                <span class="patient-badge patient-badge-confirmed">
+                                Confirmed
                                 </span>
 
                             {% elif appointment.status == "Pending" %}
-
-                                <span class="badge badge-warning">
-
-                                    Pending
-
+                                <span class="patient-badge patient-badge-pending">
+                                Pending
                                 </span>
 
-                            {% elif appointment.status == "Completed" %}
-
-                                <span class="badge badge-primary">
-
-                                    Completed
-
+                                {% elif appointment.status == "Completed" %}
+                                <span class="patient-badge patient-badge-completed">
+                                Completed
                                 </span>
 
-                            {% else %}
-
-                                <span class="badge badge-danger">
-
-                                    Cancelled
-
+                                {% else %}
+                                <span class="patient-badge patient-badge-cancelled">
+                                Cancelled
                                 </span>
-
                             {% endif %}
 
                         </td>
@@ -244,9 +237,11 @@ Patient Dashboard
 
                     <tr>
 
-                        <td colspan="5" class="text-center py-5">
+                        <td colspan="5" class="patient-table-empty">
 
-                            No upcoming appointments.
+                            <i class="fas fa-calendar-times"></i>
+                            <h5>No Upcoming Appointments</h5>
+                            <p>Your scheduled appointments will appear here.</p>
 
                         </td>
 
@@ -260,7 +255,7 @@ Patient Dashboard
 
         </div>
 
-    </div>
+    </section>
 
 </div>
 

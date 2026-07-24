@@ -1,39 +1,31 @@
 /* =====================================================
-                 PATIENT TOPBAR
+                PATIENT TOPBAR
 ===================================================== */
 
 .patient-topbar{
 
     height:80px;
 
-    background:#ffffff;
-
-    border-bottom:1px solid #e9ecef;
+    background:#fff;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     padding:0 35px;
 
-    position:sticky;
+    border-bottom:1px solid #e5e7eb;
 
+    position:sticky;
     top:0;
 
-    z-index:99;
-
-    box-shadow:0 4px 20px rgba(0,0,0,.05);
+    z-index:999;
 
 }
-
-/* Left */
 
 .patient-topbar-left{
 
     display:flex;
-
     align-items:center;
 
     gap:20px;
@@ -43,144 +35,84 @@
 .patient-topbar-menu{
 
     width:45px;
-
     height:45px;
 
     border:none;
 
+    background:#f3f4f6;
+
     border-radius:12px;
 
-    background:#f4f6fb;
-
     cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.patient-topbar-menu:hover{
-
-    background:#2563eb;
-
-    color:#fff;
-
-}
-
-.patient-topbar-menu i{
-
-    font-size:18px;
 
 }
 
 .patient-topbar-title h3{
 
     font-size:24px;
-
     font-weight:700;
 
     margin:0;
-
-    color:#1f2937;
 
 }
 
 .patient-topbar-title p{
 
-    margin:4px 0 0;
-
+    margin:3px 0 0;
     color:#6b7280;
 
-    font-size:14px;
-
 }
-
-/* Right */
 
 .patient-topbar-right{
 
     display:flex;
-
     align-items:center;
 
     gap:20px;
 
 }
 
-/* Search */
-
 .patient-search-box{
 
     width:300px;
-
     height:46px;
-
-    background:#f8fafc;
 
     border:1px solid #e5e7eb;
 
     border-radius:12px;
 
     display:flex;
-
     align-items:center;
 
-    padding:0 16px;
-
-}
-
-.patient-search-box i{
-
-    color:#9ca3af;
-
-    margin-right:12px;
+    padding:0 15px;
 
 }
 
 .patient-search-box input{
 
-    width:100%;
-
     border:none;
-
     outline:none;
 
-    background:transparent;
+    width:100%;
 
-    font-size:14px;
+    margin-left:10px;
 
 }
-
-/* Notification */
 
 .patient-notification{
 
     width:48px;
-
     height:48px;
+
+    background:#f3f4f6;
 
     border-radius:12px;
 
-    background:#f8fafc;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     position:relative;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.patient-notification:hover{
-
-    background:#2563eb;
-
-    color:#fff;
 
 }
 
@@ -189,35 +121,28 @@
     position:absolute;
 
     top:8px;
-
     right:8px;
 
     width:18px;
-
     height:18px;
-
-    border-radius:50%;
 
     background:#ef4444;
 
     color:#fff;
 
-    font-size:11px;
+    border-radius:50%;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
-}
+    font-size:11px;
 
-/* User */
+}
 
 .patient-user-box{
 
     display:flex;
-
     align-items:center;
 
     gap:12px;
@@ -227,7 +152,6 @@
 .patient-user-avatar{
 
     width:48px;
-
     height:48px;
 
     border-radius:50%;
@@ -237,22 +161,15 @@
     color:#fff;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    font-size:20px;
 
 }
 
 .patient-user-details h6{
 
     margin:0;
-
     font-weight:600;
-
-    color:#111827;
 
 }
 
@@ -262,11 +179,15 @@
 
 }
 
-/* Responsive */
-
-@media(max-width:992px){
+@media(max-width:768px){
 
 .patient-search-box{
+
+    display:none;
+
+}
+
+.patient-user-details{
 
     display:none;
 
@@ -275,28 +196,6 @@
 .patient-topbar{
 
     padding:0 20px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.patient-user-details{
-
-    display:none;
-
-}
-
-.patient-topbar-title p{
-
-    display:none;
-
-}
-
-.patient-topbar{
-
-    height:70px;
 
 }
 

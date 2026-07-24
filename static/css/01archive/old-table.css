@@ -1,0 +1,161 @@
+/* ==========================================
+            DASHBOARD TABLE SECTION
+========================================== */
+
+.appointments-section{
+    margin-top:35px;
+}
+
+.appointment-card{
+    background:#ffffff;
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+/* ==========================================
+            CARD HEADER
+========================================== */
+
+.appointment-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 28px;
+    border-bottom:1px solid #edf2f7;
+    background:#ffffff;
+}
+
+.appointment-header h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+.appointment-header i{
+    color:#2563eb;
+    font-size:20px;
+}
+
+/* ==========================================
+                TABLE
+========================================== */
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.appointment-card table{
+    margin:0;
+}
+
+.appointment-card thead{
+    background:#f8fafc;
+}
+
+.appointment-card thead th{
+    border:none;
+    padding:18px 24px;
+    font-size:14px;
+    font-weight:700;
+    color:#4b5563;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+
+.appointment-card tbody td{
+    padding:18px 24px;
+    border-top:1px solid #eef2f7;
+    vertical-align:middle;
+    color:#374151;
+    font-size:15px;
+}
+
+.appointment-card tbody tr{
+    transition:.25s;
+}
+
+.appointment-card tbody tr:hover{
+    background:#f8fbff;
+}
+
+/* ==========================================
+                STATUS BADGES
+========================================== */
+
+.badge{
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.badge-success{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.badge-warning{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.badge-danger{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.badge-primary{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+/* ==========================================
+                ACTION BUTTONS
+========================================== */
+
+.appointment-card .btn-sm{
+    border-radius:10px;
+    padding:7px 18px;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.appointment-card .btn-primary{
+    background:#2563eb;
+    border-color:#2563eb;
+}
+
+.appointment-card .btn-primary:hover{
+    background:#1d4ed8;
+    border-color:#1d4ed8;
+}
+
+/* ==========================================
+                EMPTY STATE
+========================================== */
+
+.appointment-card .text-center{
+    padding:60px 20px;
+}
+
+.appointment-card .text-center i{
+    font-size:58px;
+    color:#cbd5e1;
+    margin-bottom:18px;
+}
+
+.appointment-card .text-center h5{
+    font-size:22px;
+    font-weight:700;
+    color:#374151;
+    margin-bottom:8px;
+}
+
+.appointment-card .text-center p{
+    color:#6b7280;
+    margin-bottom:0;
+}

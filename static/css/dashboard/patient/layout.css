@@ -1,0 +1,81 @@
+/* =====================================================
+                PATIENT DASHBOARD LAYOUT
+===================================================== */
+
+:root{
+
+    --patient-sidebar-width:280px;
+    --patient-topbar-height:80px;
+
+    --primary:#2563eb;
+    --background:#f5f7fb;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--background);
+    font-family:"Poppins",sans-serif;
+
+}
+
+.patient-layout{
+
+    display:flex;
+    min-height:100vh;
+    background:var(--background);
+
+}
+
+.patient-main{
+
+    margin-left:var(--patient-sidebar-width);
+    width:calc(100% - var(--patient-sidebar-width));
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+
+}
+
+.patient-content{
+
+    flex:1;
+    padding:35px;
+
+}
+
+@media(max-width:992px){
+
+.patient-main{
+
+    margin-left:90px;
+    width:calc(100% - 90px);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.patient-main{
+
+    margin-left:0;
+    width:100%;
+
+}
+
+.patient-content{
+
+    padding:20px;
+
+}
+
+}
