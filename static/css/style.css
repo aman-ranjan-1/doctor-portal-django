@@ -39,34 +39,3 @@
 @import url("accounts/login.css");
 @import url("accounts/register.css");
 
-/* ======================================================
-                PATIENT DASHBOARD
-====================================================== */
-
-@import url("dashboard/patient/layout.css");
-@import url("dashboard/patient/sidebar.css");
-@import url("dashboard/patient/topbar.css");
-@import url("dashboard/patient/dashboard.css");
-@import url("dashboard/patient/table.css");
-@import url("dashboard/patient/forms.css");
-@import url("dashboard/patient/appointment.css");
-@import url("dashboard/patient/my_appointments.css");
-@import url("dashboard/patient/profile.css");
-@import url("dashboard/patient/medical_records.css");
-
-/* ======================================================
-                DOCTOR DASHBOARD
-====================================================== */
-
-/*
-
-We'll add these after completing the patient module.
-
-@import url("dashboard/doctor/layout.css");
-@import url("dashboard/doctor/sidebar.css");
-@import url("dashboard/doctor/topbar.css");
-@import url("dashboard/doctor/dashboard.css");
-@import url("dashboard/doctor/table.css");
-@import url("dashboard/doctor/forms.css");
-
-*/

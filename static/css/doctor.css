@@ -1,0 +1,28 @@
+/* ======================================================
+                    GOOGLE FONT
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ======================================================
+                    BASE
+====================================================== */
+
+@import url("base/base.css");
+
+/* ======================================================
+                DOCTOR DASHBOARD
+====================================================== */
+
+/*
+
+We'll build these later.
+
+@import url("dashboard/doctor/layout.css");
+@import url("dashboard/doctor/sidebar.css");
+@import url("dashboard/doctor/topbar.css");
+@import url("dashboard/doctor/dashboard.css");
+@import url("dashboard/doctor/table.css");
+@import url("dashboard/doctor/forms.css");
+
+*/
