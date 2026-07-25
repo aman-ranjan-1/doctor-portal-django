@@ -12,506 +12,369 @@ Doctor Dashboard
 {% block content %}
 
 <div class="doctordashboard">
+    <!-- ==========================
+            Dashboard Header
+    ========================== -->
+    <div class="doctordashboard-header">
+        <div class="doctordashboard-title">
+            <h2>Doctor Dashboard</h2>
+            <p>
+                Welcome back,
+                {% if user.first_name %}
+                    Dr. {{ user.first_name }}
+                {% else %}
+                    Doctor
+                {% endif %}
+                · Here's your schedule for today.
+            </p>
+        </div>
 
-    <!-- Page Heading -->
-
-    <div class="doctordash-page-title">
-
-        <h2>
-
-            Dashboard Overview
-
-        </h2>
-
-        <p>
-
-            Monitor appointments, patients and daily activities.
-
-        </p>
-
+        <div class="doctordashboard-date">
+            <i class="fas fa-calendar-alt"></i>
+            <span>{{ today|date:"l, d M Y" }}</span>
+        </div>
     </div>
 
-    <!-- Statistics -->
+    <!-- ==========================
+            Statistics Cards
+    ========================== -->
+    <div class="doctorstats-grid">
 
-    <div class="doctordash-grid">
-
-        <!-- Card -->
-
+        <!-- Patients -->
         <div class="doctorstats-card">
-
-            <div class="doctorstats-icon">
-
+            <div class="doctorstats-icon patients">
                 <i class="fas fa-user-injured"></i>
-
             </div>
-
             <div class="doctorstats-content">
-
-                <h5>
-
-                    Patients Today
-
-                </h5>
-
-                <h2>
-
-                    28
-
-                </h2>
-
-                <span>
-
-                    +12% than yesterday
-
-                </span>
-
+                <h6>Patients Today</h6>
+                <h2>{{ stats.patients_today }}</h2>
+                <p>Total patients visited today</p>
             </div>
-
         </div>
 
-        <!-- Card -->
-
+        <!-- Appointments -->
         <div class="doctorstats-card">
-
-            <div class="doctorstats-icon success">
-
+            <div class="doctorstats-icon appointments">
                 <i class="fas fa-calendar-check"></i>
-
             </div>
-
             <div class="doctorstats-content">
-
-                <h5>
-
-                    Appointments
-
-                </h5>
-
-                <h2>
-
-                    18
-
-                </h2>
-
-                <span>
-
-                    Scheduled Today
-
-                </span>
-
+                <h6>Appointments</h6>
+                <h2>{{ stats.appointments_today }}</h2>
+                <p>Scheduled consultations</p>
             </div>
-
         </div>
 
-        <!-- Card -->
-
+        <!-- Completed -->
         <div class="doctorstats-card">
-
-            <div class="doctorstats-icon warning">
-
-                <i class="fas fa-file-medical"></i>
-
+            <div class="doctorstats-icon completed">
+                <i class="fas fa-check-circle"></i>
             </div>
-
             <div class="doctorstats-content">
-
-                <h5>
-
-                    Reports
-
-                </h5>
-
-                <h2>
-
-                    43
-
-                </h2>
-
-                <span>
-
-                    Updated
-
-                </span>
-
+                <h6>Completed</h6>
+                <h2>{{ stats.completed_today }}</h2>
+                <p>Successfully finished</p>
             </div>
-
         </div>
 
-        <!-- Card -->
-
+        <!-- Pending -->
         <div class="doctorstats-card">
-
-            <div class="doctorstats-icon danger">
-
+            <div class="doctorstats-icon pending">
                 <i class="fas fa-clock"></i>
-
             </div>
-
             <div class="doctorstats-content">
-
-                <h5>
-
-                    Pending Cases
-
-                </h5>
-
-                <h2>
-
-                    06
-
-                </h2>
-
-                <span>
-
-                    Need Attention
-
-                </span>
-
+                <h6>Pending</h6>
+                <h2>{{ stats.pending_today }}</h2>
+                <p>Waiting for consultation</p>
             </div>
-
         </div>
 
     </div>
 
-    <!-- Appointments -->
+    <!-- ==========================
+            Main Content
+    ========================== -->
+    <div class="row">
 
-    <div class="doctordash-section">
+        <!-- Upcoming Appointments -->
+        <div class="col-lg-8 mb-4">
+            <div class="doctorappointment-card">
+                <div class="doctorsection-header">
+                    <h4>Upcoming Appointments</h4>
+                    <a href="#">View All</a>
+                </div>
 
-        <div class="doctordash-section-header">
+                <div class="doctorappointments-list">
+                    {% for appointment in upcoming_appointments %}
+                    <div class="doctorappointment-item">
 
-            <h3>
+                        <div class="doctorappointment-left">
+                            <div class="doctorappointment-avatar">
+                                {% if appointment.patient.profile_image %}
+                                    <img src="{{ appointment.patient.profile_image.url }}" alt="Patient">
+                                {% else %}
+                                    <i class="fas fa-user"></i>
+                                {% endif %}
+                            </div>
 
-                Today's Appointments
+                            <div class="doctorappointment-info">
+                                <h5>{{ appointment.patient.user.get_full_name }}</h5>
+                                <p>{{ appointment.reason|truncatechars:40 }}</p>
+                            </div>
+                        </div>
 
-            </h3>
+                        <div class="doctorappointment-middle">
+                            <span>
+                                <i class="far fa-calendar-alt"></i>
+                                {{ appointment.appointment_date|date:"d M Y" }}
+                            </span>
 
-            <a href="#">
+                            <span>
+                                <i class="far fa-clock"></i>
+                                {{ appointment.appointment_time|time:"h:i A" }}
+                            </span>
+                        </div>
 
-                View All
+                        <div class="doctorappointment-right">
+                            <span class="doctorstatus-badge
+                                {% if appointment.status == 'Confirmed' %}
+                                    confirmed
+                                {% elif appointment.status == 'Completed' %}
+                                    completed
+                                {% elif appointment.status == 'Cancelled' %}
+                                    cancelled
+                                {% else %}
+                                    pending
+                                {% endif %}">
+                                {{ appointment.status }}
+                            </span>
+                        </div>
 
-            </a>
+                    </div>
 
-        </div>
+                    {% empty %}
 
-        <!-- ==========================================
-     Bottom Section
-========================================== -->
+                    <div class="doctor-empty-state">
+                        <i class="fas fa-calendar-times"></i>
+                        <h5>No Upcoming Appointments</h5>
+                        <p>There are no scheduled appointments.</p>
+                    </div>
 
-<div class="row mt-4">
+                    {% endfor %}
 
-    <!-- Recent Patients -->
-
-    <div class="col-lg-8 mb-4">
-
-        <div class="doctorpatients-card">
-
-            <div class="doctorpatients-header">
-
-                <h4>
-
-                    Recent Patients
-
-                </h4>
-
-                <a href="#">
-
-                    View All
-
-                </a>
-
+                </div>
             </div>
+        </div>
+                <!-- Today's Schedule -->
+        <div class="col-lg-4 mb-4">
+            <div class="doctorschedule-card">
+                <div class="doctorsection-header">
+                    <h4>Today's Schedule</h4>
+                </div>
 
-            <table class="table doctorpatients-table">
+                <div class="doctorschedule-list">
+                    {% if upcoming_appointments %}
+                        {% for appointment in upcoming_appointments|slice:":4" %}
+                        <div class="doctorschedule-item">
+                            <div class="schedule-time">
+                                {{ appointment.appointment_time|time:"h:i A" }}
+                            </div>
 
-                <thead>
-
-                    <tr>
-
-                        <th>Patient</th>
-
-                        <th>Age</th>
-
-                        <th>Disease</th>
-
-                        <th>Visit</th>
-
-                        <th>Status</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>Rahul Sharma</td>
-
-                        <td>32</td>
-
-                        <td>Hypertension</td>
-
-                        <td>Today</td>
-
-                        <td>
-
-                            <span class="badge badge-success">
-
-                                Stable
-
-                            </span>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Priya Singh</td>
-
-                        <td>28</td>
-
-                        <td>Migraine</td>
-
-                        <td>Today</td>
-
-                        <td>
-
-                            <span class="badge badge-warning">
-
-                                Review
-
-                            </span>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>Amit Kumar</td>
-
-                        <td>47</td>
-
-                        <td>Diabetes</td>
-
-                        <td>Yesterday</td>
-
-                        <td>
-
-                            <span class="badge badge-info">
-
-                                Follow-up
-
-                            </span>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
+                            <div class="schedule-content">
+                                <h6>{{ appointment.patient.user.get_full_name }}</h6>
+                                <p>{{ appointment.reason|truncatechars:30 }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="doctor-empty-state small">
+                            <i class="fas fa-calendar-day"></i>
+                            <p>No appointments scheduled today.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
 
     </div>
 
-    <!-- Quick Actions -->
+    <!-- ==========================
+            Second Row
+    ========================== -->
+    <div class="row">
 
-    <div class="col-lg-4 mb-4">
+        <!-- Recent Patients -->
+        <div class="col-lg-8 mb-4">
+            <div class="doctorpatients-card">
+                <div class="doctorsection-header">
+                    <h4>Recent Patients</h4>
+                    <a href="#">View All</a>
+                </div>
 
-        <div class="doctorquick-card">
+                <div class="doctorpatients-list">
+                    {% for appointment in recent_patients %}
+                    <div class="doctorpatient-item">
 
-            <h4>
+                        <div class="doctorpatient-left">
+                            <div class="doctorpatient-avatar">
+                                {% if appointment.patient.profile_image %}
+                                    <img src="{{ appointment.patient.profile_image.url }}" alt="Patient">
+                                {% else %}
+                                    <i class="fas fa-user"></i>
+                                {% endif %}
+                            </div>
 
+                            <div class="doctorpatient-info">
+                                <h5>{{ appointment.patient.user.get_full_name }}</h5>
+                                <p>{{ appointment.reason|truncatechars:40 }}</p>
+                            </div>
+                        </div>
+
+                        <div class="doctorpatient-right">
+                            <span class="doctorstatus-badge
+                                {% if appointment.status == 'Completed' %}
+                                    completed
+                                {% elif appointment.status == 'Confirmed' %}
+                                    confirmed
+                                {% elif appointment.status == 'Cancelled' %}
+                                    cancelled
+                                {% else %}
+                                    pending
+                                {% endif %}">
+                                {{ appointment.status }}
+                            </span>
+                        </div>
+
+                    </div>
+
+                    {% empty %}
+
+                    <div class="doctor-empty-state">
+                        <i class="fas fa-user-slash"></i>
+                        <h5>No Recent Patients</h5>
+                        <p>Patient history will appear here.</p>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================
                 Quick Actions
+        ========================== -->
+        <div class="col-lg-4 mb-4">
+            <div class="doctorquick-card">
+                <div class="doctorsection-header">
+                    <h4>Quick Actions</h4>
+                </div>
 
-            </h4>
+                <div class="doctorquick-list">
 
-            <div class="doctorquick-list">
+                    <a href="#" class="doctorquick-item">
+                        <div class="doctorquick-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
 
-                <a href="#" class="doctorquick-item">
+                        <div>
+                            <h6>Appointments</h6>
+                            <span>Manage today's appointments</span>
+                        </div>
 
-                    <i class="fas fa-user-plus"></i>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
 
-                    <span>Add Patient</span>
+                    <a href="#" class="doctorquick-item">
+                        <div class="doctorquick-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
 
-                </a>
+                        <div>
+                            <h6>Medical Records</h6>
+                            <span>View patient records</span>
+                        </div>
 
-                <a href="#" class="doctorquick-item">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
 
-                    <i class="fas fa-calendar-plus"></i>
+                    <a href="#" class="doctorquick-item">
+                        <div class="doctorquick-icon">
+                            <i class="fas fa-prescription"></i>
+                        </div>
 
-                    <span>New Appointment</span>
+                        <div>
+                            <h6>Prescriptions</h6>
+                            <span>Create prescriptions</span>
+                        </div>
 
-                </a>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
 
-                <a href="#" class="doctorquick-item">
+                    <a href="#" class="doctorquick-item">
+                        <div class="doctorquick-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
 
-                    <i class="fas fa-file-medical"></i>
+                        <div>
+                            <h6>My Profile</h6>
+                            <span>Update profile details</span>
+                        </div>
 
-                    <span>Create Prescription</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
 
-                </a>
-
-                <a href="#" class="doctorquick-item">
-
-                    <i class="fas fa-notes-medical"></i>
-
-                    <span>Medical Records</span>
-
-                </a>
-
-                <a href="#" class="doctorquick-item">
-
-                    <i class="fas fa-chart-bar"></i>
-
-                    <span>View Reports</span>
-
-                </a>
-
+                </div>
             </div>
-
         </div>
 
     </div>
+        <!-- ==========================
+            Recent Activity
+    ========================== -->
+    <div class="row">
+        <div class="col-12">
+            <div class="doctoractivity-card">
+                <div class="doctorsection-header">
+                    <h4>Recent Activity</h4>
+                </div>
 
-</div>
-<!-- ==========================================
-     Dashboard Bottom Widgets
-========================================== -->
+                <div class="doctoractivity-list">
 
-<div class="row mt-4">
+                    <div class="doctoractivity-item">
+                        <div class="doctoractivity-dot success"></div>
 
-    <!-- Today's Schedule -->
+                        <div>
+                            <h6>Appointment Confirmed</h6>
+                            <p>A patient appointment has been confirmed.</p>
+                        </div>
 
-    <div class="col-lg-6 mb-4">
+                        <span>5 min ago</span>
+                    </div>
 
-        <div class="doctorschedule-card">
+                    <div class="doctoractivity-item">
+                        <div class="doctoractivity-dot primary"></div>
 
-            <div class="doctorschedule-header">
+                        <div>
+                            <h6>Prescription Generated</h6>
+                            <p>A prescription was issued successfully.</p>
+                        </div>
 
-                <h4>Today's Schedule</h4>
+                        <span>20 min ago</span>
+                    </div>
 
+                    <div class="doctoractivity-item">
+                        <div class="doctoractivity-dot warning"></div>
+
+                        <div>
+                            <h6>Medical Record Updated</h6>
+                            <p>Patient information has been updated.</p>
+                        </div>
+
+                        <span>1 hour ago</span>
+                    </div>
+
+                </div>
             </div>
-
-            <div class="doctorschedule-list">
-
-                <div class="doctorschedule-item">
-
-                    <div class="doctorschedule-time">
-
-                        09:00 AM
-
-                    </div>
-
-                    <div class="doctorschedule-content">
-
-                        <h6>Morning Ward Round</h6>
-
-                        <p>General Ward</p>
-
-                    </div>
-
-                </div>
-
-                <div class="doctorschedule-item">
-
-                    <div class="doctorschedule-time">
-
-                        11:30 AM
-
-                    </div>
-
-                    <div class="doctorschedule-content">
-
-                        <h6>Heart Surgery</h6>
-
-                        <p>Operation Theatre - 2</p>
-
-                    </div>
-
-                </div>
-
-                <div class="doctorschedule-item">
-
-                    <div class="doctorschedule-time">
-
-                        03:00 PM
-
-                    </div>
-
-                    <div class="doctorschedule-content">
-
-                        <h6>Patient Follow-up</h6>
-
-                        <p>Consultation Room</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
-
-    </div>
-
-    <!-- Notifications -->
-
-    <div class="col-lg-6 mb-4">
-
-        <div class="doctornotification-card">
-
-            <div class="doctornotification-header">
-
-                <h4>Recent Notifications</h4>
-
-            </div>
-
-            <div class="doctornotification-list">
-
-                <div class="doctornotification-item">
-
-                    <i class="fas fa-user-plus"></i>
-
-                    <span>New patient appointment booked.</span>
-
-                </div>
-
-                <div class="doctornotification-item">
-
-                    <i class="fas fa-file-medical"></i>
-
-                    <span>Medical report uploaded successfully.</span>
-
-                </div>
-
-                <div class="doctornotification-item">
-
-                    <i class="fas fa-pills"></i>
-
-                    <span>Prescription approved.</span>
-
-                </div>
-
-                <div class="doctornotification-item">
-
-                    <i class="fas fa-check-circle"></i>
-
-                    <span>Today's consultation completed.</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
     </div>
 
 </div>

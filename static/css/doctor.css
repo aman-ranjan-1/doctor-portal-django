@@ -13,7 +13,13 @@
 /* ======================================================
                 DOCTOR DASHBOARD
 ====================================================== */
+@import url("dashboard/doctor/layout.css");
+@import url("dashboard/doctor/sidebar.css");
+@import url("dashboard/doctor/topbar.css");
+@import url("dashboard/doctor/dashboard.css");
 
+
+@import url("dashboard/doctor/appointments.css");
 /*
 
 We'll build these later.

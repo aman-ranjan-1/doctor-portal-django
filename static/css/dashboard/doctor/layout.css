@@ -1,0 +1,45 @@
+/* ==========================================
+            DOCTOR DASHBOARD LAYOUT
+========================================== */
+
+.doctordash-wrapper{
+
+    display:flex;
+
+    min-height:100vh;
+
+    background:#f5f7fb;
+
+}
+
+
+/* ===============================
+        MAIN CONTENT
+=============================== */
+
+.doctordash-main{
+
+    flex:1;
+
+    margin-left:290px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+}
+
+
+/* ===============================
+        PAGE CONTENT
+=============================== */
+
+.doctordash-content{
+
+    flex:1;
+
+    padding:30px;
+
+}

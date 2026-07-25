@@ -1,0 +1,905 @@
+/* ==========================================
+            DOCTOR DASHBOARD
+========================================== */
+
+.doctordashboard{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+
+/* ==========================================
+            DASHBOARD HEADER
+========================================== */
+
+.doctordashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    border:1px solid #edf2f7;
+}
+
+.doctordashboard-title h2{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctordashboard-title p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:15px;
+}
+
+.doctordashboard-date{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#eff6ff;
+    color:#2563eb;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.doctordashboard-date i{
+    font-size:18px;
+}
+
+
+/* ==========================================
+            SECTION HEADER
+========================================== */
+
+.doctorsection-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.doctorsection-header h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctorsection-header a{
+    color:#2563eb;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.doctorsection-header a:hover{
+    color:#1d4ed8;
+}
+
+
+/* ==========================================
+            STATISTICS
+========================================== */
+
+.doctorstats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.doctorstats-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.05);
+    transition:.3s;
+}
+
+.doctorstats-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(37,99,235,.12);
+}
+
+.doctorstats-icon{
+    width:65px;
+    height:65px;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#ffffff;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.doctorstats-icon.patients{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.doctorstats-icon.appointments{
+    background:linear-gradient(135deg,#06b6d4,#0ea5e9);
+}
+
+.doctorstats-icon.completed{
+    background:linear-gradient(135deg,#10b981,#22c55e);
+}
+
+.doctorstats-icon.pending{
+    background:linear-gradient(135deg,#f59e0b,#f97316);
+}
+
+.doctorstats-content{
+    flex:1;
+}
+
+.doctorstats-content h6{
+    margin:0;
+    color:#64748b;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.doctorstats-content h2{
+    margin:8px 0;
+    font-size:32px;
+    color:#0f172a;
+    font-weight:700;
+}
+
+.doctorstats-content p{
+    margin:0;
+    color:#94a3b8;
+    font-size:14px;
+}
+/* ==========================================
+            APPOINTMENT CARD
+========================================== */
+
+.doctorappointment-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+}
+
+.doctorappointments-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.doctorappointment-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+    border:1px solid #edf2f7;
+    border-radius:16px;
+    transition:.3s;
+    background:#ffffff;
+}
+
+.doctorappointment-item:hover{
+    border-color:#bfdbfe;
+    background:#f8fbff;
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(37,99,235,.08);
+}
+
+.doctorappointment-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex:1;
+}
+
+.doctorappointment-avatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#eff6ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.doctorappointment-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.doctorappointment-avatar i{
+    color:#2563eb;
+    font-size:22px;
+}
+
+.doctorappointment-info h5{
+    margin:0;
+    color:#0f172a;
+    font-size:16px;
+    font-weight:700;
+}
+
+.doctorappointment-info p{
+    margin:6px 0 0;
+    color:#64748b;
+    font-size:14px;
+}
+
+.doctorappointment-middle{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:6px;
+    min-width:170px;
+}
+
+.doctorappointment-middle span{
+    font-size:14px;
+    color:#64748b;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.doctorappointment-middle i{
+    color:#2563eb;
+}
+
+.doctorappointment-right{
+    margin-left:25px;
+}
+
+
+/* ==========================================
+            STATUS BADGES
+========================================== */
+
+.doctorstatus-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.3px;
+}
+
+.doctorstatus-badge.pending{
+    background:#fff7ed;
+    color:#ea580c;
+}
+
+.doctorstatus-badge.confirmed{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.doctorstatus-badge.completed{
+    background:#ecfdf5;
+    color:#16a34a;
+}
+
+.doctorstatus-badge.cancelled{
+    background:#fef2f2;
+    color:#dc2626;
+}
+
+
+/* ==========================================
+            EMPTY STATE
+========================================== */
+
+.doctor-empty-state{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.doctor-empty-state i{
+    font-size:55px;
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.doctor-empty-state h5{
+    color:#334155;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.doctor-empty-state p{
+    margin:0;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.doctor-empty-state.small{
+    padding:30px 15px;
+}
+
+.doctor-empty-state.small i{
+    font-size:36px;
+    margin-bottom:12px;
+}
+/* ==========================================
+            SCHEDULE CARD
+========================================== */
+
+.doctorschedule-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    height:100%;
+}
+
+.doctorschedule-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.doctorschedule-item{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    padding:16px;
+    border-radius:14px;
+    background:#f8fbff;
+    transition:.3s;
+}
+
+.doctorschedule-item:hover{
+    background:#eff6ff;
+    transform:translateX(5px);
+}
+
+.schedule-time{
+    min-width:75px;
+    padding:8px 12px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#ffffff;
+    font-size:13px;
+    font-weight:600;
+    text-align:center;
+}
+
+.doctorschedule-item h6{
+    margin:0;
+    font-size:15px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctorschedule-item p{
+    margin:6px 0 0;
+    font-size:13px;
+    color:#64748b;
+}
+
+
+/* ==========================================
+            RECENT PATIENTS
+========================================== */
+
+.doctorpatients-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+}
+
+.doctorpatients-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.doctorpatient-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #edf2f7;
+    transition:.3s;
+    background:#ffffff;
+}
+
+.doctorpatient-item:hover{
+    background:#f8fbff;
+    border-color:#bfdbfe;
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(37,99,235,.08);
+}
+
+.doctorpatient-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.doctorpatient-avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#eff6ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    flex-shrink:0;
+}
+
+.doctorpatient-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.doctorpatient-avatar i{
+    color:#2563eb;
+    font-size:20px;
+}
+
+.doctorpatient-info h5{
+    margin:0;
+    font-size:16px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctorpatient-info p{
+    margin:6px 0 0;
+    font-size:14px;
+    color:#64748b;
+}
+
+.doctorpatient-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.doctorpatient-right span{
+    font-size:13px;
+    color:#64748b;
+    font-weight:600;
+}
+/* ==========================================
+            QUICK ACTIONS
+========================================== */
+
+.doctorquick-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+    height:100%;
+}
+
+.doctorquick-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.doctorquick-item{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:18px;
+    border-radius:14px;
+    background:#f8fbff;
+    border:1px solid #edf2f7;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.doctorquick-item:hover{
+    background:#2563eb;
+    border-color:#2563eb;
+    text-decoration:none;
+    transform:translateX(6px);
+    box-shadow:0 12px 30px rgba(37,99,235,.18);
+}
+
+.doctorquick-icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eff6ff;
+    color:#2563eb;
+    font-size:18px;
+    transition:.3s;
+    flex-shrink:0;
+}
+
+.doctorquick-item:hover .doctorquick-icon{
+    background:rgba(255,255,255,.18);
+    color:#ffffff;
+}
+
+.doctorquick-item div{
+    flex:1;
+}
+
+.doctorquick-item h6{
+    margin:0;
+    font-size:15px;
+    font-weight:700;
+    color:#0f172a;
+    transition:.3s;
+}
+
+.doctorquick-item span{
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+    color:#64748b;
+    transition:.3s;
+}
+
+.doctorquick-item i:last-child{
+    color:#94a3b8;
+    transition:.3s;
+}
+
+.doctorquick-item:hover h6,
+.doctorquick-item:hover span,
+.doctorquick-item:hover i:last-child{
+    color:#ffffff;
+}
+
+
+/* ==========================================
+            RECENT ACTIVITY
+========================================== */
+
+.doctoractivity-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid #edf2f7;
+    box-shadow:0 8px 25px rgba(15,23,42,.06);
+}
+
+.doctoractivity-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.doctoractivity-item{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:18px 0;
+    border-bottom:1px solid #edf2f7;
+}
+
+.doctoractivity-item:last-child{
+    border-bottom:none;
+}
+
+.doctoractivity-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    flex-shrink:0;
+}
+
+.doctoractivity-dot.primary{
+    background:#2563eb;
+}
+
+.doctoractivity-dot.success{
+    background:#22c55e;
+}
+
+.doctoractivity-dot.warning{
+    background:#f59e0b;
+}
+
+.doctoractivity-item div{
+    flex:1;
+}
+
+.doctoractivity-item h6{
+    margin:0;
+    font-size:15px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctoractivity-item p{
+    margin:6px 0 0;
+    font-size:14px;
+    color:#64748b;
+}
+
+.doctoractivity-item span{
+    font-size:13px;
+    color:#94a3b8;
+    white-space:nowrap;
+}
+
+
+/* ==========================================
+            COMMON CARD
+========================================== */
+
+.doctorappointment-card,
+.doctorpatients-card,
+.doctorschedule-card,
+.doctorquick-card,
+.doctoractivity-card{
+    transition:.3s;
+}
+
+.doctorappointment-card:hover,
+.doctorpatients-card:hover,
+.doctorschedule-card:hover,
+.doctorquick-card:hover,
+.doctoractivity-card:hover{
+    box-shadow:0 16px 40px rgba(37,99,235,.08);
+}
+/* ==========================================
+            RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:1200px){
+
+    .doctorstats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .doctordashboard-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .doctorstats-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .doctorappointment-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .doctorappointment-middle{
+
+        width:100%;
+
+        align-items:flex-start;
+
+    }
+
+    .doctorappointment-right{
+
+        width:100%;
+
+        margin-left:0;
+
+    }
+
+    .doctorpatient-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .doctorpatient-right{
+
+        width:100%;
+
+        justify-content:flex-start;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .doctorstats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .doctordashboard-header{
+
+        padding:22px;
+
+    }
+
+    .doctorappointment-card,
+    .doctorpatients-card,
+    .doctorquick-card,
+    .doctorschedule-card,
+    .doctoractivity-card{
+
+        padding:20px;
+
+    }
+
+    .doctorsection-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+    .doctorappointment-avatar,
+    .doctorpatient-avatar{
+
+        width:50px;
+
+        height:50px;
+
+    }
+
+    .doctorappointment-info h5,
+    .doctorpatient-info h5{
+
+        font-size:15px;
+
+    }
+
+    .doctorappointment-info p,
+    .doctorpatient-info p{
+
+        font-size:13px;
+
+    }
+
+    .schedule-time{
+
+        min-width:65px;
+
+        font-size:12px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .doctordashboard{
+
+        gap:18px;
+
+    }
+
+    .doctordashboard-header{
+
+        padding:18px;
+
+    }
+
+    .doctordashboard-title h2{
+
+        font-size:24px;
+
+    }
+
+    .doctordashboard-title p{
+
+        font-size:14px;
+
+    }
+
+    .doctordashboard-date{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .doctorstats-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .doctorstats-icon{
+
+        width:58px;
+
+        height:58px;
+
+        font-size:22px;
+
+    }
+
+    .doctorstats-content h2{
+
+        font-size:28px;
+
+    }
+
+    .doctorappointment-item,
+    .doctorpatient-item,
+    .doctorschedule-item{
+
+        padding:15px;
+
+    }
+
+    .doctorquick-item{
+
+        padding:16px;
+
+    }
+
+    .doctorquick-icon{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:16px;
+
+    }
+
+    .doctoractivity-item{
+
+        gap:12px;
+
+    }
+
+}
