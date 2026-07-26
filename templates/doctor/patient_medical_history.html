@@ -1,0 +1,338 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Patient Medical History
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="doctordashmedrec-page">
+
+
+    <!-- ==========================
+            Patient Header
+    ========================== -->
+
+    <div class="doctordashmedrec-header">
+
+        <div>
+
+            <h2>
+                Medical History
+            </h2>
+
+            <p>
+                Complete medical records of {{ patient.user.get_full_name }}.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <!-- ==========================
+            Patient Profile Card
+    ========================== -->
+
+
+    <div class="doctordashmedrec-profile-card">
+
+
+        <div class="doctordashmedrec-avatar">
+
+
+            {% if patient.profile_image %}
+
+                <img
+                src="{{ patient.profile_image.url }}"
+                alt="Patient">
+
+            {% else %}
+
+                <i class="fas fa-user"></i>
+
+            {% endif %}
+
+
+        </div>
+
+
+
+        <div class="doctordashmedrec-profile-info">
+
+
+            <h3>
+                {{ patient.user.get_full_name }}
+            </h3>
+
+
+            <p>
+                {{ patient.user.email }}
+            </p>
+
+
+            <span>
+                Patient ID:
+                {{ patient.patient_id }}
+            </span>
+
+
+        </div>
+
+
+
+
+        <div class="doctordashmedrec-profile-stats">
+
+
+            <div>
+
+                <span>
+                    Total Records
+                </span>
+
+
+                <strong>
+                    {{ records.count }}
+                </strong>
+
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Blood Group
+                </span>
+
+
+                <strong>
+                    {{ patient.blood_group|default:"N/A" }}
+                </strong>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- ==========================
+            Medical Timeline
+    ========================== -->
+
+
+    <div class="doctordashmedrec-history">
+
+
+        {% for record in records %}
+
+
+
+        <div class="doctordashmedrec-history-card">
+
+
+
+            <div class="doctordashmedrec-history-header">
+
+
+                <div>
+
+                    <h4>
+                        Medical Consultation
+                    </h4>
+
+
+                    <span>
+
+                        {{ record.created_at|date:"d M Y" }}
+
+                    </span>
+
+
+                </div>
+
+
+
+                <div>
+
+
+                    <a
+                    href="{% url 'medical_record_detail' record.id %}"
+                    class="doctordashmedrec-btn">
+
+
+                        <i class="fas fa-eye"></i>
+
+                        View
+
+
+                    </a>
+
+
+
+                    <a
+                    href="{% url 'edit_medical_record' record.id %}"
+                    class="doctordashmedrec-btn">
+
+
+                        <i class="fas fa-edit"></i>
+
+                        Edit
+
+
+                    </a>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="doctordashmedrec-history-body">
+
+
+
+                <div>
+
+                    <label>
+                        Diagnosis
+                    </label>
+
+
+                    <p>
+                        {{ record.diagnosis }}
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <label>
+                        Prescription
+                    </label>
+
+
+                    <p>
+                        {{ record.prescription|default:"No prescription added." }}
+                    </p>
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <label>
+                        Doctor Notes
+                    </label>
+
+
+                    <p>
+                        {{ record.notes|default:"No notes available." }}
+                    </p>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            {% if record.report_file %}
+
+
+            <div class="doctordashmedrec-report">
+
+
+                <i class="fas fa-file-pdf"></i>
+
+
+                <a href="{{ record.report_file.url }}"
+                   target="_blank">
+
+                    View Medical Report
+
+                </a>
+
+
+            </div>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+
+        {% empty %}
+
+
+
+        <div class="doctordashmedrec-empty">
+
+
+            <i class="fas fa-folder-open"></i>
+
+
+            <h5>
+                No Medical Records
+            </h5>
+
+
+            <p>
+                No records have been created for this patient.
+            </p>
+
+
+        </div>
+
+
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}

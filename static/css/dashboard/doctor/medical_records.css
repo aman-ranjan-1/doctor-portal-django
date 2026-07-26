@@ -1,0 +1,605 @@
+/* ======================================================
+        DOCTOR MEDICAL RECORDS PAGE
+====================================================== */
+
+
+/* ==========================
+        MAIN WRAPPER
+========================== */
+
+.doctordashmedrec-page{
+
+    padding:30px;
+
+    width:100%;
+
+    animation:doctordashmedrecFade 0.4s ease;
+
+}
+
+
+/* ==========================
+        PAGE HEADER
+========================== */
+
+
+.doctordashmedrec-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+
+.doctordashmedrec-header h2{
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+    margin-bottom:8px;
+
+}
+
+
+.doctordashmedrec-header p{
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    margin:0;
+
+}
+
+
+
+
+
+/* ==========================
+        SUMMARY CARDS
+========================== */
+
+
+.doctordashmedrec-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.doctordashmedrec-summary-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+
+    transition:all .3s ease;
+
+    border:1px solid rgba(0,0,0,0.05);
+
+}
+
+
+
+.doctordashmedrec-summary-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+}
+
+
+
+.doctordashmedrec-summary-card i{
+
+    width:55px;
+
+    height:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:15px;
+
+    background:#eef6ff;
+
+    color:#2563eb;
+
+    font-size:24px;
+
+}
+
+
+
+.doctordashmedrec-summary-card span{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#6b7280;
+
+    margin-bottom:5px;
+
+}
+
+
+
+.doctordashmedrec-summary-card h3{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+
+
+
+
+/* ==========================
+        RECORD CONTAINER
+========================== */
+
+
+.doctordashmedrec-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+
+
+/* ==========================
+        PATIENT CARD
+========================== */
+
+
+.doctordashmedrec-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.07);
+
+    border:1px solid rgba(0,0,0,0.05);
+
+    transition:all .35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.doctordashmedrec-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    height:4px;
+
+    width:100%;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    );
+
+}
+
+
+
+.doctordashmedrec-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+
+}
+
+
+
+
+
+/* ==========================
+        CARD HEADER
+========================== */
+
+
+.doctordashmedrec-card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.doctordashmedrec-avatar{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:28px;
+
+    flex-shrink:0;
+
+}
+
+
+
+.doctordashmedrec-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.doctordashmedrec-patient-info h4{
+
+    margin:0 0 5px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+
+
+.doctordashmedrec-patient-info span{
+
+    color:#6b7280;
+
+    font-size:13px;
+
+    word-break:break-word;
+
+}
+
+
+
+
+
+/* ==========================
+        DETAILS SECTION
+========================== */
+
+
+.doctordashmedrec-details{
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    display:grid;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.doctordashmedrec-details div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.doctordashmedrec-details span{
+
+    color:#6b7280;
+
+    font-size:13px;
+
+}
+
+
+
+.doctordashmedrec-details strong{
+
+    color:#111827;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* ==========================
+        ACTION BUTTONS
+========================== */
+
+
+.doctordashmedrec-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.doctordashmedrec-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    background:#f1f5f9;
+
+    color:#334155;
+
+    text-decoration:none!important;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.3s ease;
+
+}
+
+
+
+.doctordashmedrec-btn:hover{
+
+    background:#e2e8f0;
+
+    color:#111827;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+.doctordashmedrec-btn.primary{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.doctordashmedrec-btn.primary:hover{
+
+    background:#1d4ed8;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==========================
+        EMPTY STATE
+========================== */
+
+
+.doctordashmedrec-empty{
+
+    grid-column:1/-1;
+
+    background:white;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+
+
+.doctordashmedrec-empty i{
+
+    font-size:45px;
+
+    color:#94a3b8;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.doctordashmedrec-empty h5{
+
+    font-size:20px;
+
+    color:#1f2937;
+
+}
+
+
+
+.doctordashmedrec-empty p{
+
+    color:#6b7280;
+
+}
+
+
+
+
+
+/* ==========================
+        ANIMATION
+========================== */
+
+
+@keyframes doctordashmedrecFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================
+        RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+    .doctordashmedrec-page{
+
+        padding:20px;
+
+    }
+
+
+    .doctordashmedrec-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+
+    .doctordashmedrec-actions{
+
+        flex-direction:column;
+
+    }
+
+
+    .doctordashmedrec-btn{
+
+        width:100%;
+
+    }
+
+
+}

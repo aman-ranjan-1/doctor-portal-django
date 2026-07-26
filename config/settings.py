@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'doctor',
     'appointments',
     'medical_records',
+    'prescriptions'
 
 ]
 

@@ -1,0 +1,424 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Prescriptions
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctordashpres-page">
+
+    <!-- ==========================================
+                    PAGE HEADER
+    =========================================== -->
+
+    <div class="doctordashpres-header">
+
+        <div class="doctordashpres-header-left">
+
+            <h2>
+
+                Prescriptions
+
+            </h2>
+
+            <p>
+
+                Create and manage patient prescriptions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                    SUMMARY CARDS
+    =========================================== -->
+
+    <div class="doctordashpres-summary">
+
+
+        <div class="doctordashpres-summary-card">
+
+            <div class="doctordashpres-summary-icon">
+
+                <i class="fas fa-file-prescription"></i>
+
+            </div>
+
+            <div class="doctordashpres-summary-content">
+
+                <span>
+
+                    Total Prescriptions
+
+                </span>
+
+                <h3>{{ total_prescriptions }}</h3>
+            </div>
+
+        </div>
+
+
+
+        <div class="doctordashpres-summary-card">
+
+            <div class="doctordashpres-summary-icon">
+
+                <i class="fas fa-user-injured"></i>
+
+            </div>
+
+            <div class="doctordashpres-summary-content">
+
+                <span>
+
+                    Total Patients
+
+                </span>
+
+                <h3>
+
+                    {{ patients.count }}
+
+                </h3>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="doctordashpres-summary-card">
+
+            <div class="doctordashpres-summary-icon">
+
+                <i class="fas fa-calendar-day"></i>
+
+            </div>
+
+            <div class="doctordashpres-summary-content">
+
+                <span>
+
+                    Today
+
+                </span>
+
+                <h3>
+
+                    {{ today_prescriptions }}
+
+                </h3>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="doctordashpres-summary-card">
+
+            <div class="doctordashpres-summary-icon">
+
+                <i class="fas fa-calendar-alt"></i>
+
+            </div>
+
+            <div class="doctordashpres-summary-content">
+
+                <span>
+
+                    This Month
+
+                </span>
+
+                <h3>
+
+                    {{ month_prescriptions }}
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                SEARCH BAR
+    =========================================== -->
+
+    <div class="doctordashpres-toolbar">
+
+        <div class="doctordashpres-search">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search patient by name or Patient ID">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                PRESCRIPTION TABLE
+    =========================================== -->
+
+    <div class="doctordashpres-table-wrapper">
+                <table class="doctordashpres-table">
+
+            <!-- ==========================================
+                        TABLE HEADER
+            =========================================== -->
+
+            <thead>
+
+                <tr>
+
+                    <th>
+
+                        Patient
+
+                    </th>
+
+                    <th>
+
+                        Blood Group
+
+                    </th>
+
+                    <th>
+
+                        Last Prescription
+
+                    </th>
+
+                    <th>
+
+                        Total Prescriptions
+
+                    </th>
+
+                    <th>
+
+                        Actions
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <!-- ==========================================
+                        TABLE BODY
+            =========================================== -->
+
+            <tbody>
+
+                {% for patient in patients %}
+
+                <tr>
+
+
+                    <!-- ==========================
+                            PATIENT
+                    ========================== -->
+
+                    <td>
+
+                        <div class="doctordashpres-patient">
+
+                            <div class="doctordashpres-avatar">
+
+                                {% if patient.profile_image %}
+
+                                    <img
+                                        src="{{ patient.profile_image.url }}"
+                                        alt="{{ patient.user.get_full_name }}">
+
+                                {% else %}
+
+                                    <i class="fas fa-user"></i>
+
+                                {% endif %}
+
+                            </div>
+
+                            <div class="doctordashpres-patient-info">
+
+                                <h5>
+
+                                    {{ patient.user.get_full_name }}
+
+                                </h5>
+
+                                <span>
+
+                                    {{ patient.patient_id }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+
+
+                    <!-- ==========================
+                            BLOOD GROUP
+                    ========================== -->
+
+                    <td>
+
+                        <span class="doctordashpres-badge">
+
+                            {{ patient.blood_group|default:"N/A" }}
+
+                        </span>
+
+                    </td>
+
+
+
+                    <!-- ==========================
+                        LAST PRESCRIPTION
+                    ========================== -->
+
+                    <td>
+
+                        {% with patient.prescriptions.first as latest %}
+
+                            {% if latest %}
+
+                                {{ latest.created_at|date:"d M Y" }}
+
+                            {% else %}
+
+                                <span class="doctordashpres-empty-text">
+
+                                    No Record
+
+                                </span>
+
+                            {% endif %}
+
+                        {% endwith %}
+
+                    </td>
+
+
+
+                    <!-- ==========================
+                        TOTAL PRESCRIPTIONS
+                    ========================== -->
+
+                    <td>
+
+                        <span class="doctordashpres-count">
+
+                            {{ patient.prescriptions.count }}
+
+                        </span>
+
+                    </td>
+
+
+
+                    <!-- ==========================
+                            ACTIONS
+                    ========================== -->
+
+                    <td>
+
+                        <div class="doctordashpres-actions">
+                                                        <a
+                                href="{% url 'add_prescription' patient.id %}"
+                                class="doctordashpres-btn primary">
+
+                                <i class="fas fa-plus"></i>
+
+                                Create
+
+                            </a>
+
+
+                            <a
+                                href="{% url 'prescription_history' patient.id %}"
+                                class="doctordashpres-btn secondary">
+
+                                <i class="fas fa-history"></i>
+
+                                History
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <!-- ==========================================
+                            EMPTY STATE
+                =========================================== -->
+
+                <tr>
+
+                    <td
+                        colspan="5"
+                        class="doctordashpres-empty">
+
+                        <div class="doctordashpres-empty-content">
+
+                            <i class="fas fa-file-prescription"></i>
+
+                            <h4>
+
+                                No Patients Found
+
+                            </h4>
+
+                            <p>
+
+                                Patients with appointments will appear here.
+
+                            </p>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

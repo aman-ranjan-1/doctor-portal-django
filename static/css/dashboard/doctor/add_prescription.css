@@ -1,0 +1,377 @@
+/*======================================================
+                    PAGE LAYOUT
+======================================================*/
+
+.doctordashaddpres-page{
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    background:#F8FAFC;
+    min-height:100vh;
+}
+
+
+/*======================================================
+                    PAGE HEADER
+======================================================*/
+
+.doctordashaddpres-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.doctordashaddpres-header-left{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.doctordashaddpres-header-left h2{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+.doctordashaddpres-header-left p{
+    margin:0;
+    font-size:15px;
+    color:#64748B;
+}
+
+.doctordashaddpres-back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 20px;
+    text-decoration:none;
+    background:rgba(255,255,255,.70);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.60);
+    border-radius:14px;
+    color:#2563EB;
+    font-weight:600;
+    transition:.3s ease;
+    box-shadow:0 8px 24px rgba(15,23,42,.06);
+}
+
+.doctordashaddpres-back-btn:hover{
+    background:#2563EB;
+    color:#FFFFFF;
+    transform:translateY(-2px);
+}
+
+
+/*======================================================
+                PATIENT INFORMATION CARD
+======================================================*/
+
+.doctordashaddpres-patient-card{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    padding:28px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.60);
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+}
+
+.doctordashaddpres-avatar{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#FFFFFF;
+    font-size:34px;
+}
+
+.doctordashaddpres-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.doctordashaddpres-patient-details{
+    flex:1;
+}
+
+.doctordashaddpres-patient-details h3{
+    margin:0 0 18px;
+    font-size:24px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+.doctordashaddpres-patient-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+}
+
+.doctordashaddpres-patient-grid div{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.doctordashaddpres-patient-grid span{
+    font-size:13px;
+    font-weight:500;
+    color:#64748B;
+}
+
+.doctordashaddpres-patient-grid strong{
+    font-size:15px;
+    font-weight:600;
+    color:#0F172A;
+}
+/*======================================================
+                PRESCRIPTION FORM
+======================================================*/
+
+.doctordashaddpres-form{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.doctordashaddpres-form-card{
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.60);
+    border-radius:22px;
+    padding:32px;
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+}
+
+.doctordashaddpres-form-card h4{
+    margin:0 0 28px;
+    font-size:22px;
+    font-weight:700;
+    color:#0F172A;
+    padding-bottom:16px;
+    border-bottom:1px solid rgba(226,232,240,.9);
+}
+
+.doctordashaddpres-form-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:24px;
+}
+
+.doctordashaddpres-form-group:last-child{
+    margin-bottom:0;
+}
+
+.doctordashaddpres-form-group label{
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+}
+
+.doctordashaddpres-form-group input,
+.doctordashaddpres-form-group textarea,
+.doctordashaddpres-form-group select{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid rgba(203,213,225,.9);
+    border-radius:14px;
+    background:rgba(255,255,255,.92);
+    color:#0F172A;
+    font-size:15px;
+    font-family:inherit;
+    outline:none;
+    transition:.3s ease;
+    box-sizing:border-box;
+}
+
+.doctordashaddpres-form-group textarea{
+    resize:vertical;
+    min-height:120px;
+    line-height:1.7;
+}
+
+.doctordashaddpres-form-group input[type="date"]{
+    cursor:pointer;
+}
+
+.doctordashaddpres-form-group input::placeholder,
+.doctordashaddpres-form-group textarea::placeholder{
+    color:#94A3B8;
+}
+
+.doctordashaddpres-form-group input:focus,
+.doctordashaddpres-form-group textarea:focus,
+.doctordashaddpres-form-group select:focus{
+    border-color:#2563EB;
+    background:#FFFFFF;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+.doctordashaddpres-form-group textarea::-webkit-scrollbar{
+    width:8px;
+}
+
+.doctordashaddpres-form-group textarea::-webkit-scrollbar-thumb{
+    background:#CBD5E1;
+    border-radius:10px;
+}
+
+.doctordashaddpres-form-group textarea::-webkit-scrollbar-thumb:hover{
+    background:#94A3B8;
+}
+/*======================================================
+                    FORM ACTIONS
+======================================================*/
+
+.doctordashaddpres-actions{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:16px;
+}
+
+.doctordashaddpres-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-width:180px;
+    padding:14px 28px;
+    border:none;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.doctordashaddpres-btn.primary{
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#FFFFFF;
+    box-shadow:0 10px 24px rgba(37,99,235,.25);
+}
+
+.doctordashaddpres-btn.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px rgba(37,99,235,.35);
+}
+
+.doctordashaddpres-btn.secondary{
+    background:#FFFFFF;
+    color:#2563EB;
+    border:1px solid #2563EB;
+}
+
+.doctordashaddpres-btn.secondary:hover{
+    background:#2563EB;
+    color:#FFFFFF;
+}
+
+
+/*======================================================
+                    RESPONSIVE
+======================================================*/
+
+@media(max-width:992px){
+
+    .doctordashaddpres-page{
+        padding:24px;
+    }
+
+    .doctordashaddpres-patient-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .doctordashaddpres-patient-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .doctordashaddpres-page{
+        padding:18px;
+    }
+
+    .doctordashaddpres-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .doctordashaddpres-form-card{
+        padding:24px;
+    }
+
+    .doctordashaddpres-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .doctordashaddpres-btn{
+        width:100%;
+    }
+
+}
+
+
+@media(max-width:576px){
+
+    .doctordashaddpres-page{
+        padding:15px;
+    }
+
+    .doctordashaddpres-header-left h2{
+        font-size:26px;
+    }
+
+    .doctordashaddpres-header-left p{
+        font-size:14px;
+    }
+
+    .doctordashaddpres-patient-card{
+        padding:22px;
+    }
+
+    .doctordashaddpres-avatar{
+        width:75px;
+        height:75px;
+        font-size:28px;
+    }
+
+    .doctordashaddpres-patient-details h3{
+        font-size:20px;
+    }
+
+    .doctordashaddpres-form-card{
+        padding:20px;
+    }
+
+    .doctordashaddpres-form-card h4{
+        font-size:20px;
+    }
+
+    .doctordashaddpres-form-group input,
+    .doctordashaddpres-form-group textarea,
+    .doctordashaddpres-form-group select{
+        font-size:14px;
+        padding:14px 16px;
+    }
+
+}

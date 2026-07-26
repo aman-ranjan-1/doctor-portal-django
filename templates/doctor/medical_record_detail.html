@@ -1,0 +1,323 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Medical Record Details
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="doctordashmedrec-page">
+
+
+    <!-- ==========================
+            Header
+    ========================== -->
+
+    <div class="doctordashmedrec-header">
+
+        <div>
+
+            <h2>
+                Medical Record Details
+            </h2>
+
+            <p>
+                Detailed consultation information.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <a
+            href="{% url 'edit_medical_record' record.id %}"
+            class="doctordashmedrec-btn primary">
+
+                <i class="fas fa-edit"></i>
+
+                Edit Record
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- ==========================
+            Patient Information
+    ========================== -->
+
+
+    <div class="doctordashmedrec-profile-card">
+
+
+        <div class="doctordashmedrec-avatar">
+
+
+            {% if record.patient.profile_image %}
+
+                <img
+                src="{{ record.patient.profile_image.url }}"
+                alt="Patient">
+
+            {% else %}
+
+                <i class="fas fa-user"></i>
+
+            {% endif %}
+
+
+        </div>
+
+
+
+        <div class="doctordashmedrec-profile-info">
+
+
+            <h3>
+                {{ record.patient.user.get_full_name }}
+            </h3>
+
+
+            <p>
+                {{ record.patient.user.email }}
+            </p>
+
+
+            <span>
+                Patient ID:
+                {{ record.patient.patient_id }}
+            </span>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- ==========================
+            Consultation Information
+    ========================== -->
+
+
+    <div class="doctordashmedrec-detail-card">
+
+
+        <div class="doctordashmedrec-detail-header">
+
+            <h4>
+                Consultation Information
+            </h4>
+
+
+        </div>
+
+
+
+        <div class="doctordashmedrec-detail-grid">
+
+
+            <div>
+
+                <span>
+                    Doctor
+                </span>
+
+
+                <strong>
+                    Dr. {{ record.doctor.user.get_full_name }}
+                </strong>
+
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Date
+                </span>
+
+
+                <strong>
+                    {{ record.created_at|date:"d M Y" }}
+                </strong>
+
+
+            </div>
+
+
+
+            {% if record.appointment %}
+
+
+            <div>
+
+                <span>
+                    Appointment Date
+                </span>
+
+
+                <strong>
+                    {{ record.appointment.appointment_date|date:"d M Y" }}
+                </strong>
+
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Reason
+                </span>
+
+
+                <strong>
+                    {{ record.appointment.reason }}
+                </strong>
+
+
+            </div>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- ==========================
+            Medical Information
+    ========================== -->
+
+
+    <div class="doctordashmedrec-detail-card">
+
+
+        <div class="doctordashmedrec-detail-section">
+
+
+            <h4>
+                Diagnosis
+            </h4>
+
+
+            <p>
+                {{ record.diagnosis }}
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="doctordashmedrec-detail-section">
+
+
+            <h4>
+                Prescription
+            </h4>
+
+
+            <p>
+                {{ record.prescription|default:"No prescription added." }}
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="doctordashmedrec-detail-section">
+
+
+            <h4>
+                Doctor Notes
+            </h4>
+
+
+            <p>
+                {{ record.notes|default:"No notes available." }}
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ==========================
+            Reports
+    ========================== -->
+
+
+    {% if record.report_file %}
+
+
+    <div class="doctordashmedrec-report">
+
+
+        <i class="fas fa-file-medical"></i>
+
+
+        <a
+        href="{{ record.report_file.url }}"
+        target="_blank">
+
+            Open Attached Report
+
+        </a>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+
+
+
+</div>
+
+
+{% endblock %}

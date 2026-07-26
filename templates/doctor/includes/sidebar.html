@@ -74,7 +74,7 @@
 
         <li class="doctor-menu-item">
 
-            <a href="#">
+            <a href="{% url 'doctor_patients' %}">
 
                 <i class="fas fa-user-injured"></i>
 
@@ -86,7 +86,7 @@
 
         <li class="doctor-menu-item">
 
-            <a href="#">
+            <a href="{% url 'doctor_medical_records' %}">
 
                 <i class="fas fa-file-medical"></i>
 
@@ -98,7 +98,7 @@
 
         <li class="doctor-menu-item">
 
-            <a href="#">
+            <a href="{% url 'doctor_prescriptions' %}">
 
                 <i class="fas fa-prescription"></i>
 
@@ -110,7 +110,7 @@
 
         <li class="doctor-menu-item">
 
-            <a href="#">
+            <a href="{% url 'doctor_schedule' %}">
 
                 <i class="fas fa-clock"></i>
 
@@ -122,7 +122,7 @@
 
         <li class="doctor-menu-item">
 
-            <a href="#">
+            <a href="{% url 'doctor_report' %}">
 
                 <i class="fas fa-chart-line"></i>
 
@@ -132,9 +132,9 @@
 
         </li>
 
-        <li class="doctor-menu-item">
+        <li class="doctor-menu-item" class="{% if request.resolver_match.url_name == 'doctor_profile' %}active{% endif %}">
 
-            <a href="#">
+            <a href="{% url 'doctor_profile' %}">
 
                 <i class="fas fa-user-cog"></i>
 

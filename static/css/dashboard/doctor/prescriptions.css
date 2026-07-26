@@ -1,0 +1,568 @@
+/*======================================================
+                    PAGE
+======================================================*/
+
+.doctordashpres-page{
+    padding:30px;
+    background:#F8FAFC;
+    min-height:100vh;
+}
+
+
+/*======================================================
+                    HEADER
+======================================================*/
+
+.doctordashpres-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.doctordashpres-header-left h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+.doctordashpres-header-left p{
+    margin-top:8px;
+    color:#64748B;
+    font-size:15px;
+}
+
+
+/*======================================================
+                    SUMMARY
+======================================================*/
+
+.doctordashpres-summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.doctordashpres-summary-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:24px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+    transition:.3s ease;
+}
+
+.doctordashpres-summary-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(37,99,235,.12);
+}
+
+.doctordashpres-summary-icon{
+    width:62px;
+    height:62px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#fff;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.doctordashpres-summary-content span{
+    display:block;
+    font-size:14px;
+    color:#64748B;
+    margin-bottom:6px;
+}
+
+.doctordashpres-summary-content h3{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#0F172A;
+}
+/*======================================================
+                    TOOLBAR
+======================================================*/
+
+.doctordashpres-toolbar{
+    margin-bottom:28px;
+}
+
+.doctordashpres-search{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 20px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+    transition:.3s ease;
+}
+
+.doctordashpres-search:hover{
+    box-shadow:0 15px 35px rgba(37,99,235,.10);
+}
+
+.doctordashpres-search:focus-within{
+    border-color:#2563EB;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+.doctordashpres-search i{
+    font-size:18px;
+    color:#2563EB;
+}
+
+.doctordashpres-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:#0F172A;
+    font-size:15px;
+    font-weight:500;
+}
+
+.doctordashpres-search input::placeholder{
+    color:#94A3B8;
+}
+
+
+/*======================================================
+                TABLE WRAPPER
+======================================================*/
+
+.doctordashpres-table-wrapper{
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(15,23,42,.06);
+}
+
+
+/*======================================================
+                    TABLE
+======================================================*/
+
+.doctordashpres-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.doctordashpres-table thead{
+    background:#EFF6FF;
+}
+
+.doctordashpres-table thead th{
+    padding:22px 26px;
+    text-align:left;
+    font-size:14px;
+    font-weight:700;
+    color:#1E3A8A;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    border-bottom:1px solid #DBEAFE;
+}
+
+.doctordashpres-table tbody tr{
+    transition:.25s ease;
+    border-bottom:1px solid #F1F5F9;
+}
+
+.doctordashpres-table tbody tr:last-child{
+    border-bottom:none;
+}
+
+.doctordashpres-table tbody tr:hover{
+    background:#F8FBFF;
+}
+
+.doctordashpres-table tbody td{
+    padding:22px 26px;
+    vertical-align:middle;
+    color:#334155;
+    font-size:15px;
+}
+/*======================================================
+                PATIENT INFORMATION
+======================================================*/
+
+.doctordashpres-patient{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.doctordashpres-avatar{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#FFFFFF;
+    font-size:22px;
+    flex-shrink:0;
+}
+
+.doctordashpres-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.doctordashpres-patient-info{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.doctordashpres-patient-info h5{
+    margin:0;
+    font-size:16px;
+    font-weight:600;
+    color:#0F172A;
+}
+
+.doctordashpres-patient-info span{
+    font-size:13px;
+    color:#64748B;
+}
+
+
+/*======================================================
+                    BADGES
+======================================================*/
+
+.doctordashpres-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 16px;
+    background:#DBEAFE;
+    color:#2563EB;
+    font-size:13px;
+    font-weight:600;
+    border-radius:50px;
+}
+
+.doctordashpres-count{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:42px;
+    height:42px;
+    padding:0 14px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#FFFFFF;
+    font-size:14px;
+    font-weight:700;
+}
+
+.doctordashpres-empty-text{
+    color:#94A3B8;
+    font-style:italic;
+}
+
+
+/*======================================================
+                    ACTION BUTTONS
+======================================================*/
+
+.doctordashpres-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.doctordashpres-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+.doctordashpres-btn i{
+    font-size:13px;
+}
+
+.doctordashpres-btn.primary{
+    background:#2563EB;
+    color:#FFFFFF;
+    border:1px solid #2563EB;
+}
+
+.doctordashpres-btn.primary:hover{
+    background:#1D4ED8;
+    border-color:#1D4ED8;
+    color:#FFFFFF;
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(37,99,235,.25);
+}
+
+.doctordashpres-btn.secondary{
+    background:#FFFFFF;
+    color:#2563EB;
+    border:1px solid #BFDBFE;
+}
+
+.doctordashpres-btn.secondary:hover{
+    background:#EFF6FF;
+    border-color:#2563EB;
+    color:#2563EB;
+    transform:translateY(-2px);
+}
+
+
+/*======================================================
+                    EMPTY STATE
+======================================================*/
+
+.doctordashpres-empty{
+    padding:80px 30px !important;
+    text-align:center;
+}
+
+.doctordashpres-empty-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.doctordashpres-empty-content i{
+    width:90px;
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#DBEAFE;
+    color:#2563EB;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.doctordashpres-empty-content h4{
+    margin:0 0 10px;
+    color:#0F172A;
+    font-size:24px;
+    font-weight:700;
+}
+
+.doctordashpres-empty-content p{
+    margin:0;
+    color:#64748B;
+    font-size:15px;
+}
+/*======================================================
+                    RESPONSIVE
+======================================================*/
+
+@media (max-width:1200px){
+
+    .doctordashpres-page{
+        padding:24px;
+    }
+
+    .doctordashpres-summary{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .doctordashpres-table thead th,
+    .doctordashpres-table tbody td{
+        padding:18px;
+    }
+
+}
+
+
+@media (max-width:992px){
+
+    .doctordashpres-page{
+        padding:20px;
+    }
+
+    .doctordashpres-header{
+        margin-bottom:24px;
+    }
+
+    .doctordashpres-header-left h2{
+        font-size:28px;
+    }
+
+    .doctordashpres-summary{
+        grid-template-columns:1fr 1fr;
+        gap:16px;
+    }
+
+    .doctordashpres-avatar{
+        width:50px;
+        height:50px;
+    }
+
+    .doctordashpres-btn{
+        padding:9px 14px;
+        font-size:13px;
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .doctordashpres-page{
+        padding:18px;
+    }
+
+    .doctordashpres-summary{
+        grid-template-columns:1fr;
+    }
+
+    .doctordashpres-toolbar{
+        margin-bottom:20px;
+    }
+
+    .doctordashpres-table-wrapper{
+        overflow-x:auto;
+        border-radius:18px;
+    }
+
+    .doctordashpres-table{
+        min-width:760px;
+    }
+
+    .doctordashpres-header-left h2{
+        font-size:26px;
+    }
+
+    .doctordashpres-summary-card{
+        padding:20px;
+    }
+
+    .doctordashpres-summary-icon{
+        width:55px;
+        height:55px;
+        font-size:20px;
+    }
+
+    .doctordashpres-summary-content h3{
+        font-size:26px;
+    }
+
+}
+
+
+@media (max-width:576px){
+
+    .doctordashpres-page{
+        padding:15px;
+    }
+
+    .doctordashpres-header-left h2{
+        font-size:24px;
+    }
+
+    .doctordashpres-header-left p{
+        font-size:14px;
+    }
+
+    .doctordashpres-summary-card{
+        padding:18px;
+        gap:14px;
+    }
+
+    .doctordashpres-search{
+        padding:14px 16px;
+    }
+
+    .doctordashpres-search input{
+        font-size:14px;
+    }
+
+    .doctordashpres-table{
+        min-width:700px;
+    }
+
+    .doctordashpres-table thead th{
+        font-size:13px;
+        padding:16px;
+    }
+
+    .doctordashpres-table tbody td{
+        padding:16px;
+    }
+
+    .doctordashpres-avatar{
+        width:46px;
+        height:46px;
+        font-size:18px;
+    }
+
+    .doctordashpres-patient-info h5{
+        font-size:15px;
+    }
+
+    .doctordashpres-patient-info span{
+        font-size:12px;
+    }
+
+    .doctordashpres-actions{
+        gap:8px;
+    }
+
+    .doctordashpres-btn{
+        padding:8px 12px;
+        font-size:12px;
+    }
+
+    .doctordashpres-count{
+        min-width:36px;
+        height:36px;
+        font-size:13px;
+    }
+
+    .doctordashpres-empty{
+        padding:60px 20px !important;
+    }
+
+    .doctordashpres-empty-content i{
+        width:72px;
+        height:72px;
+        font-size:28px;
+    }
+
+    .doctordashpres-empty-content h4{
+        font-size:20px;
+    }
+
+    .doctordashpres-empty-content p{
+        font-size:14px;
+    }
+
+}

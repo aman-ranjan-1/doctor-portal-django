@@ -1,0 +1,395 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Add Prescription
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctordashaddpres-page">
+
+    <!-- ==========================================
+                    PAGE HEADER
+    =========================================== -->
+
+    <div class="doctordashaddpres-header">
+
+        <div class="doctordashaddpres-header-left">
+
+            <h2>
+
+                Add Prescription
+
+            </h2>
+
+            <p>
+
+                Create a new prescription for the selected patient.
+
+            </p>
+
+        </div>
+
+
+        <div class="doctordashaddpres-header-right">
+
+            <a
+                href="{% url 'doctor_prescriptions' %}"
+                class="doctordashaddpres-back-btn">
+
+                <i class="fas fa-arrow-left"></i>
+
+                Back
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                PATIENT INFORMATION
+    =========================================== -->
+
+    <div class="doctordashaddpres-patient-card">
+
+        <div class="doctordashaddpres-avatar">
+
+            {% if patient.profile_image %}
+
+                <img
+                    src="{{ patient.profile_image.url }}"
+                    alt="{{ patient.user.get_full_name }}">
+
+            {% else %}
+
+                <i class="fas fa-user"></i>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="doctordashaddpres-patient-details">
+
+            <h3>
+
+                {{ patient.user.get_full_name }}
+
+            </h3>
+
+            <div class="doctordashaddpres-patient-grid">
+
+                <div>
+
+                    <span>
+
+                        Patient ID
+
+                    </span>
+
+                    <strong>
+
+                        {{ patient.patient_id }}
+
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Email
+
+                    </span>
+
+                    <strong>
+
+                        {{ patient.user.email }}
+
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Blood Group
+
+                    </span>
+
+                    <strong>
+
+                        {{ patient.blood_group|default:"N/A" }}
+
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Gender
+
+                    </span>
+
+                    <strong>
+
+                        {{ patient.gender|default:"N/A" }}
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                PRESCRIPTION FORM
+    =========================================== -->
+
+    <form
+        method="POST"
+        class="doctordashaddpres-form">
+
+        {% csrf_token %}
+
+        <div class="doctordashaddpres-form-card">
+
+            <h4>
+
+                Medical Information
+
+            </h4>
+
+                        <!-- ==========================================
+                        DIAGNOSIS
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="diagnosis">
+
+                    Diagnosis
+
+                </label>
+
+                <input
+                    type="text"
+                    id="diagnosis"
+                    name="diagnosis"
+                    placeholder="Enter diagnosis"
+                    required>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                        SYMPTOMS
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="symptoms">
+
+                    Symptoms
+
+                </label>
+
+                <textarea
+                    id="symptoms"
+                    name="symptoms"
+                    rows="4"
+                    placeholder="Describe patient's symptoms..."></textarea>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                        MEDICINES
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="medicines">
+
+                    Medicines
+
+                </label>
+
+                <textarea
+                    id="medicines"
+                    name="medicines"
+                    rows="5"
+                    placeholder="Example:
+
+Paracetamol 500 mg - 1 Tablet - Twice Daily
+Vitamin C - 1 Tablet - After Breakfast
+Cough Syrup - 10 ml - Three Times Daily"></textarea>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                        DOSAGE
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="dosage">
+
+                    Dosage Instructions
+
+                </label>
+
+                <textarea
+                    id="dosage"
+                    name="dosage"
+                    rows="4"
+                    placeholder="Enter dosage instructions for the prescribed medicines..."></textarea>
+
+            </div>
+                        <!-- ==========================================
+                        TREATMENT
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="treatment">
+
+                    Treatment
+
+                </label>
+
+                <textarea
+                    id="treatment"
+                    name="treatment"
+                    rows="4"
+                    placeholder="Enter treatment plan..."></textarea>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                    ADDITIONAL INSTRUCTIONS
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="instructions">
+
+                    Additional Instructions
+
+                </label>
+
+                <textarea
+                    id="instructions"
+                    name="instructions"
+                    rows="4"
+                    placeholder="Provide additional instructions for the patient..."></textarea>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                        FOLLOW-UP DATE
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="follow_up_date">
+
+                    Follow-up Date
+
+                </label>
+
+                <input
+                    type="date"
+                    id="follow_up_date"
+                    name="follow_up_date">
+
+            </div>
+
+
+
+            <!-- ==========================================
+                        DOCTOR NOTES
+            =========================================== -->
+
+            <div class="doctordashaddpres-form-group">
+
+                <label for="doctor_notes">
+
+                    Doctor Notes
+
+                </label>
+
+                <textarea
+                    id="doctor_notes"
+                    name="doctor_notes"
+                    rows="5"
+                    placeholder="Private notes for future reference..."></textarea>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+                    FORM ACTIONS
+        =========================================== -->
+
+        <div class="doctordashaddpres-actions">
+
+            <a
+                href="{% url 'doctor_prescriptions' %}"
+                class="doctordashaddpres-btn secondary">
+
+                <i class="fas fa-times"></i>
+
+                Cancel
+
+            </a>
+
+
+            <button
+                type="submit"
+                class="doctordashaddpres-btn primary">
+
+                <i class="fas fa-save"></i>
+
+                Save Prescription
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

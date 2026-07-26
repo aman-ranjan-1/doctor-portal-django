@@ -20,6 +20,26 @@
 
 
 @import url("dashboard/doctor/appointments.css");
+@import url("dashboard/doctor/patients.css");
+
+
+@import url("dashboard/doctor/medical_records.css");
+
+@import url("dashboard/doctor/patient_medical_history.css");
+
+@import url("dashboard/doctor/medical_record_detail.css");
+
+@import url("dashboard/doctor/edit_medical_record.css");
+
+@import url("dashboard/doctor/prescriptions.css");
+
+@import url("dashboard/doctor/add_prescription.css");
+
+@import url("dashboard/doctor/doctorprofile.css");
+
+@import url("dashboard/doctor/schedule.css");
+
+@import url("dashboard/doctor/report.css");
 /*
 
 We'll build these later.

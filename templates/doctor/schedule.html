@@ -1,0 +1,177 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Doctor Schedule
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctorschedule-page">
+
+    <!-- ==========================================
+            PAGE HEADER
+    ========================================== -->
+
+    <div class="doctorschedule-header">
+
+        <div>
+
+            <h2>
+                My Schedule
+            </h2>
+
+            <p>
+                View your upcoming patient appointments.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+            SCHEDULE TABLE
+    ========================================== -->
+
+    <div class="doctorschedule-table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Time
+                    </th>
+
+                    <th>
+                        Patient ID
+                    </th>
+
+                    <th>
+                        Patient Name
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Reason
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            {% for appointment in appointments %}
+
+                <tr>
+
+
+                    <td>
+                        {{ appointment.appointment_time|time:"h:i A" }}
+                    </td>
+
+
+                    <td>
+                        {{ appointment.patient.patient_id }}
+                    </td>
+
+
+                    <td>
+                        {{ appointment.patient.user.get_full_name }}
+                    </td>
+
+
+                    <td>
+                        {{ appointment.appointment_date|date:"d M Y" }}
+                    </td>
+
+
+                    <td>
+                        {{ appointment.reason }}
+                    </td>
+
+
+                    <td>
+
+                        {% if appointment.status == "Completed" %}
+
+                            <span class="status-completed">
+                                Completed
+                            </span>
+
+
+                        {% elif appointment.status == "Cancelled" %}
+
+                            <span class="status-cancelled">
+                                Cancelled
+                            </span>
+
+
+                        {% elif appointment.status == "Confirmed" %}
+
+                            <span class="status-confirmed">
+                                Confirmed
+                            </span>
+
+
+                        {% else %}
+
+                            <span class="status-pending">
+                                Pending
+                            </span>
+
+
+                        {% endif %}
+
+                    </td>
+
+
+                </tr>
+
+
+            {% empty %}
+
+
+                <tr>
+
+                    <td colspan="6">
+
+                        No appointments scheduled.
+
+                    </td>
+
+                </tr>
+
+
+            {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}

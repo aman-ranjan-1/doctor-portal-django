@@ -1,0 +1,274 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Edit Medical Record
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="doctordashmedrec-page">
+
+
+    <!-- ==========================
+            Header
+    ========================== -->
+
+    <div class="doctordashmedrec-header">
+
+        <div>
+
+            <h2>
+                Edit Medical Record
+            </h2>
+
+            <p>
+                Update medical information for {{ record.patient.user.get_full_name }}.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- ==========================
+            Edit Form
+    ========================== -->
+
+
+    <div class="doctordashmedrec-form-card">
+
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+
+            <!-- Patient Information -->
+
+
+            <div class="doctordashmedrec-patient-box">
+
+
+                <div class="doctordashmedrec-avatar">
+
+
+                    {% if record.patient.profile_image %}
+
+                        <img
+                        src="{{ record.patient.profile_image.url }}"
+                        alt="Patient">
+
+                    {% else %}
+
+                        <i class="fas fa-user"></i>
+
+                    {% endif %}
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h4>
+                        {{ record.patient.user.get_full_name }}
+                    </h4>
+
+
+                    <span>
+                        Patient ID:
+                        {{ record.patient.patient_id }}
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- Diagnosis -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+
+                <label>
+                    Diagnosis
+                </label>
+
+
+                <textarea
+                name="diagnosis"
+                class="form-control"
+                rows="5"
+                required>{{ record.diagnosis }}</textarea>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Prescription -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+
+                <label>
+                    Prescription
+                </label>
+
+
+                <textarea
+                name="prescription"
+                class="form-control"
+                rows="5">{{ record.prescription }}</textarea>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Notes -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+
+                <label>
+                    Doctor Notes
+                </label>
+
+
+                <textarea
+                name="notes"
+                class="form-control"
+                rows="5">{{ record.notes }}</textarea>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Existing Report -->
+
+
+            {% if record.report_file %}
+
+
+            <div class="doctordashmedrec-existing-report">
+
+
+                <i class="fas fa-file-medical"></i>
+
+
+                <a
+                href="{{ record.report_file.url }}"
+                target="_blank">
+
+                    View Current Report
+
+                </a>
+
+
+            </div>
+
+
+            {% endif %}
+
+
+
+
+
+
+            <!-- Upload New Report -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+
+                <label>
+                    Replace Report
+                </label>
+
+
+                <input
+                type="file"
+                name="report_file"
+                class="form-control-file">
+
+
+            </div>
+
+
+
+
+
+
+            <!-- Buttons -->
+
+
+            <div class="doctordashmedrec-form-actions">
+
+
+                <button
+                type="submit"
+                class="doctordashmedrec-btn primary">
+
+                    <i class="fas fa-save"></i>
+
+                    Update Record
+
+                </button>
+
+
+
+
+                <a
+                href="{% url 'medical_record_detail' record.id %}"
+                class="doctordashmedrec-btn">
+
+                    Cancel
+
+                </a>
+
+
+            </div>
+
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,253 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Doctor Reports
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctorreport-page">
+
+
+    <!-- ==========================================
+            PAGE HEADER
+    ========================================== -->
+
+    <div class="doctorreport-header">
+
+        <div>
+
+            <h2>
+                Reports
+            </h2>
+
+            <p>
+                Analyze your appointment performance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+            CHART CARD
+    ========================================== -->
+
+    <div class="doctorreport-card">
+
+
+        <div class="doctorreport-card-header">
+
+            <h4>
+                Appointment Analytics
+            </h4>
+
+
+            <div class="doctorreport-actions">
+
+                <button
+                    type="button"
+                    id="weeklyBtn"
+                    class="doctorreport-btn active">
+
+                    Weekly
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="monthlyBtn"
+                    class="doctorreport-btn">
+
+                    Monthly
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==========================================
+                CHART AREA
+        ========================================== -->
+
+
+        <div class="doctorreport-chart-container">
+
+            <canvas id="appointmentChart"></canvas>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+const chartData = {
+
+    weekly:{
+
+        labels:
+        {{ weekly_labels|safe }},
+
+        values:
+        {{ weekly_values|safe }}
+
+    },
+
+
+    monthly:{
+
+        labels:
+        {{ monthly_labels|safe }},
+
+        values:
+        {{ monthly_values|safe }}
+
+    }
+
+};
+
+
+
+const ctx = document.getElementById(
+    "appointmentChart"
+);
+
+
+let appointmentChart = new Chart(
+    ctx,
+    {
+
+        type:"bar",
+
+        data:{
+
+            labels:chartData.weekly.labels,
+
+            datasets:[{
+
+                label:"Appointments",
+
+                data:chartData.weekly.values,
+
+            }]
+
+        },
+
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+                    display:false
+                }
+
+            }
+
+        }
+
+    }
+
+);
+
+
+
+const weeklyBtn = document.getElementById(
+    "weeklyBtn"
+);
+
+
+const monthlyBtn = document.getElementById(
+    "monthlyBtn"
+);
+
+
+
+function updateChart(type){
+
+
+    appointmentChart.data.labels =
+        chartData[type].labels;
+
+
+    appointmentChart.data.datasets[0].data =
+        chartData[type].values;
+
+
+    appointmentChart.update();
+
+
+}
+
+
+
+weeklyBtn.addEventListener(
+    "click",
+    function(){
+
+        updateChart("weekly");
+
+        weeklyBtn.classList.add(
+            "active"
+        );
+
+        monthlyBtn.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+
+monthlyBtn.addEventListener(
+    "click",
+    function(){
+
+        updateChart("monthly");
+
+        monthlyBtn.classList.add(
+            "active"
+        );
+
+        weeklyBtn.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+
+</script>
+
+{% endblock %}

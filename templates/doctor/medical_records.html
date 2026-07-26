@@ -1,0 +1,270 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Medical Records
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="doctordashmedrec-page">
+
+
+    <!-- ==========================
+            Page Header
+    ========================== -->
+
+    <div class="doctordashmedrec-header">
+
+        <div>
+
+            <h2>
+                Medical Records
+            </h2>
+
+            <p>
+                Manage patient medical history and records.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================
+            Records Overview
+    ========================== -->
+
+    <div class="doctordashmedrec-summary">
+
+
+        <div class="doctordashmedrec-summary-card">
+
+            <i class="fas fa-file-medical"></i>
+
+            <div>
+
+                <span>
+                    Total Records
+                </span>
+
+                <h3>
+                    {{ records.count }}
+                </h3>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="doctordashmedrec-summary-card">
+
+            <i class="fas fa-user-injured"></i>
+
+            <div>
+
+                <span>
+                    Total Patients
+                </span>
+
+                <h3>
+                    {{ patients.count }}
+                </h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================
+            Patient Records List
+    ========================== -->
+
+
+    <div class="doctordashmedrec-container">
+
+
+        {% for patient in patients %}
+
+
+        <div class="doctordashmedrec-card">
+
+
+            <!-- Patient Header -->
+
+            <div class="doctordashmedrec-card-header">
+
+
+                <div class="doctordashmedrec-avatar">
+
+
+                    {% if patient.profile_image %}
+
+                        <img
+                        src="{{ patient.profile_image.url }}"
+                        alt="Patient">
+
+                    {% else %}
+
+                        <i class="fas fa-user"></i>
+
+                    {% endif %}
+
+
+                </div>
+
+
+
+                <div class="doctordashmedrec-patient-info">
+
+                    <h4>
+                        {{ patient.user.get_full_name }}
+                    </h4>
+
+
+                    <span>
+                        {{ patient.user.email }}
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- Patient Details -->
+
+            <div class="doctordashmedrec-details">
+
+
+                <div>
+
+                    <span>
+                        Patient ID
+                    </span>
+
+                    <strong>
+                        {{ patient.patient_id }}
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        Blood Group
+                    </span>
+
+                    <strong>
+                        {{ patient.blood_group|default:"N/A" }}
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        Records
+                    </span>
+
+                    <strong>
+
+                        {{ patient.medical_records.count }}
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- Actions -->
+
+
+            <div class="doctordashmedrec-actions">
+
+
+                <a
+                href="{% url 'add_medical_record' patient.id %}"
+                class="doctordashmedrec-btn primary">
+
+                    <i class="fas fa-plus"></i>
+
+                    Add Record
+
+                </a>
+
+                <a
+                href="{% url 'patient_medical_history' patient.id %}"
+                class="doctordashmedrec-btn">
+
+                    <i class="fas fa-history"></i>
+
+                    View History
+
+                </a>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        {% empty %}
+
+
+        <div class="doctordashmedrec-empty">
+
+
+            <i class="fas fa-folder-open"></i>
+
+
+            <h5>
+                No Patients Found
+            </h5>
+
+
+            <p>
+                Patients with appointments will appear here.
+            </p>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

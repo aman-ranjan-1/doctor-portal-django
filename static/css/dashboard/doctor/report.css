@@ -1,0 +1,163 @@
+/* ==========================================
+        DOCTOR REPORT PAGE
+========================================== */
+
+.doctorreport-page{
+    padding:25px;
+}
+
+
+/* ==========================================
+        PAGE HEADER
+========================================== */
+
+.doctorreport-header{
+    margin-bottom:25px;
+}
+
+
+.doctorreport-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+.doctorreport-header p{
+    margin-top:6px;
+    font-size:14px;
+    color:#64748b;
+}
+
+
+/* ==========================================
+        REPORT CARD
+========================================== */
+
+.doctorreport-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+
+/* ==========================================
+        CARD HEADER
+========================================== */
+
+.doctorreport-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+
+.doctorreport-card-header h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+/* ==========================================
+        REPORT BUTTONS
+========================================== */
+
+.doctorreport-actions{
+    display:flex;
+    gap:10px;
+}
+
+
+.doctorreport-btn{
+    padding:10px 20px;
+    border-radius:10px;
+    border:1px solid #cbd5e1;
+    background:#ffffff;
+    color:#475569;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+
+.doctorreport-btn:hover{
+    background:#f1f5f9;
+}
+
+
+/* ==========================================
+        ACTIVE BUTTON
+========================================== */
+
+.doctorreport-btn.active{
+    background:#2563eb;
+    color:#ffffff;
+    border-color:#2563eb;
+}
+
+
+/* ==========================================
+        CHART CONTAINER
+========================================== */
+
+.doctorreport-chart-container{
+    width:100%;
+    height:400px;
+    position:relative;
+}
+
+
+.doctorreport-chart-container canvas{
+    max-height:400px;
+}
+
+
+/* ==========================================
+        RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:768px){
+
+    .doctorreport-page{
+        padding:15px;
+    }
+
+
+    .doctorreport-header h2{
+        font-size:24px;
+    }
+
+
+    .doctorreport-card{
+        padding:18px;
+    }
+
+
+    .doctorreport-card-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+
+    .doctorreport-actions{
+        width:100%;
+    }
+
+
+    .doctorreport-btn{
+        flex:1;
+    }
+
+
+    .doctorreport-chart-container{
+        height:300px;
+    }
+
+}

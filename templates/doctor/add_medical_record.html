@@ -1,0 +1,282 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Add Medical Record
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctordashmedrec-page">
+
+
+    <!-- Header -->
+
+    <div class="doctordashmedrec-header">
+
+        <div>
+
+            <h2>
+                Add Medical Record
+            </h2>
+
+            <p>
+                Create medical history for {{ patient.user.get_full_name }}.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Form Card -->
+
+    <div class="doctordashmedrec-form-card">
+
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+            <!-- Patient Information -->
+
+            <div class="doctordashmedrec-patient-box">
+
+
+                <div class="doctordashmedrec-avatar">
+
+                    {% if patient.profile_image %}
+
+                        <img
+                        src="{{ patient.profile_image.url }}"
+                        alt="Patient">
+
+                    {% else %}
+
+                        <i class="fas fa-user"></i>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        {{ patient.user.get_full_name }}
+                    </h4>
+
+
+                    <span>
+                        Patient ID: {{ patient.patient_id }}
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- Appointment Selection -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+                <label>
+                    Select Consultation
+                </label>
+
+
+                <select
+                name="appointment"
+                class="form-control"
+                required>
+
+
+                    <option value="">
+                        Select Appointment
+                    </option>
+
+
+                    {% for appointment in appointments %}
+
+
+                    <option value="{{ appointment.id }}">
+
+                        {{ appointment.appointment_date|date:"d M Y" }}
+
+                        -
+
+                        {{ appointment.appointment_time }}
+
+                        |
+
+                        {{ appointment.reason|truncatechars:40 }}
+
+                    </option>
+
+
+                    {% empty %}
+
+
+                    <option>
+
+                        No completed appointments found
+
+                    </option>
+
+
+                    {% endfor %}
+
+
+                </select>
+
+
+            </div>
+
+
+
+
+
+            <!-- Diagnosis -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+                <label>
+                    Diagnosis
+                </label>
+
+
+                <textarea
+                name="diagnosis"
+                class="form-control"
+                rows="4"
+                placeholder="Enter diagnosis..."
+                required></textarea>
+
+
+            </div>
+
+
+
+
+
+            <!-- Prescription -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+                <label>
+                    Prescription
+                </label>
+
+
+                <textarea
+                name="prescription"
+                class="form-control"
+                rows="4"
+                placeholder="Enter medicines and instructions..."></textarea>
+
+
+            </div>
+
+
+
+
+
+            <!-- Doctor Notes -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+                <label>
+                    Doctor Notes
+                </label>
+
+
+                <textarea
+                name="notes"
+                class="form-control"
+                rows="4"
+                placeholder="Additional observations..."></textarea>
+
+
+            </div>
+
+
+
+
+
+            <!-- Report Upload -->
+
+
+            <div class="doctordashmedrec-form-group">
+
+                <label>
+                    Upload Report
+                </label>
+
+
+                <input
+                type="file"
+                name="report_file"
+                class="form-control-file">
+
+
+            </div>
+
+
+
+
+
+            <!-- Actions -->
+
+
+            <div class="doctordashmedrec-form-actions">
+
+
+                <button
+                type="submit"
+                class="doctordashmedrec-btn primary">
+
+                    <i class="fas fa-save"></i>
+
+                    Save Record
+
+                </button>
+
+
+
+                <a
+                href="{% url 'doctor_medical_records' %}"
+                class="doctordashmedrec-btn">
+
+                    Cancel
+
+                </a>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

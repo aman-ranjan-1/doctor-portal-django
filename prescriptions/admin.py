@@ -1,12 +1,10 @@
 from django.contrib import admin
 
-from .models import MedicalRecord
+from .models import Prescription
 
 
-
-@admin.register(MedicalRecord)
-
-class MedicalRecordAdmin(admin.ModelAdmin):
+@admin.register(Prescription)
+class PrescriptionAdmin(admin.ModelAdmin):
 
     list_display = (
 
@@ -14,12 +12,9 @@ class MedicalRecordAdmin(admin.ModelAdmin):
 
         "doctor",
 
-        "diagnosis",
-
         "created_at",
 
     )
-
 
     search_fields = (
 
@@ -27,6 +22,14 @@ class MedicalRecordAdmin(admin.ModelAdmin):
 
         "patient__user__last_name",
 
-        "diagnosis",
+        "doctor__user__first_name",
+
+        "doctor__user__last_name",
+
+    )
+
+    list_filter = (
+
+        "created_at",
 
     )

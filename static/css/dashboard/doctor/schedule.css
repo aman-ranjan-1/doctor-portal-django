@@ -1,0 +1,225 @@
+/* ==========================================
+        DOCTOR SCHEDULE PAGE
+========================================== */
+
+.doctorschedule-page{
+    padding:25px;
+}
+
+
+/* ==========================================
+        PAGE HEADER
+========================================== */
+
+.doctorschedule-header{
+    margin-bottom:25px;
+}
+
+
+.doctorschedule-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+.doctorschedule-header p{
+    margin-top:6px;
+    font-size:14px;
+    color:#64748b;
+}
+
+
+/* ==========================================
+        SCHEDULE TABLE CARD
+========================================== */
+
+.doctorschedule-table-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    overflow-x:auto;
+}
+
+
+/* ==========================================
+        TABLE STRUCTURE
+========================================== */
+
+.doctorschedule-table-card table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+
+.doctorschedule-table-card thead{
+    background:#f8fafc;
+}
+
+
+.doctorschedule-table-card th{
+    padding:15px;
+    text-align:left;
+    font-size:14px;
+    font-weight:700;
+    color:#334155;
+    border-bottom:1px solid #e2e8f0;
+}
+
+
+.doctorschedule-table-card td{
+    padding:15px;
+    font-size:14px;
+    color:#475569;
+    border-bottom:1px solid #f1f5f9;
+}
+
+
+/* ==========================================
+        TABLE ROW HOVER
+========================================== */
+
+.doctorschedule-table-card tbody tr{
+    transition:0.3s ease;
+}
+
+
+.doctorschedule-table-card tbody tr:hover{
+    background:#f8fafc;
+}
+
+
+/* ==========================================
+        TIME COLUMN
+========================================== */
+
+.doctorschedule-table-card td:first-child{
+    font-weight:700;
+    color:#2563eb;
+    white-space:nowrap;
+}
+
+
+/* ==========================================
+        PATIENT NAME
+========================================== */
+
+.doctorschedule-table-card td:nth-child(3){
+    font-weight:600;
+    color:#1e293b;
+}
+
+
+/* ==========================================
+        REASON COLUMN
+========================================== */
+
+.doctorschedule-table-card td:nth-child(5){
+    max-width:250px;
+}
+
+
+/* ==========================================
+        STATUS BADGES
+========================================== */
+
+.status-pending{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#fef3c7;
+    color:#92400e;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+.status-confirmed{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#dbeafe;
+    color:#1d4ed8;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+.status-completed{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#dcfce7;
+    color:#15803d;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+.status-cancelled{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#fee2e2;
+    color:#b91c1c;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+/* ==========================================
+        EMPTY MESSAGE
+========================================== */
+
+.doctorschedule-table-card td[colspan]{
+    text-align:center;
+    padding:35px;
+    color:#64748b;
+    font-size:15px;
+}
+
+
+/* ==========================================
+        RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:992px){
+
+    .doctorschedule-page{
+        padding:20px;
+    }
+
+
+    .doctorschedule-table-card{
+        padding:20px;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .doctorschedule-page{
+        padding:15px;
+    }
+
+
+    .doctorschedule-header h2{
+        font-size:24px;
+    }
+
+
+    .doctorschedule-table-card{
+        padding:15px;
+    }
+
+
+    .doctorschedule-table-card th,
+    .doctorschedule-table-card td{
+        padding:12px;
+        font-size:13px;
+    }
+
+}

@@ -1,0 +1,870 @@
+/* ==========================================
+            PATIENTS PAGE
+========================================== */
+
+.doctorpatients-page{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+
+/* ==========================================
+            PAGE HEADER
+========================================== */
+
+.doctorpatients-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.doctorpatients-header h2{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctorpatients-header p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:15px;
+}
+
+
+/* ==========================================
+            FILTER SECTION
+========================================== */
+
+.doctorpatients-filter{
+    background:#ffffff;
+    padding:25px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 25px rgba(15,23,42,.05);
+}
+
+.doctorpatients-filter .form-control{
+    height:48px;
+    border-radius:12px;
+    border:1px solid #dbe4f0;
+    box-shadow:none;
+    transition:.3s;
+}
+
+.doctorpatients-filter .form-control:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.10);
+}
+
+.doctorpatients-filter .btn{
+    height:48px;
+    border-radius:12px;
+    background:#2563eb;
+    border:none;
+    font-weight:600;
+}
+
+.doctorpatients-filter .btn:hover{
+    background:#1d4ed8;
+}
+
+
+/* ==========================================
+            PATIENT GRID
+========================================== */
+
+.doctorpatients-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+/* ==========================================
+            PATIENT CARD
+========================================== */
+
+.doctorpatient-card{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(15,23,42,.05);
+    transition:.3s;
+}
+
+.doctorpatient-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(37,99,235,.12);
+}
+
+
+/* ==========================================
+            CARD HEADER
+========================================== */
+
+.doctorpatient-top{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:25px;
+    border-bottom:1px solid #eef2f7;
+}
+
+.doctorpatient-avatar{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#eff6ff;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    flex-shrink:0;
+    transition:.3s;
+}
+
+.doctorpatient-card:hover
+.doctorpatient-avatar{
+    transform:scale(1.08);
+}
+
+.doctorpatient-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.doctorpatient-info{
+    display:flex;
+    flex-direction:column;
+}
+
+.doctorpatient-info h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctorpatient-info span{
+    margin-top:6px;
+    color:#64748b;
+    font-size:14px;
+    word-break:break-word;
+}
+
+
+/* ==========================================
+            CARD BODY
+========================================== */
+
+.doctorpatient-body{
+    padding:22px 25px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.doctorpatient-detail{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:12px;
+    border-bottom:1px dashed #e2e8f0;
+}
+
+.doctorpatient-detail:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+
+.doctorpatient-detail span{
+    color:#64748b;
+    font-size:14px;
+}
+
+.doctorpatient-detail strong{
+    color:#0f172a;
+    font-size:14px;
+    font-weight:600;
+    text-align:right;
+}
+/* ==========================================
+            CARD FOOTER
+========================================== */
+
+.doctorpatient-footer{
+    padding:20px 25px;
+    border-top:1px solid #eef2f7;
+    background:#fafcff;
+}
+
+.doctorpatient-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:46px;
+    border-radius:12px;
+    background:#2563eb;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:600;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.doctorpatient-btn:hover{
+    background:#1d4ed8;
+    color:#ffffff;
+    text-decoration:none;
+    transform:translateY(-2px);
+}
+
+
+/* ==========================================
+            EMPTY STATE
+========================================== */
+
+.doctor-empty-state{
+    grid-column:1/-1;
+    background:#ffffff;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    padding:70px 30px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(15,23,42,.05);
+}
+
+.doctor-empty-state i{
+    font-size:64px;
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.doctor-empty-state h5{
+    margin-bottom:10px;
+    font-size:22px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.doctor-empty-state p{
+    margin:0;
+    color:#64748b;
+    font-size:15px;
+}
+
+
+/* ==========================================
+            CARD ANIMATIONS
+========================================== */
+
+.doctorpatient-card{
+    animation:doctorPatientFade .4s ease;
+}
+
+@keyframes doctorPatientFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+            HOVER EFFECTS
+========================================== */
+
+.doctorpatient-detail strong{
+    transition:.3s;
+}
+
+.doctorpatient-card:hover .doctorpatient-detail strong{
+    color:#2563eb;
+}
+
+.doctorpatient-card:hover .doctorpatient-info h4{
+    color:#2563eb;
+}
+
+.doctorpatient-avatar{
+    transition:.3s;
+}
+
+.doctorpatient-card:hover .doctorpatient-avatar{
+    box-shadow:0 10px 25px rgba(37,99,235,.18);
+}
+
+
+/* ==========================================
+            BUTTON EFFECT
+========================================== */
+
+.doctorpatient-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.doctorpatient-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.18);
+    transition:.4s;
+}
+
+.doctorpatient-btn:hover::before{
+    left:100%;
+}
+/* ==========================================
+            FILTER SECTION
+========================================== */
+
+.doctorpatients-filter .row{
+    align-items:center;
+}
+
+.doctorpatients-filter .form-control,
+.doctorpatients-filter select{
+    background:#ffffff;
+    color:#334155;
+}
+
+.doctorpatients-filter input::placeholder{
+    color:#94a3b8;
+}
+
+.doctorpatients-filter .btn{
+    font-size:14px;
+    letter-spacing:.3px;
+}
+
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+    .doctorpatients-filter .row>div{
+        margin-bottom:15px;
+    }
+
+    .doctorpatients-filter .btn{
+        width:100%;
+    }
+
+    .doctorpatients-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:768px){
+
+    .doctorpatients-page{
+        gap:20px;
+    }
+
+    .doctorpatients-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .doctorpatients-header h2{
+        font-size:26px;
+    }
+
+    .doctorpatients-header p{
+        font-size:14px;
+    }
+
+    .doctorpatients-filter{
+        padding:20px;
+    }
+
+    .doctorpatients-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .doctorpatient-top{
+        padding:20px;
+    }
+
+    .doctorpatient-body{
+        padding:20px;
+    }
+
+    .doctorpatient-footer{
+        padding:20px;
+    }
+
+    .doctorpatient-avatar{
+        width:64px;
+        height:64px;
+        font-size:24px;
+    }
+
+    .doctorpatient-info h4{
+        font-size:18px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .doctorpatients-filter{
+        padding:18px;
+    }
+
+    .doctorpatients-header h2{
+        font-size:24px;
+    }
+
+    .doctorpatients-header p{
+        font-size:13px;
+    }
+
+    .doctorpatient-top{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .doctorpatient-info{
+        align-items:center;
+    }
+
+    .doctorpatient-detail{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+    }
+
+    .doctorpatient-detail strong{
+        text-align:left;
+    }
+
+    .doctorpatient-btn{
+        height:44px;
+        font-size:13px;
+    }
+
+}
+
+
+/* ==========================================
+            SCROLLBAR
+========================================== */
+
+.doctorpatients-page::-webkit-scrollbar{
+    width:8px;
+}
+
+.doctorpatients-page::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+.doctorpatients-page::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:10px;
+}
+
+.doctorpatients-page::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+}
+/* ==========================================================
+   PREMIUM POLISH - DOCTOR PATIENTS PAGE
+========================================================== */
+
+
+/* ==========================
+   Glassmorphism Enhancement
+========================== */
+
+.doctorpatient-card {
+
+    background: rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border:1px solid rgba(255,255,255,0.45);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+}
+
+
+.doctorpatient-card:hover {
+
+    transform:translateY(-8px);
+
+    border-color:rgba(13,110,253,0.25);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.12);
+
+}
+
+
+
+/* ==========================
+   Avatar Animation
+========================== */
+
+.doctorpatient-avatar {
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.doctorpatient-card:hover .doctorpatient-avatar {
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 0 6px rgba(13,110,253,0.12);
+
+}
+
+
+
+/* ==========================
+   Patient Information Hover
+========================== */
+
+.doctorpatient-info h4 {
+
+    transition:
+        color 0.3s ease;
+
+}
+
+
+.doctorpatient-card:hover 
+.doctorpatient-info h4 {
+
+    color:#0d6efd;
+
+}
+
+
+
+/* ==========================
+   Button Premium Effect
+========================== */
+
+.doctorpatient-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.doctorpatient-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transition:left 0.5s ease;
+
+}
+
+
+.doctorpatient-btn:hover::before {
+
+    left:100%;
+
+}
+
+
+.doctorpatient-btn:hover {
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* ==========================
+   Search Area Polish
+========================== */
+
+
+.doctorpatients-filter {
+
+    animation:
+        fadeSlide 0.6s ease;
+
+}
+
+
+.doctorpatients-filter input,
+.doctorpatients-filter select {
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.doctorpatients-filter input:focus,
+.doctorpatients-filter select:focus {
+
+    border-color:#0d6efd;
+
+    box-shadow:
+        0 0 0 4px rgba(13,110,253,0.15);
+
+}
+
+
+
+/* ==========================
+   Card Loading Animation
+========================== */
+
+
+@keyframes patientCardLoading {
+
+    from {
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+.doctorpatient-card {
+
+    animation:
+        patientCardLoading 0.55s ease forwards;
+
+}
+
+
+
+/* Stagger Animation */
+
+.doctorpatient-card:nth-child(1){
+    animation-delay:.05s;
+}
+
+
+.doctorpatient-card:nth-child(2){
+    animation-delay:.1s;
+}
+
+
+.doctorpatient-card:nth-child(3){
+    animation-delay:.15s;
+}
+
+
+.doctorpatient-card:nth-child(4){
+    animation-delay:.2s;
+}
+
+
+.doctorpatient-card:nth-child(5){
+    animation-delay:.25s;
+}
+
+
+
+/* ==========================
+   Selection Colors
+========================== */
+
+
+::selection {
+
+    background:#0d6efd;
+
+    color:white;
+
+}
+
+
+.doctorpatients-page ::selection {
+
+    background:#20c997;
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+   Empty State Animation
+========================== */
+
+
+.doctor-empty-state {
+
+    animation:
+        fadeSlide 0.7s ease;
+
+}
+
+
+.doctor-empty-state i {
+
+    animation:
+        floatIcon 2s infinite ease-in-out;
+
+}
+
+
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+
+        transform:translateY(0);
+
+    }
+
+
+    50% {
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+
+
+/* ==========================
+   General Fade Animation
+========================== */
+
+
+@keyframes fadeSlide {
+
+    from {
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================
+   Print Styles
+========================== */
+
+@media print {
+
+
+    .doctorpatients-filter,
+    .doctorpatient-footer,
+    .doctorpatients-header p {
+
+        display:none !important;
+
+    }
+
+
+    .doctorpatients-page {
+
+        background:white;
+
+    }
+
+
+    .doctorpatient-card {
+
+        break-inside:avoid;
+
+        box-shadow:none;
+
+        border:1px solid #ddd;
+
+    }
+
+
+    body {
+
+        background:white !important;
+
+    }
+
+
+}

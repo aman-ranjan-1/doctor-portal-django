@@ -1,0 +1,134 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Patients
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctorpatients-page">
+
+    <!-- ==========================
+            Page Header
+    ========================== -->
+    <div class="doctorpatients-header">
+        <div>
+            <h2>Patients</h2>
+            <p>View and manage your patients.</p>
+        </div>
+    </div>
+
+    <!-- ==========================
+            Search Filter
+    ========================== -->
+    <div class="doctorpatients-filter">
+        <form method="GET">
+            <div class="row">
+
+                <div class="col-lg-5">
+                    <input
+                        type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder="Search patient..."
+                        value="{{ request.GET.search }}">
+                </div>
+
+                <div class="col-lg-3">
+                    <select
+                        name="sort"
+                        class="form-control">
+                        <option value="">Sort By</option>
+                        <option value="name">Name</option>
+                        <option value="recent">Recent Visit</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-2">
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-block">
+                        Search
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <!-- ==========================
+            Patients Grid
+    ========================== -->
+    <div class="doctorpatients-grid">
+
+        {% for appointment in patients %}
+        <div class="doctorpatient-card">
+
+            <div class="doctorpatient-top">
+
+                <div class="doctorpatient-avatar">
+                    {% if appointment.patient.profile_image %}
+                        <img
+                            src="{{ appointment.patient.profile_image.url }}"
+                            alt="Patient">
+                    {% else %}
+                        <i class="fas fa-user"></i>
+                    {% endif %}
+                </div>
+
+                <div class="doctorpatient-info">
+                    <h4>{{ appointment.patient.user.get_full_name }}</h4>
+                    <span>{{ appointment.patient.user.email }}</span>
+                </div>
+
+            </div>
+
+            <div class="doctorpatient-body">
+
+                <div class="doctorpatient-detail">
+                    <span>Last Visit</span>
+                    <strong>{{ appointment.appointment_date|date:"d M Y" }}</strong>
+                </div>
+
+                <div class="doctorpatient-detail">
+                    <span>Appointment</span>
+                    <strong>{{ appointment.status }}</strong>
+                </div>
+
+                <div class="doctorpatient-detail">
+                    <span>Reason</span>
+                    <strong>{{ appointment.reason|truncatechars:25 }}</strong>
+                </div>
+
+            </div>
+
+            <div class="doctorpatient-footer">
+                <a
+                    href="#"
+                    class="doctorpatient-btn">
+                    View Profile
+                </a>
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="doctor-empty-state">
+            <i class="fas fa-user-slash"></i>
+            <h5>No Patients Found</h5>
+            <p>No patients are assigned yet.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

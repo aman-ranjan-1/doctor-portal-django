@@ -1,0 +1,49 @@
+{% extends "layouts/doctor_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Edit Profile
+{% endblock %}
+
+{% block sidebar %}
+    {% include "doctor/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="doctoreditprofile-page">
+
+    <!-- ==========================================
+                    Page Header
+    ========================================== -->
+
+    <div class="doctoreditprofile-header">
+
+        <div class="doctoreditprofile-header-content">
+
+            <h2>
+
+                Edit Profile
+
+            </h2>
+
+            <p>
+
+                Update your personal and professional information.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+                    Edit Profile Form
+    ========================================== -->
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        class="doctoreditprofile-form">
+
+        {% csrf_token %}

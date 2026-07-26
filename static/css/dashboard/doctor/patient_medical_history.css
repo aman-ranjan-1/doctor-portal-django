@@ -1,0 +1,539 @@
+/* ======================================================
+        PATIENT MEDICAL HISTORY PAGE
+====================================================== */
+
+
+/* ==========================
+        PAGE WRAPPER
+========================== */
+
+
+.doctordashmedrec-history-page{
+
+    padding:30px;
+
+    animation:doctordashmedrecHistoryFade .4s ease;
+
+}
+
+
+
+
+/* ==========================
+        HEADER
+========================== */
+
+
+.doctordashmedrec-history-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.doctordashmedrec-history-header h2{
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.doctordashmedrec-history-header p{
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    margin:0;
+
+}
+
+
+
+
+/* ==========================
+        PATIENT PROFILE CARD
+========================== */
+
+
+.doctordashmedrec-profile-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+
+
+.doctordashmedrec-profile-avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#eff6ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#2563eb;
+
+    font-size:38px;
+
+}
+
+
+
+.doctordashmedrec-profile-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.doctordashmedrec-profile-info h3{
+
+    margin:0 0 8px;
+
+    color:#111827;
+
+    font-size:22px;
+
+}
+
+
+
+.doctordashmedrec-profile-info span{
+
+    color:#6b7280;
+
+    display:block;
+
+    font-size:14px;
+
+    margin-bottom:4px;
+
+}
+
+
+
+
+
+/* ==========================
+        HISTORY CONTAINER
+========================== */
+
+
+.doctordashmedrec-history-container{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+
+}
+
+
+
+
+/* ==========================
+        TIMELINE
+========================== */
+
+
+.doctordashmedrec-timeline{
+
+    position:relative;
+
+    padding-left:35px;
+
+}
+
+
+
+.doctordashmedrec-timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:10px;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:#dbeafe;
+
+}
+
+
+
+
+/* ==========================
+        RECORD ITEM
+========================== */
+
+
+.doctordashmedrec-history-item{
+
+    position:relative;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.doctordashmedrec-history-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-31px;
+
+    top:5px;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    border:4px solid white;
+
+    box-shadow:0 0 0 3px #dbeafe;
+
+}
+
+
+
+.doctordashmedrec-history-card{
+
+    background:#f8fafc;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    transition:.3s ease;
+
+}
+
+
+
+.doctordashmedrec-history-card:hover{
+
+    transform:translateX(6px);
+
+    background:#ffffff;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+
+/* ==========================
+        RECORD HEADER
+========================== */
+
+
+.doctordashmedrec-history-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.doctordashmedrec-history-top h4{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+
+
+.doctordashmedrec-history-date{
+
+    font-size:13px;
+
+    color:#64748b;
+
+}
+
+
+
+
+/* ==========================
+        DETAILS
+========================== */
+
+
+.doctordashmedrec-history-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    gap:15px;
+
+}
+
+
+
+.doctordashmedrec-history-details div{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+
+
+.doctordashmedrec-history-details span{
+
+    display:block;
+
+    font-size:12px;
+
+    color:#64748b;
+
+    margin-bottom:5px;
+
+}
+
+
+
+.doctordashmedrec-history-details strong{
+
+    color:#111827;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* ==========================
+        ACTION AREA
+========================== */
+
+
+.doctordashmedrec-history-actions{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+
+
+.doctordashmedrec-history-btn{
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none!important;
+
+    font-size:14px;
+
+    transition:.3s ease;
+
+}
+
+
+
+.doctordashmedrec-history-btn:hover{
+
+    background:#1d4ed8;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+/* ==========================
+        EMPTY HISTORY
+========================== */
+
+
+.doctordashmedrec-history-empty{
+
+    text-align:center;
+
+    padding:50px;
+
+    color:#64748b;
+
+}
+
+
+
+.doctordashmedrec-history-empty i{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/* ==========================
+        ANIMATION
+========================== */
+
+
+@keyframes doctordashmedrecHistoryFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================
+        RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+    .doctordashmedrec-history-page{
+
+        padding:20px;
+
+    }
+
+
+    .doctordashmedrec-profile-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+    .doctordashmedrec-history-top{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:8px;
+
+    }
+
+
+    .doctordashmedrec-history-actions{
+
+        flex-direction:column;
+
+    }
+
+
+}
