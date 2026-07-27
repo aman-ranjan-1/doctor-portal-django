@@ -1,0 +1,91 @@
+<div class="adminpanel-topbar">
+
+    <div class="adminpanel-topbar-left">
+
+        <div class="adminpanel-topbar-title">
+
+            <h3>
+
+                {% block page_title %}
+
+                Dashboard
+
+                {% endblock %}
+
+            </h3>
+
+            <p>
+
+                {% block page_subtitle %}
+
+                Welcome back, Administrator
+
+                {% endblock %}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="adminpanel-topbar-right">
+
+        <div class="adminpanel-topbar-search">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                placeholder="Search...">
+
+        </div>
+
+        <button
+            type="button"
+            class="adminpanel-topbar-notification">
+
+            <i class="fas fa-bell"></i>
+
+            <span class="adminpanel-topbar-notification-dot"></span>
+
+        </button>
+
+        <div class="adminpanel-topbar-profile">
+
+            <div class="adminpanel-topbar-avatar">
+
+                {% if request.user.admin.profile_image %}
+
+                    <img
+                        src="{{ request.user.admin.profile_image.url }}"
+                        alt="Admin">
+
+                {% else %}
+
+                    <i class="fas fa-user-shield"></i>
+
+                {% endif %}
+
+            </div>
+
+            <div class="adminpanel-topbar-user">
+
+                <h6>
+
+                    {{ request.user.get_full_name }}
+
+                </h6>
+
+                <span>
+
+                    Administrator
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

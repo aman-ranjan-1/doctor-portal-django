@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'doctor',
     'appointments',
     'medical_records',
-    'prescriptions'
+    'prescriptions',
+    'admin_panel'
 
 ]
 

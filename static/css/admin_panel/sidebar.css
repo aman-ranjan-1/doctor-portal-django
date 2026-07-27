@@ -1,0 +1,170 @@
+/* ==========================================
+        ADMIN SIDEBAR
+========================================== */
+
+.adminpanel-sidebar{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:280px;
+    height:calc(100vh - 40px);
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.45);
+    border-radius:24px;
+    box-shadow:0 15px 40px rgba(37,99,235,0.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:1000;
+    overflow:hidden;
+}
+/* ==========================================
+        SIDEBAR LOGO
+========================================== */
+
+.adminpanel-sidebar-logo{
+    padding:28px 24px;
+    border-bottom:1px solid rgba(37,99,235,0.08);
+}
+
+.adminpanel-sidebar-logo a{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.adminpanel-sidebar-logo img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+
+.adminpanel-sidebar-logo-text{
+    margin-left:14px;
+}
+
+.adminpanel-sidebar-logo-text h4{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+.adminpanel-sidebar-logo-text span{
+    font-size:12px;
+    color:#64748b;
+}
+/* ==========================================
+        SIDEBAR MENU
+========================================== */
+
+.adminpanel-sidebar-menu{
+    flex:1;
+    padding:25px 16px;
+    overflow-y:auto;
+}
+
+.adminpanel-sidebar-menu ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.adminpanel-sidebar-menu li{
+    margin-bottom:10px;
+}
+/* ==========================================
+        SIDEBAR LINKS
+========================================== */
+
+.adminpanel-sidebar-link{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:14px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:#475569;
+    font-size:15px;
+    font-weight:500;
+    transition:all .3s ease;
+}
+
+.adminpanel-sidebar-link i{
+    width:22px;
+    font-size:18px;
+    text-align:center;
+}
+
+.adminpanel-sidebar-link:hover{
+    background:rgba(37,99,235,0.08);
+    color:#2563eb;
+    transform:translateX(6px);
+    text-decoration:none;
+}
+/* ==========================================
+        ACTIVE MENU
+========================================== */
+
+.adminpanel-sidebar-active{
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+    color:#ffffff !important;
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+}
+
+.adminpanel-sidebar-active i{
+    color:#ffffff;
+}
+/* ==========================================
+        SIDEBAR FOOTER
+========================================== */
+
+.adminpanel-sidebar-footer{
+    padding:20px;
+    border-top:1px solid rgba(37,99,235,0.08);
+}
+
+.adminpanel-sidebar-logout{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:14px 18px;
+    border-radius:14px;
+    color:#ef4444;
+    text-decoration:none;
+    transition:all .3s ease;
+}
+
+.adminpanel-sidebar-logout i{
+    width:22px;
+    text-align:center;
+}
+
+.adminpanel-sidebar-logout:hover{
+    background:rgba(239,68,68,.08);
+    color:#dc2626;
+    text-decoration:none;
+    transform:translateX(6px);
+}
+/* ==========================================
+        SIDEBAR SCROLLBAR
+========================================== */
+
+.adminpanel-sidebar-menu::-webkit-scrollbar{
+    width:6px;
+}
+
+.adminpanel-sidebar-menu::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+.adminpanel-sidebar-menu::-webkit-scrollbar-track{
+    background:transparent;
+}

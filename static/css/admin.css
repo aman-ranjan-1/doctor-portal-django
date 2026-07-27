@@ -1,0 +1,21 @@
+
+@import url("admin_panel/sidebar.css");
+@import url("admin_panel/topbar.css");
+@import url("admin_panel/dashboard.css");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f8fc;
+    color:#1e293b;
+    overflow-x:hidden;
+}

@@ -1,0 +1,332 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block sidebar %}
+    {% include "admin_panel/includes/sidebar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="adminpanel-dashboard">
+
+    <!-- ==========================================
+                DASHBOARD HEADER
+    ========================================== -->
+
+    <div class="adminpanel-dashboard-header">
+
+        <div>
+
+            <h2>
+
+                Hospital Overview
+
+            </h2>
+
+            <p>
+
+                Welcome back. Here's what's happening today.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+                STATISTICS
+    ========================================== -->
+
+    <div class="adminpanel-stats-grid">
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-user-doctor"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ total_doctors }}
+
+                </h3>
+
+                <span>
+
+                    Doctors
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-hospital-user"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ total_patients }}
+
+                </h3>
+
+                <span>
+
+                    Patients
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-calendar-check"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ today_appointments }}
+
+                </h3>
+
+                <span>
+
+                    Today's Appointments
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-circle-check"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ completed_appointments }}
+
+                </h3>
+
+                <span>
+
+                    Completed
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+                APPOINTMENT CHART
+    ========================================== -->
+
+    <div class="adminpanel-chart-card">
+
+        <div class="adminpanel-chart-header">
+
+            <h4>
+
+                Weekly Appointments
+
+            </h4>
+
+        </div>
+
+        <canvas id="adminpanelDashboardChart"></canvas>
+
+    </div>
+
+    <!-- ==========================================
+                BOTTOM GRID
+    ========================================== -->
+
+    <div class="adminpanel-dashboard-grid">
+
+        <!-- Recent Appointments -->
+
+        <div class="adminpanel-dashboard-card">
+
+            <div class="adminpanel-card-header">
+
+                <h5>
+
+                    Recent Appointments
+
+                </h5>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="adminpanel-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                Patient
+
+                            </th>
+
+                            <th>
+
+                                Doctor
+
+                            </th>
+
+                            <th>
+
+                                Status
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for appointment in recent_appointments %}
+
+                        <tr>
+
+                            <td>
+
+                                {{ appointment.patient.user.get_full_name }}
+
+                            </td>
+
+                            <td>
+
+                                Dr. {{ appointment.doctor.user.get_full_name }}
+
+                            </td>
+
+                            <td>
+
+                                {{ appointment.status }}
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3">
+
+                                No appointments found.
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Doctors -->
+
+        <div class="adminpanel-dashboard-card">
+
+            <div class="adminpanel-card-header">
+
+                <h5>
+
+                    Recently Joined Doctors
+
+                </h5>
+
+            </div>
+
+            <div class="adminpanel-doctor-list">
+
+                {% for doctor in recent_doctors %}
+
+                <div class="adminpanel-doctor-item">
+
+                    <div class="adminpanel-doctor-avatar">
+
+                        <i class="fas fa-user-doctor"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h6>
+
+                            Dr. {{ doctor.user.get_full_name }}
+
+                        </h6>
+
+                        <span>
+
+                            {{ doctor.department }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                {% empty %}
+
+                <p>
+
+                    No doctors available.
+
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
