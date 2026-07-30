@@ -1,7 +1,7 @@
 from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render
+from accounts.decorators import admin_required
 from django.utils import timezone
 from django.db.models import Count
 
@@ -21,7 +21,7 @@ from django.utils import timezone
 
 from django.shortcuts import get_object_or_404, redirect
 
-
+@admin_required 
 def dashboard(request):
 
     today = timezone.localdate()
@@ -108,7 +108,7 @@ def dashboard(request):
 from django.shortcuts import render
 from doctor.models import Doctor
 
-
+@admin_required 
 def doctors(request):
 
     search = request.GET.get(
@@ -186,7 +186,7 @@ def doctors(request):
         context
     )
 
-@login_required 
+@admin_required 
 def patients(request):
 
     search = request.GET.get(
@@ -239,7 +239,7 @@ def patients(request):
         "admin_panel/patients.html",
         context
     )
-
+@admin_required 
 def delete_patient(request, patient_id):
 
     patient = get_object_or_404(
@@ -262,7 +262,7 @@ def delete_patient(request, patient_id):
         "admin_patients"
     )
 
-@login_required
+@admin_required 
 def appointments(request):
 
     search = request.GET.get(
@@ -373,6 +373,8 @@ def appointments(request):
         context
 
     )
+
+@admin_required 
 def update_appointment_status(request, appointment_id):
 
     appointment = get_object_or_404(
@@ -404,7 +406,7 @@ def update_appointment_status(request, appointment_id):
 
 
 
-
+@admin_required 
 def delete_appointment(request, appointment_id):
 
     appointment = get_object_or_404(
@@ -428,6 +430,7 @@ def delete_appointment(request, appointment_id):
         "admin_appointments"
     )
 
+@admin_required 
 def appointment_detail(request, appointment_id):
 
     appointment = get_object_or_404(
@@ -448,6 +451,8 @@ def appointment_detail(request, appointment_id):
         "admin_panel/appointment_detail.html",
         context
     )
+
+@admin_required 
 def update_appointment(request, appointment_id):
 
     appointment = get_object_or_404(
@@ -478,6 +483,7 @@ def update_appointment(request, appointment_id):
         appointment.id
     )
 
+@admin_required 
 def delete_appointment(request, appointment_id):
 
     appointment = get_object_or_404(
@@ -501,7 +507,7 @@ def delete_appointment(request, appointment_id):
         "admin_appointments"
     )
 
-@login_required
+@admin_required 
 def departments(request):
 
     departments = []
@@ -592,7 +598,7 @@ def department_detail(request, department_name):
         context
     )
 
-@login_required
+@admin_required 
 def reports(request):
 
     total_doctors = Doctor.objects.count()
@@ -710,7 +716,7 @@ def reports(request):
 
     )
 
-@login_required
+@admin_required 
 def settings(request):
 
     context = {
