@@ -1,0 +1,379 @@
+/* ==========================================
+            DOCTOR TOPBAR
+========================================== */
+
+.doctor-topbar{
+
+    height:85px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+}
+
+/* ==========================================
+            LEFT
+========================================== */
+
+.doctor-topbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.doctor-toggle{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#edf4ff;
+
+    color:#2563eb;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.doctor-toggle i{
+
+    font-size:18px;
+
+}
+
+.doctor-toggle:hover{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+.doctor-heading h2{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+
+.doctor-heading p{
+
+    margin:4px 0 0;
+
+    color:#6b7280;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+            RIGHT
+========================================== */
+
+.doctor-topbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* ==========================================
+            SEARCH
+========================================== */
+
+.doctor-search{
+
+    width:340px;
+
+    height:48px;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    transition:.35s;
+
+}
+
+.doctor-search:focus-within{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.doctor-search i{
+
+    color:#94a3b8;
+
+    margin-right:12px;
+
+}
+
+.doctor-search input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+            ICON BUTTONS
+========================================== */
+
+.doctor-icon{
+
+    width:46px;
+
+    height:46px;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.doctor-icon:hover{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+.doctor-icon i{
+
+    font-size:18px;
+
+}
+
+.doctor-badge{
+
+    position:absolute;
+
+    top:4px;
+
+    right:4px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:#ffffff;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px solid #ffffff;
+
+}
+
+/* ==========================================
+            PROFILE
+========================================== */
+
+.doctor-profile-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:50px;
+
+    padding:8px 18px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.doctor-profile-box:hover{
+
+    border-color:#2563eb;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.12);
+
+}
+
+.doctor-avatar-small{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    margin-right:14px;
+
+}
+
+.doctor-user h6{
+
+    margin:0;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#1f2937;
+
+}
+
+.doctor-user small{
+
+    color:#6b7280;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .doctor-search{
+
+        width:250px;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .doctor-search{
+
+        display:none;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .doctor-topbar{
+
+        flex-wrap:wrap;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .doctor-topbar-left{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .doctor-topbar-right{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+}

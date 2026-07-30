@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const editBtn = document.getElementById("editProfileBtn");
+    const imageUploadBtn = document.getElementById("profileImageUploadBtn");
     const saveBtn = document.getElementById("saveProfileBtn");
     const cancelBtn = document.getElementById("cancelProfileBtn");
 
@@ -47,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 imageInput.disabled = false;
 
             }
-
+            imageUploadBtn.style.display = "flex";
+            
             editBtn.style.display = "none";
 
             saveBtn.style.display = "inline-flex";

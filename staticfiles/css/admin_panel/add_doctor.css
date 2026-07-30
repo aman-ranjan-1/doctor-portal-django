@@ -1,0 +1,321 @@
+/* ==========================================
+        ADD DOCTOR PAGE
+========================================== */
+
+.adminpanel-adddoctor-page{
+    width:100%;
+}
+
+/* ==========================================
+        PAGE HEADER
+========================================== */
+
+.adminpanel-page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+.adminpanel-page-header h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.adminpanel-page-header p{
+    margin-top:8px;
+    margin-bottom:0;
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ==========================================
+        FORM CARD
+========================================== */
+
+.adminpanel-form-card{
+    padding:35px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(37,99,235,.08);
+}
+
+/* ==========================================
+        FORM SECTION
+========================================== */
+
+.adminpanel-form-section{
+    margin-bottom:40px;
+}
+
+.adminpanel-form-section:last-child{
+    margin-bottom:0;
+}
+
+.adminpanel-form-section h4{
+    margin-bottom:22px;
+    padding-bottom:12px;
+    border-bottom:1px solid #e2e8f0;
+    font-size:22px;
+    font-weight:600;
+    color:#2563eb;
+}
+/* ==========================================
+        LABELS
+========================================== */
+
+.adminpanel-form-section label{
+    display:block;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+}
+
+/* ==========================================
+        INPUTS
+========================================== */
+
+.adminpanel-input{
+    height:54px;
+    border:1px solid #dbeafe;
+    border-radius:14px;
+    background:#ffffff;
+    color:#1e293b;
+    font-size:15px;
+    padding:0 18px;
+    transition:all .3s ease;
+    box-shadow:none;
+}
+
+.adminpanel-input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+    outline:none;
+}
+
+.adminpanel-input[readonly]{
+    background:#f8fafc;
+    color:#64748b;
+    cursor:not-allowed;
+}
+
+/* ==========================================
+        TEXTAREA
+========================================== */
+
+textarea.adminpanel-input{
+    height:120px;
+    resize:none;
+    padding:15px 18px;
+}
+
+/* ==========================================
+        SELECT
+========================================== */
+
+select.adminpanel-input{
+    cursor:pointer;
+}
+
+/* ==========================================
+        FILE INPUT
+========================================== */
+
+.form-control-file{
+    width:100%;
+    padding:14px;
+    border:2px dashed #bfdbfe;
+    border-radius:14px;
+    background:#f8fbff;
+    transition:.3s ease;
+}
+
+.form-control-file:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+/* ==========================================
+        ROW SPACING
+========================================== */
+
+.adminpanel-form-section .row{
+    margin-bottom:20px;
+}
+
+.adminpanel-form-section .row:last-child{
+    margin-bottom:0;
+}
+/* ==========================================
+        FORM ACTIONS
+========================================== */
+
+.adminpanel-form-actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:18px;
+    margin-top:40px;
+    padding-top:30px;
+    border-top:1px solid #e2e8f0;
+}
+
+/* ==========================================
+        PRIMARY BUTTON
+========================================== */
+
+.adminpanel-primary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:14px 28px;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:#ffffff;
+    border:none;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+.adminpanel-primary-btn:hover{
+    color:#ffffff;
+    text-decoration:none;
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(37,99,235,.35);
+}
+
+/* ==========================================
+        SECONDARY BUTTON
+========================================== */
+
+.adminpanel-secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:14px 28px;
+    background:#ffffff;
+    color:#2563eb;
+    border:1px solid #dbeafe;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    transition:all .3s ease;
+}
+
+.adminpanel-secondary-btn:hover{
+    background:#eff6ff;
+    color:#2563eb;
+    text-decoration:none;
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+        INPUT HOVER
+========================================== */
+
+.adminpanel-input:hover{
+    border-color:#93c5fd;
+}
+
+/* ==========================================
+        FILE INPUT TEXT
+========================================== */
+
+.form-control-file{
+    color:#475569;
+    font-size:14px;
+}
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .adminpanel-page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .adminpanel-form-card{
+        padding:25px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .adminpanel-form-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .adminpanel-primary-btn,
+    .adminpanel-secondary-btn{
+        width:100%;
+    }
+
+    .adminpanel-page-header h2{
+        font-size:26px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .adminpanel-form-card{
+        padding:20px;
+    }
+
+    .adminpanel-form-section h4{
+        font-size:20px;
+    }
+
+    .adminpanel-input{
+        height:50px;
+        font-size:14px;
+    }
+
+}
+/* ==========================================
+        PROFILE PREVIEW
+========================================== */
+
+.adminpanel-profile-preview{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #dbeafe;
+    box-shadow:0 12px 30px rgba(37,99,235,.12);
+}
+
+.adminpanel-profile-placeholder{
+    width:170px;
+    height:170px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+}
+
+.adminpanel-profile-placeholder i{
+    color:#ffffff;
+    font-size:60px;
+}

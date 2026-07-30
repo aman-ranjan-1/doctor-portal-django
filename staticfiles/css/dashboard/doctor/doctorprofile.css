@@ -1,0 +1,452 @@
+/* ==========================================
+        DOCTOR PROFILE PAGE
+========================================== */
+
+.doctorprofile-page{
+    padding:25px;
+}
+
+
+/* ==========================================
+        PROFILE HEADER
+========================================== */
+
+.doctorprofile-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.doctorprofile-header h2{
+    font-size:28px;
+    font-weight:700;
+    color:#1e293b;
+    margin:0;
+}
+
+.doctorprofile-header p{
+    margin-top:6px;
+    color:#64748b;
+    font-size:14px;
+}
+
+
+/* ==========================================
+        HEADER ACTION BUTTON
+========================================== */
+
+.doctorprofile-actions{
+    display:flex;
+    align-items:center;
+}
+
+
+.doctorprofile-primary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#2563eb;
+    color:#ffffff;
+    border:none;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+
+.doctorprofile-primary-btn:hover{
+    background:#1d4ed8;
+}   
+/* ==========================================
+        PROFILE MAIN LAYOUT
+========================================== */
+
+.doctorprofile-layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:25px;
+}
+
+
+/* ==========================================
+        LEFT PROFILE SIDEBAR
+========================================== */
+
+.doctorprofile-sidebar{
+    width:100%;
+}
+
+
+/* ==========================================
+        PROFILE CARD
+========================================== */
+
+.doctorprofile-card{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+
+/* ==========================================
+        PROFILE IMAGE
+========================================== */
+
+.doctorprofile-image{
+    width:130px;
+    height:130px;
+    margin:auto;
+    position:relative;
+}
+
+
+.doctorprofile-image img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #eff6ff;
+}
+
+
+/* ==========================================
+        IMAGE UPLOAD BUTTON
+========================================== */
+
+.doctorprofile-image-upload{
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#2563eb;
+    color:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    border:3px solid #ffffff;
+    transition:0.3s ease;
+}
+
+
+.doctorprofile-image-upload:hover{
+    background:#1d4ed8;
+}
+
+
+/* ==========================================
+        DOCTOR BASIC INFO
+========================================== */
+
+.doctorprofile-card h3{
+    margin-top:20px;
+    margin-bottom:5px;
+    font-size:21px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+.doctorprofile-card p{
+    margin-bottom:15px;
+    color:#64748b;
+    font-size:14px;
+}
+
+
+/* ==========================================
+        AVAILABILITY BADGE
+========================================== */
+
+.doctorprofile-active-badge{
+    display:inline-block;
+    padding:6px 15px;
+    border-radius:20px;
+    background:#dcfce7;
+    color:#15803d;
+    font-size:13px;
+    font-weight:600;
+}
+
+
+.doctorprofile-card hr{
+    margin:25px 0;
+    border:0;
+    border-top:1px solid #e2e8f0;
+}
+
+
+/* ==========================================
+        PROFILE STATISTICS
+========================================== */
+
+.doctorprofile-stats{
+    display:flex;
+    justify-content:space-around;
+    text-align:center;
+}
+
+
+.doctorprofile-stats h4{
+    margin:0;
+    font-size:20px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+
+.doctorprofile-stats span{
+    display:block;
+    margin-top:5px;
+    font-size:12px;
+    color:#64748b;
+}
+
+
+/* ==========================================
+        MEMBER SINCE
+========================================== */
+
+.doctorprofile-member{
+    margin-top:25px;
+    font-size:14px;
+    color:#64748b;
+}
+
+
+.doctorprofile-member i{
+    color:#2563eb;
+    margin-right:6px;
+}
+
+/* ==========================================
+        RIGHT CONTENT AREA
+========================================== */
+
+.doctorprofile-content{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+
+/* ==========================================
+        INFORMATION SECTION CARD
+========================================== */
+
+.doctorprofile-section{
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+
+/* ==========================================
+        SECTION TITLE
+========================================== */
+
+.doctorprofile-section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-bottom:15px;
+    margin-bottom:25px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+
+.doctorprofile-section-title i{
+    font-size:22px;
+    color:#2563eb;
+}
+
+
+.doctorprofile-section-title h4{
+    margin:0;
+    font-size:19px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+
+/* ==========================================
+        FORM GROUP
+========================================== */
+
+.doctorprofile-form-group{
+    margin-bottom:20px;
+}
+
+
+.doctorprofile-form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#334155;
+    font-size:14px;
+    font-weight:600;
+}
+
+
+/* ==========================================
+        INPUT FIELDS
+========================================== */
+
+.doctorprofile-input{
+    width:100%;
+    height:45px;
+    padding:0 15px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    outline:none;
+    background:#ffffff;
+    color:#334155;
+    font-size:14px;
+    transition:0.3s ease;
+}
+
+
+.doctorprofile-input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.12);
+}
+
+
+/* ==========================================
+        DISABLED / READONLY INPUTS
+========================================== */
+
+.doctorprofile-input[readonly],
+.doctorprofile-input:disabled{
+    background:#f8fafc;
+    color:#64748b;
+    cursor:not-allowed;
+}
+/* ==========================================
+        PROFILE ACTION BUTTONS
+========================================== */
+
+.doctorprofile-buttons{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:15px;
+    margin-top:5px;
+}
+
+
+/* ==========================================
+        OUTLINE BUTTON
+========================================== */
+
+.doctorprofile-outline-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:10px;
+    border:1px solid #cbd5e1;
+    background:#ffffff;
+    color:#475569;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+
+.doctorprofile-outline-btn:hover{
+    background:#f1f5f9;
+}
+
+
+/* ==========================================
+        SAVE BUTTON
+========================================== */
+
+#saveProfileBtn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* ==========================================
+        RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:992px){
+
+    .doctorprofile-layout{
+        grid-template-columns:1fr;
+    }
+
+
+    .doctorprofile-sidebar{
+        max-width:350px;
+        margin:auto;
+    }
+
+
+    .doctorprofile-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+}
+
+
+/* ==========================================
+        MOBILE RESPONSIVE
+========================================== */
+
+@media(max-width:576px){
+
+    .doctorprofile-page{
+        padding:15px;
+    }
+
+
+    .doctorprofile-header h2{
+        font-size:24px;
+    }
+
+
+    .doctorprofile-card{
+        padding:18px;
+    }
+
+
+    .doctorprofile-section{
+        padding:18px;
+    }
+
+
+    .doctorprofile-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+
+    .doctorprofile-primary-btn,
+    .doctorprofile-outline-btn{
+        width:100%;
+    }
+
+
+    .doctorprofile-stats{
+        gap:20px;
+    }
+
+}
