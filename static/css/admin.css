@@ -1,7 +1,10 @@
-
 @import url("admin_panel/sidebar.css");
 @import url("admin_panel/topbar.css");
 @import url("admin_panel/dashboard.css");
+@import url("admin_panel/add_doctor.css");
+@import url("admin_panel/doctor_detail.css");
+@import url("admin_panel/delete_doctor.css");
+@import url("admin_panel/doctors.css");
 
 *{
     margin:0;

@@ -1,0 +1,527 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Doctor Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="adminpanel-doctordetail-page">
+
+    <!-- ==========================================
+                PAGE HEADER
+    ========================================== -->
+
+    <div class="adminpanel-page-header">
+
+        <div>
+
+            <h2>
+
+                Doctor Profile
+
+            </h2>
+
+            <p>
+
+                Complete information and performance overview.
+
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'admin_doctors' %}"
+            class="adminpanel-secondary-btn">
+
+            <i class="fas fa-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+    <!-- ==========================================
+                PROFILE CARD
+    ========================================== -->
+
+    <div class="adminpanel-doctor-profile-card">
+
+        <div class="adminpanel-doctor-profile-left">
+
+            {% if doctor.profile_image %}
+
+                <img
+                    src="{{ doctor.profile_image.url }}"
+                    class="adminpanel-doctor-profile-image"
+                    alt="Doctor">
+
+            {% else %}
+
+                <div class="adminpanel-doctor-profile-placeholder">
+
+                    <i class="fas fa-user-doctor"></i>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="adminpanel-doctor-profile-right">
+
+            <h3>
+
+                Dr. {{ doctor.user.get_full_name }}
+
+            </h3>
+
+            <span class="adminpanel-doctor-id">
+
+                {{ doctor.doctor_id }}
+
+            </span>
+
+            <div class="adminpanel-doctor-info-grid">
+
+                <div>
+
+                    <strong>
+
+                        Department
+
+                    </strong>
+
+                    <p>
+
+                        {{ doctor.department }}
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Specialization
+
+                    </strong>
+
+                    <p>
+
+                        {{ doctor.specialization }}
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Qualification
+
+                    </strong>
+
+                    <p>
+
+                        {{ doctor.qualification }}
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Experience
+
+                    </strong>
+
+                    <p>
+
+                        {{ doctor.experience }} Years
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Phone
+
+                    </strong>
+
+                    <p>
+
+                        {{ doctor.phone }}
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Consultation Fee
+
+                    </strong>
+
+                    <p>
+
+                        ₹ {{ doctor.consultation_fee }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+        <!-- ==========================================
+                DOCTOR STATISTICS
+    ========================================== -->
+
+    <div class="adminpanel-stats-grid">
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-hospital-user"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ managed_patients }}
+
+                </h3>
+
+                <span>
+
+                    Managed Patients
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-calendar-check"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ appointments_count }}
+
+                </h3>
+
+                <span>
+
+                    Total Appointments
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-circle-check"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ completed_count }}
+
+                </h3>
+
+                <span>
+
+                    Completed
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="adminpanel-stat-card">
+
+            <div class="adminpanel-stat-icon">
+
+                <i class="fas fa-file-prescription"></i>
+
+            </div>
+
+            <div class="adminpanel-stat-content">
+
+                <h3>
+
+                    {{ prescriptions_count }}
+
+                </h3>
+
+                <span>
+
+                    Prescriptions
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+                DOCTOR ACTIVITY
+    ========================================== -->
+
+    <div class="adminpanel-dashboard-card">
+
+        <div class="adminpanel-card-header">
+
+            <h5>
+
+                Monthly Activity
+
+            </h5>
+
+        </div>
+
+        <div class="adminpanel-activity-grid">
+
+            {% for day in activity_days %}
+
+                <div
+                    class="adminpanel-activity-box {% if day.active %}active{% endif %}"
+                    title="{{ day.date }}">
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <p class="adminpanel-activity-note">
+
+            White = No Activity &nbsp;&nbsp;|&nbsp;&nbsp;
+            Blue = Doctor Logged In
+
+        </p>
+
+    </div>
+        <!-- ==========================================
+                BOTTOM GRID
+    ========================================== -->
+
+    <div class="adminpanel-dashboard-grid">
+
+        <!-- Recent Appointments -->
+
+        <div class="adminpanel-dashboard-card">
+
+            <div class="adminpanel-card-header">
+
+                <h5>
+
+                    Recent Appointments
+
+                </h5>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="adminpanel-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                Patient
+
+                            </th>
+
+                            <th>
+
+                                Date
+
+                            </th>
+
+                            <th>
+
+                                Status
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for appointment in recent_appointments %}
+
+                        <tr>
+
+                            <td>
+
+                                {{ appointment.patient.user.get_full_name }}
+
+                            </td>
+
+                            <td>
+
+                                {{ appointment.appointment_date }}
+
+                            </td>
+
+                            <td>
+
+                                {{ appointment.status }}
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="3">
+
+                                No appointments found.
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Prescriptions -->
+
+        <div class="adminpanel-dashboard-card">
+
+            <div class="adminpanel-card-header">
+
+                <h5>
+
+                    Recent Prescriptions
+
+                </h5>
+
+            </div>
+
+            <div class="adminpanel-doctor-list">
+
+                {% for prescription in recent_prescriptions %}
+
+                <div class="adminpanel-doctor-item">
+
+                    <div class="adminpanel-doctor-avatar">
+
+                        <i class="fas fa-file-prescription"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h6>
+
+                            {{ prescription.patient.user.get_full_name }}
+
+                        </h6>
+
+                        <span>
+
+                            {{ prescription.created_at|date:"d M Y" }}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                {% empty %}
+
+                <p>
+
+                    No prescriptions available.
+
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+        <!-- ==========================================
+                ACTION BUTTONS
+    ========================================== -->
+
+    <div class="adminpanel-form-actions">
+
+        <a
+            href="{% url 'admin_edit_doctor' doctor.id %}"
+            class="adminpanel-primary-btn">
+
+            <i class="fas fa-pen"></i>
+
+            Edit Doctor
+
+        </a>
+
+        <a
+            href="{% url 'admin_delete_doctor' doctor.id %}"
+            class="adminpanel-secondary-btn">
+
+            <i class="fas fa-trash"></i>
+
+            Delete Doctor
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

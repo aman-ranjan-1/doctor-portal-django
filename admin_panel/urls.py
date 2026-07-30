@@ -16,6 +16,30 @@ urlpatterns = [
     ),
 
     path(
+        "doctors/add/",
+        views.add_doctor,
+        name="admin_add_doctor"
+    ),
+
+    path(
+    "doctors/<int:doctor_id>/",
+    views.doctor_detail,
+    name="admin_doctor_detail"
+    ),
+
+    path(
+    "doctors/delete/<int:doctor_id>/",
+    views.delete_doctor,
+    name="admin_delete_doctor"
+    ),
+
+    path(
+    "doctors/edit/<int:doctor_id>/",
+    views.edit_doctor,
+    name="admin_edit_doctor"
+    ),
+
+    path(
         "patients/",
         views.patients,
         name="admin_patients"

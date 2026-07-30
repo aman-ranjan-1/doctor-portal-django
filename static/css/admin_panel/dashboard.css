@@ -1,7 +1,24 @@
 /* ==========================================
         ADMIN DASHBOARD
 ========================================== */
+.adminpanel-main{
 
+    margin-left:280px !important;
+
+    width:calc(100% - 280px) !important;
+
+    min-height:100vh;
+
+    background:#f4f8ff;
+
+    padding:0;
+
+    overflow-x:hidden;
+
+}
+.adminpanel-content{
+    padding:30px;
+}
 .adminpanel-dashboard{
     width:100%;
 }

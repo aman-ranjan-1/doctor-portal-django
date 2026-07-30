@@ -1,0 +1,228 @@
+/* ==========================================
+        DOCTOR DETAIL PAGE
+========================================== */
+
+.adminpanel-doctordetail-page{
+    width:100%;
+}
+
+/* ==========================================
+        PROFILE CARD
+========================================== */
+
+.adminpanel-doctor-profile-card{
+    display:flex;
+    align-items:center;
+    gap:35px;
+    padding:35px;
+    margin-bottom:30px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(37,99,235,.08);
+}
+
+/* ==========================================
+        PROFILE IMAGE
+========================================== */
+
+.adminpanel-doctor-profile-left{
+    flex-shrink:0;
+}
+
+.adminpanel-doctor-profile-image{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #dbeafe;
+}
+
+.adminpanel-doctor-profile-placeholder{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.adminpanel-doctor-profile-placeholder i{
+    color:#ffffff;
+    font-size:60px;
+}
+
+/* ==========================================
+        PROFILE CONTENT
+========================================== */
+
+.adminpanel-doctor-profile-right{
+    flex:1;
+}
+
+.adminpanel-doctor-profile-right h3{
+    margin:0;
+    font-size:34px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.adminpanel-doctor-id{
+    display:inline-block;
+    margin-top:10px;
+    margin-bottom:24px;
+    padding:7px 18px;
+    background:#dbeafe;
+    color:#2563eb;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+}
+/* ==========================================
+        INFORMATION GRID
+========================================== */
+
+.adminpanel-doctor-info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.adminpanel-doctor-info-grid div{
+    padding:18px;
+    background:#f8fbff;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    transition:all .3s ease;
+}
+
+.adminpanel-doctor-info-grid div:hover{
+    transform:translateY(-3px);
+    border-color:#bfdbfe;
+    box-shadow:0 10px 24px rgba(37,99,235,.08);
+}
+
+.adminpanel-doctor-info-grid strong{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#2563eb;
+}
+
+.adminpanel-doctor-info-grid p{
+    margin:0;
+    font-size:15px;
+    color:#1e293b;
+    font-weight:500;
+}
+
+/* ==========================================
+        ACTIVITY CARD
+========================================== */
+
+.adminpanel-activity-grid{
+    display:grid;
+    grid-template-columns:repeat(7,18px);
+    gap:8px;
+    margin-top:25px;
+    margin-bottom:20px;
+    justify-content:flex-start;
+}
+
+.adminpanel-activity-box{
+    width:18px;
+    height:18px;
+    border-radius:5px;
+    background:#ffffff;
+    border:1px solid #dbeafe;
+    transition:.25s ease;
+}
+
+.adminpanel-activity-box.active{
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+    border:none;
+    box-shadow:0 0 10px rgba(37,99,235,.35);
+}
+
+.adminpanel-activity-box:hover{
+    transform:scale(1.2);
+}
+
+.adminpanel-activity-note{
+    margin:0;
+    color:#64748b;
+    font-size:13px;
+}
+/* ==========================================
+        PROFILE ANIMATION
+========================================== */
+
+.adminpanel-doctor-profile-card{
+    transition:all .35s ease;
+}
+
+.adminpanel-doctor-profile-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 45px rgba(37,99,235,.12);
+}
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .adminpanel-doctor-profile-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .adminpanel-doctor-info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .adminpanel-activity-grid{
+        grid-template-columns:repeat(7,16px);
+        gap:6px;
+    }
+
+    .adminpanel-activity-box{
+        width:16px;
+        height:16px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .adminpanel-doctor-profile-image,
+    .adminpanel-doctor-profile-placeholder{
+        width:120px;
+        height:120px;
+    }
+
+    .adminpanel-doctor-profile-placeholder i{
+        font-size:42px;
+    }
+
+    .adminpanel-doctor-profile-right h3{
+        font-size:26px;
+    }
+
+}

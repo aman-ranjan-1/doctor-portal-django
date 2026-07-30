@@ -54,17 +54,15 @@
 
             <div class="adminpanel-topbar-avatar">
 
-                {% if request.user.admin.profile_image %}
+                <div class="adminpanel-topbar-avatar">
+
+                    <i class="fas fa-user-shield"></i>
+
+                </div>
 
                     <img
                         src="{{ request.user.admin.profile_image.url }}"
                         alt="Admin">
-
-                {% else %}
-
-                    <i class="fas fa-user-shield"></i>
-
-                {% endif %}
 
             </div>
 

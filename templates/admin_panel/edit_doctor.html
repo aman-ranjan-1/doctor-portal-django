@@ -1,0 +1,416 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+{% load static %}
+
+{% block title %}
+Edit Doctor
+{% endblock %}
+
+{% block content %}
+
+<div class="adminpanel-adddoctor-page">
+
+    <div class="adminpanel-page-header">
+
+        <div>
+
+            <h2>
+
+                Edit Doctor
+
+            </h2>
+
+            <p>
+
+                Update doctor information.
+
+            </p>
+
+        </div>
+
+        <a
+            href="{% url 'admin_doctor_detail' doctor.id %}"
+            class="adminpanel-secondary-btn">
+
+            <i class="fas fa-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data">
+
+        {% csrf_token %}
+                <!-- ==========================================
+                    PERSONAL INFORMATION
+        ========================================== -->
+
+        <div class="adminpanel-form-card">
+
+            <div class="adminpanel-form-section">
+
+                <h4>
+
+                    Personal Information
+
+                </h4>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            First Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="first_name"
+                            value="{{ doctor.user.first_name }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Last Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="last_name"
+                            value="{{ doctor.user.last_name }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Email Address
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            value="{{ doctor.user.email }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            value="{{ doctor.phone }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                        PROFESSIONAL INFORMATION
+            ========================================== -->
+
+            <div class="adminpanel-form-section">
+
+                <h4>
+
+                    Professional Information
+
+                </h4>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Doctor ID
+
+                        </label>
+
+                        <input
+                            type="text"
+                            value="{{ doctor.doctor_id }}"
+                            class="form-control adminpanel-input"
+                            readonly>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Department
+
+                        </label>
+
+                        <select
+                            name="department"
+                            class="form-control adminpanel-input"
+                            required>
+
+                            {% for value, label in departments %}
+
+                                <option
+                                    value="{{ value }}"
+                                    {% if doctor.department == value %}selected{% endif %}>
+
+                                    {{ label }}
+
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Specialization
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="specialization"
+                            value="{{ doctor.specialization }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Qualification
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="qualification"
+                            value="{{ doctor.qualification }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Experience
+
+                        </label>
+
+                        <input
+                            type="number"
+                            name="experience"
+                            value="{{ doctor.experience }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Consultation Fee
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            name="consultation_fee"
+                            value="{{ doctor.consultation_fee }}"
+                            class="form-control adminpanel-input"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- ==========================================
+                        PROFILE IMAGE
+            ========================================== -->
+
+            <div class="adminpanel-form-section">
+
+                <h4>
+
+                    Profile Image
+
+                </h4>
+
+                <div class="row">
+
+                    <div class="col-md-4 text-center">
+
+                        {% if doctor.profile_image %}
+
+                            <img
+                                src="{{ doctor.profile_image.url }}"
+                                alt="Doctor"
+                                class="adminpanel-profile-preview">
+
+                        {% else %}
+
+                            <div class="adminpanel-profile-placeholder">
+
+                                <i class="fas fa-user-doctor"></i>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <label>
+
+                            Upload New Profile Image
+
+                        </label>
+
+                        <input
+                            type="file"
+                            name="profile_image"
+                            class="form-control-file">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                        ACCOUNT STATUS
+            ========================================== -->
+
+            <div class="adminpanel-form-section">
+
+                <h4>
+
+                    Account Status
+
+                </h4>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label>
+
+                            Availability
+
+                        </label>
+
+                        <select
+                            name="available"
+                            class="form-control adminpanel-input">
+
+                            <option
+                                value="True"
+                                {% if doctor.available %}selected{% endif %}>
+
+                                Available
+
+                            </option>
+
+                            <option
+                                value="False"
+                                {% if not doctor.available %}selected{% endif %}>
+
+                                Unavailable
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                        FORM ACTIONS
+            ========================================== -->
+
+            <div class="adminpanel-form-actions">
+
+                <a
+                    href="{% url 'admin_doctor_detail' doctor.id %}"
+                    class="adminpanel-secondary-btn">
+
+                    <i class="fas fa-times"></i>
+
+                    Cancel
+
+                </a>
+
+                <button
+                    type="submit"
+                    class="adminpanel-primary-btn">
+
+                    <i class="fas fa-save"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,447 @@
+/* ==========================================
+        DOCTORS PAGE
+========================================== */
+
+.adminpanel-doctors-page{
+    width:100%;
+}
+
+/* ==========================================
+        PAGE HEADER
+========================================== */
+
+.adminpanel-page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+.adminpanel-page-header h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.adminpanel-page-header p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ==========================================
+        BUTTONS
+========================================== */
+
+.adminpanel-primary-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+    color:#ffffff;
+    border:none;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.adminpanel-primary-btn:hover{
+    color:#ffffff;
+    text-decoration:none;
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+}
+
+.adminpanel-secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    background:#ffffff;
+    color:#2563eb;
+    border:1px solid #dbeafe;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.adminpanel-secondary-btn:hover{
+    text-decoration:none;
+    color:#2563eb;
+    transform:translateY(-3px);
+}
+/* ==========================================
+        FILTER CARD
+========================================== */
+
+.adminpanel-filter-card{
+    padding:28px;
+    margin-bottom:30px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(37,99,235,.08);
+}
+
+.adminpanel-filter-form{
+    display:flex;
+    align-items:end;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.adminpanel-filter-group{
+    flex:1;
+    min-width:220px;
+}
+
+.adminpanel-filter-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+.adminpanel-search-input,
+.adminpanel-select{
+    width:100%;
+    height:52px;
+    padding:0 18px;
+    border:1px solid #dbeafe;
+    border-radius:14px;
+    background:#ffffff;
+    outline:none;
+    transition:.3s ease;
+    font-size:15px;
+}
+
+.adminpanel-search-input:focus,
+.adminpanel-select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.10);
+}
+
+.adminpanel-filter-btn{
+    height:52px;
+    padding:0 30px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+    color:#ffffff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.adminpanel-filter-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+}
+
+/* ==========================================
+        STATISTICS GRID
+========================================== */
+
+.adminpanel-doctor-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-bottom:30px;
+}
+/* ==========================================
+        TABLE CARD
+========================================== */
+
+.adminpanel-table-card{
+    padding:28px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(37,99,235,.08);
+}
+
+/* ==========================================
+        TABLE
+========================================== */
+
+.adminpanel-doctors-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.adminpanel-doctors-table thead th{
+    padding:18px 16px;
+    background:#eff6ff;
+    color:#2563eb;
+    font-size:14px;
+    font-weight:700;
+    border-bottom:2px solid #dbeafe;
+    white-space:nowrap;
+}
+
+.adminpanel-doctors-table tbody td{
+    padding:18px 16px;
+    border-bottom:1px solid #eef2f7;
+    color:#334155;
+    font-size:14px;
+    vertical-align:middle;
+}
+
+.adminpanel-doctors-table tbody tr{
+    transition:.3s ease;
+}
+
+.adminpanel-doctors-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+/* ==========================================
+        DOCTOR INFO
+========================================== */
+
+.adminpanel-doctor-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.adminpanel-doctor-avatar-small{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    overflow:hidden;
+    flex-shrink:0;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.adminpanel-doctor-avatar-small img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.adminpanel-doctor-avatar-small i{
+    color:#ffffff;
+    font-size:20px;
+}
+
+.adminpanel-doctor-info h6{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+.adminpanel-doctor-info span{
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+    color:#64748b;
+}
+/* ==========================================
+        STATUS BADGES
+========================================== */
+
+.adminpanel-status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:7px 16px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.adminpanel-status-active{
+    color:#15803d;
+    background:#dcfce7;
+}
+
+.adminpanel-status-inactive{
+    color:#b91c1c;
+    background:#fee2e2;
+}
+
+/* ==========================================
+        ACTION BUTTONS
+========================================== */
+
+.adminpanel-table-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.adminpanel-action-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.adminpanel-view-btn{
+    background:#dbeafe;
+    color:#2563eb;
+}
+
+.adminpanel-edit-btn{
+    background:#fef3c7;
+    color:#d97706;
+}
+
+.adminpanel-delete-btn-small{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.adminpanel-action-btn:hover{
+    transform:translateY(-3px);
+    text-decoration:none;
+}
+
+.adminpanel-view-btn:hover{
+    color:#2563eb;
+}
+
+.adminpanel-edit-btn:hover{
+    color:#d97706;
+}
+
+.adminpanel-delete-btn-small:hover{
+    color:#dc2626;
+}
+/* ==========================================
+        PAGINATION
+========================================== */
+
+.adminpanel-pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-top:35px;
+}
+
+.adminpanel-pagination a,
+.adminpanel-pagination span{
+    min-width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    background:#ffffff;
+    color:#2563eb;
+    border:1px solid #dbeafe;
+    transition:.3s;
+}
+
+.adminpanel-pagination a:hover{
+    background:#2563eb;
+    color:#ffffff;
+}
+
+.adminpanel-pagination .active{
+    background:#2563eb;
+    color:#ffffff;
+}
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .adminpanel-doctor-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .adminpanel-filter-form{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .adminpanel-doctor-stats{
+        grid-template-columns:1fr;
+    }
+
+    .adminpanel-table-actions{
+        flex-wrap:wrap;
+    }
+
+    .adminpanel-page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+}
+.doctor-actions{
+    display:flex;
+    gap:10px;
+}
+
+.action-btn{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.view-btn{
+    background:#e0f2fe;
+    color:#0284c7;
+}
+
+.edit-btn{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.delete-btn{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+}

@@ -1,0 +1,358 @@
+    {% extends "layouts/admin_dashboard_base.html" %}
+
+    {% block title %}
+    Doctors Management
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="adminpanel-doctors-page">
+        <div class="adminpanel-page-header">
+
+            <div>
+
+                <h2>
+                    Doctors Management
+                </h2>
+
+                <p>
+                    Manage all registered doctors in CityCare.
+                </p>
+
+            </div>
+
+            <a
+            href="{% url 'admin_add_doctor' %}"
+            class="adminpanel-primary-btn">
+
+            <i class="fas fa-plus"></i>
+            Add Doctor
+            </a>
+
+        </div>
+        <div class="adminpanel-filter-card">
+
+            <form method="GET">
+
+                <div class="row">
+
+                    <div class="col-md-5">
+
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ search }}"
+                        class="adminpanel-search-input"
+                        placeholder="Search by Doctor ID or Name">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <select
+                            name="department"
+                            class="adminpanel-select">
+
+                            <option value="">
+                                All Departments
+                            </option>
+
+                            {% for value,label in departments %}
+
+                            <option
+                                value="{{ value }}"
+                                {% if selected_department == value %}selected{% endif %}>
+
+                                {{ label }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <button
+                            class="adminpanel-primary-btn btn-block">
+
+                            <i class="fas fa-search mr-2"></i>
+
+                            Search
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="adminpanel-mini-stats">
+
+            <div class="adminpanel-mini-card">
+
+                <h3>
+
+                    {{ total_doctors }}
+
+                </h3>
+
+                <span>
+
+                    Total Doctors
+
+                </span>
+
+            </div>
+
+        </div>
+            <!-- ==========================================
+                        DOCTORS TABLE
+        ========================================== -->
+
+        <div class="adminpanel-table-card">
+
+            <div class="table-responsive">
+
+                <table class="adminpanel-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Doctor ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Department
+                            </th>
+
+                            <th>
+                                Experience
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for doctor in page_obj %}
+
+                        <tr>
+
+                            <td>
+
+                                {{ doctor.doctor_id }}
+
+                            </td>
+
+                            <td>
+
+                                <div class="adminpanel-doctor-info">
+
+                                    {% if doctor.profile_image %}
+
+                                        <img
+                                            src="{{ doctor.profile_image.url }}"
+                                            class="adminpanel-doctor-avatar">
+
+                                    {% else %}
+
+                                        <img
+                                            src="https://ui-avatars.com/api/?name=Dr+{{ doctor.user.first_name }}+{{ doctor.user.last_name }}&background=2563eb&color=ffffff"
+                                            class="adminpanel-doctor-avatar">
+
+                                    {% endif %}
+
+                                    <div>
+
+                                        <h6>
+
+                                            Dr. {{ doctor.user.get_full_name }}
+
+                                        </h6>
+
+                                        <span>
+
+                                            {{ doctor.user.email }}
+
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                {{ doctor.department }}
+
+                            </td>
+
+                            <td>
+
+                                {{ doctor.experience }} Years
+
+                            </td>
+
+                            <td>
+
+                                {% if doctor.available %}
+
+                                    <span class="adminpanel-status-active">
+
+                                        Available
+
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="adminpanel-status-inactive">
+
+                                        Unavailable
+
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+
+                                <div class="adminpanel-action-buttons">
+
+                                    <a
+                                        href="{% url 'admin_doctor_detail' doctor.id %}"
+                                        class="adminpanel-view-btn">
+
+                                        <i class="fas fa-eye"></i>
+
+                                    </a>
+
+                                    <a
+                                        href="{% url 'admin_edit_doctor' doctor.id %}"
+                                        class="adminpanel-edit-btn">
+
+                                        <i class="fas fa-pen"></i>
+
+                                    </a>
+
+                                    <a
+                                        href="{% url 'admin_delete_doctor' doctor.id %}"
+                                        class="adminpanel-delete-btn">
+
+                                        <i class="fas fa-trash"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td colspan="6">
+
+                                <div class="adminpanel-empty-state">
+
+                                    <i class="fas fa-user-doctor"></i>
+
+                                    <h5>
+
+                                        No Doctors Found
+
+                                    </h5>
+
+                                    <p>
+
+                                        There are no doctors matching your search.
+
+                                    </p>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+            <!-- ==========================================
+                        PAGINATION
+        ========================================== -->
+
+        {% if page_obj.has_other_pages %}
+
+        <div class="adminpanel-pagination">
+
+            {% if page_obj.has_previous %}
+
+                <a
+                    href="?page={{ page_obj.previous_page_number }}&search={{ search }}&department={{ selected_department }}">
+
+                    <i class="fas fa-angle-left mr-2"></i>
+
+                    Previous
+
+                </a>
+
+            {% endif %}
+
+            <span>
+
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+            </span>
+
+            {% if page_obj.has_next %}
+
+                <a
+                    href="?page={{ page_obj.next_page_number }}&search={{ search }}&department={{ selected_department }}">
+
+                    Next
+
+                    <i class="fas fa-angle-right ml-2"></i>
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+{% block title %}
+Delete Doctor
+{% endblock %}
+
+{% block content %}
+
+<div class="adminpanel-delete-page">
+
+    <div class="adminpanel-delete-card">
+
+        <div class="adminpanel-delete-icon">
+
+            <i class="fas fa-trash-alt"></i>
+
+        </div>
+
+        <h2>
+
+            Delete Doctor
+
+        </h2>
+
+        <p>
+
+            Are you sure you want to permanently delete
+
+            <strong>
+
+                Dr. {{ doctor.user.get_full_name }}
+
+            </strong>
+
+            ?
+
+        </p>
+
+        <p>
+
+            This action cannot be undone.
+
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="adminpanel-form-actions">
+
+                <a
+                    href="{% url 'admin_doctor_detail' doctor.id %}"
+                    class="adminpanel-secondary-btn">
+
+                    Cancel
+
+                </a>
+
+                <button
+                    type="submit"
+                    class="adminpanel-delete-btn">
+
+                    <i class="fas fa-trash"></i>
+
+                    Delete Doctor
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
