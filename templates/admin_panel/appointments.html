@@ -1,0 +1,768 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+
+{% block title %}
+Appointments Management
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="adminpanel-appointments-page">
+
+
+
+<div class="adminpanel-page-header">
+
+
+<div>
+
+<h2>
+Appointments Management
+</h2>
+
+
+<p>
+Manage all patient appointments in CityCare.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- FILTER -->
+
+
+<div class="adminpanel-filter-card">
+
+
+<form method="GET">
+
+
+<div class="row">
+
+
+<div class="col-md-6">
+
+
+<input
+type="text"
+name="search"
+value="{{ search }}"
+class="adminpanel-search-input"
+placeholder="Search patient or doctor">
+
+
+</div>
+
+
+
+<div class="col-md-4">
+
+
+<select
+name="status"
+class="adminpanel-select">
+
+
+<option value="">
+All Status
+</option>
+
+
+{% for value,label in statuses %}
+
+
+<option
+value="{{ value }}"
+{% if selected_status == value %}selected{% endif %}>
+
+
+{{ label }}
+
+
+</option>
+
+
+{% endfor %}
+
+
+</select>
+
+
+</div>
+
+
+
+
+<div class="col-md-2">
+
+
+<button
+class="adminpanel-primary-btn btn-block">
+
+
+<i class="fas fa-search"></i>
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+<!-- STATS -->
+
+
+<div class="adminpanel-mini-stats">
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ total_appointments }}
+</h3>
+
+<span>
+Total
+</span>
+
+</div>
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ pending_count }}
+</h3>
+
+<span>
+Pending
+</span>
+
+</div>
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ confirmed_count }}
+</h3>
+
+<span>
+Confirmed
+</span>
+
+</div>
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ completed_count }}
+</h3>
+
+<span>
+Completed
+</span>
+
+</div>
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ cancelled_count }}
+</h3>
+
+<span>
+Cancelled
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="adminpanel-table-card">
+
+
+<div class="table-responsive">
+
+
+<table class="adminpanel-table">
+
+
+<thead>
+
+
+<tr>
+
+<th>
+ID
+</th>
+
+<th>
+Patient
+</th>
+
+<th>
+Doctor
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Time
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+
+
+{% for appointment in page_obj %}
+
+
+
+<tr>
+
+
+<td>
+
+#{{ appointment.id }}
+
+</td>
+
+
+
+
+<td>
+
+
+<div class="adminpanel-doctor-info">
+
+
+<img
+src="https://ui-avatars.com/api/?name={{ appointment.patient.user.first_name }}+{{ appointment.patient.user.last_name }}&background=2563eb&color=ffffff"
+class="adminpanel-doctor-avatar">
+
+
+
+<div>
+
+
+<h6>
+
+{{ appointment.patient.user.get_full_name }}
+
+</h6>
+
+
+<span>
+
+{{ appointment.patient.patient_id }}
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+<td>
+
+
+<div class="adminpanel-doctor-info">
+
+
+<img
+src="https://ui-avatars.com/api/?name={{ appointment.doctor.user.first_name }}&background=0ea5e9&color=ffffff"
+class="adminpanel-doctor-avatar">
+
+
+<div>
+
+
+<h6>
+
+Dr.
+{{ appointment.doctor.user.get_full_name }}
+
+</h6>
+
+
+<span>
+
+{{ appointment.doctor.department }}
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+<td>
+
+{{ appointment.appointment_date }}
+
+</td>
+
+
+
+
+<td>
+
+{{ appointment.appointment_time }}
+
+</td>
+
+
+
+
+
+<td>
+
+
+{% if appointment.status == "Completed" %}
+
+
+<span class="adminpanel-status-active">
+
+Completed
+
+</span>
+
+
+{% elif appointment.status == "Cancelled" %}
+
+
+<span class="adminpanel-status-inactive">
+
+Cancelled
+
+</span>
+
+
+
+{% elif appointment.status == "Confirmed" %}
+
+<span class="adminpanel-status-confirmed">
+
+Confirmed
+
+</span>
+
+
+{% else %}
+
+<span class="adminpanel-status-pending">
+
+Pending
+
+</span>
+
+
+{% endif %} 
+
+
+
+</td>
+
+
+
+
+
+<td>
+
+<a
+href="{% url 'admin_appointment_detail' appointment.id %}"
+class="adminpanel-manage-btn">
+
+<i class="fas fa-cog"></i>
+
+Manage
+
+</a>
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+<!-- MODAL -->
+
+
+<div class="modal fade"
+id="appointmentModal{{ appointment.id }}">
+
+
+
+<div class="modal-dialog modal-lg">
+
+
+
+<div class="modal-content">
+
+
+
+<div class="modal-header">
+
+
+<h5>
+
+Appointment Details
+
+</h5>
+
+
+
+<button
+type="button"
+class="close"
+data-dismiss="modal"
+aria-label="Close">
+
+<span aria-hidden="true">
+&times;
+</span>
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="modal-body">
+
+
+
+<h5>
+
+Patient
+
+</h5>
+
+
+<p>
+
+{{ appointment.patient.user.get_full_name }}
+
+</p>
+
+
+
+
+<h5>
+
+Doctor
+
+</h5>
+
+
+<p>
+
+Dr.
+{{ appointment.doctor.user.get_full_name }}
+
+</p>
+
+
+
+
+<h5>
+
+Appointment
+
+</h5>
+
+
+<p>
+
+{{ appointment.appointment_date }}
+
+<br>
+
+{{ appointment.appointment_time }}
+
+</p>
+
+
+
+
+<h5>
+
+Reason
+
+</h5>
+
+
+<p>
+
+{{ appointment.reason }}
+
+</p>
+
+
+
+
+<h5>
+
+Symptoms
+
+</h5>
+
+
+<p>
+
+{{ appointment.symptoms }}
+
+</p>
+
+
+
+<h5>
+
+Status
+
+</h5>
+
+
+<p>
+
+{{ appointment.status }}
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="modal fade"
+id="statusModal{{ appointment.id }}">
+
+
+<div class="modal-dialog">
+
+
+<div class="modal-content">
+
+
+<div class="modal-header">
+
+
+<h5>
+Update Status
+</h5>
+
+
+<button
+type="button"
+class="close"
+data-dismiss="modal">
+
+&times;
+
+</button>
+
+
+</div>
+
+
+
+
+<form method="POST"
+action="{% url 'admin_update_appointment' appointment.id %}">
+
+
+{% csrf_token %}
+
+
+<div class="modal-body">
+
+
+<select
+name="status"
+class="form-control">
+
+
+{% for value,label in statuses %}
+
+
+<option
+value="{{ value }}"
+{% if appointment.status == value %}selected{% endif %}>
+
+
+{{ label }}
+
+
+</option>
+
+
+{% endfor %}
+
+
+</select>
+
+
+</div>
+
+
+
+<div class="modal-footer">
+
+
+<button
+class="btn btn-primary">
+
+Update
+
+</button>
+
+
+</div>
+
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="7">
+
+No appointments found.
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+{% endblock %}

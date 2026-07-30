@@ -1,0 +1,157 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+
+{% block title %}
+Departments Management
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="adminpanel-departments-page">
+
+
+<div class="adminpanel-page-header">
+
+<div>
+
+<h2>
+Departments Management
+</h2>
+
+
+<p>
+Manage hospital departments and doctors.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="adminpanel-mini-stats">
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ total_departments }}
+</h3>
+
+<span>
+Total Departments
+</span>
+
+</div>
+
+
+
+<div class="adminpanel-mini-card">
+
+<h3>
+{{ total_doctors }}
+</h3>
+
+<span>
+Total Doctors
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="department-grid">
+
+
+
+{% for department in departments %}
+
+
+<div class="department-card">
+
+
+<div class="department-icon">
+
+<i class="fas fa-hospital"></i>
+
+</div>
+
+
+
+<h4>
+
+{{ department.name }}
+
+</h4>
+
+
+
+<div class="department-info">
+
+
+<p>
+
+Doctors
+
+<strong>
+{{ department.doctor_count }}
+</strong>
+
+</p>
+
+
+<p>
+
+Available
+
+<strong>
+{{ department.available_count }}
+</strong>
+
+</p>
+
+
+
+</div>
+
+
+
+<a
+href="{% url 'admin_department_detail' department.value %}"
+class="adminpanel-primary-btn">
+
+
+View Doctors
+
+</a>
+
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}

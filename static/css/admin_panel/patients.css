@@ -1,0 +1,237 @@
+/* ==========================================
+        PATIENT PAGE
+========================================== */
+
+
+.adminpanel-patients-page {
+
+    width: 100%;
+
+}
+
+
+
+/* ==========================================
+        PATIENT PROFILE MODAL
+========================================== */
+
+
+.adminpanel-patient-card {
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+
+.adminpanel-patient-card .modal-header {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+}
+
+
+
+.adminpanel-patient-card .close {
+
+    color: white;
+
+    opacity: 1;
+
+}
+
+
+
+
+
+/* ==========================================
+        PROFILE BOX
+========================================== */
+
+
+.patient-profile-box {
+
+    background: #f8fafc;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    height: 100%;
+
+    text-align: center;
+
+}
+
+
+
+.patient-large-avatar {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.patient-profile-box h4 {
+
+    margin-bottom: 5px;
+
+    font-weight: 600;
+
+    color: #1e293b;
+
+}
+
+
+
+.patient-profile-box p {
+
+    color: #64748b;
+
+}
+
+
+
+/* ==========================================
+        STATUS
+========================================== */
+
+
+.patient-status {
+
+    display: inline-block;
+
+    padding: 6px 18px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+.patient-status.active {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+
+
+
+
+/* ==========================================
+        INFO CARDS
+========================================== */
+
+
+.patient-info-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+}
+
+
+
+.patient-info-card h6 {
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #2563eb;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.patient-info-card p {
+
+    margin-bottom: 8px;
+
+    color: #475569;
+
+}
+
+
+
+
+
+/* ==========================================
+        APPOINTMENT TABLE INSIDE MODAL
+========================================== */
+
+
+.adminpanel-patient-card .adminpanel-table {
+
+    margin-top: 15px;
+
+}
+
+
+
+.adminpanel-patient-card .adminpanel-table th {
+
+    background: #eff6ff;
+
+}
+
+
+
+
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.patient-large-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+}
+
+
+.patient-profile-box {
+
+    margin-bottom: 20px;
+
+}
+
+
+}

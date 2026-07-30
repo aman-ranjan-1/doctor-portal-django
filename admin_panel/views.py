@@ -1,4 +1,5 @@
 from datetime import timedelta
+from django.contrib.auth.decorators import login_required
 
 from django.shortcuts import render
 from django.utils import timezone
@@ -185,45 +186,552 @@ def doctors(request):
         context
     )
 
-
+@login_required 
 def patients(request):
 
-    return render(
-        request,
-        "admin_panel/dashboard.html"
+    search = request.GET.get(
+        "search",
+        ""
+    )
+
+    patients = Patient.objects.select_related(
+        "user"
+    ).prefetch_related(
+        "appointments__doctor__user"
     )
 
 
+    if search:
+
+        patients = patients.filter(
+            patient_id__icontains=search
+        ) | patients.filter(
+            user__first_name__icontains=search
+        ) | patients.filter(
+            user__last_name__icontains=search
+        )
+
+
+    paginator = Paginator(
+        patients.order_by("patient_id"),
+        10
+    )
+
+
+    page_obj = paginator.get_page(
+        request.GET.get("page")
+    )
+
+
+    context = {
+
+        "page_obj": page_obj,
+
+        "search": search,
+
+        "total_patients": Patient.objects.count(),
+
+    }
+
+
+    return render(
+        request,
+        "admin_panel/patients.html",
+        context
+    )
+
+def delete_patient(request, patient_id):
+
+    patient = get_object_or_404(
+        Patient,
+        id=patient_id
+    )
+
+
+    if request.method == "POST":
+
+        patient.user.delete()
+
+        messages.success(
+            request,
+            "Patient deleted successfully."
+        )
+
+
+    return redirect(
+        "admin_patients"
+    )
+
+@login_required
 def appointments(request):
 
-    return render(
-        request,
-        "admin_panel/dashboard.html"
+    search = request.GET.get(
+        "search",
+        ""
+    )
+
+    status = request.GET.get(
+        "status",
+        ""
     )
 
 
+    appointments = Appointment.objects.select_related(
+        "patient__user",
+        "doctor__user"
+    ).all()
+
+
+
+    if search:
+
+        appointments = appointments.filter(
+
+            patient__user__first_name__icontains=search
+
+        ) | appointments.filter(
+
+            doctor__user__first_name__icontains=search
+
+        )
+
+
+
+    if status:
+
+        appointments = appointments.filter(
+            status=status
+        )
+
+
+
+    paginator = Paginator(
+        appointments.order_by(
+            "-appointment_date",
+            "-appointment_time"
+        ),
+        10
+    )
+
+
+    page_number = request.GET.get(
+        "page"
+    )
+
+
+    page_obj = paginator.get_page(
+        page_number
+    )
+
+
+
+    context = {
+
+
+        "page_obj": page_obj,
+
+
+        "search": search,
+
+
+        "selected_status": status,
+
+
+        "statuses": Appointment.STATUS_CHOICES,
+
+
+        "total_appointments": Appointment.objects.count(),
+
+
+        "pending_count": Appointment.objects.filter(
+        status="Pending"
+        ).count(),
+
+        "confirmed_count": Appointment.objects.filter(
+            status="Confirmed"
+        ).count(),
+
+        "completed_count": Appointment.objects.filter(
+            status="Completed"
+        ).count(),
+
+        "cancelled_count": Appointment.objects.filter(
+            status="Cancelled"
+        ).count(),
+
+
+    }
+
+
+
+    return render(
+
+        request,
+
+        "admin_panel/appointments.html",
+
+        context
+
+    )
+def update_appointment_status(request, appointment_id):
+
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id
+    )
+
+
+    if request.method == "POST":
+
+        status = request.POST.get(
+            "status"
+        )
+
+        appointment.status = status
+
+        appointment.save()
+
+
+        messages.success(
+            request,
+            "Appointment status updated successfully."
+        )
+
+
+    return redirect(
+        "admin_appointments"
+    )
+
+
+
+
+def delete_appointment(request, appointment_id):
+
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id
+    )
+
+
+    if request.method == "POST":
+
+        appointment.delete()
+
+
+        messages.success(
+            request,
+            "Appointment deleted successfully."
+        )
+
+
+    return redirect(
+        "admin_appointments"
+    )
+
+def appointment_detail(request, appointment_id):
+
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id
+    )
+
+
+    context = {
+
+        "appointment": appointment
+
+    }
+
+
+    return render(
+        request,
+        "admin_panel/appointment_detail.html",
+        context
+    )
+def update_appointment(request, appointment_id):
+
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id
+    )
+
+
+    if request.method == "POST":
+
+        status = request.POST.get(
+            "status"
+        )
+
+        appointment.status = status
+
+        appointment.save()
+
+
+        messages.success(
+            request,
+            "Appointment status updated."
+        )
+
+
+    return redirect(
+        "admin_appointment_detail",
+        appointment.id
+    )
+
+def delete_appointment(request, appointment_id):
+
+    appointment = get_object_or_404(
+        Appointment,
+        id=appointment_id
+    )
+
+
+    if request.method == "POST":
+
+        appointment.delete()
+
+
+        messages.success(
+            request,
+            "Appointment deleted successfully."
+        )
+
+
+    return redirect(
+        "admin_appointments"
+    )
+
+@login_required
 def departments(request):
 
+    departments = []
+
+    for value, label in Doctor.DEPARTMENT_CHOICES:
+
+        doctor_count = Doctor.objects.filter(
+            department=value
+        ).count()
+
+
+        available_count = Doctor.objects.filter(
+            department=value,
+            available=True
+        ).count()
+
+
+        departments.append({
+
+            "name": label,
+
+            "value": value,
+
+            "doctor_count": doctor_count,
+
+            "available_count": available_count,
+
+        })
+
+
+    context = {
+
+
+        "departments": departments,
+
+
+        "total_departments": len(
+            departments
+        ),
+
+
+        "total_doctors": Doctor.objects.count()
+
+
+    }
+
+
     return render(
+
         request,
-        "admin_panel/dashboard.html"
+
+        "admin_panel/departments.html",
+
+        context
+
+    )
+
+def department_detail(request, department_name):
+
+    doctors = Doctor.objects.filter(
+        department=department_name
+    ).select_related(
+        "user"
     )
 
 
+    department_label = dict(
+        Doctor.DEPARTMENT_CHOICES
+    ).get(
+        department_name
+    )
+
+
+    context = {
+
+        "department_name": department_label,
+
+        "doctors": doctors,
+
+        "total_doctors": doctors.count(),
+
+    }
+
+
+    return render(
+        request,
+        "admin_panel/department_detail.html",
+        context
+    )
+
+@login_required
 def reports(request):
 
+    total_doctors = Doctor.objects.count()
+
+    total_patients = Patient.objects.count()
+
+    total_appointments = Appointment.objects.count()
+
+
+    completed_appointments = Appointment.objects.filter(
+        status="Completed"
+    ).count()
+
+
+    pending_appointments = Appointment.objects.filter(
+        status="Pending"
+    ).count()
+
+
+    cancelled_appointments = Appointment.objects.filter(
+        status="Cancelled"
+    ).count()
+
+
+
+    department_data = []
+
+    for value, label in Doctor.DEPARTMENT_CHOICES:
+
+        count = Doctor.objects.filter(
+            department=value
+        ).count()
+
+
+        department_data.append({
+
+            "department": label,
+
+            "count": count
+
+        })
+
+
+
+
+    appointment_labels = []
+
+    appointment_values = []
+
+
+    today = timezone.localdate()
+
+
+    for i in range(6,-1,-1):
+
+        day = today - timedelta(days=i)
+
+
+        appointment_labels.append(
+            day.strftime("%a")
+        )
+
+
+        appointment_values.append(
+
+            Appointment.objects.filter(
+                appointment_date=day
+            ).count()
+
+        )
+
+
+
+
+    context = {
+
+
+        "total_doctors": total_doctors,
+
+
+        "total_patients": total_patients,
+
+
+        "total_appointments": total_appointments,
+
+
+        "completed_appointments": completed_appointments,
+
+
+        "pending_appointments": pending_appointments,
+
+
+        "cancelled_appointments": cancelled_appointments,
+
+
+        "department_data": department_data,
+
+
+        "appointment_labels": appointment_labels,
+
+
+        "appointment_values": appointment_values,
+
+
+    }
+
+
     return render(
+
         request,
-        "admin_panel/dashboard.html"
+
+        "admin_panel/reports.html",
+
+        context
+
     )
 
-
+@login_required
 def settings(request):
 
+    context = {
+
+        "admin_name": request.user.get_full_name(),
+
+        "admin_email": request.user.email,
+
+    }
+
+
     return render(
+
         request,
-        "admin_panel/dashboard.html"
+
+        "admin_panel/settings.html",
+
+        context
+
     )
+
 def generate_doctor_id():
 
     last_doctor = Doctor.objects.order_by(

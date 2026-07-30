@@ -1,0 +1,446 @@
+/* ==========================================
+        APPOINTMENTS PAGE
+========================================== */
+
+
+.adminpanel-appointments-page {
+
+    width:100%;
+
+}
+
+
+/* ==========================================
+        ADMIN MINI STATS
+========================================== */
+
+
+.adminpanel-mini-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+
+    width: 100%;
+
+    margin: 25px 0;
+
+}
+
+
+
+.adminpanel-mini-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.adminpanel-mini-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.adminpanel-mini-card h3 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.adminpanel-mini-card span {
+
+    color:#64748b;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* TABLET */
+
+@media(max-width:1200px){
+
+
+.adminpanel-mini-stats {
+
+    grid-template-columns: repeat(3,1fr);
+
+}
+
+
+}
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.adminpanel-mini-stats {
+
+    grid-template-columns: repeat(1,1fr);
+
+}
+
+
+}
+
+/* ==========================================
+        APPOINTMENT STATUS BADGES
+========================================== */
+
+
+.adminpanel-status-pending {
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.adminpanel-status-confirmed {
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* ==========================================
+        APPOINTMENT MODAL
+========================================== */
+/* ==========================================
+        APPOINTMENT ACTION BUTTONS
+========================================== */
+
+
+.adminpanel-appointments-page 
+.adminpanel-action-buttons {
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+
+
+.appointment-view-btn,
+.appointment-status-btn,
+.appointment-delete-btn {
+
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.appointment-view-btn {
+
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+
+}
+
+
+
+.appointment-view-btn:hover {
+
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+
+.appointment-status-btn {
+
+
+    background:#fef3c7;
+
+    color:#d97706;
+
+
+}
+
+
+
+.appointment-status-btn:hover {
+
+
+    background:#f59e0b;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.appointment-delete-btn {
+
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+
+}
+
+
+
+.appointment-delete-btn:hover {
+
+
+    background:#dc2626;
+
+    color:white;
+
+
+}
+
+
+
+.appointment-delete-form {
+
+    margin:0;
+
+}
+
+.adminpanel-appointments-page .modal-content {
+
+    border-radius:20px;
+
+    border:none;
+
+    overflow:hidden;
+
+}
+
+
+
+.adminpanel-appointments-page .modal-header {
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+}
+
+
+
+.adminpanel-appointments-page .modal-header .close {
+
+    color:white;
+
+    opacity:1;
+
+}
+
+
+
+
+.adminpanel-appointments-page .modal-body {
+
+    padding:30px;
+
+}
+
+
+
+.adminpanel-appointments-page .modal-body h5 {
+
+    color:#2563eb;
+
+    font-size:16px;
+
+    margin-top:18px;
+
+    font-weight:600;
+
+}
+
+
+
+.adminpanel-appointments-page .modal-body p {
+
+    color:#475569;
+
+    background:#f8fafc;
+
+    padding:12px;
+
+    border-radius:10px;
+
+}
+
+
+
+
+
+/* ==========================================
+        APPOINTMENT TABLE
+========================================== */
+
+
+.adminpanel-appointments-page 
+.adminpanel-table td {
+
+    vertical-align:middle;
+
+}
+
+
+
+.adminpanel-appointments-page 
+.adminpanel-table th {
+
+    white-space:nowrap;
+
+}
+
+
+
+
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.adminpanel-mini-stats {
+
+    flex-wrap:wrap;
+
+}
+
+
+}
+
+.adminpanel-manage-btn {
+
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+background:#2563eb;
+
+color:white;
+
+padding:9px 18px;
+
+border-radius:10px;
+
+font-size:14px;
+
+font-weight:600;
+
+text-decoration:none;
+
+transition:.3s;
+
+
+}
+
+
+
+.adminpanel-manage-btn:hover {
+
+
+background:#1d4ed8;
+
+color:white;
+
+transform:translateY(-2px);
+
+
+}

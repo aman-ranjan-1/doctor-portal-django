@@ -1,0 +1,706 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+{% block title %}
+Patients Management
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="adminpanel-patients-page">
+
+
+<div class="adminpanel-page-header">
+
+<div>
+
+<h2>
+Patients Management
+</h2>
+
+<p>
+Manage all registered patients in CityCare.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="adminpanel-filter-card">
+
+
+<form method="GET">
+
+
+<div class="row">
+
+
+<div class="col-md-9">
+
+<input
+type="text"
+name="search"
+value="{{ search }}"
+class="adminpanel-search-input"
+placeholder="Search by Patient ID or Name">
+
+
+</div>
+
+
+
+<div class="col-md-3">
+
+
+<button class="adminpanel-primary-btn btn-block">
+
+<i class="fas fa-search mr-2"></i>
+
+Search
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+<div class="adminpanel-mini-stats">
+
+
+<div class="adminpanel-mini-card">
+
+
+<h3>
+{{ total_patients }}
+</h3>
+
+
+<span>
+Total Patients
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="adminpanel-table-card">
+
+
+<div class="table-responsive">
+
+
+<table class="adminpanel-table">
+
+
+<thead>
+
+<tr>
+
+<th>
+Patient ID
+</th>
+
+<th>
+Name
+</th>
+
+<th>
+Phone
+</th>
+
+<th>
+Gender
+</th>
+
+<th>
+City
+</th>
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+
+{% for patient in page_obj %}
+
+
+
+<tr>
+
+
+<td>
+{{ patient.patient_id }}
+</td>
+
+
+
+<td>
+
+
+<div class="adminpanel-doctor-info">
+
+
+<img
+src="https://ui-avatars.com/api/?name={{ patient.user.first_name }}+{{ patient.user.last_name }}&background=2563eb&color=ffffff"
+class="adminpanel-doctor-avatar">
+
+
+<div>
+
+
+<h6>
+{{ patient.user.get_full_name }}
+</h6>
+
+
+<span>
+{{ patient.user.email }}
+</span>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+<td>
+{{ patient.phone }}
+</td>
+
+
+
+<td>
+{{ patient.gender }}
+</td>
+
+
+
+<td>
+{{ patient.city }}
+</td>
+
+
+
+<td>
+
+
+<div class="adminpanel-action-buttons">
+
+
+<button
+class="adminpanel-view-btn"
+data-toggle="modal"
+data-target="#patientModal{{ patient.id }}">
+
+
+<i class="fas fa-eye"></i>
+
+
+</button>
+
+
+
+</div>
+
+
+</td>
+
+
+
+</tr>
+
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="6">
+
+
+<div class="adminpanel-empty-state">
+
+
+<i class="fas fa-user"></i>
+
+
+<h5>
+No Patients Found
+</h5>
+
+
+<p>
+No registered patients available.
+</p>
+
+
+</div>
+
+
+</td>
+
+
+</tr>
+
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- ================= PATIENT MODALS ================= -->
+
+
+{% for patient in page_obj %}
+
+
+
+<div class="modal fade"
+id="patientModal{{ patient.id }}"
+tabindex="-1">
+
+
+<div class="modal-dialog modal-xl">
+
+
+<div class="modal-content adminpanel-patient-card">
+
+
+
+<div class="modal-header">
+
+
+<h5 class="modal-title">
+
+Patient Profile
+
+</h5>
+
+
+<button
+type="button"
+class="close"
+data-dismiss="modal">
+
+<span>
+&times;
+</span>
+
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="modal-body">
+
+
+<div class="row">
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="patient-profile-box text-center">
+
+
+<img
+src="https://ui-avatars.com/api/?name={{ patient.user.first_name }}+{{ patient.user.last_name }}&background=2563eb&color=ffffff"
+class="patient-large-avatar">
+
+
+<h4>
+
+{{ patient.user.get_full_name }}
+
+</h4>
+
+
+<p>
+
+{{ patient.patient_id }}
+
+</p>
+
+
+<span class="badge badge-success">
+
+Active Patient
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-8">
+
+
+
+<div class="patient-info-card">
+
+
+<h6>
+Personal Details
+</h6>
+
+
+<p>
+<strong>Email:</strong>
+{{ patient.user.email }}
+</p>
+
+
+<p>
+<strong>Phone:</strong>
+{{ patient.phone }}
+</p>
+
+
+<p>
+<strong>Gender:</strong>
+{{ patient.gender }}
+</p>
+
+
+<p>
+<strong>Blood Group:</strong>
+{{ patient.blood_group }}
+</p>
+
+
+
+<p>
+<strong>Address:</strong>
+{{ patient.city }}, {{ patient.state }}
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="patient-info-card">
+
+
+<h6>
+Medical Description
+</h6>
+
+
+<p>
+
+{{ patient.medical_history|default:"No medical history available." }}
+
+</p>
+
+
+<p>
+
+<strong>
+Current Medication:
+</strong>
+
+{{ patient.current_medications|default:"None" }}
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<hr>
+
+
+<h5>
+Appointment History
+</h5>
+
+
+
+<table class="adminpanel-table">
+
+
+<thead>
+
+<tr>
+
+<th>
+Doctor
+</th>
+
+<th>
+Date
+</th>
+
+<th>
+Status
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+<tbody>
+
+
+{% for appointment in patient.appointments.all %}
+
+
+<tr>
+
+
+<td>
+
+Dr.
+{{ appointment.doctor.user.get_full_name }}
+
+</td>
+
+
+<td>
+
+{{ appointment.appointment_date }}
+
+</td>
+
+
+<td>
+
+{{ appointment.status }}
+
+</td>
+
+
+</tr>
+
+
+
+{% empty %}
+
+
+<tr>
+
+<td colspan="3">
+
+No appointments found.
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</tbody>
+
+
+</table>
+
+
+
+
+</div>
+
+
+
+
+
+<div class="modal-footer">
+
+
+<form method="POST"
+action="{% url 'admin_delete_patient' patient.id %}">
+
+
+{% csrf_token %}
+
+
+<button
+class="btn btn-danger"
+onclick="return confirm('Delete this patient permanently?');">
+
+
+<i class="fas fa-trash"></i>
+
+Delete Patient
+
+
+</button>
+
+
+</form>
+
+
+
+
+
+<button
+type="button"
+class="btn btn-secondary"
+data-dismiss="modal">
+
+
+Close
+
+
+</button>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+
+
+
+{% if page_obj.has_other_pages %}
+
+
+<div class="adminpanel-pagination">
+
+
+{% if page_obj.has_previous %}
+
+<a href="?page={{ page_obj.previous_page_number }}&search={{ search }}">
+
+Previous
+
+</a>
+
+{% endif %}
+
+
+
+<span>
+
+Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+</span>
+
+
+
+{% if page_obj.has_next %}
+
+<a href="?page={{ page_obj.next_page_number }}&search={{ search }}">
+
+Next
+
+</a>
+
+{% endif %}
+
+
+
+</div>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+{% endblock %}

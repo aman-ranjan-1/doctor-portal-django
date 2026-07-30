@@ -1,0 +1,290 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+
+{% block title %}
+Reports
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="adminpanel-reports-page">
+
+
+<div class="adminpanel-page-header">
+
+<div>
+
+<h2>
+Reports & Analytics
+</h2>
+
+
+<p>
+Monitor CityCare performance.
+</p>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="report-stat-grid">
+
+
+<div class="report-card">
+
+<h3>
+{{ total_doctors }}
+</h3>
+
+<span>
+Total Doctors
+</span>
+
+</div>
+
+
+
+<div class="report-card">
+
+<h3>
+{{ total_patients }}
+</h3>
+
+<span>
+Total Patients
+</span>
+
+</div>
+
+
+
+
+<div class="report-card">
+
+<h3>
+{{ total_appointments }}
+</h3>
+
+<span>
+Total Appointments
+</span>
+
+</div>
+
+
+
+
+<div class="report-card">
+
+<h3>
+{{ completed_appointments }}
+</h3>
+
+<span>
+Completed
+</span>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="report-chart-grid">
+
+
+<div class="report-chart-card">
+
+
+<h4>
+Appointment Trends
+</h4>
+
+
+<canvas id="appointmentChart"></canvas>
+
+
+</div>
+
+
+
+
+<div class="report-chart-card">
+
+
+<h4>
+Appointment Status
+</h4>
+
+
+<canvas id="statusChart"></canvas>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="report-chart-card department-report">
+
+
+<h4>
+Department Performance
+</h4>
+
+
+<canvas id="departmentChart"></canvas>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+const appointmentChart =
+new Chart(
+document.getElementById("appointmentChart"),
+{
+
+type:"line",
+
+data:{
+
+
+labels:{{ appointment_labels|safe }},
+
+datasets:[{
+
+label:"Appointments",
+
+data:{{ appointment_values|safe }},
+
+borderWidth:3
+
+}]
+
+}
+
+});
+
+
+
+
+
+const statusChart =
+new Chart(
+document.getElementById("statusChart"),
+{
+
+type:"doughnut",
+
+data:{
+
+
+labels:[
+
+"Completed",
+
+"Pending",
+
+"Cancelled"
+
+],
+
+
+datasets:[{
+
+data:[
+
+{{ completed_appointments }},
+
+{{ pending_appointments }},
+
+{{ cancelled_appointments }}
+
+]
+
+}]
+
+
+}
+
+});
+
+
+
+
+
+const departmentChart =
+new Chart(
+document.getElementById("departmentChart"),
+{
+
+type:"bar",
+
+data:{
+
+
+labels:[
+
+{% for item in department_data %}
+
+"{{ item.department }}",
+
+{% endfor %}
+
+],
+
+
+datasets:[{
+
+label:"Doctors",
+
+data:[
+
+{% for item in department_data %}
+
+{{ item.count }},
+
+{% endfor %}
+
+]
+
+}]
+
+
+}
+
+});
+
+
+
+</script>
+
+{% endblock %}

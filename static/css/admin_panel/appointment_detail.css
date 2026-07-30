@@ -1,0 +1,412 @@
+/* ==========================================
+        APPOINTMENT DETAIL PAGE
+========================================== */
+
+
+.adminpanel-appointment-detail {
+
+    width:100%;
+
+    padding-bottom:40px;
+
+}
+
+
+
+
+
+/* ==========================================
+        DETAIL HEADER
+========================================== */
+
+
+.adminpanel-appointment-detail 
+.adminpanel-page-header {
+
+
+    margin-bottom:25px;
+
+}
+
+
+.adminpanel-appointment-detail 
+.adminpanel-page-header h2 {
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#1e293b;
+
+}
+
+
+.adminpanel-appointment-detail 
+.adminpanel-page-header p {
+
+    color:#64748b;
+
+}
+
+
+
+
+
+/* ==========================================
+        MAIN DETAIL CARD
+========================================== */
+
+
+.appointment-detail-card {
+
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+
+    border:1px solid #e2e8f0;
+
+
+}
+
+
+
+
+
+/* ==========================================
+        SECTION TITLES
+========================================== */
+
+
+.appointment-detail-card h4 {
+
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#2563eb;
+
+    margin-bottom:18px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+        INFORMATION TEXT
+========================================== */
+
+
+.appointment-detail-card p {
+
+
+    background:#f8fafc;
+
+    padding:13px 16px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    color:#475569;
+
+    font-size:15px;
+
+
+}
+
+
+
+.appointment-detail-card strong {
+
+
+    color:#1e293b;
+
+    margin-right:5px;
+
+
+}
+
+
+
+
+/* ==========================================
+        DIVIDER
+========================================== */
+
+
+.appointment-detail-card hr {
+
+
+    margin:30px 0;
+
+    border-top:1px solid #e2e8f0;
+
+
+}
+
+
+
+
+
+/* ==========================================
+        STATUS BADGE
+========================================== */
+
+
+.appointment-status {
+
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+        ACTION BUTTON AREA
+========================================== */
+
+
+.appointment-actions {
+
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+
+.appointment-actions form {
+
+
+    display:flex;
+
+    gap:12px;
+
+
+}
+
+
+
+
+.appointment-actions button {
+
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 22px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+/* CONFIRM */
+
+
+.appointment-actions 
+.btn-primary {
+
+
+    background:#2563eb;
+
+}
+
+
+.appointment-actions 
+.btn-primary:hover {
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+/* COMPLETE */
+
+
+.appointment-actions 
+.btn-success {
+
+
+    background:#16a34a;
+
+}
+
+
+
+.appointment-actions 
+.btn-success:hover {
+
+
+    background:#15803d;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+/* CANCEL */
+
+
+.appointment-actions 
+.btn-warning {
+
+
+    background:#f59e0b;
+
+    color:white;
+
+
+}
+
+
+
+.appointment-actions 
+.btn-warning:hover {
+
+
+    background:#d97706;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+/* DELETE */
+
+
+.appointment-actions 
+.btn-danger {
+
+
+    background:#dc2626;
+
+}
+
+
+
+.appointment-actions 
+.btn-danger:hover {
+
+
+    background:#b91c1c;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.appointment-detail-card {
+
+
+    padding:20px;
+
+
+}
+
+
+
+.appointment-actions {
+
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+
+}
+
+
+
+.appointment-actions form {
+
+
+    width:100%;
+
+    flex-wrap:wrap;
+
+
+}
+
+
+
+.appointment-actions button {
+
+
+    width:100%;
+
+}
+
+
+
+}

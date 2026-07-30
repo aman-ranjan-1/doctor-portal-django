@@ -1,0 +1,196 @@
+{% extends "layouts/admin_dashboard_base.html" %}
+
+
+{% block title %}
+Settings
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="adminpanel-settings-page">
+
+
+
+<div class="adminpanel-page-header">
+
+
+<div>
+
+<h2>
+Admin Settings
+</h2>
+
+
+<p>
+Manage your admin profile and hospital information.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="settings-grid">
+
+
+
+
+
+<div class="settings-card">
+
+
+<h4>
+
+Admin Profile
+
+</h4>
+
+
+<div class="settings-form-group">
+
+
+<label>
+Name
+</label>
+
+
+<input
+type="text"
+value="{{ admin_name }}"
+class="settings-input">
+
+
+</div>
+
+
+
+
+<div class="settings-form-group">
+
+
+<label>
+Email
+</label>
+
+
+<input
+type="email"
+value="{{ admin_email }}"
+class="settings-input">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="settings-card">
+
+
+<h4>
+
+Hospital Information
+
+</h4>
+
+
+
+<div class="settings-form-group">
+
+
+<label>
+Hospital Name
+</label>
+
+
+<input
+type="text"
+value="CityCare Hospital"
+class="settings-input">
+
+
+</div>
+
+
+
+
+<div class="settings-form-group">
+
+
+<label>
+Contact Number
+</label>
+
+
+<input
+type="text"
+placeholder="Enter contact number"
+class="settings-input">
+
+
+</div>
+
+
+
+
+
+<div class="settings-form-group">
+
+
+<label>
+Hospital Email
+</label>
+
+
+<input
+type="email"
+placeholder="hospital@email.com"
+class="settings-input">
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<button class="adminpanel-primary-btn settings-save-btn">
+
+<i class="fas fa-save"></i>
+
+Save Changes
+
+</button>
+
+
+
+</div>
+
+
+
+{% endblock %}
