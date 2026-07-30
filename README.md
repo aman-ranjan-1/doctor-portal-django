@@ -5,6 +5,14 @@ A modern **Doctor Portal Web Application** built with **Django, HTML, CSS, JavaS
 
 Visit - https://doctor-portal-django.onrender.com/
 
+Also check Admin Dashboard - https://doctor-portal-django.onrender.com/accounts/admin-login/
+
+Log in with -(Demo Account) 
+Email:
+admin@citycare.com
+
+Password:
+Admin@123
 
 ## ✨ Features
 
