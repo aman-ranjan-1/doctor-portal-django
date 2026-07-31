@@ -63,37 +63,43 @@
 
 .patient-profile-image{
 
-    width:170px;
+    position:relative;
 
-    height:170px;
+    width:150px;
+
+    height:150px;
 
     margin:auto;
-
-    position:relative;
 
 }
 
 .patient-profile-image img{
 
-    width:100%;
+    width:150px;
 
-    height:100%;
+    height:150px;
 
     border-radius:50%;
 
     object-fit:cover;
 
-    border:6px solid #eff6ff;
+    border:5px solid #ffffff;
 
-    box-shadow:0 10px 30px rgba(37,99,235,.15);
+    box-shadow:0 12px 30px rgba(37,99,235,.15);
 
 }
 
-.patient-image-upload{
+.doctorprofile-image-upload{
 
-    width:48px;
+    position:absolute;
 
-    height:48px;
+    bottom:8px;
+
+    right:8px;
+
+    width:42px;
+
+    height:42px;
 
     border-radius:50%;
 
@@ -103,23 +109,19 @@
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    position:absolute;
-
-    bottom:8px;
-
-    right:8px;
+    justify-content:center;
 
     cursor:pointer;
 
     transition:.3s;
 
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
+
 }
 
-.patient-image-upload:hover{
+.doctorprofile-image-upload:hover{
 
     background:#1d4ed8;
 

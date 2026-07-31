@@ -62,35 +62,35 @@ Patient Profile
 
                         <img
                             src="{{ patient.profile_image.url }}"
-                            id="imagePreview">
+                            id="imagePreview"
+                            alt="Profile Image">
 
                     {% else %}
 
                         <img
-                            src="https://ui-avatars.com/api/?name={{ user.first_name }}+{{ user.last_name }}&background=2563eb&color=ffffff"
-                            id="imagePreview">
+                        src="https://ui-avatars.com/api/?name={{ user.first_name }}+{{ user.last_name }}&background=2563eb&color=ffffff"
+                        id="imagePreview"
+                        alt="Profile Image">
 
                     {% endif %}
 
                     <label
                     for="profileImage"
                     id="profileImageUploadBtn"
-                    class="doctorprofile-image-upload"
+                    class="patient-profile-image-upload"
                     style="display:none;">
+
                         <i class="fas fa-camera"></i>
+
                     </label>
 
                     <input
-
-                        type="file"
-
-                        name="profile_image"
-
-                        id="profileImage"
-
-                        hidden
-
-                        disabled>
+                    type="file"
+                    name="profile_image"
+                    id="profileImage"
+                    accept="image/*"
+                    hidden
+                    disabled>
 
                 </div>
 
@@ -678,4 +678,64 @@ Patient Profile
         </div>
     </form>
 </div>
+
+<script>
+
+const editBtn=document.getElementById("editProfileBtn");
+const cancelBtn=document.getElementById("cancelProfileBtn");
+const saveBtn=document.getElementById("saveProfileBtn");
+
+const fields=document.querySelectorAll(".patient-edit-field");
+
+const imageInput=document.getElementById("profileImage");
+
+const imageBtn=document.getElementById("profileImageUploadBtn");
+
+const preview=document.getElementById("imagePreview");
+
+editBtn.addEventListener("click",function(){
+
+    fields.forEach(function(field){
+
+        if(field.tagName==="SELECT"){
+
+            field.disabled=false;
+
+        }else{
+
+            field.removeAttribute("readonly");
+
+        }
+
+    });
+
+    imageInput.disabled=false;
+
+    imageBtn.style.display="flex";
+
+    editBtn.style.display="none";
+
+    saveBtn.style.display="inline-flex";
+
+    cancelBtn.style.display="inline-flex";
+
+});
+
+cancelBtn.addEventListener("click",function(){
+
+    location.reload();
+
+});
+
+imageInput.addEventListener("change",function(){
+
+    if(this.files.length){
+
+        preview.src=URL.createObjectURL(this.files[0]);
+
+    }
+
+});
+
+</script>
 {% endblock %}
