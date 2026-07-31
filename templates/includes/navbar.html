@@ -1,27 +1,32 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg citycare-navbar">
+<nav class="navbar navbar-expand-lg navmainpage-navbar">
 
-    <div class="container">
+    <div class="container navmainpage-container">
 
         <!-- Logo -->
 
-        <a class="navbar-brand citycare-navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'images/icons/citycarelogo.PNG' %}"
-             alt="CityCare Logo"
-            class="citycare-navbar-logo">
+        <a class="navbar-brand navmainpage-brand" href="{% url 'home' %}">
 
-            <span class="citycare-navbar-text">
-            Citycare Hospital
+            <img src="{% static 'images/icons/cc-preview.png' %}"
+                 alt="CityCare Logo"
+                 class="navmainpage-logo">
+
+            <span class="navmainpage-brand-text">
+                Citycare Hospital
             </span>
+
         </a>
 
         <!-- Mobile -->
 
-        <button class="navbar-toggler"
+        <button class="navbar-toggler navmainpage-toggler"
                 type="button"
                 data-toggle="collapse"
-                data-target="#navbarSupportedContent">
+                data-target="#navmainpageMenu"
+                aria-controls="navmainpageMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
 
             <span class="navbar-toggler-icon"></span>
 
@@ -29,26 +34,36 @@
 
         <!-- Menu -->
 
-        <div class="collapse navbar-collapse justify-content-end"
-             id="navbarSupportedContent">
+        <div class="collapse navbar-collapse navmainpage-collapse"
+             id="navmainpageMenu">
 
-            <ul class="navbar-nav align-items-lg-center">
+            <ul class="navbar-nav align-items-lg-center navmainpage-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">
+                <li class="nav-item navmainpage-item">
+
+                    <a class="nav-link navmainpage-link"
+                       href="{% url 'home' %}">
+
                         Home
+
                     </a>
+
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">
+                <li class="nav-item navmainpage-item">
+
+                    <a class="nav-link navmainpage-link"
+                       href="{% url 'about' %}">
+
                         About
+
                     </a>
+
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown navmainpage-item">
 
-                    <a class="nav-link dropdown-toggle"
+                    <a class="nav-link dropdown-toggle navmainpage-link"
                        href="#"
                        id="servicesDropdown"
                        role="button"
@@ -58,53 +73,59 @@
 
                     </a>
 
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu navmainpage-dropdown">
 
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item navmainpage-dropdown-item" href="#">
                             General Consultation
                         </a>
 
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item navmainpage-dropdown-item" href="#">
                             Specialist Consultation
                         </a>
 
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item navmainpage-dropdown-item" href="#">
                             Diagnostics
                         </a>
 
                         <div class="dropdown-divider"></div>
 
-                        <a class="dropdown-item text-primary font-weight-bold"
+                        <a class="dropdown-item navmainpage-dropdown-item navmainpage-dropdown-highlight"
                            href="{% url 'services' %}">
 
                             View All Services
 
                         </a>
+
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-primary font-weight-bold"
+
+                        <a class="dropdown-item navmainpage-dropdown-item navmainpage-dropdown-highlight"
                            href="{% url 'book_appointment' %}">
 
                             Get Appointment
 
                         </a>
-                        
 
                     </div>
 
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'medical_blog' %}">
+                <li class="nav-item navmainpage-item">
+
+                    <a class="nav-link navmainpage-link"
+                       href="{% url 'medical_blog' %}">
+
                         Medical Blogs
+
                     </a>
+
                 </li>
 
                 {% if user.is_authenticated %}
 
-                <li class="nav-item ml-lg-3">
+                <li class="nav-item navmainpage-item ml-lg-3">
 
                     <a href="{% url 'patient_dashboard' %}"
-                       class="btn btn-outline-primary">
+                       class="btn navmainpage-btn navmainpage-btn-outline">
 
                         Dashboard
 
@@ -112,10 +133,10 @@
 
                 </li>
 
-                <li class="nav-item ml-2">
+                <li class="nav-item navmainpage-item ml-2">
 
                     <a href="{% url 'logout' %}"
-                       class="btn btn-danger">
+                       class="btn navmainpage-btn navmainpage-btn-danger">
 
                         Logout
 
@@ -125,10 +146,10 @@
 
                 {% else %}
 
-                <li class="nav-item ml-lg-3">
+                <li class="nav-item navmainpage-item ml-lg-3">
 
                     <a href="{% url 'login' %}"
-                       class="btn btn-outline-primary rounded">
+                       class="btn navmainpage-btn navmainpage-btn-outline">
 
                         Login
 
@@ -136,10 +157,10 @@
 
                 </li>
 
-                <li class="nav-item ml-2">
+                <li class="nav-item navmainpage-item ml-2">
 
                     <a href="{% url 'register' %}"
-                       class="btn btn-primary rounded">
+                       class="btn navmainpage-btn navmainpage-btn-primary">
 
                         Register
 

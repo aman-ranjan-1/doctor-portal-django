@@ -1,5 +1,173 @@
+/* ===========================
+            FOOTER
+=========================== */
+
 .footer{
-    background:#111316;
+
+    background:linear-gradient(
+        135deg,
+        #0d6efd,
+        #0b5ed7
+    );
+
     color:white;
-    padding:60px 0;
+
+    padding:70px 0 25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* subtle glow effect */
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:rgba(255,255,255,0.12);
+
+    border-radius:50%;
+
+    top:-150px;
+    right:-120px;
+
+}
+
+
+/* headings */
+
+.footer h4,
+.footer h5{
+
+    color:white;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+
+/* paragraph */
+
+.footer p{
+
+    color:rgba(255,255,255,0.85);
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+/* links */
+
+.footer ul li{
+
+    margin-bottom:12px;
+
+}
+
+
+.footer ul li a{
+
+    color:rgba(255,255,255,0.85);
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+}
+
+
+.footer ul li a:hover{
+
+    color:white;
+
+    padding-left:6px;
+
+}
+
+
+/* icons */
+
+.footer i{
+
+    margin-right:10px;
+
+}
+
+
+/* social icons */
+
+.social-icons a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+
+    margin-right:8px;
+
+    transition:.3s ease;
+
+}
+
+
+.social-icons a:hover{
+
+    background:white;
+
+    color:#0d6efd;
+
+    transform:translateY(-4px);
+
+}
+
+
+/* divider */
+
+.footer hr{
+
+    border-color:rgba(255,255,255,0.3);
+
+    margin:35px 0 20px;
+
+}
+
+
+/* copyright */
+
+.footer .text-center p{
+
+    color:rgba(255,255,255,0.9);
+
+    font-size:14px;
+
+}
+
+
+.footer strong{
+
+    color:white;
+
 }

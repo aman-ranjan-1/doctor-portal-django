@@ -4,88 +4,273 @@
 
 .mainbanner{
 
-    min-height:80vh;
-    height:auto;
+    position:relative;
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,.65),
-            rgba(0,0,0,.65)
-        ),
-        url("../../images/mainbanner3.jpg");
-
-    background-size:cover;
-    
-    background-position:center;
-
-    background-repeat:no-repeat;
+    min-height:88vh;
 
     display:flex;
 
     align-items:center;
 
-    padding:100px 0;
+    padding:70px 0 90px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(248,252,255,.96) 0%,
+            rgba(237,247,255,.95) 45%,
+            rgba(225,241,255,.94) 100%
+        ),
+        url("../../images/hero/mainbanner.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
 }
 
+/* Soft Blue Glow */
 
-/* Hero Left Content */
+.mainbanner::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    top:-220px;
+
+    right:-180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(13,110,253,.16) 0%,
+        rgba(13,110,253,.08) 45%,
+        transparent 75%);
+
+    z-index:0;
+
+}
+/* ==========================================
+   Hero Badge
+========================================== */
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:5px 15px;
+
+    margin-bottom:24px;
+
+    border-radius:50px;
+
+    background:rgba(13,110,253,.08);
+
+    border:1px solid rgba(13,110,253,.18);
+
+    color:#0d6efd;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.3px;
+
+    box-shadow:0 10px 25px rgba(13,110,253,.08);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    transition:.35s ease;
+
+}
+
+.hero-badge i{
+
+    font-size:10px;
+
+    color:#0d6efd;
+
+}
+
+.hero-badge:hover{
+
+    background:#f6f6f7;
+
+    color:#045afa;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 15px 35px rgba(13,110,253,.22);
+
+}
+
+.hero-badge:hover i{
+
+    color:#0769fd;
+
+}
+/* Left Glow */
+
+.mainbanner::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    bottom:-160px;
+
+    left:-140px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(96,165,250,.16),
+        transparent 72%);
+
+    z-index:0;
+
+}
+
+.mainbanner .container{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+   Hero Left Content
+========================================== */
 
 .hero-content{
-    
-    color:white;
+
+    color:#1e293b;
 
 }
 
 .hero-content h1{
 
-    font-size:3.4rem;
+    font-size:3rem;
 
-    font-weight:700;
+    font-weight:800;
 
-    margin-bottom:25px;
+    line-height:1.12;
+
+    letter-spacing:-1px;
+
+    margin-bottom:28px;
+
+    color:#0f172a;
+
+}
+
+.hero-content h1 .highlight{
+
+    color:#0d6efd;
+
+}
+
+.hero-content .display-3{
+
+    color:#0d6efd !important;
 
 }
 
 .hero-content .lead{
 
-    font-size:1.3rem;
+    font-size:1.22rem;
 
-    line-height:1.8;
+    line-height:1.9;
 
-    color:#f1f1f1;
+    color:#475569;
+
+    max-width:600px;
+
+    margin-bottom:0;
 
 }
 
 .hero-content hr{
 
-    background:white;
+    width:82%;
 
-    opacity:.4;
+    height:1px;
 
-    margin:30px 0;
+    border:none;
+
+    background:linear-gradient(
+        to right,
+        rgba(13,110,253,.35),
+        rgba(13,110,253,.05)
+    );
+
+    opacity:1;
+
+    margin:32px 0;
 
 }
 
 .hero-content p{
 
-    color:white;
+    color:#334155;
+
+    font-size:1.08rem;
+
+    margin-bottom:0;
 
 }
 
 .hero-content .btn{
 
-    margin-top:15px;
+    margin-top:24px;
 
-    padding:14px 35px;
+    padding:16px 36px;
 
-    border-radius:10px;
+    border:none;
 
-    font-size:18px;
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    background:#0d6efd;
+
+    box-shadow:0 18px 40px rgba(13,110,253,.20);
+
+    transition:.35s ease;
 
 }
 
+.hero-content .btn:hover{
 
+    background:#0056d6;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 24px 48px rgba(13,110,253,.28);
+
+}
 /* ==========================================
    Right Side
 ========================================== */
@@ -94,11 +279,66 @@
 
     position:relative;
 
-    min-height:600px;
-    margin-bottom:-240px;
+    min-height:620px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    margin-bottom:-180px;
 
 }
 
+/* ==========================================
+   Doctor Image
+========================================== */
+
+.doctor-image{
+
+    position:relative;
+
+    height:550px;
+
+    margin-top:-60px;
+
+    z-index:15;
+
+    filter:drop-shadow(0 28px 45px rgba(13,110,253,.18));
+
+    animation:doctorFloat 5s ease-in-out infinite;
+
+}
+
+/* Soft Glow Behind Doctor */
+
+.hero-image-area::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    left:50%;
+
+    bottom:40px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(96,165,250,.30),
+        rgba(191,219,254,.18),
+        transparent 72%);
+
+    z-index:1;
+
+}
 
 /* ==========================================
    Floating Cards
@@ -108,72 +348,100 @@
 
     position:absolute;
 
-    width:170px;
+    width:155px;
 
-    padding:18px;
+    padding:16px;
 
     border-radius:18px;
 
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.82);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(16px);
 
-    -webkit-backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(16px);
 
-    border: 1.5px solid rgba(255, 255, 255, 0.219);
+    border:1px solid rgba(255,255,255,.9);
 
-    color:white;
+    box-shadow:
+        0 14px 30px rgba(15,23,42,.10),
+        0 4px 10px rgba(13,110,253,.08);
 
     text-align:center;
 
-    box-shadow:0 10px 30px rgba(2, 131, 252, 0.219);
+    color:#334155;
 
     animation:float 5s ease-in-out infinite;
 
     z-index:20;
 
+    transition:.35s ease;
+
 }
-.doctor-image{
-    height:500px;
-}
+
+
 
 .floating-card i{
 
-    font-size:30px;
+    width:52px;
+
+    height:52px;
+
+    margin:auto;
+
+    margin-bottom:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#eef6ff;
 
     color:#0d6efd;
 
-    margin-bottom:12px;
+    font-size:24px;
 
 }
 
 .floating-card h5{
 
-    margin-bottom:5px;
+    font-size:1.65rem;
 
     font-weight:700;
 
-}
+    color:#0d6efd;
 
+    margin-bottom:6px;
+
+}
 .floating-card p{
 
     margin:0;
 
-    font-size:14px;
+    font-size:15px;
+
+    color:#3b82f6;
+
+    font-weight:600;
+
+    transition:.3s ease;
 
 }
 
-/* ===========================
+/* ==========================================
    Floating Medical Tools
-=========================== */
+========================================== */
 
 .floating-tool{
-    box-shadow:0 10px 30px rgba(2, 131, 252, 0.377);
+
     position:absolute;
 
-    width:70px;
+    width:74px;
 
-    height:70px;
+    height:74px;
 
     display:flex;
 
@@ -181,97 +449,123 @@
 
     align-items:center;
 
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.25);
-
     border-radius:50%;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,.10);
 
     animation:floatTool 5s ease-in-out infinite;
 
-    z-index:8;
+    z-index:25;
 
 }
 
 .floating-tool i{
 
-    font-size:32px;
+    font-size:30px;
 
     color:#0d6efd;
 
 }
+
+/* Positions */
+
 .tool1{
 
-    top: -30px;
+    top:-35px;
 
-    left:300px;
+    left:315px;
 
 }
 
-
 .tool2{
 
-    top:200px;
+    top:185px;
 
-    left:80px;
-
-    animation-delay:1s;
+    left:95px;
 
 }
 
 .tool3{
 
-    top:250px;
+    top:230px;
 
-    right:80px;
-
-    animation-delay:3s;
+    right:90px;
 
 }
+
+/* Tool Animation */
+
 @keyframes floatTool{
 
     0%{
 
-        transform:translateY(0px) rotate(0deg);
+        transform:translateY(0) rotate(0deg);
 
     }
 
     50%{
 
-        transform:translateY(-15px) rotate(8deg);
+        transform:translateY(-14px) rotate(8deg);
 
     }
 
     100%{
 
-        transform:translateY(0px) rotate(0deg);
+        transform:translateY(0) rotate(0deg);
 
     }
 
 }
+
+/* Doctor Floating */
+
+@keyframes doctorFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}   
 /* ==========================================
    Card Positions
 ========================================== */
 
 .card1{
 
-    top:40px;
+    top:10px;
 
-    left:10px;
+    left:35px;
 
 }
 
 .card2{
 
-    top:80px;
+    top:60px;
 
-    right:20px;
+    right:25px;
 
     animation-delay:1s;
 
@@ -279,9 +573,9 @@
 
 .card3{
 
-    bottom:120px;
+    bottom:155px;
 
-    left:0;
+    left:10px;
 
     animation-delay:2s;
 
@@ -289,14 +583,13 @@
 
 .card4{
 
-    bottom:100px;
+    bottom:130px;
 
-    right:30px;
+    right:25px;
 
     animation-delay:3s;
 
 }
-
 
 /* ==========================================
    Floating Animation
@@ -310,9 +603,21 @@
 
     }
 
+    25%{
+
+        transform:translateY(-6px);
+
+    }
+
     50%{
 
-        transform:translateY(-15px);
+        transform:translateY(-14px);
+
+    }
+
+    75%{
+
+        transform:translateY(-6px);
 
     }
 
@@ -324,7 +629,6 @@
 
 }
 
-
 /* ==========================================
    ECG Line
 ========================================== */
@@ -333,89 +637,152 @@
 
     position:absolute;
 
-    bottom:150px;
+    left:50%;
+
+    bottom:145px;
+
+    transform:translateX(-50%);
+
+    color:#60a5fa;
+
+    font-size:20px;
+
+    letter-spacing:3px;
+
+    white-space:nowrap;
+
+    opacity:.35;
+
+    z-index:2;
+
+    animation:ecgMove 10s linear infinite;
+
+}
+
+/* ==========================================
+   ECG Animation
+========================================== */
+
+@keyframes ecgMove{
+
+    0%{
+
+        transform:translateX(-48%);
+
+        opacity:.15;
+
+    }
+
+    25%{
+
+        opacity:.30;
+
+    }
+
+    50%{
+
+        transform:translateX(-52%);
+
+        opacity:.45;
+
+    }
+
+    75%{
+
+        opacity:.30;
+
+    }
+
+    100%{
+
+        transform:translateX(-48%);
+
+        opacity:.15;
+
+    }
+
+}
+
+/* ==========================================
+   Card Hover Effect
+========================================== */
+
+.floating-card:hover i{
+
+    transform:scale(1.12);
+
+    transition:.35s ease;
+
+}
+
+.floating-card:hover h5{
+
+    color:#0d6efd;
+
+}
+
+.floating-tool:hover{
+
+    transform:translateY(-8px) scale(1.08);
+
+    transition:.35s ease;
+
+    box-shadow:0 18px 45px rgba(13,110,253,.20);
+
+}
+
+/* ==========================================
+   Extra Decorative Glow
+========================================== */
+
+.hero-image-area::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+
+    height:180px;
+
+    bottom:-60px;
 
     left:50%;
 
     transform:translateX(-50%);
 
-    color:#66b3ff;
+    background:radial-gradient(
 
-    font-size:22px;
+        ellipse,
 
-    letter-spacing:4px;
+        rgba(13,110,253,.14) 0%,
 
-    opacity:.55;
+        rgba(13,110,253,.05) 45%,
 
-    white-space:nowrap;
+        transparent 80%
 
-    animation:ecgMove 8s linear infinite;
+    );
+
+    filter:blur(35px);
 
     z-index:0;
 
 }
-
-
-@keyframes ecgMove{
-
-    from{
-
-        transform:translateX(-40%);
-
-    }
-
-    to{
-
-        transform:translateX(-60%);
-
-    }
-
-}
-
-
 /* ==========================================
-   Responsive
+   Large Laptop
 ========================================== */
 
-@media(max-width:991px){
+@media (max-width:1200px){
 
     .mainbanner{
 
-        padding:80px 0;
-
-        text-align:center;
+        padding:110px 0 80px;
 
     }
 
     .hero-content h1{
 
-        font-size:3rem;
-
-    }
-
-    .hero-image-area{
-
-        margin-top:60px;
-
-        min-height:450px;
-
-    }
-
-    .floating-card{
-
-        width:100px;
-
-        font-size:14px;
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    .hero-content h1{
-
-        font-size:2.4rem;
+        font-size:3.5rem;
 
     }
 
@@ -425,93 +792,42 @@
 
     }
 
-    .floating-card{
+    .hero-image-area{
 
-        width:100px;
+        min-height:560px;
 
-        padding:14px;
+        margin-bottom:-140px;
 
-    }
-
-    .card1{
-
-        left:5px;
-
-    }
-
-    .card2{
-
-        right:5px;
-
-    }
-
-    .card3{
-
-        left:5px;
-
-    }
-
-    .card4{
-
-        right:5px;
-
-    }
-
-    .ecg-line{
-
-        font-size:10px;
-
-    }
-
-}
-/* ==========================================
-   Small Laptop
-========================================== */
-
-@media (max-width:1200px){
-
-    .hero-content h1{
-        font-size:3.5rem;
-    }
-
-    .hero-content .lead{
-        font-size:1.15rem;
     }
 
     .doctor-image{
-        height:440px;
-    }
 
-    .hero-image-area{
-        min-height:520px;
+        height:470px;
+
     }
 
     .floating-card{
-        width:150px;
-        padding:15px;
+
+        width:160px;
+
+        padding:18px;
+
     }
 
-    .card1{
-        top:20px;
-        left:0;
+    .floating-card h5{
+
+        font-size:1.6rem;
+
     }
 
-    .card2{
-        top:70px;
-        right:0;
-    }
+    .tool1{
 
-    .card3{
-        bottom:90px;
-        left:0;
-    }
+        left:270px;
 
-    .card4{
-        bottom:70px;
-        right:10px;
     }
 
 }
+
 /* ==========================================
    Tablet
 ========================================== */
@@ -520,17 +836,17 @@
 
     .mainbanner{
 
-        height:auto;
+        min-height:auto;
 
-        padding:90px 0 60px;
+        padding:100px 0 70px;
+
+        text-align:center;
 
     }
 
     .hero-content{
 
-        margin-top:20px;
-
-        text-align:center;
+        margin-bottom:60px;
 
     }
 
@@ -542,15 +858,29 @@
 
     .hero-content .lead{
 
-        font-size:1.15rem;
+        max-width:100%;
+
+        font-size:1.1rem;
+
+    }
+
+    .hero-content hr{
+
+        width:220px;
+
+        margin:28px auto;
+
+    }
+
+    .hero-content .btn{
+
+        margin-top:24px;
 
     }
 
     .hero-image-area{
 
-        margin-top:70px;
-
-        min-height:620px;
+        min-height:560px;
 
         margin-bottom:0;
 
@@ -568,9 +898,21 @@
 
     .floating-card{
 
-        width:140px;
+        width:145px;
 
-        padding:14px;
+        padding:16px;
+
+    }
+
+    .floating-card h5{
+
+        font-size:1.45rem;
+
+    }
+
+    .floating-card p{
+
+        font-size:13px;
 
     }
 
@@ -584,23 +926,23 @@
 
     .floating-tool i{
 
-        font-size:26px;
+        font-size:24px;
 
     }
 
     .card1{
 
-        top:0;
+        top:10px;
 
-        left:40px;
+        left:35px;
 
     }
 
     .card2{
 
-        top:60px;
+        top:55px;
 
-        right:40px;
+        right:35px;
 
     }
 
@@ -614,7 +956,7 @@
 
     .card4{
 
-        bottom:40px;
+        bottom:55px;
 
         right:30px;
 
@@ -622,25 +964,25 @@
 
     .tool1{
 
-        top:-20px;
+        left:290px;
 
-        left:320px;
+        top:-10px;
 
     }
 
     .tool2{
 
-        top:180px;
+        left:60px;
 
-        left:70px;
+        top:190px;
 
     }
 
     .tool3{
 
-        top:210px;
+        right:60px;
 
-        right:70px;
+        top:215px;
 
     }
 
@@ -648,11 +990,12 @@
 
         bottom:70px;
 
-        font-size:18px;
+        font-size:17px;
 
     }
 
 }
+
 /* ==========================================
    Mobile
 ========================================== */
@@ -661,15 +1004,7 @@
 
     .mainbanner{
 
-        height:auto;
-
-        padding:80px 0 40px;
-
-    }
-
-    .hero-content{
-
-        text-align:center;
+        padding:90px 0 50px;
 
     }
 
@@ -685,17 +1020,21 @@
 
         font-size:1rem;
 
+        line-height:1.8;
+
     }
 
     .hero-content .btn{
 
         width:100%;
 
+        max-width:300px;
+
     }
 
     .hero-image-area{
 
-        min-height:480px;
+        min-height:430px;
 
         margin-top:50px;
 
@@ -705,37 +1044,39 @@
 
         height:320px;
 
-        display:block;
-
-        margin:auto;
-
     }
 
     .floating-card{
 
-        width:105px;
+        width:110px;
 
         padding:10px;
 
-        border-radius:12px;
+        border-radius:16px;
 
     }
 
     .floating-card i{
 
-        font-size:22px;
+        width:42px;
+
+        height:42px;
+
+        font-size:20px;
+
+        margin-bottom:10px;
 
     }
 
     .floating-card h5{
 
-        font-size:18px;
+        font-size:1rem;
 
     }
 
     .floating-card p{
 
-        font-size:12px;
+        font-size:11px;
 
     }
 
@@ -749,63 +1090,61 @@
 
     .floating-tool i{
 
-        font-size:20px;
+        font-size:18px;
 
     }
 
     .card1{
 
-        top:10px;
+        top:0;
 
-        left:0;
+        left:5px;
 
     }
 
     .card2{
 
-        top:40px;
+        top:35px;
 
-        right:0;
+        right:5px;
 
     }
 
     .card3{
 
-        bottom:50px;
+        bottom:45px;
 
-        left:0;
+        left:5px;
 
     }
 
     .card4{
 
-        bottom:20px;
+        bottom:25px;
 
-        right:0;
+        right:5px;
 
     }
 
     .tool1{
 
-        top:-10px;
-
-        left:220px;
+        left:210px;
 
     }
 
     .tool2{
 
-        top:150px;
+        left:12px;
 
-        left:15px;
+        top:145px;
 
     }
 
     .tool3{
 
-        top:170px;
+        right:12px;
 
-        right:15px;
+        top:165px;
 
     }
 
@@ -816,6 +1155,7 @@
     }
 
 }
+
 /* ==========================================
    Small Phones
 ========================================== */
@@ -836,41 +1176,57 @@
 
     .doctor-image{
 
-        height:280px;
+        height:270px;
+
+    }
+
+    .hero-image-area{
+
+        min-height:360px;
 
     }
 
     .floating-card{
 
-        width:90px;
+        width:88px;
 
         padding:8px;
 
     }
 
+    .floating-card i{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:16px;
+
+    }
+
     .floating-card h5{
 
-        font-size:15px;
+        font-size:.9rem;
 
     }
 
     .floating-card p{
 
-        font-size:11px;
+        font-size:10px;
 
     }
 
     .floating-tool{
 
-        width:42px;
+        width:40px;
 
-        height:42px;
+        height:40px;
 
     }
 
     .floating-tool i{
 
-        font-size:18px;
+        font-size:15px;
 
     }
 

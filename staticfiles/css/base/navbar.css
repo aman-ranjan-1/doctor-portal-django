@@ -2,100 +2,282 @@
             NAVBAR
 =========================== */
 
-.citycare-navbar{
-    background:#171717;
+.navmainpage-navbar{
+
+    background:linear-gradient(90deg,#0d6efd,#1d4ed8);
+
     padding:5px 0;
-    
+
+    box-shadow:0 10px 30px rgba(13,110,253,.22);
+
+    transition:.35s ease;
+
+    z-index:999;
+
 }
 
-.navbar .container{
+.navmainpage-container{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
 
 /* ===========================
             BRAND
 =========================== */
 
-.citycare-navbar-brand{
+.navmainpage-brand{
+
     display:flex;
+
     align-items:center;
+
     text-decoration:none !important;
+
     margin-right:40px;
+
 }
 
-.citycare-navbar-logo{
+.navmainpage-logo{
+
     width:50px;
+
     height:50px;
+
     object-fit:contain;
+
     display:block;
+
 }
 
-.citycare-navbar-text{
-    margin-left:12px;
-    font-size:30px;
+.navmainpage-brand-text{
+
+    margin-left:7px;
+
+    font-size:32px;
+
     font-weight:700;
-    color:#0d6efd;
+
+    color:#ffffff;
+
     white-space:nowrap;
+
 }
 
 /* ===========================
             MENU
 =========================== */
 
-.navbar-collapse{
+.navmainpage-collapse{
+
     justify-content:flex-end;
+    margin-left:20px;
+
 }
 
-.navbar-nav{
+.navmainpage-nav{
+
     display:flex;
+
     align-items:center;
+
 }
 
-.nav-item{
-    margin-left:8px;
+.navmainpage-item{
+
+    margin-left:4px;
+
 }
 
-.nav-link{
-    color:#fff !important;
+.navmainpage-link{
+
+    color:#ffffff !important;
+
     font-size:16px;
-    font-weight:500;
-    padding:10px 14px !important;
+
+    font-weight:600;
+
+    padding:10px 12px !important;
+
+    border-radius:10px;
+
+    transition:.3s ease;
+
     white-space:nowrap;
-    transition:.3s;
+
+    text-decoration:none;
+
 }
 
-.nav-link:hover{
+.navmainpage-link:hover{
+
+    background:rgba(255,255,255,.16);
+
+    color:#ffffff !important;
+
+}
+
+.navmainpage-item.active .navmainpage-link,
+.navmainpage-link.active{
+
+    background:#ffffff;
+
     color:#0d6efd !important;
+
 }
 
 /* ===========================
             DROPDOWN
 =========================== */
 
-.dropdown-menu{
+.navmainpage-dropdown{
+
+    background:#ffffff;
+
     border:none;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    padding:8px;
+
+    box-shadow:0 20px 45px rgba(15,23,42,.15);
+
 }
 
-.dropdown-item{
-    padding:10px 18px;
+.navmainpage-dropdown-item{
+
+    display:block;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    color:#334155;
+
+    font-weight:500;
+
+    text-decoration:none;
+
+    transition:.25s;
+
 }
 
-.dropdown-item:hover{
+.navmainpage-dropdown-item:hover{
+
     background:#0d6efd;
-    color:#fff;
+
+    color:#ffffff;
+
+}
+
+.navmainpage-dropdown-highlight{
+
+    color:#0d6efd;
+
+    font-weight:600;
+
 }
 
 /* ===========================
             BUTTONS
 =========================== */
 
-.btn{
-    border-radius:30px;
-    padding:8px 20px;
+.navmainpage-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 24px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s ease;
+
+}
+
+/* Login */
+
+.navmainpage-btn-outline{
+
+    background:transparent;
+
+    color:#ffffff;
+
+    border:2px solid rgba(255,255,255,.9);
+
+}
+
+.navmainpage-btn-outline:hover{
+
+    background:#ffffff;
+
+    color:#0d6efd;
+
+    border-color:#ffffff;
+
+    box-shadow:0 10px 24px rgba(255,255,255,.18);
+
+}
+
+/* Register */
+
+.navmainpage-btn-primary{
+
+    background:#ffffff;
+
+    color:#0d6efd;
+
+    border:2px solid #ffffff;
+
+    box-shadow:0 10px 24px rgba(0,0,0,.12);
+
+}
+
+.navmainpage-btn-primary:hover{
+
+    background:#eef5ff;
+
+    color:#0b5ed7;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 28px rgba(0,0,0,.16);
+
+}
+
+/* Logout */
+
+.navmainpage-btn-danger{
+
+    background:#ef4444;
+
+    border:2px solid #ef4444;
+
+    color:#ffffff;
+
+}
+
+.navmainpage-btn-danger:hover{
+
+    background:#dc2626;
+
+    border-color:#dc2626;
+
+    color:#ffffff;
+
 }
 
 /* ===========================
@@ -104,22 +286,52 @@
 
 @media (max-width:991px){
 
-    .citycare-navbar-logo{
+    .navmainpage-navbar{
+
+        background:linear-gradient(90deg,#0d6efd,#1d4ed8);
+
+    }
+
+    .navmainpage-logo{
+
         width:46px;
+
         height:46px;
+
     }
 
-    .citycare-navbar-text{
+    .navmainpage-brand-text{
+
         font-size:24px;
+
     }
 
-    .navbar-nav{
+    .navmainpage-nav{
+
         margin-top:20px;
+
         text-align:center;
+
     }
 
-    .nav-item{
+    .navmainpage-item{
+
         margin:8px 0;
+
+    }
+
+    .navmainpage-link{
+
+        display:block;
+
+    }
+
+    .navmainpage-btn{
+
+        width:100%;
+
+        margin-top:10px;
+
     }
 
 }
