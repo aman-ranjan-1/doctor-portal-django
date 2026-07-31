@@ -40,12 +40,29 @@
 
 }
 
-.blog-hero-image{
+.blog-hero-image-wrapper{
 
-    max-width:500px;
+    display:inline-block;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(37,99,235,.18);
 
 }
 
+.blog-hero-image{
+
+    display:block;
+
+    width:100%;
+
+    max-width:500px;
+
+    border-radius:24px;
+
+}
 .section-tag{
 
     display:inline-block;
@@ -250,7 +267,23 @@
 /* ===========================
         HEALTH TIPS
 =========================== */
+.health-image-wrapper{
 
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 40px rgba(15,23,42,.12);
+
+}
+
+.health-image-wrapper img{
+
+    width:100%;
+
+    display:block;
+
+}
 .health-tips-section{
 
     background:#f8fbff;
@@ -259,7 +292,7 @@
 
 .health-tips-section img{
 
-    border-radius:18px;
+    border-radius:38px;
 
     box-shadow:0 10px 30px rgba(15,23,42,.08);
 
