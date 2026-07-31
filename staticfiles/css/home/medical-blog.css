@@ -1,0 +1,508 @@
+/* ==========================================================
+                    MEDICAL BLOG PAGE
+========================================================== */
+
+/* ===========================
+            HERO
+=========================== */
+
+.blog-hero{
+
+    padding:100px 0;
+
+    background:#f8fbff;
+
+}
+
+.blog-hero h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    line-height:1.2;
+
+    margin:20px 0;
+
+}
+
+.blog-hero p{
+
+    font-size:17px;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.blog-hero-image{
+
+    max-width:500px;
+
+}
+
+.section-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.blog-primary-btn{
+
+    display:inline-block;
+
+    padding:14px 34px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.blog-primary-btn:hover{
+
+    background:#1d4ed8;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+        COMMON SECTION
+=========================== */
+
+.blog-section,
+.health-tips-section,
+.blog-benefits{
+
+    padding:90px 0;
+
+}
+
+.blog-section h2,
+.health-tips-section h2,
+.blog-benefits h2{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    margin-bottom:20px;
+
+}
+
+.blog-section p,
+.health-tips-section p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+        BLOG CARDS
+=========================== */
+
+.blog-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    height:100%;
+
+    transition:.3s;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.blog-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 45px rgba(37,99,235,.18);
+
+}
+
+.blog-card-image{
+
+    height:180px;
+
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.blog-card-image i{
+
+    font-size:60px;
+
+    color:#ffffff;
+
+}
+
+.blog-card-body{
+
+    padding:30px;
+
+}
+
+.blog-category{
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    color:#2563eb;
+
+    background:#eaf2ff;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.blog-card-body h4{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:#0f172a;
+
+    margin-bottom:15px;
+
+}
+
+.blog-card-body p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.blog-read-more{
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+}
+
+.blog-read-more:hover{
+
+    color:#1d4ed8;
+
+    text-decoration:none;
+
+}
+
+/* ===========================
+        HEALTH TIPS
+=========================== */
+
+.health-tips-section{
+
+    background:#f8fbff;
+
+}
+
+.health-tips-section img{
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.health-tips-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin-top:30px;
+
+}
+
+.health-tips-list li{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+    color:#334155;
+
+    font-size:17px;
+
+}
+
+.health-tips-list i{
+
+    color:#2563eb;
+
+    margin-right:15px;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+        BENEFITS
+=========================== */
+
+.benefit-card{
+
+    background:#ffffff;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    height:100%;
+
+    transition:.3s;
+
+    box-shadow:0 8px 25px rgba(15,23,42,.08);
+
+}
+
+.benefit-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(37,99,235,.15);
+
+}
+
+.benefit-card i{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:32px;
+
+}
+
+.benefit-card h5{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#0f172a;
+
+    margin-bottom:15px;
+
+}
+
+.benefit-card p{
+
+    color:#64748b;
+
+    margin:0;
+
+    line-height:1.7;
+
+}
+
+/* ===========================
+            CTA
+=========================== */
+
+.blog-cta{
+
+    padding:90px 0;
+
+    background:#f8fbff;
+
+}
+
+.blog-cta-box{
+
+    padding:70px 40px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    color:#ffffff;
+
+}
+
+.blog-cta-box h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.blog-cta-box p{
+
+    max-width:700px;
+
+    margin:0 auto 30px;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+.blog-cta-box .blog-primary-btn{
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+}
+
+.blog-cta-box .blog-primary-btn:hover{
+
+    background:#eff6ff;
+
+    color:#1d4ed8;
+
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:991px){
+
+    .blog-hero{
+
+        text-align:center;
+
+        padding:80px 0;
+
+    }
+
+    .blog-hero h1{
+
+        font-size:40px;
+
+    }
+
+    .blog-hero-image{
+
+        margin-top:50px;
+
+    }
+
+    .blog-section h2,
+    .health-tips-section h2,
+    .blog-benefits h2,
+    .blog-cta-box h2{
+
+        font-size:32px;
+
+    }
+
+}
+
+@media(max-width:767px){
+
+    .blog-hero h1{
+
+        font-size:32px;
+
+    }
+
+    .blog-section,
+    .health-tips-section,
+    .blog-benefits,
+    .blog-cta{
+
+        padding:70px 0;
+
+    }
+
+    .blog-card-body{
+
+        padding:25px;
+
+    }
+
+    .blog-cta-box{
+
+        padding:50px 25px;
+
+    }
+
+}

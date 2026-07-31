@@ -13,3 +13,8 @@ def contact(request):
     return render(request, "home/contact.html")
 def doctors(request):
     return render(request, "home/doctors.html")
+def medical_blog(request):
+    return render(
+        request,
+        "home/medical_blog.html"
+    )

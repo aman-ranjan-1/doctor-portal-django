@@ -1,0 +1,468 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+Medical Blog | CityCare Hospital
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
+
+<section class="blog-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="section-tag">
+
+                    CityCare Medical Blog
+
+                </span>
+
+                <h1>
+
+                    Trusted Healthcare Knowledge for Everyone
+
+                </h1>
+
+                <p>
+
+                    Welcome to the CityCare Medical Blog. Discover trusted healthcare articles, wellness tips, and medical insights designed to help you and your family lead healthier lives.
+
+                </p>
+
+                <a href="{% url 'services' %}" class="blog-primary-btn">
+
+                    Explore Our Services
+
+                </a>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <img
+                    src="{% static 'images/medical-blog.png' %}"
+                    alt="Medical Blog"
+                    class="img-fluid blog-hero-image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+                FEATURED ARTICLES
+========================================== -->
+
+<section class="blog-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                Featured Articles
+
+            </span>
+
+            <h2>
+
+                Latest Healthcare Insights
+
+            </h2>
+
+            <p>
+
+                Learn more about maintaining a healthy lifestyle through reliable medical information.
+
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="blog-card">
+
+                    <div class="blog-card-image">
+
+                        <i class="fas fa-heartbeat"></i>
+
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+
+                            Health Checkup
+
+                        </span>
+
+                        <h4>
+
+                            Importance of Regular Health Checkups
+
+                        </h4>
+
+                        <p>
+
+                            Regular health screenings help detect diseases early, allowing timely treatment and improving long-term health outcomes.
+
+                        </p>
+
+                        <a href="#" class="blog-read-more">
+
+                            Read More
+                            <i class="fas fa-arrow-right ml-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="blog-card">
+
+                    <div class="blog-card-image">
+
+                        <i class="fas fa-apple-alt"></i>
+
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+
+                            Healthy Lifestyle
+
+                        </span>
+
+                        <h4>
+
+                            Small Daily Habits for Better Health
+
+                        </h4>
+
+                        <p>
+
+                            Eating nutritious food, staying active, drinking enough water, and getting proper sleep can greatly improve your health.
+
+                        </p>
+
+                        <a href="#" class="blog-read-more">
+
+                            Read More
+                            <i class="fas fa-arrow-right ml-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="blog-card">
+
+                    <div class="blog-card-image">
+
+                        <i class="fas fa-user-doctor"></i>
+
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+
+                            Preventive Care
+
+                        </span>
+
+                        <h4>
+
+                            Why Preventive Healthcare Matters
+
+                        </h4>
+
+                        <p>
+
+                            Preventive healthcare focuses on reducing health risks before diseases develop through awareness and routine care.
+
+                        </p>
+
+                        <a href="#" class="blog-read-more">
+
+                            Read More
+                            <i class="fas fa-arrow-right ml-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+                HEALTH TIPS
+========================================== -->
+
+<section class="health-tips-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <img
+                    src="{% static 'images/health-tips.png' %}"
+                    class="img-fluid rounded"
+                    alt="Health Tips">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="section-tag">
+
+                    Daily Wellness
+
+                </span>
+
+                <h2>
+
+                    Healthy Habits That Make a Difference
+
+                </h2>
+
+                <p>
+
+                    Simple lifestyle changes can help improve your physical and mental well-being while reducing the risk of many common diseases.
+
+                </p>
+
+                <ul class="health-tips-list">
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Drink plenty of water every day.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Eat a balanced and nutritious diet.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Exercise regularly.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Sleep at least 7–8 hours daily.
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Schedule routine medical checkups.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+                WHY READ OUR BLOG
+========================================== -->
+
+<section class="blog-benefits">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                Why Read Our Blog
+
+            </span>
+
+            <h2>
+
+                Reliable Information You Can Trust
+
+            </h2>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 col-lg-3 mb-4">
+
+                <div class="benefit-card">
+
+                    <i class="fas fa-shield-heart"></i>
+
+                    <h5>
+
+                        Trusted Content
+
+                    </h5>
+
+                    <p>
+
+                        Accurate healthcare information from reliable sources.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+
+                <div class="benefit-card">
+
+                    <i class="fas fa-book-medical"></i>
+
+                    <h5>
+
+                        Health Awareness
+
+                    </h5>
+
+                    <p>
+
+                        Improve your understanding of common medical topics.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+
+                <div class="benefit-card">
+
+                    <i class="fas fa-heart"></i>
+
+                    <h5>
+
+                        Wellness Tips
+
+                    </h5>
+
+                    <p>
+
+                        Discover practical advice for a healthier lifestyle.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+
+                <div class="benefit-card">
+
+                    <i class="fas fa-stethoscope"></i>
+
+                    <h5>
+
+                        Expert Guidance
+
+                    </h5>
+
+                    <p>
+
+                        Learn about preventive care and healthy living.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+                CALL TO ACTION
+========================================== -->
+
+<section class="blog-cta">
+
+    <div class="container">
+
+        <div class="blog-cta-box text-center">
+
+            <h2>
+
+                Stay Informed. Stay Healthy.
+
+            </h2>
+
+            <p>
+
+                Explore trusted healthcare information and discover practical wellness tips from CityCare Hospital.
+
+            </p>
+
+            <a href="{% url 'services' %}" class="blog-primary-btn">
+
+                Explore Our Services
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
